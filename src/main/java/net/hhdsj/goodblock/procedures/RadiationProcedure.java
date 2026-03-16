@@ -26,7 +26,7 @@ public class RadiationProcedure {
 				return;
 			}
 		}
-		if (entity.getHealth() >= 5) {
+		if (entity.getHealth() >= 10) {
 			entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.ON_FIRE)), 1);
 		}else{
 			if (entity instanceof Player player) {
@@ -35,10 +35,10 @@ public class RadiationProcedure {
 					returnStyle = returnStyle.withItalic(true);
 					return returnStyle;
 				})), true);
+				ProgressTransfurExt.tf(entity,4f,"goodblock:form_latex_radiation_fox", TransfurCause.FACE_HAZARD);
+				entity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 120, 2, false, false), entity);
+				entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 120, 2, false, false), entity);
 			}
-			ProgressTransfurExt.tf(entity,5f,"goodblock:form_latex_radiation_fox", TransfurCause.FACE_HAZARD);
-			entity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 90, 2, false, false), entity);
-			entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 5, 2, false, false), entity);
 		}
 	}
 }

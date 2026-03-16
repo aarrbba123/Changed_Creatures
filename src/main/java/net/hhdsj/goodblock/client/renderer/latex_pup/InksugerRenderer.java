@@ -15,7 +15,6 @@ import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 
 import net.hhdsj.goodblock.client.model.latex_pup.ModelInksuger;
 import net.hhdsj.goodblock.entity.InksugerEntity;
-import net.hhdsj.goodblock.client.model.ModelNoNameMob;
 
 public class InksugerRenderer extends AdvancedHumanoidRenderer<InksugerEntity, ModelInksuger> {
 	public InksugerRenderer(EntityRendererProvider.Context context) {

@@ -12,6 +12,12 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ThefluffyheartbeatinthecubiclemusicItem extends RecordItem {
 	public ThefluffyheartbeatinthecubiclemusicItem() {
-		super(0, () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("goodblock:the_fluffy_heartbeat_in_the_cubicle")), new Item.Properties().stacksTo(1).rarity(Rarity.RARE),100);
+		// 方法1：使用RegistryObject（推荐）
+		super(1,
+				GoodblockModSounds.THE_FLUFFY_HEARTBEAT_IN_THE_CUBICLE,
+				new Item.Properties()
+						.stacksTo(1)
+						.rarity(Rarity.RARE),
+				2400); // 2400 ticks = 2分钟
 	}
 }

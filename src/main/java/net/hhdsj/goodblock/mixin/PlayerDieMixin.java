@@ -28,6 +28,7 @@ public class PlayerDieMixin {
 
     @Inject(method = "die", at = @At("HEAD"))
     private void onPlayerDie(DamageSource damageSource, CallbackInfo ci) {
+        /*
         Player player = this.goodblockMod_java$asEntity();
         TransfurVariantInstance<?> variant = ProcessTransfur.getPlayerTransfurVariant(player);
 
@@ -40,6 +41,6 @@ public class PlayerDieMixin {
                     1f
             );
             player.level().playSound(null, player, ChangedSounds.TRANSFUR_BY_LATEX.get(), SoundSource.PLAYERS, 1, 1);
-        }
+        }*/
     }
 }

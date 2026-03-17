@@ -10,7 +10,7 @@
     ]
   },
   "item.armor.equip_netherite": {
-    "category": "neutral",
+    "category": "player",
     "subtitle": "subtitles.item.armor.equip_netherite",
     "sounds": [
       {
@@ -40,27 +40,27 @@
     ]
   },
   "the_fluffy_heartbeat_in_the_cubicle": {
-    "category": "neutral",
+    "category": "record",
     "subtitle": "subtitles.the_fluffy_heartbeat_in_the_cubicle",
     "sounds": [
       {
         "name": "goodblock:ge_zi_jian_li_de_mao_rong_rong_xin_tiao__",
-        "stream": false
+        "stream": true
       }
     ]
   },
   "anit_furry_music": {
-    "category": "neutral",
+    "category": "record",
     "subtitle": "subtitles.anit_furry_music",
     "sounds": [
       {
         "name": "goodblock:anit_furry_music",
-        "stream": false
+        "stream": true
       }
     ]
   },
   "srening_ogg1": {
-    "category": "music",
+    "category": "record",
     "subtitle": "subtitles.srening_ogg1",
     "sounds": [
       {
@@ -74,7 +74,7 @@
     ]
   },
   "the_fluffy_heartbeatinthe_cubiclemusic": {
-    "category": "music",
+    "category": "record",
     "subtitle": "subtitles.the_fluffy_heartbeatinthe_cubiclemusic",
     "sounds": [
       {
@@ -84,7 +84,7 @@
     ]
   },
   "flutemusica_1records": {
-    "category": "music",
+    "category": "record",
     "subtitle": "subtitles.flutemusica_1records",
     "sounds": [
       {

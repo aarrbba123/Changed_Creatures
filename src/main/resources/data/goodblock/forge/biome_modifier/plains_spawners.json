@@ -20,8 +20,6 @@
     { "type": "goodblock:latex_yun_qi_ice_dragon", "weight": 1, "minCount": 1, "maxCount": 2 },
     { "type": "goodblock:latex_dark_purple_dragon_taur", "weight": 1, "minCount": 1, "maxCount": 2 },
     { "type": "goodblock:latex_dark_purple_dragon", "weight": 1, "minCount": 1, "maxCount": 2 },
-    { "type": "goodblock:latex_ice_field_wolf_dragon_boss", "weight": 1, "minCount": 1, "maxCount": 2 },
-    { "type": "goodblock:latex_night_owl_dragon_boss", "weight": 1, "minCount": 1, "maxCount": 2 },
     { "type": "goodblock:latex_night_owl_dragon", "weight": 1, "minCount": 1, "maxCount": 2 },
     { "type": "goodblock:latex_iq_gold_dragon", "weight": 1, "minCount": 1, "maxCount": 2 }
   ]

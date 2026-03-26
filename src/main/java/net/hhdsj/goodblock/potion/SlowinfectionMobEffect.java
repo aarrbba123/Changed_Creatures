@@ -24,7 +24,7 @@ public class SlowinfectionMobEffect extends MobEffect {
 	//调用LatexSlowInfectionMobProcedure
 	@Override
 	public void applyEffectTick(@NotNull LivingEntity entity, int amplifier) {
-		LatexSlowInfectionMobProcedure.execute(entity);
+		//LatexSlowInfectionMobProcedure.execute(entity);
 	}
 
 	@Override

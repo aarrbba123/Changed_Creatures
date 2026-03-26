@@ -28,6 +28,7 @@ public class PlayerDieMixin {
 
     @Inject(method = "die", at = @At("HEAD"))
     private void onPlayerDie(DamageSource damageSource, CallbackInfo ci) {
+
         /*
         Player player = this.goodblockMod_java$asEntity();
         TransfurVariantInstance<?> variant = ProcessTransfur.getPlayerTransfurVariant(player);

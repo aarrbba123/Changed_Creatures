@@ -52,7 +52,6 @@ public class GoodblockMod {
 		GoodblockModEntities.ITEMS.register(bus);
 
 		GoodblockModTabs.REGISTRY.register(bus);
-
 		//GoodblockModFeatures.REGISTRY.register(bus);
 
 

@@ -1,18 +1,28 @@
-package net.hhdsj.goodblock.entity.boss;
+package net.hhdsj.goodblock.entity.simple;
 
 import net.hhdsj.goodblock.init.GoodblockModEntities;
-import net.ltxprogrammer.changed.entity.*;
+import net.ltxprogrammer.changed.entity.ChangedEntity;
+import net.ltxprogrammer.changed.entity.HairStyle;
+import net.ltxprogrammer.changed.entity.TransfurCause;
+import net.ltxprogrammer.changed.entity.TransfurMode;
+import net.ltxprogrammer.changed.init.ChangedEntities;
 import net.ltxprogrammer.changed.util.Color3;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.MobType;
+import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.network.PlayMessages;
@@ -21,14 +31,13 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-public class LatexNightOwlEntity extends ChangedEntity {
+public class LatexFruitDragonEntity extends ChangedEntity {
 
     @Override
     protected void setAttributes(AttributeMap attributes) {
         super.setAttributes(attributes);
-        Objects.requireNonNull(attributes.getInstance(Attributes.MOVEMENT_SPEED)).setBaseValue(1.2);
-        Objects.requireNonNull(attributes.getInstance(ForgeMod.SWIM_SPEED.get())).setBaseValue(0.98);
-        Objects.requireNonNull(attributes.getInstance(Attributes.MAX_HEALTH)).setBaseValue(50.0);
+        Objects.requireNonNull(attributes.getInstance(Attributes.MOVEMENT_SPEED)).setBaseValue(1.1);
+        Objects.requireNonNull(attributes.getInstance(ForgeMod.SWIM_SPEED.get())).setBaseValue(0.93);
     }
 
     @Override
@@ -42,31 +51,26 @@ public class LatexNightOwlEntity extends ChangedEntity {
     }
 
     public Color3 getTransfurColor(TransfurCause cause) {
-        return Color3.getColor("#ff0000");
+        return Color3.getColor("#ff3b6f");
     }
 
-    public LatexNightOwlEntity(EntityType<? extends LatexNightOwlEntity> p_19870_, Level p_19871_) {
-        super(p_19870_, p_19871_);
+
+
+    public LatexFruitDragonEntity(PlayMessages.SpawnEntity packet, Level world) {
+        this(GoodblockModEntities.LATEXFRUITDRAGONWOLF.get(), world);
+    }
+
+    public LatexFruitDragonEntity(EntityType<LatexFruitDragonEntity> type, Level world) {
+        super(type, world);
+        xpReward = 0;
+        setNoAi(false);
     }
 
     @Override
-    public int getTicksRequiredToFreeze() {
-        return 480;
-    }
-
-    public LatexNightOwlEntity(PlayMessages.SpawnEntity packet, Level world) {
-        this(GoodblockModEntities.LATEXNIGHTOWLDRAGON.get(), world);
-    }
-
-    @Override
-    public Packet<ClientGamePacketListener> getAddEntityPacket() {
+    public @NotNull Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
 
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-    }
 
     @Override
     public MobType getMobType() {
@@ -83,25 +87,16 @@ public class LatexNightOwlEntity extends ChangedEntity {
         return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.generic.death"));
     }
 
-    /**
-     * 使实体免疫火焰伤害（基本方法）
-     */
     @Override
-    public boolean fireImmune() {
-        return true;
-    }
-
-    @Override
-    public boolean hurt(@NotNull DamageSource source, float amount) {
-        // 如果是火焰伤害，则免疫
-        if (source.is(DamageTypes.IN_FIRE))
+    public boolean hurt(DamageSource source, float amount) {
+        if (source.is(DamageTypes.FALL))
             return false;
-        if (source.is(DamageTypes.HOT_FLOOR))
-            return false;
-        // 调用父类方法处理其他伤害类型
         return super.hurt(source, amount);
     }
 
-    public static void init() {
+    @Override
+    protected void registerGoals() {
+        super.registerGoals();
+
     }
 }

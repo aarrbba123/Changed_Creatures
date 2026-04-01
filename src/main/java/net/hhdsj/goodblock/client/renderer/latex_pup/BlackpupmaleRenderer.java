@@ -12,6 +12,7 @@ import net.ltxprogrammer.changed.client.renderer.layers.LatexParticlesLayer;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorNoneModel;
 import net.ltxprogrammer.changed.util.Color3;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
+import net.minecraft.world.entity.Pose;
 
 
 public class BlackpupmaleRenderer extends AdvancedHumanoidRenderer<BlackpupmaleEntity, Modelblackpupmale> {
@@ -21,11 +22,18 @@ public class BlackpupmaleRenderer extends AdvancedHumanoidRenderer<BlackpupmaleE
 				ArmorNoneModel.MODEL_SET, 
 				0.4F);
 		this.addLayer(new LatexParticlesLayer<>(this, this.model));
+
 		this.addLayer(CustomEyesLayer.builder(this, context.getModelSet())
 				.withSclera(Color3.fromInt(0x242424))
 				.withIris(CustomEyesLayer.fixedIfNotDarkLatexOverrideLeft(Color3.BLACK),
 						CustomEyesLayer.fixedIfNotDarkLatexOverrideRight(Color3.BLACK))
-				.build().setHeadShape(CustomEyesLayer.HeadShape.PUP));
+				.build()
+				.setHeadShape(CustomEyesLayer.HeadShape.PUP_CONCAVE));
+	}
+
+	@Override
+	protected float getFlipDegrees(BlackpupmaleEntity entity) {
+		return entity.getPose() == Pose.SLEEPING ? 0.0F : super.getFlipDegrees(entity);
 	}
 
 	@Override

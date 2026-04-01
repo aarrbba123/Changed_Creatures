@@ -5,7 +5,10 @@ package net.hhdsj.goodblock.init;
 
 import net.hhdsj.goodblock.entity.*;
 import net.hhdsj.goodblock.entity.boss.*;
+import net.hhdsj.goodblock.entity.simple.LatexFruitDragonEntity;
 import net.hhdsj.goodblock.entity.simple.LatexIqGoldDragonEntity;
+import net.hhdsj.goodblock.entity.simple.LatexLuoHongEarlySpringFoxDragonEntity;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -83,6 +86,7 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<LatexPurplecoocwolfEntity>> LATEXPRTPLECOOCWOLF;
     public static final RegistryObject<EntityType<LatexIceFieldWolfDragonEntity>> LATEX_ICE_FIELD_WOLF_DRAGON;
     public static final RegistryObject<EntityType<LatexDragonFruitWolfEntity>> LATEXDRAGONFRUITWOLF;
+    public static final RegistryObject<EntityType<LatexFruitDragonEntity>> LATEXFRUITDRAGONWOLF;
 
     // 幼崽变体
     public static final RegistryObject<EntityType<BlackpupmaleEntity>> BLACKPUPMALE;
@@ -96,6 +100,7 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<LatexYunQiIceDragonEntity>> LATEXYUNQIICEDRAGON;
     public static final RegistryObject<EntityType<LatexDarkPurpleDragonTaurEntity>> LATEXDARKPURPLEDRAGONTAUR;
     public static final RegistryObject<EntityType<DarkPurpleLatexDragonEntity>> LATEXDARKPURPLEDRAGON;
+    public static final RegistryObject<EntityType<LatexLuoHongEarlySpringFoxDragonEntity>> LATEXLUOHONGEARLYSPRINGFOXDRAGON;
 
     // BOSS变体
     public static final RegistryObject<EntityType<LatexIceFieldWolfDragonBossEntity>> LATEX_ICE_FIELD_WOLF_DRAGON_BOSS;
@@ -117,6 +122,15 @@ public class GoodblockModEntities {
                         .setCustomClientFactory(LatexOrangeFoxEntity::new)
                         .sized(0.6f, 1.95f),
                 LatexOrangeFoxEntity::createLatexAttributes);  // 使用父类默认属性
+
+        LATEXFRUITDRAGONWOLF = registerSpawning("latex_fruit_dragon_wolf", 0x5AD700, 0x4EBA00,
+                EntityType.Builder.<LatexFruitDragonEntity>of(LatexFruitDragonEntity::new, MobCategory.MONSTER)
+                    .setShouldReceiveVelocityUpdates(true)
+                    .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                    .setCustomClientFactory(LatexFruitDragonEntity::new)
+                    .sized(0.7f, 1.93f),
+                LatexRadiationFoxEntity::createLatexAttributes);
 
         LATEXRADIATIONFOX = registerSpawning("latex_radiation_fox", 0x7CFC00, 0x32CD32,
                 EntityType.Builder.<LatexRadiationFoxEntity>of(LatexRadiationFoxEntity::new, MobCategory.MONSTER)
@@ -273,6 +287,16 @@ public class GoodblockModEntities {
                         .sized(0.7f, 1.92f),
                 DarkPurpleLatexDragonEntity::createLatexAttributes);
 
+        LATEXLUOHONGEARLYSPRINGFOXDRAGON = registerSpawning("latex_luo_hong_early_spring_fox_dragon", 0xADD8E6, 0x87CEEB,
+                EntityType.Builder.<LatexLuoHongEarlySpringFoxDragonEntity>of(LatexLuoHongEarlySpringFoxDragonEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .setCustomClientFactory(LatexLuoHongEarlySpringFoxDragonEntity::new)
+                        .fireImmune()
+                        .sized(0.48f, 1.52f),
+                LatexLuoHongEarlySpringFoxDragonEntity::createLatexAttributes);
+
         // BOSS变体 - 可以自定义属性构建器
         LATEX_ICE_FIELD_WOLF_DRAGON_BOSS = registerSpawning("latex_ice_field_wolf_dragon_boss", 0x4682B4, 0x5F9EA0,
                 EntityType.Builder.<LatexIceFieldWolfDragonBossEntity>of(LatexIceFieldWolfDragonBossEntity::new, MobCategory.MONSTER)
@@ -361,13 +385,30 @@ public class GoodblockModEntities {
                 () -> new ForgeSpawnEggItem(entityType, eggBack, eggHighlight, new Item.Properties()));
         SPAWN_EGGS.put(entityType, spawnEggItem);
 
+        INIT_FUNC_REGISTRY.add(() -> {
+            SpawnPlacements.register(entityType.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    (entityType1, level, spawnType, pos, random) -> {
+                        // 检查是否为自然生成
+                        if (spawnType != net.minecraft.world.entity.MobSpawnType.NATURAL) {
+                            return true;
+                        }
+                        // 检查亮度是否小于4
+                        if (level instanceof net.minecraft.world.level.Level serverLevel) {
+                            int brightness = serverLevel.getMaxLocalRawBrightness(pos);
+                            return brightness <= 3; // 亮度小于4
+                        }
+                        return true;
+                    });
+        });
+
         return entityType;
     }
 
     // 在同一个类中添加事件监听器
     @SubscribeEvent
     public static void buildTabContentsVanilla(BuildCreativeModeTabContentsEvent tabData) {
-    //public static void addSpawnEggsToCreativeTab(BuildCreativeModeTabContentsEvent event) {
         // 检查是否是自定义的实体Tab
         if (tabData.getTabKey() == GoodblockModTabs.GOODBLOCK_ENTITY.getKey()) {
             // 添加所有刷怪蛋，并检查是否存在
@@ -405,31 +446,6 @@ public class GoodblockModEntities {
         event.enqueueWork(() -> {
             // 执行所有初始化函数
             INIT_FUNC_REGISTRY.forEach(VoidConsumer::accept);
-
-            // 原有的初始化调用
-            LatexOrangeFoxEntity.init();
-            LatexKcahraSharkEntity.init();
-            DarkfuLatexWolfMaleEntity.init();
-            DarkPurpleLatexDragonEntity.init();
-            LatexiceDragonEntity.init();
-            InksugerEntity.init();
-            BlackpupmaleEntity.init();
-            WhitebluepupEntity.init();
-            LatexpurplewswolfEntity.init();
-            LatexthreemonthwolfEntity.init();
-            LatexyunxqhotdragonEntity.init();
-            LatexyunxqicedragonEntity.init();
-            LatexbluedragonEntity.init();
-            LatexPurplecoocwolfEntity.init();
-            LatexIceFieldWolfDragonEntity.init();
-            LatexDragonFruitWolfEntity.init();
-            LatexYunQiIceDragonEntity.init();
-            LatexRadiationFoxEntity.init();
-            LatexNightOwlBossEntity.init();
-            LatexNightOwlEntity.init();
-            LatexIqGoldDragonEntity.init();
-            LatexDarkPurpleDragonTaurEntity.init();
-            LatexIceFieldWolfDragonBossEntity.init();
         });
     }
 

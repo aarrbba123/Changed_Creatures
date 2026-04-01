@@ -15,10 +15,7 @@ import net.hhdsj.goodblock.client.renderer.latex_pup.InksugerRenderer;
 import net.hhdsj.goodblock.client.renderer.latex_pup.WhitebluepupRenderer;
 import net.hhdsj.goodblock.client.renderer.latex_shark.LatexKcahraSharkRenderer;
 import net.hhdsj.goodblock.client.renderer.latex_taur.LatexDarkPurpleDragonTaurRenderer;
-import net.hhdsj.goodblock.client.renderer.latex_wolf.DarkfuLatexWolfMaleRenderer;
-import net.hhdsj.goodblock.client.renderer.latex_wolf.LatexPurpleCoocWolfRenderer;
-import net.hhdsj.goodblock.client.renderer.latex_wolf.LatexpurplewswolfRenderer;
-import net.hhdsj.goodblock.client.renderer.latex_wolf.LatexthreemonthwolfRenderer;
+import net.hhdsj.goodblock.client.renderer.latex_wolf.*;
 import net.hhdsj.goodblock.client.renderer.projectile.LatexArrowRenderer;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -53,5 +50,7 @@ public class GoodblockModEntityRenderers {
 		event.registerEntityRenderer(GoodblockModEntities.LATEXDARKPURPLEDRAGONTAUR.get(), LatexDarkPurpleDragonTaurRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEXDARKPURPLEDRAGON.get(), LatexDarkPurpleDragonRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_ICE_FIELD_WOLF_DRAGON_BOSS.get(), LatexIceFieldWolfDragonBossRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.LATEXLUOHONGEARLYSPRINGFOXDRAGON.get(), LatexLuoHongEarlySpringFoxDragonRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.LATEXFRUITDRAGONWOLF.get(), LatexFruitDragonRenderer::new);
 	}
 }

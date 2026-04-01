@@ -6,6 +6,7 @@ package net.hhdsj.goodblock.init;
 import net.foxyas.changedaddon.init.ChangedAddonAbilities;
 import net.hhdsj.goodblock.entity.boss.LatexNightOwlEntity;
 import net.hhdsj.goodblock.entity.simple.LatexIqGoldDragonEntity;
+import net.hhdsj.goodblock.entity.simple.LatexLuoHongEarlySpringFoxDragonEntity;
 import net.minecraft.world.entity.monster.*;
 //FORGE导入
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -200,6 +201,20 @@ public class GoodblockModTransfurVariants {
 
 	public static final RegistryObject<TransfurVariant<LatexNightOwlEntity>> LATEXNIGHTOWL =
 			REGISTRY.register("form_latex_night_owl_dragon", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEXNIGHTOWLDRAGON)
+					//.stepSize(0.7f)
+					.addAbility(entityType -> ChangedAddonAbilities.WING_FLAP_ABILITY.get())
+					.addAbility(ChangedAddonAbilities.CLAWS)
+					.scares(List.of(Creeper.class))
+					.glide()
+					.transfurMode(TransfurMode.ABSORPTION)
+					.replicating()
+					.nightVision()
+					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.extraJumps(2)
+					.build());
+
+	public static final RegistryObject<TransfurVariant<LatexLuoHongEarlySpringFoxDragonEntity>> LATEXLUOHONGEARLYSPRINGFOXDRAGON =
+			REGISTRY.register("form_latex_luo_hong_early_spring_fox_dragon", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEXLUOHONGEARLYSPRINGFOXDRAGON)
 					//.stepSize(0.7f)
 					.addAbility(entityType -> ChangedAddonAbilities.WING_FLAP_ABILITY.get())
 					.addAbility(ChangedAddonAbilities.CLAWS)

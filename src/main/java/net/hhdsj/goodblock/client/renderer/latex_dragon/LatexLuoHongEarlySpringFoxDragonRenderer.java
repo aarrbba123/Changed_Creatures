@@ -1,0 +1,43 @@
+package net.hhdsj.goodblock.client.renderer.latex_dragon;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.hhdsj.goodblock.client.model.latex_dragon.ModelLatexIqGoldDragon;
+import net.hhdsj.goodblock.client.model.latex_dragon.ModelLuoHongEarlySpringFoxDragon;
+import net.hhdsj.goodblock.client.model.latex_dragon.Modellatexyunxqhotdragon;
+import net.hhdsj.goodblock.entity.LatexDarkPurpleDragonTaurEntity;
+import net.hhdsj.goodblock.entity.LatexyunxqhotdragonEntity;
+import net.hhdsj.goodblock.entity.simple.LatexIqGoldDragonEntity;
+import net.hhdsj.goodblock.entity.simple.LatexLuoHongEarlySpringFoxDragonEntity;
+import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
+import net.ltxprogrammer.changed.client.renderer.layers.*;
+import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexMaleWingedDragonModel;
+import net.ltxprogrammer.changed.util.Color3;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
+
+public class LatexLuoHongEarlySpringFoxDragonRenderer extends AdvancedHumanoidRenderer<LatexLuoHongEarlySpringFoxDragonEntity, ModelLuoHongEarlySpringFoxDragon> {
+    public LatexLuoHongEarlySpringFoxDragonRenderer(EntityRendererProvider.Context context) {
+        super(context, new ModelLuoHongEarlySpringFoxDragon(context.bakeLayer(ModelLuoHongEarlySpringFoxDragon.LAYER_LOCATION)),
+                ArmorLatexMaleWingedDragonModel.MODEL_SET,
+                0.5f);
+        //this.addLayer(new LatexParticlesLayer<>(this, getModel()));
+        this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()));
+        //this.addLayer(new EmissiveBodyLayer<>(this, new ResourceLocation("goodblock", "textures/entities/latex/latex_luo_hong_early_spring_fox_dragon_lod_light.png")));
+        this.addLayer(new CustomEyesLayer<>(this, context.getModelSet(), CustomEyesLayer::scleraColor, CustomEyesLayer::glowingIrisColorLeft, CustomEyesLayer::glowingIrisColorRight, CustomEyesLayer::noRender, CustomEyesLayer::noRender));
+        this.addLayer(GasMaskLayer.forSnouted(this, context.getModelSet()));
+
+    }
+
+    @Override
+    protected void scale(LatexLuoHongEarlySpringFoxDragonEntity entity, PoseStack poseStack, float partialTickTime) {
+        float scaleFactor = 0.75F;
+        poseStack.scale(scaleFactor, scaleFactor, scaleFactor);
+        super.scale(entity, poseStack, partialTickTime);
+    }
+
+    @Override
+    public @NotNull ResourceLocation getTextureLocation(LatexLuoHongEarlySpringFoxDragonEntity entity) {
+        return new ResourceLocation("goodblock:textures/entities/latex/latex_luohong_early_spring_fox_dragon.png");
+    }
+}

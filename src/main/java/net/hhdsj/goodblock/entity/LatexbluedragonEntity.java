@@ -50,17 +50,11 @@ public class LatexbluedragonEntity extends ChangedEntity {
         Objects.requireNonNull(attributes.getInstance(Attributes.MOVEMENT_SPEED)).setBaseValue(1.1);
         Objects.requireNonNull(attributes.getInstance(ForgeMod.SWIM_SPEED.get())).setBaseValue(0.93);
     }
-    
-	
 
     @Override
     public TransfurMode getTransfurMode() {
         return TransfurMode.REPLICATION;
     }
-    /*
-    public Color3 getDripColor() {
-        return Color3.getColor("#0793f7");
-    }*/
 
 	@Override
     public HairStyle getDefaultHairStyle() {
@@ -88,11 +82,6 @@ public class LatexbluedragonEntity extends ChangedEntity {
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 
-	@Override
-	protected void registerGoals() {
-		super.registerGoals();
-
-	}
 
 	@Override
 	public MobType getMobType() {
@@ -119,6 +108,11 @@ public class LatexbluedragonEntity extends ChangedEntity {
 	public static void init() {
 		SpawnPlacements.register(GoodblockModEntities.LATEXBLUEDRAGON.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				(entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)));
+	}
+	@Override
+	protected void registerGoals() {
+		super.registerGoals();
+
 	}
 
 	//删除注册方法

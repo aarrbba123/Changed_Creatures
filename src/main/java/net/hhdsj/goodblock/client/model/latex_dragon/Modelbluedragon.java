@@ -74,10 +74,13 @@ public class Modelbluedragon extends AdvancedHumanoidModel<LatexbluedragonEntity
                 .addPreset(AnimatorPresets.wingedDragonLike(
                         Head, Torso, LeftArm, RightArm,
                         Tail, List.of(tailPrimary, tailSecondary, tailTertiary),
-                        LeftLeg, leftLowerLeg, leftFoot, leftFoot.getChild("LeftPad"), RightLeg, rightLowerLeg, rightFoot, rightFoot.getChild("RightPad"),
+                        LeftLeg, leftLowerLeg, leftFoot, leftFoot.getChild("LeftPad"), RightLeg,
+						rightLowerLeg, rightFoot, rightFoot.getChild("RightPad"),
 
-                        leftWingRoot, leftWingRoot.getChild("leftSecondaries"), leftWingRoot.getChild("leftSecondaries").getChild("leftTertiaries"),
-                        rightWingRoot, rightWingRoot.getChild("rightSecondaries"), rightWingRoot.getChild("rightSecondaries").getChild("rightTertiaries")));
+                        leftWingRoot, leftWingRoot.getChild("leftSecondaries"),
+						leftWingRoot.getChild("leftSecondaries").getChild("leftTertiaries"),
+                        rightWingRoot, rightWingRoot.getChild("rightSecondaries"),
+						rightWingRoot.getChild("rightSecondaries").getChild("rightTertiaries")));
 	}
 
 	public static LayerDefinition createBodyLayer() {

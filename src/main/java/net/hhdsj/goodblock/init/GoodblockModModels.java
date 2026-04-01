@@ -15,10 +15,7 @@ import net.hhdsj.goodblock.client.model.latex_pup.Modelblackpupmale;
 import net.hhdsj.goodblock.client.model.latex_pup.Modelwhitebluepup;
 import net.hhdsj.goodblock.client.model.latex_shark.ModelLatexKcahraShark;
 import net.hhdsj.goodblock.client.model.latex_taur.ModelLatexDarkPurpleDragonTaur;
-import net.hhdsj.goodblock.client.model.latex_wolf.DarkfuLatexWolfMale;
-import net.hhdsj.goodblock.client.model.latex_wolf.ModelLatexPurpleCoocWolf;
-import net.hhdsj.goodblock.client.model.latex_wolf.ModelLatexpurplewswolf;
-import net.hhdsj.goodblock.client.model.latex_wolf.ModelLatexthreemonthwolf;
+import net.hhdsj.goodblock.client.model.latex_wolf.*;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -51,5 +48,7 @@ public class GoodblockModModels {
 		event.registerLayerDefinition(ModelLatexDarkPurpleDragonTaur.LAYER_LOCATION, ModelLatexDarkPurpleDragonTaur::createBodyLayer);
 		event.registerLayerDefinition(ModelDarkPurpleLatexDragon.LAYER_LOCATION, ModelDarkPurpleLatexDragon::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexIceFieldWolfDragonBoss.LAYER_LOCATION, ModelLatexIceFieldWolfDragonBoss::createBodyLayer);
+		event.registerLayerDefinition(ModelLuoHongEarlySpringFoxDragon.LAYER_LOCATION, ModelLuoHongEarlySpringFoxDragon::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexFruitDragonWolf.LAYER_LOCATION, ModelLatexFruitDragonWolf::createBodyLayer);
 	}
 }

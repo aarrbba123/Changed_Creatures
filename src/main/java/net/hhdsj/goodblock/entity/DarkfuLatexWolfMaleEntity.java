@@ -82,11 +82,7 @@ public class DarkfuLatexWolfMaleEntity extends AbstractDarkLatexEntity {
 			return super.targetSelectorTest(livingEntity);
 		}
 	}
-    /*
-    @Override
-    public Color3 getDripColor() {
-        return level.random.nextInt(10) > 3 ? Color3.DARK : Color3.GRAY;
-    }*/
+
 	public DarkfuLatexWolfMaleEntity(PlayMessages.SpawnEntity packet, Level world) {
 		this(GoodblockModEntities.DARKFU_LATEX_WOLF_MALE.get(), world);
 	}
@@ -99,7 +95,6 @@ public class DarkfuLatexWolfMaleEntity extends AbstractDarkLatexEntity {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-
 	}
 
 	@Override
@@ -124,8 +119,6 @@ public class DarkfuLatexWolfMaleEntity extends AbstractDarkLatexEntity {
 
 	public static void init() {
 	}
-
-	//删除注册方法
 
 	@Nullable
 	@Override

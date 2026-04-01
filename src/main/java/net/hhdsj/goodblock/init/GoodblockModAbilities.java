@@ -23,8 +23,11 @@ public class GoodblockModAbilities{
 
 
     static {
+        //更好的眩晕
         BERRER_HYPNOSIE = REGISTRY.register("better_hypnosie", BetterHypnosisAbility::new);
+        //变体切换
         TURN_FERA_LATEX_DARK_PURPLE = REGISTRY.register("turn_fera_latex_dark_purple", TurnFeraLatexDarkPurpleAbility::new);
+        //创作火龙果
         CREATE_DRAGON_FRUIT = REGISTRY.register("create_dragon_fruit", () -> new SimpleCreateItemAbility(() -> new ItemStack(GoodblockModItems.DRAGONFRUIT.get()), 1.0f, 1.0f));
     }
 

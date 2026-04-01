@@ -54,8 +54,6 @@ public class LatexFruitDragonEntity extends ChangedEntity {
         return Color3.getColor("#ff3b6f");
     }
 
-
-
     public LatexFruitDragonEntity(PlayMessages.SpawnEntity packet, Level world) {
         this(GoodblockModEntities.LATEXFRUITDRAGONWOLF.get(), world);
     }

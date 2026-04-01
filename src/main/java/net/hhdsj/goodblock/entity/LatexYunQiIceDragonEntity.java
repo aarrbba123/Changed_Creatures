@@ -36,10 +36,10 @@ public class LatexYunQiIceDragonEntity extends ChangedEntity {
         Objects.requireNonNull(attributes.getInstance(Attributes.MOVEMENT_SPEED)).setBaseValue(1.1);
         Objects.requireNonNull(attributes.getInstance(ForgeMod.SWIM_SPEED.get())).setBaseValue(0.93);
     }
+
 	public Color3 getTransfurColor(TransfurCause cause) {
 		return Color3.getColor("#00ffff");
 	}
-	
 
     @Override
     public TransfurMode getTransfurMode() {
@@ -48,7 +48,6 @@ public class LatexYunQiIceDragonEntity extends ChangedEntity {
 	public LatexYunQiIceDragonEntity(PlayMessages.SpawnEntity packet, Level world) {
 		this(GoodblockModEntities.LATEXYUNQIICEDRAGON.get(), world);
 	}
-
 
 	public LatexYunQiIceDragonEntity(EntityType<LatexYunQiIceDragonEntity> type, Level world) {
 		super(type, world);
@@ -80,6 +79,4 @@ public class LatexYunQiIceDragonEntity extends ChangedEntity {
 
 	public static void init() {
 	}
-
-	//删除注册方法
 }

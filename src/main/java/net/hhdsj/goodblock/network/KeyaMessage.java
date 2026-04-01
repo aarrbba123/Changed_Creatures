@@ -52,7 +52,7 @@ public class KeyaMessage {
 			return;
 		if (type == 0) {
 
-			LOOKGUIProcedure.execute(world, x, y, z, entity);
+			LOOKGUIProcedure.execute(x, y, z, entity);
 		}
 	}
 

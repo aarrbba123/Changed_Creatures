@@ -99,17 +99,7 @@ public class GoodblockModTabs {
 
 		// 自定义标签页：GOODBLOCK_ENTITY
 		else if (tabData.getTabKey() == GOODBLOCK_ENTITY.getKey()) {
-			/*
-			tabData.accept(GoodblockModItems.BLACKPUPMALE_SPAWN_EGG.get());
-			tabData.accept(GoodblockModItems.WHITEBLUEPUP_SPAWN_EGG.get());
-			tabData.accept(GoodblockModItems.LATEXPURPLEWSWOLF_SPAWN_EGG.get());
-			tabData.accept(GoodblockModItems.LATEXTHREEMONTHWOLF_SPAWN_EGG.get());
-			tabData.accept(GoodblockModItems.LATEXYUNXQHOTDRAGON_SPAWN_EGG.get());
-			tabData.accept(GoodblockModItems.LATEXYUNXQICEDRAGON_SPAWN_EGG.get());
-			tabData.accept(GoodblockModItems.LATEXBLUEDRAGON_SPAWN_EGG.get());
-			tabData.accept(GoodblockModItems.LATEX_DRAGON_FRUIT_WOLF_SPAWN_EGG.get());
-			tabData.accept(GoodblockModItems.LATEX_ICE_FIELD_WOLF_DRAGON_SPAWN_EGG.get());
-			tabData.accept(GoodblockModItems.LATEX_PURPLE_COOC_WOLF_EGG.get());*/
+
 		}
 
 		// 原版标签页
@@ -121,13 +111,7 @@ public class GoodblockModTabs {
 			tabData.accept(GoodblockModBlocks.PALE_WOOD_PRESSURE_PLATE.get().asItem());
 		}
 		else if (tabData.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
-			/*
-			tabData.accept(GoodblockModItems.LATEX_ORANGE_FOX_SPAWN_EGG.get());
-			tabData.accept(GoodblockModItems.LATEX_KCAHRA_SHARK_SPAWN_EGG.get());
-			tabData.accept(GoodblockModItems.DARKFU_LATEX_WOLF_MALE_SPAWN_EGG.get());
-			tabData.accept(GoodblockModItems.LATEXICE_DRAGON_SPAWN_EGG.get());
-			tabData.accept(GoodblockModItems.INKSUGER_SPAWN_EGG.get());
-			*/
+
 		}
 		else if (tabData.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
 			tabData.accept(GoodblockModBlocks.PALE_WOOD_FENCE.get().asItem());

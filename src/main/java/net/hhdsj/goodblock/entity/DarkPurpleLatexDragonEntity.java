@@ -35,8 +35,6 @@ import java.util.Set;
 @Mod.EventBusSubscriber
 public class DarkPurpleLatexDragonEntity extends ChangedEntity {
 
-	private static final Set<ResourceLocation> SPAWN_BIOMES = Set.of(new ResourceLocation("desert"));
-
 	@Override
     protected void setAttributes(AttributeMap attributes) {
         super.setAttributes(attributes);
@@ -67,7 +65,6 @@ public class DarkPurpleLatexDragonEntity extends ChangedEntity {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-
 	}
 
 	@Override
@@ -108,6 +105,4 @@ public class DarkPurpleLatexDragonEntity extends ChangedEntity {
 		SpawnPlacements.register(GoodblockModEntities.LATEXDARKPURPLEDRAGON.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				(entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)));
 	}
-
-	//删除注册方法
 }

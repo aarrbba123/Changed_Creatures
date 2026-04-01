@@ -40,8 +40,6 @@ import net.ltxprogrammer.changed.init.ChangedAttributes;
 
 @Mod.EventBusSubscriber
 public class LatexpurplewswolfEntity extends AbstractSnowLeopard {
-	private static final Set<ResourceLocation> SPAWN_BIOMES = Set.of(new ResourceLocation("snowy_plains"), new ResourceLocation("windswept_hills"));
-
 	public LatexpurplewswolfEntity(EntityType<? extends LatexpurplewswolfEntity> p_19870_, Level p_19871_) {
         super(p_19870_, p_19871_);
     }
@@ -63,7 +61,6 @@ public class LatexpurplewswolfEntity extends AbstractSnowLeopard {
 	public LatexpurplewswolfEntity(PlayMessages.SpawnEntity packet, Level world) {
 		this(GoodblockModEntities.LATEXPURPLEWSWOLF.get(), world);
 	}
-	
 
 	@Override
 	public Packet<ClientGamePacketListener> getAddEntityPacket() {
@@ -73,7 +70,6 @@ public class LatexpurplewswolfEntity extends AbstractSnowLeopard {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-		//this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setAlertOthers());
 	}
 
 
@@ -91,7 +87,4 @@ public class LatexpurplewswolfEntity extends AbstractSnowLeopard {
 		SpawnPlacements.register(GoodblockModEntities.LATEXPURPLEWSWOLF.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				(entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)));
 	}
-
-
-	//删除注册方法
 }

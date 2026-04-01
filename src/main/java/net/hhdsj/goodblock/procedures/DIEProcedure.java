@@ -25,7 +25,6 @@ public class DIEProcedure {
 			entity.hurt(new DamageSource(damageType), 80);
 		} catch (Exception e) {
 			System.err.println("Goodblock Error: " + e.getMessage());
-			//e.printStackTrace();
 		}
 	}
 }

@@ -43,11 +43,9 @@ public class LatexLuoHongEarlySpringFoxDragonEntity extends ChangedEntity {
         return TransfurMode.REPLICATION;
     }
 
-
     public Color3 getTransfurColor(TransfurCause cause) {
         return Color3.getColor("#add8e6");
     }
-
 
     public LatexLuoHongEarlySpringFoxDragonEntity(PlayMessages.SpawnEntity packet, Level world) {
         this(GoodblockModEntities.LATEXLUOHONGEARLYSPRINGFOXDRAGON.get(), world);

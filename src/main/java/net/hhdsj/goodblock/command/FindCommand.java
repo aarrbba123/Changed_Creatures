@@ -29,7 +29,7 @@ public class FindCommand {
 						entity = FakePlayerFactory.getMinecraft(world);
 					Direction direction = entity.getDirection();
 
-					LOOKGUIProcedure.execute(world, x, y, z, entity);
+					LOOKGUIProcedure.execute(x, y, z, entity);
 					return 0;
 				}));
 	}

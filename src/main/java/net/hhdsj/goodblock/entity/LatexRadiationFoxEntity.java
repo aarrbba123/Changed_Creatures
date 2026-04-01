@@ -32,8 +32,6 @@ import java.util.Set;
 
 @Mod.EventBusSubscriber
 public class LatexRadiationFoxEntity extends ChangedEntity {
-	private static final Set<ResourceLocation> SPAWN_BIOMES = Set.of(new ResourceLocation("beach"));
-
 
 	@Override
     protected void setAttributes(AttributeMap attributes) {
@@ -46,10 +44,6 @@ public class LatexRadiationFoxEntity extends ChangedEntity {
     public TransfurMode getTransfurMode() {
         return TransfurMode.REPLICATION;
     }
-    /*
-    public Color3 getDripColor() {
-        return Color3.getColor("#FF8001");
-    }*/
 
 	@Override
     public HairStyle getDefaultHairStyle() {
@@ -78,7 +72,6 @@ public class LatexRadiationFoxEntity extends ChangedEntity {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-
 	}
 
 	@Override
@@ -100,6 +93,4 @@ public class LatexRadiationFoxEntity extends ChangedEntity {
 		SpawnPlacements.register(GoodblockModEntities.LATEXRADIATIONFOX.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				(entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)));
 	}
-
-	//删除注册方法
 }

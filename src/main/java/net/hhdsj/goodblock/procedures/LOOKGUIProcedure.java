@@ -3,7 +3,6 @@ package net.hhdsj.goodblock.procedures;
 import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.items.ItemHandlerHelper;
 
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
@@ -22,43 +21,55 @@ import net.minecraft.advancements.Advancement;
 import net.hhdsj.goodblock.world.inventory.FINDGUIMenu;
 import net.hhdsj.goodblock.init.GoodblockModItems;
 
-import java.util.Iterator;
-
 import io.netty.buffer.Unpooled;
 import org.jetbrains.annotations.NotNull;
 
 public class LOOKGUIProcedure {
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
+	public static void execute(double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		{
-			if (entity instanceof ServerPlayer _ent) {
-				BlockPos _bpos = BlockPos.containing(x, y, z);
-				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
-					@Override
-					public @NotNull Component getDisplayName() {
-						return Component.literal("FINDGUI");
-					}
 
-					@Override
-					public AbstractContainerMenu createMenu(int id, @NotNull Inventory inventory, @NotNull Player player) {
-						return new FINDGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+		// 打开GUI
+		if (entity instanceof ServerPlayer serverPlayer) {
+			BlockPos blockPos = BlockPos.containing(x, y, z);
+			NetworkHooks.openScreen(serverPlayer, new MenuProvider() {
+				@Override
+				public @NotNull Component getDisplayName() {
+					return Component.literal("FINDGUI");
+				}
+
+				@Override
+				public AbstractContainerMenu createMenu(int id, @NotNull Inventory inventory, @NotNull Player player) {
+					return new FINDGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(blockPos));
+				}
+			}, blockPos);
+		}
+
+		Advancement useModAdvancement = null;
+		if (entity instanceof ServerPlayer serverPlayer && serverPlayer.level() instanceof ServerLevel) {
+			useModAdvancement = serverPlayer.server.getAdvancements().getAdvancement(new ResourceLocation("goodblock:usemod"));
+			if (useModAdvancement != null) {
+				AdvancementProgress progress = serverPlayer.getAdvancements().getOrStartProgress(useModAdvancement);
+				if (!progress.isDone()) {
+                    Player player = (Player) entity;
+                    ItemStack inkSansItem = new ItemStack(GoodblockModItems.INKSANS_4.get());
+                    inkSansItem.setCount(1);
+                    ItemHandlerHelper.giveItemToPlayer(player, inkSansItem);
+                }
+			}
+		}
+
+		if (entity instanceof ServerPlayer serverPlayer) {
+			if (useModAdvancement == null) {
+				useModAdvancement = serverPlayer.server.getAdvancements().getAdvancement(new ResourceLocation("goodblock:usemod"));
+			}
+			if (useModAdvancement != null) {
+				AdvancementProgress progress = serverPlayer.getAdvancements().getOrStartProgress(useModAdvancement);
+				if (!progress.isDone()) {
+					for (String criteria : progress.getRemainingCriteria()) {
+						serverPlayer.getAdvancements().award(useModAdvancement, criteria);
 					}
-				}, _bpos);
-			}
-		}
-		if (!(entity instanceof ServerPlayer _plr && _plr.level() instanceof ServerLevel && _plr.getAdvancements().getOrStartProgress(_plr.server.getAdvancements().getAdvancement(new ResourceLocation("goodblock:usemod"))).isDone())) {
-			if (entity instanceof Player _player) {
-				ItemStack _setstack = new ItemStack(GoodblockModItems.INKSANS_4.get());
-				_setstack.setCount(1);
-				ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
-			}
-		}
-		if (entity instanceof ServerPlayer _player) {
-			Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation("goodblock:usemod"));
-			AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
-			if (!_ap.isDone()) {
-                for (String s : _ap.getRemainingCriteria()) _player.getAdvancements().award(_adv, s);
+				}
 			}
 		}
 	}

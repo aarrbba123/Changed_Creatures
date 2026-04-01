@@ -53,9 +53,6 @@ import java.util.Set;
 
 @Mod.EventBusSubscriber
 public class LatexKcahraSharkEntity extends ChangedEntity {
-	private static final Set<ResourceLocation> SPAWN_BIOMES = Set.of(new ResourceLocation("river"));
-
-
 	@Override
     protected void setAttributes(AttributeMap attributes) {
         super.setAttributes(attributes);
@@ -63,17 +60,11 @@ public class LatexKcahraSharkEntity extends ChangedEntity {
         Objects.requireNonNull(attributes.getInstance(ForgeMod.SWIM_SPEED.get())).setBaseValue(1.24);
         Objects.requireNonNull(attributes.getInstance(Attributes.MAX_HEALTH)).setBaseValue(28.0);
     }
-    
-	
 
     @Override
     public TransfurMode getTransfurMode() {
         return TransfurMode.REPLICATION;
     }
-    /*
-    public Color3 getDripColor() {
-        return Color3.getColor("#0793f7");
-    }*/
 
 	@Override
     public HairStyle getDefaultHairStyle() {
@@ -131,6 +122,4 @@ public class LatexKcahraSharkEntity extends ChangedEntity {
 		SpawnPlacements.register(GoodblockModEntities.LATEX_KCAHRA_SHARK.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				(entityType, world, reason, pos, random) -> (world.getBlockState(pos).is(Blocks.WATER) && world.getBlockState(pos.above()).is(Blocks.WATER)));
 	}
-
-	//删除注册方法
 }

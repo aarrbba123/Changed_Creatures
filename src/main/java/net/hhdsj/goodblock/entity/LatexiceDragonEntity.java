@@ -42,8 +42,6 @@ import net.ltxprogrammer.changed.init.ChangedAttributes;
 
 @Mod.EventBusSubscriber
 public class LatexiceDragonEntity extends ChangedEntity {
-	private static final Set<ResourceLocation> SPAWN_BIOMES = Set.of(new ResourceLocation("snowy_plains"));
-	/////////////////////////////////////////
 
 	public LatexiceDragonEntity(EntityType<? extends LatexiceDragonEntity> p_19870_, Level p_19871_) {
         super(p_19870_, p_19871_);
@@ -55,8 +53,6 @@ public class LatexiceDragonEntity extends ChangedEntity {
         Objects.requireNonNull(attributes.getInstance(Attributes.MOVEMENT_SPEED)).setBaseValue(1.1);
         Objects.requireNonNull(attributes.getInstance(ForgeMod.SWIM_SPEED.get())).setBaseValue(0.95);
     }
-
-    
 
     @Override
     public TransfurMode getTransfurMode() {
@@ -76,17 +72,10 @@ public class LatexiceDragonEntity extends ChangedEntity {
     public Color3 getHairColor(int layer) {
         return Color3.getColor("#ffd201");
     }
-	/*
-    @Override
-    public Color3 getDripColor() {
-        return Color3.YELLOW;
-    }*/
 
     public Color3 getTransfurColor(TransfurCause cause) {
         return Color3.getColor("#ffd201");
     }
-
-    ////////////////////////////////////////////////////////
 
 	public LatexiceDragonEntity(PlayMessages.SpawnEntity packet, Level world) {
 		this(GoodblockModEntities.LATEXICE_DRAGON.get(), world);
@@ -100,7 +89,6 @@ public class LatexiceDragonEntity extends ChangedEntity {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-
 	}
 
 	@Override
@@ -123,5 +111,4 @@ public class LatexiceDragonEntity extends ChangedEntity {
 				(entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)));
 	}
 
-	//删除注册方法
 }

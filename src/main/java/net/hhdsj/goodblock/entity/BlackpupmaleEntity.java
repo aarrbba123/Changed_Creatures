@@ -31,8 +31,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class BlackpupmaleEntity extends ChangedEntity {
-
-
 	@Override
     protected void setAttributes(AttributeMap attributes) {
         super.setAttributes(attributes);
@@ -61,13 +59,10 @@ public class BlackpupmaleEntity extends ChangedEntity {
     public Color3 getHairColor(int layer) {
         return Color3.DARK;
     }
-    
-	
-    
+
 	public BlackpupmaleEntity(PlayMessages.SpawnEntity packet, Level world) {
 		this(GoodblockModEntities.BLACKPUPMALE.get(), world);
 	}
-
 
 	@Override
 	public Packet<ClientGamePacketListener> getAddEntityPacket() {
@@ -77,7 +72,6 @@ public class BlackpupmaleEntity extends ChangedEntity {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-
 	}
 
 	@Override
@@ -97,6 +91,4 @@ public class BlackpupmaleEntity extends ChangedEntity {
 
 	public static void init() {
 	}
-
-	//删除注册方法
 }

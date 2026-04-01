@@ -47,9 +47,6 @@ import net.ltxprogrammer.changed.init.ChangedAttributes;
 
 @Mod.EventBusSubscriber
 public class LatexthreemonthwolfEntity extends ChangedEntity implements RangedAttackMob {
-	private static final Set<ResourceLocation> SPAWN_BIOMES = Set.of(new ResourceLocation("windswept_hills"), new ResourceLocation("snowy_plains"), new ResourceLocation("snowy_beach"));
-    //public Level level;
-
     @Override
     public TransfurMode getTransfurMode() {
         return TransfurMode.REPLICATION;
@@ -135,6 +132,4 @@ public class LatexthreemonthwolfEntity extends ChangedEntity implements RangedAt
 		SpawnPlacements.register(GoodblockModEntities.LATEXTHREEMONTHWOLF.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				(entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)));
 	}
-
-	//删除注册方法
 }

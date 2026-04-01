@@ -33,7 +33,6 @@ import java.util.Set;
 public class LatexPurplecoocwolfEntity extends ChangedEntity {
 	private static final Set<ResourceLocation> SPAWN_BIOMES = Set.of(new ResourceLocation("beach"));
 
-
 	@Override
     protected void setAttributes(AttributeMap attributes) {
         super.setAttributes(attributes);
@@ -41,16 +40,10 @@ public class LatexPurplecoocwolfEntity extends ChangedEntity {
         Objects.requireNonNull(attributes.getInstance(ForgeMod.SWIM_SPEED.get())).setBaseValue(0.93);
     }
 
-	
-
     @Override
     public TransfurMode getTransfurMode() {
         return TransfurMode.REPLICATION;
     }
-    /*
-    public Color3 getDripColor() {
-        return Color3.getColor("#5D3FD3");
-    }*/
 
 	@Override
     public HairStyle getDefaultHairStyle() {
@@ -79,7 +72,6 @@ public class LatexPurplecoocwolfEntity extends ChangedEntity {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-
 	}
 
 	@Override
@@ -101,6 +93,4 @@ public class LatexPurplecoocwolfEntity extends ChangedEntity {
 		SpawnPlacements.register(GoodblockModEntities.LATEXPRTPLECOOCWOLF.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				(entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)));
 	}
-
-	//删除注册方法
 }

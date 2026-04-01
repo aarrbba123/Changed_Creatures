@@ -42,7 +42,6 @@ import java.util.Set;
 
 @Mod.EventBusSubscriber
 public class LatexbluedragonEntity extends ChangedEntity {
-	private static final Set<ResourceLocation> SPAWN_BIOMES = Set.of(new ResourceLocation("desert"));
 
 	@Override
     protected void setAttributes(AttributeMap attributes) {
@@ -64,8 +63,6 @@ public class LatexbluedragonEntity extends ChangedEntity {
     public Color3 getTransfurColor(TransfurCause cause) {
         return Color3.getColor("#0095ff");
     }
-    
-
 
 	public LatexbluedragonEntity(PlayMessages.SpawnEntity packet, Level world) {
 		this(GoodblockModEntities.LATEXBLUEDRAGON.get(), world);
@@ -81,7 +78,6 @@ public class LatexbluedragonEntity extends ChangedEntity {
 	public Packet<ClientGamePacketListener> getAddEntityPacket() {
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
-
 
 	@Override
 	public MobType getMobType() {
@@ -112,8 +108,5 @@ public class LatexbluedragonEntity extends ChangedEntity {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-
 	}
-
-	//删除注册方法
 }

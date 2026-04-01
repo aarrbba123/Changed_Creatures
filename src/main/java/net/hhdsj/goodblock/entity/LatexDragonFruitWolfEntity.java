@@ -44,9 +44,6 @@ import net.ltxprogrammer.changed.entity.TransfurMode;
 import net.ltxprogrammer.changed.init.ChangedAttributes;
 public class LatexDragonFruitWolfEntity extends ChangedEntity {
 
-    private static final Set<ResourceLocation> SPAWN_BIOMES = Set.of(new ResourceLocation("snowy_plains"));
-
-
     public LatexDragonFruitWolfEntity(EntityType<? extends LatexDragonFruitWolfEntity> p_19870_, Level p_19871_) {
         super(p_19870_, p_19871_);
     }
@@ -61,8 +58,6 @@ public class LatexDragonFruitWolfEntity extends ChangedEntity {
         Objects.requireNonNull(attributes.getInstance(Attributes.MOVEMENT_SPEED)).setBaseValue(1.1);
         Objects.requireNonNull(attributes.getInstance(ForgeMod.SWIM_SPEED.get())).setBaseValue(0.95);
     }
-
-    
 
     @Override
     public TransfurMode getTransfurMode() {
@@ -87,9 +82,6 @@ public class LatexDragonFruitWolfEntity extends ChangedEntity {
         return Color3.getColor("#ffd201");
     }
 
-    ////////////////////////////////////////////////////////
-	
-
     @Override
     public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
@@ -98,7 +90,6 @@ public class LatexDragonFruitWolfEntity extends ChangedEntity {
     @Override
     protected void registerGoals() {
         super.registerGoals();
-
     }
 
     @Override
@@ -125,31 +116,3 @@ public class LatexDragonFruitWolfEntity extends ChangedEntity {
         return ChangedEntity.createLatexAttributes();  // 返回父类的默认属性
     }
 }
-
-/*
-public LatexDragonFruit(entityType<? extends ChangedEntity> type, Level level ) {
-    super(type, level)
-  }
-
-  @Override
-  public LatexType getLatexType() {
-      return LatexType.NEUTRAL;
-    
-  }
-  @Override
-  public TransfurMode getTransfurMode() {
-     return TransfurMode.REPLICATION
-       }
-
-  public TestEntityRenderer (EntityRendererProvider.Context context) {
-        super(context, new TestEntityModel(context.bakeLayer(TestEntityModel.LAYER_LOCATION)), ArmorLatexMaleWolfModel.MODEL_SET, 0.5f);
-        this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()))
-        this.addLayer(GasMaskLayer.forSnouted(this, context.getModelSet()));
-
-    @Override
-    public ResourceLocation getTextureLocation(ModEntity entity) {
-        return TEXTURE;
-    }
-  }
-}
-*/

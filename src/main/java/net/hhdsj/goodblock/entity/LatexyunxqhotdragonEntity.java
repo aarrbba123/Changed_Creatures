@@ -45,27 +45,21 @@ import java.util.Set;
 @Mod.EventBusSubscriber
 public class LatexyunxqhotdragonEntity extends ChangedEntity {
 
-	private static final Set<ResourceLocation> SPAWN_BIOMES = Set.of(new ResourceLocation("desert"));
-
 	@Override
     protected void setAttributes(AttributeMap attributes) {
         super.setAttributes(attributes);
         Objects.requireNonNull(attributes.getInstance(Attributes.MOVEMENT_SPEED)).setBaseValue(1.12);
         Objects.requireNonNull(attributes.getInstance(ForgeMod.SWIM_SPEED.get())).setBaseValue(0.93);
     }
-    
-
 
     @Override
     public TransfurMode getTransfurMode() {
         return TransfurMode.REPLICATION;
     }
 
-
 	public Color3 getTransfurColor(TransfurCause cause) {
 		return Color3.getColor("#ff3500");
 	}
-
 
 	public LatexyunxqhotdragonEntity(PlayMessages.SpawnEntity packet, Level world) {
 		this(GoodblockModEntities.LATEXYUNXQHOTDRAGON.get(), world);
@@ -85,7 +79,6 @@ public class LatexyunxqhotdragonEntity extends ChangedEntity {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-
 	}
 
 	@Override
@@ -122,6 +115,4 @@ public class LatexyunxqhotdragonEntity extends ChangedEntity {
 		SpawnPlacements.register(GoodblockModEntities.LATEXYUNXQHOTDRAGON.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				(entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)));
 	}
-
-	//删除注册方法
 }

@@ -36,16 +36,7 @@ import java.util.Set;
 
 
 public class LatexyunxqicedragonEntity extends ChangedEntity {
-	/*
-	@Override
-    protected void setAttributes(AttributeMap map) {
-        super.setAttributes(map);
-        map.getInstance(Attributes.MOVEMENT_SPEED).setBaseValue(1.10f);
-        map.getInstance(ForgeMod.SWIM_SPEED.get()).setBaseValue(1.48f);
-        map.getInstance(Attributes.MAX_HEALTH).setBaseValue(30.0);
-        map.getInstance(ChangedAttributes.TRANSFUR_DAMAGE.get()).setBaseValue(5);
-    }*/
-	
+
 	@Override
     protected void setAttributes(AttributeMap attributes) {
         super.setAttributes(attributes);
@@ -53,8 +44,6 @@ public class LatexyunxqicedragonEntity extends ChangedEntity {
         attributes.getInstance(ForgeMod.SWIM_SPEED.get()).setBaseValue(0.93);
         attributes.getInstance(Attributes.MAX_HEALTH).setBaseValue(30.0);
     }
-    
-	
 
 	public Color3 getTransfurColor(TransfurCause cause) {
 		return Color3.getColor("#0073ff");
@@ -64,10 +53,10 @@ public class LatexyunxqicedragonEntity extends ChangedEntity {
     public TransfurMode getTransfurMode() {
         return TransfurMode.REPLICATION;
     }
+
 	public LatexyunxqicedragonEntity(PlayMessages.SpawnEntity packet, Level world) {
 		this(GoodblockModEntities.LATEXYUNXQICEDRAGON.get(), world);
 	}
-	
 
 	public LatexyunxqicedragonEntity(EntityType<LatexyunxqicedragonEntity> type, Level world) {
 		super(type, world);
@@ -79,19 +68,6 @@ public class LatexyunxqicedragonEntity extends ChangedEntity {
 	public Packet<ClientGamePacketListener> getAddEntityPacket() {
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
-
-	/*
-	@Override
-	protected void registerGoals() {
-		super.registerGoals();
-
-	}
-
-	@Override
-	public MobType getMobType() {
-		return MobType.UNDEFINED;
-	}
-*/
 
 	@Override
 	public SoundEvent getHurtSound(DamageSource ds) {
@@ -112,6 +88,4 @@ public class LatexyunxqicedragonEntity extends ChangedEntity {
 
 	public static void init() {
 	}
-
-	//删除注册方法
 }

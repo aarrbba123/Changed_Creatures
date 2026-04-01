@@ -39,17 +39,11 @@ public class LatexIceFieldWolfDragonEntity extends ChangedEntity {
         Objects.requireNonNull(attributes.getInstance(ForgeMod.SWIM_SPEED.get())).setBaseValue(0.98);
         Objects.requireNonNull(attributes.getInstance(Attributes.MAX_HEALTH)).setBaseValue(30.0);
     }
-    
-	
 
     @Override
     public TransfurMode getTransfurMode() {
         return TransfurMode.REPLICATION;
     }
-    /*
-    public Color3 getDripColor() {
-        return Color3.getColor("#0793f7");
-    }*/
 
 	@Override
     public HairStyle getDefaultHairStyle() {
@@ -71,7 +65,6 @@ public class LatexIceFieldWolfDragonEntity extends ChangedEntity {
 	public LatexIceFieldWolfDragonEntity(PlayMessages.SpawnEntity packet, Level world) {
 		this(GoodblockModEntities.LATEX_ICE_FIELD_WOLF_DRAGON.get(), world);
 	}
-
 
 	@Override
 	public Packet<ClientGamePacketListener> getAddEntityPacket() {
@@ -101,6 +94,4 @@ public class LatexIceFieldWolfDragonEntity extends ChangedEntity {
 
 	public static void init() {
 	}
-
-	//删除注册方法
 }

@@ -79,20 +79,9 @@ public class InksugerEntity extends ChangedEntity {
         return Color3.DARK;
     }
     
-	
-    
-    
 	public InksugerEntity(PlayMessages.SpawnEntity packet, Level world) {
 		this(GoodblockModEntities.INKSUGER.get(), world);
 	}
-
-	/*
-	public DarkfuLatexWolfMaleEntity(EntityType<DarkfuLatexWolfMaleEntity> type, Level world) {
-		super(type, world);
-		xpReward = 0;
-		setNoAi(false);
-	}
-*/
 
 	@Override
 	public Packet<ClientGamePacketListener> getAddEntityPacket() {
@@ -102,7 +91,6 @@ public class InksugerEntity extends ChangedEntity {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-
 	}
 
 	@Override
@@ -123,7 +111,4 @@ public class InksugerEntity extends ChangedEntity {
 
 	public static void init() {
 	}
-
-	//删除注册方法
-
 }

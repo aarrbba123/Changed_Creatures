@@ -67,8 +67,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class WhitebluepupEntity extends ChangedEntity {
-
-
 	@Override
     protected void setAttributes(AttributeMap attributes) {
         super.setAttributes(attributes);
@@ -98,13 +96,7 @@ public class WhitebluepupEntity extends ChangedEntity {
     public Color3 getHairColor(int layer) {
         return Color3.DARK;
     }
-    
-	
 
-
-
-
-	
 	public WhitebluepupEntity(PlayMessages.SpawnEntity packet, Level world) {
 		this(GoodblockModEntities.WHITEBLUEPUP.get(), world);
 	}
@@ -137,6 +129,4 @@ public class WhitebluepupEntity extends ChangedEntity {
 
 	public static void init() {
 	}
-
-	//删除注册方法
 }

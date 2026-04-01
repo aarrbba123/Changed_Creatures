@@ -33,7 +33,7 @@ import java.util.List;
 // Paste this class into your mod and generate all required imports
 public class ModelLatexKcahraShark extends AdvancedHumanoidModel<LatexKcahraSharkEntity>{// This layer location should be baked with EntityRendererProvider.Context in
 	// the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "latex_kcahra_shark"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "latex_kcahra_shark"), "main");
 	public final ModelPart RightLeg;
 	public final ModelPart LeftLeg;
 	public final ModelPart Head;
@@ -62,8 +62,6 @@ public class ModelLatexKcahraShark extends AdvancedHumanoidModel<LatexKcahraShar
         var rightLowerLeg = RightLeg.getChild("RightLowerLeg");
         var rightFoot = rightLowerLeg.getChild("RightFoot");
 
-        // The animator is a helper class that reduces the duplicate code the many of Changed:MC's entities have.
-        // It has quite a few presets to just plug your model's parts into to bring it to life.
         this.animator = HumanoidAnimator.of(this).hipOffset(-1.5f)
                 .addPreset(AnimatorPresets.sharkLike(
                         Head, Torso, LeftArm, RightArm,
@@ -245,17 +243,6 @@ public class ModelLatexKcahraShark extends AdvancedHumanoidModel<LatexKcahraShar
         this.animator.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
         super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
     }
-    /*
-	@Override
-	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.LeftLeg.xRot = Mth.cos(limbSwing * 1.0F) * -1.0F * limbSwingAmount;
-		this.RightArm.xRot = Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * limbSwingAmount;
-		this.Head.yRot = netHeadYaw / (180F / (float) Math.PI);
-		this.Head.xRot = headPitch / (180F / (float) Math.PI);
-		this.RightLeg.xRot = Mth.cos(limbSwing * 1.0F) * 1.0F * limbSwingAmount;
-		this.LeftArm.xRot = Mth.cos(limbSwing * 0.6662F) * limbSwingAmount;
-	}
-*/
 
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {

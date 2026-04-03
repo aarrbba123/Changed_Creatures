@@ -5,6 +5,7 @@ package net.hhdsj.goodblock.init;
 //原版我的世界导入
 import net.foxyas.changedaddon.init.ChangedAddonAbilities;
 import net.hhdsj.goodblock.entity.boss.LatexNightOwlEntity;
+import net.hhdsj.goodblock.entity.simple.LatexFruitDragonEntity;
 import net.hhdsj.goodblock.entity.simple.LatexIqGoldDragonEntity;
 import net.hhdsj.goodblock.entity.simple.LatexLuoHongEarlySpringFoxDragonEntity;
 import net.minecraft.world.entity.monster.*;
@@ -264,6 +265,18 @@ public class GoodblockModTransfurVariants {
 					.extraJumps(2)
 					.build());
 
+	public static final RegistryObject<TransfurVariant<LatexFruitDragonEntity>> LATEXFRUITDRAGONWOLF =
+			REGISTRY.register("form_latex_dragon_fruit_wolf", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEXFRUITDRAGONWOLF)
+					//.stepSize(0.7f)
+					.addAbility(ChangedAddonAbilities.DODGE)
+					.addAbility(ChangedAddonAbilities.CLAWS)
+					.scares(List.of(Creeper.class))
+					.transfurMode(TransfurMode.ABSORPTION)
+					.replicating()
+					.nightVision()
+					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.extraJumps(2)
+					.build());
 	//
 
 	public static void register(IEventBus bus) {

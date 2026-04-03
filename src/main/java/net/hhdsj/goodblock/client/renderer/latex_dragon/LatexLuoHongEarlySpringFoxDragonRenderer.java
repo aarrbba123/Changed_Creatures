@@ -15,15 +15,14 @@ import net.ltxprogrammer.changed.util.Color3;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
+import net.hhdsj.goodblock.client.armor.ArmorLatexMaleWolfWingedDragonModel;
 
 public class LatexLuoHongEarlySpringFoxDragonRenderer extends AdvancedHumanoidRenderer<LatexLuoHongEarlySpringFoxDragonEntity, ModelLuoHongEarlySpringFoxDragon> {
     public LatexLuoHongEarlySpringFoxDragonRenderer(EntityRendererProvider.Context context) {
         super(context, new ModelLuoHongEarlySpringFoxDragon(context.bakeLayer(ModelLuoHongEarlySpringFoxDragon.LAYER_LOCATION)),
-                ArmorLatexMaleWingedDragonModel.MODEL_SET,
+                ArmorLatexMaleWolfWingedDragonModel.MODEL_SET,
                 0.5f);
-        //this.addLayer(new LatexParticlesLayer<>(this, getModel()));
         this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()));
-        //this.addLayer(new EmissiveBodyLayer<>(this, new ResourceLocation("goodblock", "textures/entities/latex/latex_luo_hong_early_spring_fox_dragon_lod_light.png")));
         this.addLayer(new CustomEyesLayer<>(this, context.getModelSet(), CustomEyesLayer::scleraColor, CustomEyesLayer::glowingIrisColorLeft, CustomEyesLayer::glowingIrisColorRight, CustomEyesLayer::noRender, CustomEyesLayer::noRender));
         this.addLayer(GasMaskLayer.forSnouted(this, context.getModelSet()));
 

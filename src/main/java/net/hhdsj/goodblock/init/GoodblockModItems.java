@@ -4,104 +4,208 @@
  */
 package net.hhdsj.goodblock.init;
 
+import net.hhdsj.goodblock.item.*;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.item.Rarity;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.common.ForgeSpawnEggItem;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 
-import net.hhdsj.goodblock.item.ThefluffyheartbeatinthecubiclemusicItem;
-import net.hhdsj.goodblock.item.SulphurItem;
-import net.hhdsj.goodblock.item.PaletreeItem;
-import net.hhdsj.goodblock.item.PainiteswordItem;
-import net.hhdsj.goodblock.item.PainiteshovelItem;
-import net.hhdsj.goodblock.item.PainitemanuscriptItem;
-import net.hhdsj.goodblock.item.PainitehoeItem;
-import net.hhdsj.goodblock.item.PainiteaxeItem;
-import net.hhdsj.goodblock.item.PainiteArmorItem;
-import net.hhdsj.goodblock.item.NotlistenthisItem;
-import net.hhdsj.goodblock.item.NitricacidItem;
-import net.hhdsj.goodblock.item.Inksans4Item;
-import net.hhdsj.goodblock.item.ImpureuraniumingotItem;
-import net.hhdsj.goodblock.item.ImpureuraniumItem;
-import net.hhdsj.goodblock.item.Flutemusica1recordsItem;
-import net.hhdsj.goodblock.item.FluteItem;
-import net.hhdsj.goodblock.item.FluidhottestItem;
-import net.hhdsj.goodblock.item.DragonfruitItem;
-import net.hhdsj.goodblock.item.Armora1ArmorItem;
-import net.hhdsj.goodblock.item.AnitfrrymusicItem;
-import net.hhdsj.goodblock.item.BlueCrystaloreItem;
 import net.hhdsj.goodblock.GoodblockMod;
 
+import java.util.function.Supplier;
+
 public class GoodblockModItems {
-	public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(ForgeRegistries.ITEMS, GoodblockMod.MODID);
+	public static final DeferredRegister<Item> ITEMS =
+			DeferredRegister.create(ForgeRegistries.ITEMS, GoodblockMod.MODID);
 
-	// 各种物品的注册(block) - 移除了tab参数，通过事件添加
-	public static final RegistryObject<Item> SULPHURBLOCK = block(GoodblockModBlocks.SULPHURBLOCK);
-	public static final RegistryObject<Item> NITREBLOCK = block(GoodblockModBlocks.NITREBLOCK);
-	public static final RegistryObject<Item> URANIUMMINERAL = block(GoodblockModBlocks.URANIUMMINERAL);
-	public static final RegistryObject<Item> PALE_WOOD_PLANKS = block(GoodblockModBlocks.PALE_WOOD_PLANKS);
-	public static final RegistryObject<Item> PALE_WOOD_LEAVES = block(GoodblockModBlocks.PALE_WOOD_LEAVES);
-	public static final RegistryObject<Item> PALE_WOOD_LOG = block(GoodblockModBlocks.PALE_WOOD_LOG);
-	public static final RegistryObject<Item> PALE_WOOD_WOOD = block(GoodblockModBlocks.PALE_WOOD_WOOD);
-	public static final RegistryObject<Item> URANIUMBLOCK = block(GoodblockModBlocks.URANIUMBLOCK);
-	public static final RegistryObject<Item> BLUEBLOCK = block(GoodblockModBlocks.BLUEBLOCK);
-	public static final RegistryObject<Item> IRONHOT = block(GoodblockModBlocks.IRONHOT);
-	public static final RegistryObject<Item> PALE_WOOD_STAIRS = block(GoodblockModBlocks.PALE_WOOD_STAIRS);
-	public static final RegistryObject<Item> PALE_WOOD_SLAB = block(GoodblockModBlocks.PALE_WOOD_SLAB);
-	public static final RegistryObject<Item> PALE_WOOD_BUTTON = block(GoodblockModBlocks.PALE_WOOD_BUTTON);
-	public static final RegistryObject<Item> PALETREESPA_1 = block(GoodblockModBlocks.PALETREESPA_1);
-	public static final RegistryObject<Item> BLACKBLOCK = block(GoodblockModBlocks.BLACKBLOCK);
-	public static final RegistryObject<Item> PALE_WOOD_FENCE = block(GoodblockModBlocks.PALE_WOOD_FENCE);
-	public static final RegistryObject<Item> PALE_WOOD_FENCE_GATE = block(GoodblockModBlocks.PALE_WOOD_FENCE_GATE);
-	public static final RegistryObject<Item> PALE_WOOD_PRESSURE_PLATE = block(GoodblockModBlocks.PALE_WOOD_PRESSURE_PLATE);
-	public static final RegistryObject<Item> BLOCKBW_1 = block(GoodblockModBlocks.BLOCKBW_1);
-	public static final RegistryObject<Item> BLOCKBW_2 = block(GoodblockModBlocks.BLOCKBW_2);
-	public static final RegistryObject<Item> BLUE_CRYSTALORE = block(GoodblockModBlocks.BLUE_CRYSTALORE);
-	public static final RegistryObject<Item> CATALYZER = block(GoodblockModBlocks.CATALYZER);
+	// ==================== 方块物品声明 (Block Items Declaration) ====================
 
-	// 各种物品的注册(item)
-	public static final RegistryObject<Item> SULPHUR = REGISTRY.register("sulphur", SulphurItem::new);
-	public static final RegistryObject<Item> PALETREE = REGISTRY.register("paletree", PaletreeItem::new);
-	public static final RegistryObject<Item> INKSANS_4 = REGISTRY.register("inksans_4", Inksans4Item::new);
-	public static final RegistryObject<Item> NITRICACID = REGISTRY.register("nitricacid", NitricacidItem::new);
-	public static final RegistryObject<Item> IMPUREURANIUM = REGISTRY.register("impureuranium", ImpureuraniumItem::new);
-	public static final RegistryObject<Item> IMPUREURANIUMINGOT = REGISTRY.register("impureuraniumingot", ImpureuraniumingotItem::new);
-	public static final RegistryObject<Item> PAINITESWORD = REGISTRY.register("painitesword", PainiteswordItem::new);
-	public static final RegistryObject<Item> PAINITEMANUSCRIPT = REGISTRY.register("painitemanuscript", PainitemanuscriptItem::new);
-	public static final RegistryObject<Item> PAINITEAXE = REGISTRY.register("painiteaxe", PainiteaxeItem::new);
-	public static final RegistryObject<Item> PAINITEHOE = REGISTRY.register("painitehoe", PainitehoeItem::new);
-	public static final RegistryObject<Item> PAINITESHOVEL = REGISTRY.register("painiteshovel", PainiteshovelItem::new);
-	public static final RegistryObject<Item> THEFLUFFYHEARTBEATINTHECUBICLEMUSIC = REGISTRY.register("thefluffyheartbeatinthecubiclemusic", ThefluffyheartbeatinthecubiclemusicItem::new);
-	public static final RegistryObject<Item> FLUTEMUSICA_1RECORDS = REGISTRY.register("flutemusica_1records", Flutemusica1recordsItem::new);
-	public static final RegistryObject<Item> NOTLISTENTHIS = REGISTRY.register("notlistenthis", NotlistenthisItem::new);
-	public static final RegistryObject<Item> FLUTE = REGISTRY.register("flute", FluteItem::new);
-	public static final RegistryObject<Item> ANITFRRYMUSIC = REGISTRY.register("anitfrrymusic", AnitfrrymusicItem::new);
-	public static final RegistryObject<Item> DRAGONFRUIT = REGISTRY.register("dragonfruit", DragonfruitItem::new);
-	public static final RegistryObject<Item> BlueCrystaloreItem = REGISTRY.register("blue_crystal", BlueCrystaloreItem::new);
+	// 矿物块
+	public static RegistryObject<Item> SULPHURBLOCK;
+	public static RegistryObject<Item> NITREBLOCK;
+	public static RegistryObject<Item> URANIUMBLOCK;
+	public static RegistryObject<Item> BLUEBLOCK;
+	public static RegistryObject<Item> BLACKBLOCK;
 
-	// 各种盔甲物品的注册
-	public static final RegistryObject<Item> ARMORA_1_ARMOR_HELMET = REGISTRY.register("armora_1_armor_helmet", Armora1ArmorItem.Helmet::new);
-	public static final RegistryObject<Item> ARMORA_1_ARMOR_CHESTPLATE = REGISTRY.register("armora_1_armor_chestplate", Armora1ArmorItem.Chestplate::new);
-	public static final RegistryObject<Item> ARMORA_1_ARMOR_LEGGINGS = REGISTRY.register("armora_1_armor_leggings", Armora1ArmorItem.Leggings::new);
-	public static final RegistryObject<Item> ARMORA_1_ARMOR_BOOTS = REGISTRY.register("armora_1_armor_boots", Armora1ArmorItem.Boots::new);
-	public static final RegistryObject<Item> PAINITE_ARMOR_HELMET = REGISTRY.register("painite_armor_helmet", PainiteArmorItem.Helmet::new);
-	public static final RegistryObject<Item> PAINITE_ARMOR_CHESTPLATE = REGISTRY.register("painite_armor_chestplate", PainiteArmorItem.Chestplate::new);
-	public static final RegistryObject<Item> PAINITE_ARMOR_LEGGINGS = REGISTRY.register("painite_armor_leggings", PainiteArmorItem.Leggings::new);
-	public static final RegistryObject<Item> PAINITE_ARMOR_BOOTS = REGISTRY.register("painite_armor_boots", PainiteArmorItem.Boots::new);
+	// 矿石
+	public static RegistryObject<Item> URANIUMMINERAL;
+	public static RegistryObject<Item> BLUE_CRYSTALORE;
 
-	// 液体桶物品的注册
-	//public static final RegistryObject<Item> FLUIDHOTTEST_BUCKET = REGISTRY.register("fluidhottest_bucket", FluidhottestItem::new);
+	// pale_wood 系列方块
+	public static RegistryObject<Item> PALE_WOOD_PLANKS;
+	public static RegistryObject<Item> PALE_WOOD_LEAVES;
+	public static RegistryObject<Item> PALE_WOOD_LOG;
+	public static RegistryObject<Item> PALE_WOOD_WOOD;
+	public static RegistryObject<Item> PALE_WOOD_STAIRS;
+	public static RegistryObject<Item> PALE_WOOD_SLAB;
+	public static RegistryObject<Item> PALE_WOOD_BUTTON;
+	public static RegistryObject<Item> PALE_WOOD_FENCE;
+	public static RegistryObject<Item> PALE_WOOD_FENCE_GATE;
+	public static RegistryObject<Item> PALE_WOOD_PRESSURE_PLATE;
 
-	/*************************************************************************/
+	// 功能方块
+	public static RegistryObject<Item> IRONHOT;
+	public static RegistryObject<Item> CATALYZER;
 
+	// 装饰/其他方块
+	public static RegistryObject<Item> PALETREESPA_1;
+	public static RegistryObject<Item> BLOCKBW_1;
+	public static RegistryObject<Item> BLOCKBW_2;
 
-	// 简化的block注册方法 - 移除tab参数
+	// ==================== 普通物品声明 (Normal Items Declaration) ====================
+
+	// 材料类
+	public static RegistryObject<Item> SULPHUR;
+	public static RegistryObject<Item> NITRICACID;
+	public static RegistryObject<Item> IMPUREURANIUM;
+	public static RegistryObject<Item> IMPUREURANIUMINGOT;
+	public static RegistryObject<Item> BlueCrystaloreItem;
+
+	// 食物类
+	public static RegistryObject<Item> DRAGONFRUIT;
+
+	// 工具类
+	public static RegistryObject<Item> FLUTE;
+
+	// 植物/生成类
+	public static RegistryObject<Item> PALETREE;
+
+	// ==================== 武器工具声明 (Weapons & Tools Declaration) ====================
+
+	public static RegistryObject<Item> PAINITESWORD;
+	public static RegistryObject<Item> PAINITEAXE;
+	public static RegistryObject<Item> PAINITEHOE;
+	public static RegistryObject<Item> PAINITESHOVEL;
+	public static RegistryObject<Item> PAINITEMANUSCRIPT;
+
+	// ==================== 唱片声明 (Music Discs Declaration) ====================
+
+	public static RegistryObject<MusicRecordItem> INKSANS_4;
+	public static RegistryObject<MusicRecordItem> THEFLUFFYHEARTBEATINTHECUBICLEMUSIC;
+	public static RegistryObject<MusicRecordItem> FLUTEMUSICA_1RECORDS;
+	public static RegistryObject<MusicRecordItem> NOTLISTENTHIS;
+	public static RegistryObject<MusicRecordItem> ANITFRRYMUSIC;
+
+	// ==================== 盔甲声明 (Armors Declaration) ====================
+
+	// armora_1 系列
+	public static RegistryObject<Item> ARMORA_1_ARMOR_HELMET;
+	public static RegistryObject<Item> ARMORA_1_ARMOR_CHESTPLATE;
+	public static RegistryObject<Item> ARMORA_1_ARMOR_LEGGINGS;
+	public static RegistryObject<Item> ARMORA_1_ARMOR_BOOTS;
+
+	// painite 系列
+	public static RegistryObject<Item> PAINITE_ARMOR_HELMET;
+	public static RegistryObject<Item> PAINITE_ARMOR_CHESTPLATE;
+	public static RegistryObject<Item> PAINITE_ARMOR_LEGGINGS;
+	public static RegistryObject<Item> PAINITE_ARMOR_BOOTS;
+
+	// ==================== 静态代码块初始化 (Static Initialization) ====================
+
+	static {
+		// -------------------- 方块物品初始化 --------------------
+		SULPHURBLOCK = block(GoodblockModBlocks.SULPHURBLOCK);
+		NITREBLOCK = block(GoodblockModBlocks.NITREBLOCK);
+		URANIUMBLOCK = block(GoodblockModBlocks.URANIUMBLOCK);
+		BLUEBLOCK = block(GoodblockModBlocks.BLUEBLOCK);
+		BLACKBLOCK = block(GoodblockModBlocks.BLACKBLOCK);
+
+		URANIUMMINERAL = block(GoodblockModBlocks.URANIUMMINERAL);
+		BLUE_CRYSTALORE = block(GoodblockModBlocks.BLUE_CRYSTALORE);
+
+		PALE_WOOD_PLANKS = block(GoodblockModBlocks.PALE_WOOD_PLANKS);
+		PALE_WOOD_LEAVES = block(GoodblockModBlocks.PALE_WOOD_LEAVES);
+		PALE_WOOD_LOG = block(GoodblockModBlocks.PALE_WOOD_LOG);
+		PALE_WOOD_WOOD = block(GoodblockModBlocks.PALE_WOOD_WOOD);
+		PALE_WOOD_STAIRS = block(GoodblockModBlocks.PALE_WOOD_STAIRS);
+		PALE_WOOD_SLAB = block(GoodblockModBlocks.PALE_WOOD_SLAB);
+		PALE_WOOD_BUTTON = block(GoodblockModBlocks.PALE_WOOD_BUTTON);
+		PALE_WOOD_FENCE = block(GoodblockModBlocks.PALE_WOOD_FENCE);
+		PALE_WOOD_FENCE_GATE = block(GoodblockModBlocks.PALE_WOOD_FENCE_GATE);
+		PALE_WOOD_PRESSURE_PLATE = block(GoodblockModBlocks.PALE_WOOD_PRESSURE_PLATE);
+
+		IRONHOT = block(GoodblockModBlocks.IRONHOT);
+		CATALYZER = block(GoodblockModBlocks.CATALYZER);
+
+		PALETREESPA_1 = block(GoodblockModBlocks.PALETREESPA_1);
+		BLOCKBW_1 = block(GoodblockModBlocks.BLOCKBW_1);
+		BLOCKBW_2 = block(GoodblockModBlocks.BLOCKBW_2);
+
+		// -------------------- 普通物品初始化 --------------------
+		SULPHUR = ITEMS.register("sulphur", SulphurItem::new);
+		NITRICACID = ITEMS.register("nitricacid", NitricacidItem::new);
+		IMPUREURANIUM = ITEMS.register("impureuranium", ImpureuraniumItem::new);
+		IMPUREURANIUMINGOT = ITEMS.register("impureuraniumingot", ImpureuraniumingotItem::new);
+		BlueCrystaloreItem = ITEMS.register("blue_crystal", BlueCrystaloreItem::new);
+
+		DRAGONFRUIT = ITEMS.register("dragonfruit", DragonfruitItem::new);
+
+		FLUTE = ITEMS.register("flute", FluteItem::new);
+
+		PALETREE = ITEMS.register("paletree", PaletreeItem::new);
+
+		// -------------------- 武器工具初始化 --------------------
+		PAINITESWORD = ITEMS.register("painitesword", PainiteswordItem::new);
+		PAINITEAXE = ITEMS.register("painiteaxe", PainiteaxeItem::new);
+		PAINITEHOE = ITEMS.register("painitehoe", PainitehoeItem::new);
+		PAINITESHOVEL = ITEMS.register("painiteshovel", PainiteshovelItem::new);
+		PAINITEMANUSCRIPT = ITEMS.register("painitemanuscript", PainitemanuscriptItem::new);
+
+		// -------------------- 盔甲初始化 --------------------
+		// armora_1 系列
+		ARMORA_1_ARMOR_HELMET = ITEMS.register("armora_1_armor_helmet", Armora1ArmorItem.Helmet::new);
+		ARMORA_1_ARMOR_CHESTPLATE = ITEMS.register("armora_1_armor_chestplate", Armora1ArmorItem.Chestplate::new);
+		ARMORA_1_ARMOR_LEGGINGS = ITEMS.register("armora_1_armor_leggings", Armora1ArmorItem.Leggings::new);
+		ARMORA_1_ARMOR_BOOTS = ITEMS.register("armora_1_armor_boots", Armora1ArmorItem.Boots::new);
+		// painite 系列
+		PAINITE_ARMOR_HELMET = ITEMS.register("painite_armor_helmet", PainiteArmorItem.Helmet::new);
+		PAINITE_ARMOR_CHESTPLATE = ITEMS.register("painite_armor_chestplate", PainiteArmorItem.Chestplate::new);
+		PAINITE_ARMOR_LEGGINGS = ITEMS.register("painite_armor_leggings", PainiteArmorItem.Leggings::new);
+		PAINITE_ARMOR_BOOTS = ITEMS.register("painite_armor_boots", PainiteArmorItem.Boots::new);
+
+		// -------------------- 唱片初始化 -------------------- //
+
+		INKSANS_4 = registerRecord("inksans_4", GoodblockModSounds.INK_SANS);
+		THEFLUFFYHEARTBEATINTHECUBICLEMUSIC = registerRecord("thefluffyheartbeatinthecubiclemusic", GoodblockModSounds.INK_SANS);
+		FLUTEMUSICA_1RECORDS = registerRecord("flutemusica_1records", GoodblockModSounds.THE_FLUFFY_HEARTBEAT_IN_THE_CUBICLE);
+		NOTLISTENTHIS = registerRecord("notlistenthis", GoodblockModSounds.NO_STOP);
+		ANITFRRYMUSIC = registerRecord("anitfrrymusic", GoodblockModSounds.ANIT_FURRY_MUSIC);
+	}
+
+	// ==================== 辅助方法 (Helper Methods) ====================
+
+	/**
+	 * 注册唱片物品的辅助方法
+	 * @param name 注册名称
+	 * @param soundEventSupplier 声音事件提供者
+	 * @return 注册对象
+	 */
+	private static RegistryObject<MusicRecordItem> registerRecord(String name, Supplier<SoundEvent> soundEventSupplier) {
+		return register(name, () -> new MusicRecordItem(8, soundEventSupplier,
+				new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+	}
+
+	/**
+	 * 通用物品注册辅助方法
+	 * @param name 注册名称
+	 * @param item 物品提供者
+	 * @return 注册对象
+	 */
+	private static <T extends Item> RegistryObject<T> register(String name, Supplier<T> item) {
+		return ITEMS.register(name, item);
+	}
+
+	/**
+	 * 方块物品注册辅助方法
+	 * @param block 对应的方块注册对象
+	 * @return 方块物品注册对象
+	 */
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
-		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
+		return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
 	}
 }

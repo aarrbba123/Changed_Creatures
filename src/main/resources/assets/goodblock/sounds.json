@@ -1,47 +1,17 @@
 {
   "ink_sans": {
-    "category": "neutral",
-    "subtitle": "subtitles.ink_sans",
+    "category": "record",
+    "subtitle": "subtitles.goodblock.ink_sans",
     "sounds": [
       {
-        "name": "goodblock:rgux5-tx8dz",
-        "stream": false
-      }
-    ]
-  },
-  "item.armor.equip_netherite": {
-    "category": "player",
-    "subtitle": "subtitles.item.armor.equip_netherite",
-    "sounds": [
-      {
-        "name": "goodblock:equip2",
-        "stream": false
-      }
-    ]
-  },
-  "gnusmas_gm_soundfont_2.00": {
-    "category": "neutral",
-    "subtitle": "subtitles.gnusmas_gm_soundfont_2.00",
-    "sounds": [
-      {
-        "name": "goodblock:ssss",
-        "stream": false
-      }
-    ]
-  },
-  "no_stop": {
-    "category": "neutral",
-    "subtitle": "subtitles.no_stop",
-    "sounds": [
-      {
-        "name": "goodblock:jack_phase_1",
-        "stream": false
+        "name": "goodblock:ink_sans",
+        "stream": true
       }
     ]
   },
   "the_fluffy_heartbeat_in_the_cubicle": {
     "category": "record",
-    "subtitle": "subtitles.the_fluffy_heartbeat_in_the_cubicle",
+    "subtitle": "subtitles.goodblock.the_fluffy_heartbeat_in_the_cubicle",
     "sounds": [
       {
         "name": "goodblock:ge_zi_jian_li_de_mao_rong_rong_xin_tiao__",
@@ -51,7 +21,7 @@
   },
   "anit_furry_music": {
     "category": "record",
-    "subtitle": "subtitles.anit_furry_music",
+    "subtitle": "subtitles.goodblock.anit_furry_music",
     "sounds": [
       {
         "name": "goodblock:anit_furry_music",
@@ -59,9 +29,19 @@
       }
     ]
   },
+  "flutemusica_1records": {
+    "category": "record",
+    "subtitle": "subtitles.goodblock.flutemusica_1records",
+    "sounds": [
+      {
+        "name": "goodblock:output",
+        "stream": true
+      }
+    ]
+  },
   "srening_ogg1": {
     "category": "record",
-    "subtitle": "subtitles.srening_ogg1",
+    "subtitle": "subtitles.goodblock.srening_ogg1",
     "sounds": [
       {
         "name": "goodblock:output",
@@ -69,26 +49,6 @@
       },
       {
         "name": "goodblock:compress",
-        "stream": true
-      }
-    ]
-  },
-  "the_fluffy_heartbeatinthe_cubiclemusic": {
-    "category": "record",
-    "subtitle": "subtitles.the_fluffy_heartbeatinthe_cubiclemusic",
-    "sounds": [
-      {
-        "name": "goodblock:ge_zi_jian_li_de_mao_rong_rong_xin_tiao__",
-        "stream": true
-      }
-    ]
-  },
-  "flutemusica_1records": {
-    "category": "record",
-    "subtitle": "subtitles.flutemusica_1records",
-    "sounds": [
-      {
-        "name": "goodblock:output",
         "stream": true
       }
     ]

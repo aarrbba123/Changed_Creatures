@@ -14,8 +14,8 @@ import net.hhdsj.goodblock.init.GoodblockModBlocks;
 public class Paletreespa1GengXintreeProcedure {
 	private static final double TREE_HEIGHT = 7;
 	private static final double SPAWN_CHANCE_MIN = -3;
-	private static final double SPAWN_CHANCE_MAX = 12;
-	private static final double SPAWN_THRESHOLD = 7;
+	private static final double SPAWN_CHANCE_MAX = 18;
+	private static final double SPAWN_THRESHOLD = 15;
 	private static final ResourceLocation LEAVES_TAG = new ResourceLocation("minecraft:leaves");
 
 	public static void execute(LevelAccessor world, double x, double y, double z, BlockState blockstate) {

@@ -265,18 +265,6 @@ public class GoodblockModTransfurVariants {
 					.extraJumps(2)
 					.build());
 
-	public static final RegistryObject<TransfurVariant<LatexFruitDragonEntity>> LATEXFRUITDRAGONWOLF =
-			REGISTRY.register("form_latex_dragon_fruit_wolf", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEXFRUITDRAGONWOLF)
-					//.stepSize(0.7f)
-					.addAbility(ChangedAddonAbilities.DODGE)
-					.addAbility(ChangedAddonAbilities.CLAWS)
-					.scares(List.of(Creeper.class))
-					.transfurMode(TransfurMode.ABSORPTION)
-					.replicating()
-					.nightVision()
-					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
-					.extraJumps(2)
-					.build());
 	//
 
 	public static void register(IEventBus bus) {

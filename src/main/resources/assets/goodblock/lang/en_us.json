@@ -145,6 +145,8 @@
   "item.goodblock.latex_ice_field_wolf_dragon_spawn_egg.desc": "Latex Ice Field Wolf Dragon",
   "item.goodblock.latex_dragon_fruit_wolf_spawn_egg": "Latex Dragon Fruit Wolf Spawn Egg",
   "item.goodblock.latex_dragon_fruit_wolf_spawn_egg.desc": "Latex Dragon Fruit Wolf",
+  "item.goodblock.latex_fruit_dragon_wolf_spawn_egg": "Latex Dragon Fruit Wolf Spawn Egg",
+  "item.goodblock.latex_fruit_dragon_wolf_spawn_egg.desc": "Latex Dragon Fruit Wolf",
   "item.goodblock.blackpupmale_spawn_egg": "Black Male Pup Spawn Egg",
   "item.goodblock.blackpupmale_spawn_egg.desc": "Black Male Pup",
   "item.goodblock.whitebluepup_spawn_egg": "White Blue Pup Spawn Egg",
@@ -204,6 +206,6 @@
   "subtitles.no_stop": "Never Stop",
   "subtitles.srening_ogg1": "Music",
   "subtitles.the_fluffy_heartbeat_in_the_cubicle": "Play The Fluffy Heartbeat in the Cubicle Music",
-  "subtitles.the_fluffy_heartbeatinthe_cubiclemusic": "The Fluffy Heartbeat in the Cubicle Music"
-
+  "subtitles.the_fluffy_heartbeatinthe_cubiclemusic": "The Fluffy Heartbeat in the Cubicle Music",
+  "enchantment.goodblock.three_month_latex":"Latex Bound"
 }

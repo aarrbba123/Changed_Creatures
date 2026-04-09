@@ -11,6 +11,7 @@ import net.hhdsj.goodblock.entity.simple.LatexLuoHongEarlySpringFoxDragonEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.*;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexMaleWingedDragonModel;
+import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexMaleWolfModel;
 import net.ltxprogrammer.changed.util.Color3;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -20,7 +21,7 @@ import net.hhdsj.goodblock.client.armor.ArmorLatexMaleWolfWingedDragonModel;
 public class LatexLuoHongEarlySpringFoxDragonRenderer extends AdvancedHumanoidRenderer<LatexLuoHongEarlySpringFoxDragonEntity, ModelLuoHongEarlySpringFoxDragon> {
     public LatexLuoHongEarlySpringFoxDragonRenderer(EntityRendererProvider.Context context) {
         super(context, new ModelLuoHongEarlySpringFoxDragon(context.bakeLayer(ModelLuoHongEarlySpringFoxDragon.LAYER_LOCATION)),
-                ArmorLatexMaleWolfWingedDragonModel.MODEL_SET,
+                ArmorLatexMaleWingedDragonModel.MODEL_SET,
                 0.5f);
         this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()));
         this.addLayer(new CustomEyesLayer<>(this, context.getModelSet(), CustomEyesLayer::scleraColor, CustomEyesLayer::glowingIrisColorLeft, CustomEyesLayer::glowingIrisColorRight, CustomEyesLayer::noRender, CustomEyesLayer::noRender));

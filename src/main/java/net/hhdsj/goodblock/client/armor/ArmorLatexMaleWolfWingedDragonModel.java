@@ -26,7 +26,7 @@ import static net.ltxprogrammer.changed.client.renderer.model.armor.LatexHumanoi
 import static net.ltxprogrammer.changed.client.renderer.model.armor.LatexHumanoidArmorModel.prepareUnifiedLegsForArmor;
 
 public class ArmorLatexMaleWolfWingedDragonModel<T extends ChangedEntity> extends LatexHumanoidArmorModel<T, ArmorLatexMaleWolfWingedDragonModel<T>> {
-    public static final ArmorModelSet<ChangedEntity, ArmorLatexMaleWolfWingedDragonModel<ChangedEntity>> MODEL_SET = ArmorModelSet.of(Changed.modResource("armor_latex_wolf_dragon_male_unified"), ArmorLatexMaleWolfWingedDragonModel::createArmorLayer, ArmorLatexMaleWolfWingedDragonModel::new);
+    public static final ArmorModelSet<ChangedEntity, ArmorLatexMaleWolfWingedDragonModel<ChangedEntity>> MODEL_SET = ArmorModelSet.of(Changed.modResource("armor_latex_wolf_male_unified"), ArmorLatexMaleWolfWingedDragonModel::createArmorLayer, ArmorLatexMaleWolfWingedDragonModel::new);
     private final ModelPart Head;
     private final ModelPart Torso;
     private final ModelPart LeftLeg;

@@ -10,10 +10,12 @@ public class LatexiceDragonUnified<T extends Entity> extends EntityModel<T> {
 	private final ModelPart RightLowerLeg;
 	private final ModelPart RightFoot;
 	private final ModelPart RightPad;
+	private final ModelPart bone3;
 	private final ModelPart LeftLeg;
 	private final ModelPart LeftLowerLeg;
 	private final ModelPart LeftFoot;
 	private final ModelPart LeftPad;
+	private final ModelPart bone4;
 	private final ModelPart Head;
 	private final ModelPart RightHorns;
 	private final ModelPart LeftHorns;
@@ -24,7 +26,9 @@ public class LatexiceDragonUnified<T extends Entity> extends EntityModel<T> {
 	private final ModelPart TailTertiary;
 	private final ModelPart TailQuaternary;
 	private final ModelPart RightArm;
+	private final ModelPart bone;
 	private final ModelPart LeftArm;
+	private final ModelPart bone2;
 	private final ModelPart bb_main;
 
 	public LatexiceDragonUnified(ModelPart root) {
@@ -32,10 +36,12 @@ public class LatexiceDragonUnified<T extends Entity> extends EntityModel<T> {
 		this.RightLowerLeg = this.RightLeg.getChild("RightLowerLeg");
 		this.RightFoot = this.RightLowerLeg.getChild("RightFoot");
 		this.RightPad = this.RightFoot.getChild("RightPad");
+		this.bone3 = this.RightLeg.getChild("bone3");
 		this.LeftLeg = root.getChild("LeftLeg");
 		this.LeftLowerLeg = this.LeftLeg.getChild("LeftLowerLeg");
 		this.LeftFoot = this.LeftLowerLeg.getChild("LeftFoot");
 		this.LeftPad = this.LeftFoot.getChild("LeftPad");
+		this.bone4 = this.LeftLeg.getChild("bone4");
 		this.Head = root.getChild("Head");
 		this.RightHorns = this.Head.getChild("RightHorns");
 		this.LeftHorns = this.Head.getChild("LeftHorns");
@@ -46,7 +52,9 @@ public class LatexiceDragonUnified<T extends Entity> extends EntityModel<T> {
 		this.TailTertiary = this.TailSecondary.getChild("TailTertiary");
 		this.TailQuaternary = this.TailTertiary.getChild("TailQuaternary");
 		this.RightArm = root.getChild("RightArm");
+		this.bone = this.RightArm.getChild("bone");
 		this.LeftArm = root.getChild("LeftArm");
+		this.bone2 = this.LeftArm.getChild("bone2");
 		this.bb_main = root.getChild("bb_main");
 	}
 
@@ -68,6 +76,12 @@ public class LatexiceDragonUnified<T extends Entity> extends EntityModel<T> {
 
 		PartDefinition RightPad = RightFoot.addOrReplaceChild("RightPad", CubeListBuilder.create().texOffs(0, 48).addBox(-2.0F, 0.0F, -2.5F, 4.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 4.325F, -4.425F));
 
+		PartDefinition bone3 = RightLeg.addOrReplaceChild("bone3", CubeListBuilder.create().texOffs(20, 94).addBox(0.0F, 9.2F, -1.3F, 1.0F, 1.0F, 1.0F, new CubeDeformation(-0.1F))
+		.texOffs(16, 94).addBox(-1.0F, 9.2F, -1.9F, 1.0F, 1.0F, 1.0F, new CubeDeformation(-0.1F))
+		.texOffs(12, 94).addBox(-2.0F, 9.2F, -1.9F, 1.0F, 1.0F, 1.0F, new CubeDeformation(-0.1F))
+		.texOffs(8, 94).addBox(-3.0F, 9.2F, -1.3F, 1.0F, 1.0F, 1.0F, new CubeDeformation(-0.1F))
+		.texOffs(0, 93).addBox(-2.0F, 9.1F, -0.5F, 2.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(1.0F, 3.5F, -1.3F));
+
 		PartDefinition LeftLeg = partdefinition.addOrReplaceChild("LeftLeg", CubeListBuilder.create(), PartPose.offset(2.5F, 10.5F, 0.0F));
 
 		PartDefinition LeftThigh_r1 = LeftLeg.addOrReplaceChild("LeftThigh_r1", CubeListBuilder.create().texOffs(16, 32).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 7.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.2182F, 0.0F, 0.0F));
@@ -81,6 +95,12 @@ public class LatexiceDragonUnified<T extends Entity> extends EntityModel<T> {
 		PartDefinition LeftArch_r1 = LeftFoot.addOrReplaceChild("LeftArch_r1", CubeListBuilder.create().texOffs(52, 0).addBox(-2.0F, -8.45F, -0.725F, 4.0F, 6.0F, 3.0F, new CubeDeformation(0.005F)), PartPose.offsetAndRotation(0.0F, 7.075F, -4.975F, -0.3491F, 0.0F, 0.0F));
 
 		PartDefinition LeftPad = LeftFoot.addOrReplaceChild("LeftPad", CubeListBuilder.create().texOffs(44, 38).addBox(-2.0F, 0.0F, -2.5F, 4.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 4.325F, -4.425F));
+
+		PartDefinition bone4 = LeftLeg.addOrReplaceChild("bone4", CubeListBuilder.create().texOffs(20, 85).addBox(0.0F, 9.2F, -1.3F, 1.0F, 1.0F, 1.0F, new CubeDeformation(-0.1F))
+		.texOffs(16, 85).addBox(-1.0F, 9.2F, -1.9F, 1.0F, 1.0F, 1.0F, new CubeDeformation(-0.1F))
+		.texOffs(12, 85).addBox(-2.0F, 9.2F, -1.9F, 1.0F, 1.0F, 1.0F, new CubeDeformation(-0.1F))
+		.texOffs(8, 85).addBox(-3.0F, 9.2F, -1.3F, 1.0F, 1.0F, 1.0F, new CubeDeformation(-0.1F))
+		.texOffs(0, 84).addBox(-2.0F, 9.1F, -0.5F, 2.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(1.0F, 3.5F, -1.3F));
 
 		PartDefinition Head = partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
 		.texOffs(44, 31).addBox(-2.0F, -3.0F, -6.0F, 4.0F, 2.0F, 2.0F, new CubeDeformation(0.0F))
@@ -118,9 +138,23 @@ public class LatexiceDragonUnified<T extends Entity> extends EntityModel<T> {
 
 		PartDefinition TailBase_r4 = TailQuaternary.addOrReplaceChild("TailBase_r4", CubeListBuilder.create().texOffs(52, 9).addBox(-1.5F, 17.3F, 7.1F, 3.0F, 6.0F, 3.0F, new CubeDeformation(0.15F)), PartPose.offsetAndRotation(0.0F, 10.5F, -15.5F, 1.7017F, 0.0F, 0.0F));
 
-		PartDefinition RightArm = partdefinition.addOrReplaceChild("RightArm", CubeListBuilder.create().texOffs(24, 16).addBox(-3.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-5.0F, 1.5F, 0.0F));
+		PartDefinition RightArm = partdefinition.addOrReplaceChild("RightArm", CubeListBuilder.create().texOffs(24, 16).addBox(-3.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F))
+		.texOffs(16, 66).addBox(-3.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.1F)), PartPose.offset(-5.0F, 1.5F, 0.0F));
 
-		PartDefinition LeftArm = partdefinition.addOrReplaceChild("LeftArm", CubeListBuilder.create().texOffs(0, 32).addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(5.0F, 1.5F, 0.0F));
+		PartDefinition bone = RightArm.addOrReplaceChild("bone", CubeListBuilder.create().texOffs(20, 91).addBox(0.0F, 9.2F, -1.3F, 1.0F, 1.0F, 1.0F, new CubeDeformation(-0.1F))
+		.texOffs(16, 91).addBox(-1.0F, 9.2F, -1.9F, 1.0F, 1.0F, 1.0F, new CubeDeformation(-0.1F))
+		.texOffs(12, 91).addBox(-2.0F, 9.2F, -1.9F, 1.0F, 1.0F, 1.0F, new CubeDeformation(-0.1F))
+		.texOffs(8, 91).addBox(-3.0F, 9.2F, -1.3F, 1.0F, 1.0F, 1.0F, new CubeDeformation(-0.1F))
+		.texOffs(0, 90).addBox(-2.0F, 9.1F, -0.5F, 2.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		PartDefinition LeftArm = partdefinition.addOrReplaceChild("LeftArm", CubeListBuilder.create().texOffs(0, 32).addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F))
+		.texOffs(0, 66).mirror().addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.1F)).mirror(false), PartPose.offset(5.0F, 1.5F, 0.0F));
+
+		PartDefinition bone2 = LeftArm.addOrReplaceChild("bone2", CubeListBuilder.create().texOffs(20, 88).addBox(0.0F, 9.2F, -1.3F, 1.0F, 1.0F, 1.0F, new CubeDeformation(-0.1F))
+		.texOffs(16, 88).addBox(-1.0F, 9.2F, -1.9F, 1.0F, 1.0F, 1.0F, new CubeDeformation(-0.1F))
+		.texOffs(12, 88).addBox(-2.0F, 9.2F, -1.9F, 1.0F, 1.0F, 1.0F, new CubeDeformation(-0.1F))
+		.texOffs(8, 88).addBox(-3.0F, 9.2F, -1.3F, 1.0F, 1.0F, 1.0F, new CubeDeformation(-0.1F))
+		.texOffs(0, 87).addBox(-2.0F, 9.1F, -0.5F, 2.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(2.0F, 0.0F, 0.0F));
 
 		PartDefinition bb_main = partdefinition.addOrReplaceChild("bb_main", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
 

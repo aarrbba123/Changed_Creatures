@@ -8,6 +8,7 @@ import net.hhdsj.goodblock.entity.boss.*;
 import net.hhdsj.goodblock.entity.simple.LatexFruitDragonEntity;
 import net.hhdsj.goodblock.entity.simple.LatexIqGoldDragonEntity;
 import net.hhdsj.goodblock.entity.simple.LatexLuoHongEarlySpringFoxDragonEntity;
+import net.hhdsj.goodblock.entity.simple.LatexNeondimnessWolfEntity;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.registries.RegistryObject;
@@ -87,7 +88,7 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<LatexIceFieldWolfDragonEntity>> LATEX_ICE_FIELD_WOLF_DRAGON;
     public static final RegistryObject<EntityType<LatexDragonFruitWolfEntity>> LATEXDRAGONFRUITWOLF;
     public static final RegistryObject<EntityType<LatexFruitDragonEntity>> LATEXFRUITDRAGONWOLF;
-
+    public static final RegistryObject<EntityType<LatexNeondimnessWolfEntity>> LATEXNEONDIMNESSWOLF;
     // 幼崽变体
     public static final RegistryObject<EntityType<BlackpupmaleEntity>> BLACKPUPMALE;
     public static final RegistryObject<EntityType<WhitebluepupEntity>> WHITEBLUEPUP;
@@ -140,6 +141,15 @@ public class GoodblockModEntities {
                         .setCustomClientFactory(LatexRadiationFoxEntity::new)
                         .sized(0.7f, 1.93f),
                 LatexRadiationFoxEntity::createLatexAttributes);
+
+        LATEXNEONDIMNESSWOLF = registerSpawning("latex_neondimness_wolf", 0x7CFC00, 0x32CD32,
+                EntityType.Builder.<LatexNeondimnessWolfEntity>of(LatexNeondimnessWolfEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .setCustomClientFactory(LatexNeondimnessWolfEntity::new)
+                        .sized(0.7f, 1.93f),
+                LatexNeondimnessWolfEntity::createLatexAttributes);
 
         // 鲨鱼变体
         LATEX_KCAHRA_SHARK = registerAquaticSpawning("latex_kcahra_shark", 0x2E8B57, 0x228B22,

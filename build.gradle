@@ -67,8 +67,8 @@ minecraft {
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.20.1-47.2.0'
-    implementation files('/ChangedAddon-m1.20.1-2.8.0-all.jar')
-    implementation files('/Changed-m1.20.1-v0.15.2-all.jar')
+    implementation files('/ChangedAddon-m1.20.1-2.8.0-all-patches.jar')
+    implementation files('/Changed-m1.20.1-v0.15.4-all.jar')
 }
 
 tasks.withType(JavaCompile).configureEach {

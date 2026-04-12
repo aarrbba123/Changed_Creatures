@@ -92,7 +92,9 @@
   "entity.goodblock.latexthreemonthwolf": "Három hónapos latex farkas",
   "entity.goodblock.latexyunxqhotdragon": "Latex jün XQ forró sárkány",
   "entity.goodblock.latexyunxqicedragon": "Latex jün XQ jégsárkány",
+  "entity.goodblock.latex_neondimness_wolf": "Latex Neondimness farkas",
   "entity.goodblock.whitebluepup": "Fehér és kék farkaskölyök",
+  "entity.goodblock.latex_cheng_xi_fox": "Latex cseng hszi róka",
   "entity.goodblock.latex_luo_hong_early_spring_fox_dragon": "Latex lohung kora tavaszi rókasárkány",
   "fluid.goodblock.fluidhottest": "Teszttárgy",
   "gamerule.initiateAchievements": "Good Block Teljesítmények",
@@ -147,6 +149,9 @@
   "item.goodblock.latex_dragon_fruit_wolf_spawn_egg.desc": "Latex sárkánygyümölcs farkas",
   "item.goodblock.latex_fruit_dragon_wolf_spawn_egg": "Latex sárkánygyümölcs farkast idéző tojás",
   "item.goodblock.latex_fruit_dragon_wolf_spawn_egg.desc": "Latex sárkánygyümölcs farkas",
+  "item.goodblock.latex_neondimness_wolf_spawn_egg": "Latex Neondimness farkast idéző tojás",
+  "item.goodblock.latex_neondimness_wolf_spawn_egg.desc": "Latex Neondimness farkas",
+  "item.goodblock.latex_cheng_xi_fox_spawn_egg": "Latex cseng hszi rókát idéző tojás",
   "item.goodblock.blackpupmale_spawn_egg": "Hím fekete farkaskölyköt idéző tojás",
   "item.goodblock.blackpupmale_spawn_egg.desc": "Hím fekete farkaskölyök",
   "item.goodblock.whitebluepup_spawn_egg": "Fehér és kék farkaskölyköt idéző tojás",
@@ -207,5 +212,10 @@
   "subtitles.srening_ogg1": "Zene",
   "subtitles.the_fluffy_heartbeat_in_the_cubicle": "A bolyhos szívverés a fülkében zene lejátszása",
   "subtitles.the_fluffy_heartbeatinthe_cubiclemusic": "A bolyhos szívverés a fülkében zene",
-  "enchantment.goodblock.three_month_latex":"Latexhez kötödés"
+  "enchantment.goodblock.three_month_latex":"Latexhez kötödés",
+  "gui.goodblock.guihotpa.label_test_gui": "Teszt GUI",
+  "item.goodblock.latex_kamona_hsguy_dragon_wolf_spawn_egg": "Latex jégmezői farkassárkányt idéző tojás",
+  "item.goodblock.latex_nighe_owl_spawn_egg": "Latex éjjeli bagolyt idéző tojás",
+  "item.goodblock.latex_yun_qi_dragon_spawn_egg": "Latex jün csi sárkányt idéző tojás",
+  "item.goodblock.latexice_dragon_spawn_egg": "Latex jégsárkányt idéző tojás"
 }

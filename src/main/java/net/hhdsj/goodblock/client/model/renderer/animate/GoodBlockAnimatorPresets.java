@@ -7,6 +7,8 @@ import net.ltxprogrammer.changed.client.renderer.animate.arm.ArmBobAnimator;
 import net.ltxprogrammer.changed.client.renderer.animate.arm.ArmRideAnimator;
 import net.ltxprogrammer.changed.client.renderer.animate.arm.ArmSwimAnimator;
 import net.ltxprogrammer.changed.client.renderer.animate.bipedal.DragonBipedalCreativeFlyAnimator;
+import net.ltxprogrammer.changed.client.renderer.animate.camera.DragonCameraCreativeFlyAnimator;
+import net.ltxprogrammer.changed.client.renderer.animate.tail.DragonTailCreativeFlyAnimator;
 import net.ltxprogrammer.changed.client.renderer.animate.upperbody.DragonHeadCreativeFlyAnimator;
 import net.ltxprogrammer.changed.client.renderer.animate.upperbody.DragonHeadInitAnimator;
 import net.ltxprogrammer.changed.client.renderer.animate.upperbody.WolfHeadInitAnimator;
@@ -47,6 +49,31 @@ public class GoodBlockAnimatorPresets extends AnimatorPresets {
                     .addAnimator(new ArmBobAnimator<>(leftArm, rightArm))
                     .addAnimator(new ArmRideAnimator<>(leftArm, rightArm));
 
+        };
+    }
+
+    public static <T extends ChangedEntity, M extends AdvancedHumanoidModel<T>> @NotNull Consumer<HumanoidAnimator<T, M>>
+    WingedWolfDragonLike(ModelPart head, ModelPart torso, ModelPart leftArm, ModelPart rightArm,
+                     ModelPart tail, List<ModelPart> tailJoints, ModelPart leftLeg, ModelPart leftLegLower,
+                     ModelPart leftFoot, ModelPart leftPad, ModelPart rightLeg, ModelPart rightLegLower,
+                     ModelPart rightFoot, ModelPart rightPad, ModelPart leftWingRoot, ModelPart leftWingBone1,
+                     ModelPart leftWingBone2, ModelPart rightWingRoot, ModelPart rightWingBone1, ModelPart rightWingBone2) {
+        return (animator) -> {
+            animator.addPreset(dragonBipedal(leftLeg, leftLegLower, leftFoot, leftPad,
+                            rightLeg, rightLegLower, rightFoot, rightPad))
+                    .addPreset(dragonWingedUpperBody(head, torso, leftArm, rightArm))
+                    .addPreset(wolfTail(tail, tailJoints))
+                    .addPreset(dragonWinged(leftWingRoot, leftWingBone1, leftWingBone2,
+                            rightWingRoot, rightWingBone1, rightWingBone2))
+                    .addAnimator(new DragonBipedalCreativeFlyAnimator<>(leftLeg, leftLegLower, leftFoot, leftPad,
+                            rightLeg, rightLegLower, rightFoot, rightPad))
+                    .addAnimator(new DragonTailCreativeFlyAnimator<>(tail, tailJoints))
+                    .addAnimator(new DragonHeadCreativeFlyAnimator<>(head))
+                    .addAnimator(new DragonHeadInitAnimator<>(head))
+                    .addAnimator(new ArmSwimAnimator<>(leftArm, rightArm))
+                    .addAnimator(new ArmBobAnimator<>(leftArm, rightArm))
+                    .addAnimator(new ArmRideAnimator<>(leftArm, rightArm))
+                    .addCameraAnimator(new DragonCameraCreativeFlyAnimator<>());
         };
     }
 }

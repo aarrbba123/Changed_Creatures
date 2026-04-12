@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "minecraft:redstone_wire"
+      "item": "minecraft:redstone"
     },
     "title": {
       "translate": "advancements.gha_4.title"
@@ -20,7 +20,7 @@
       "conditions": {
         "item": {
           "items": [
-            "minecraft:redstone_wire"
+            "minecraft:redstone"
           ]
         }
       }

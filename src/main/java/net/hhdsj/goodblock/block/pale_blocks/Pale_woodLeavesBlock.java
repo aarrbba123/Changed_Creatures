@@ -21,6 +21,6 @@ public class Pale_woodLeavesBlock extends LeavesBlock {
 
 	@Override
 	public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
-		return 30;
+		return 300;
 	}
 }

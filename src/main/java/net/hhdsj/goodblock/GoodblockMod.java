@@ -45,7 +45,7 @@ public class GoodblockMod {
 
 		GoodblockModBlocks.REGISTRY.register(bus);
 
-		GoodblockModItems.REGISTRY.register(bus);
+		GoodblockModItems.ITEMS.register(bus);
 
 		GoodblockModEntities.REGISTRY.register(bus);
 

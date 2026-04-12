@@ -8,6 +8,7 @@ import net.hhdsj.goodblock.entity.boss.LatexNightOwlEntity;
 import net.hhdsj.goodblock.entity.simple.LatexFruitDragonEntity;
 import net.hhdsj.goodblock.entity.simple.LatexIqGoldDragonEntity;
 import net.hhdsj.goodblock.entity.simple.LatexLuoHongEarlySpringFoxDragonEntity;
+import net.hhdsj.goodblock.entity.simple.LatexNeondimnessWolfEntity;
 import net.minecraft.world.entity.monster.*;
 //FORGE导入
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -265,17 +266,19 @@ public class GoodblockModTransfurVariants {
 					.extraJumps(2)
 					.build());
 
-	public static final RegistryObject<TransfurVariant<LatexFruitDragonEntity>> LATEXFRUITDRAGONWOLF =
-			REGISTRY.register("form_latex_dragon_fruit_wolf", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEXFRUITDRAGONWOLF)
-					//.stepSize(0.7f)
-					.addAbility(ChangedAddonAbilities.DODGE)
-					.addAbility(ChangedAddonAbilities.CLAWS)
+	public static final RegistryObject<TransfurVariant<LatexNeondimnessWolfEntity>> LATEXNEONDIMNESSWOLF =
+			REGISTRY.register("form_latex_neondimness_wolf", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEXNEONDIMNESSWOLF)
 					.scares(List.of(Creeper.class))
 					.transfurMode(TransfurMode.ABSORPTION)
 					.replicating()
 					.nightVision()
 					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
-					.extraJumps(2)
+					.addAbility(ChangedAddonAbilities.TELEPORT)
+					.addAbility(ChangedAddonAbilities.CARRY)
+					.addAbility(ChangedAbilities.GRAB_ENTITY_ABILITY)
+					.addAbility(ChangedAddonAbilities.DODGE)
+					.addAbility(ChangedAddonAbilities.TURN_FERAL_SNEP)
+					.addAbility(ChangedAddonAbilities.CUSTOM_INTERACTION)
 					.build());
 	//
 

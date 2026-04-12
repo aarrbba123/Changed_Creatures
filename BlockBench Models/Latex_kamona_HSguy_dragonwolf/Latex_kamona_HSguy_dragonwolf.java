@@ -106,7 +106,7 @@ public class Latex_kamona_HSguy_dragonwolf<T extends Entity> extends EntityModel
 		.texOffs(49, 60).addBox(0.75F, 1.05F, -2.0F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
 		PartDefinition Head = partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 16).addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
-		.texOffs(86, 6).addBox(-2.0F, -8.5F, -4.25F, 4.0F, 4.0F, 1.0F, new CubeDeformation(-0.8F)), PartPose.offset(0.0F, -0.5F, 0.0F));
+		.texOffs(34, 74).addBox(-2.5F, -9.0F, -5.1F, 5.0F, 5.0F, 2.0F, new CubeDeformation(-1.0F)), PartPose.offset(0.0F, -0.5F, 0.0F));
 
 		PartDefinition RightEar = Head.addOrReplaceChild("RightEar", CubeListBuilder.create(), PartPose.offset(-3.0F, -7.7F, 0.0F));
 
@@ -180,10 +180,16 @@ public class Latex_kamona_HSguy_dragonwolf<T extends Entity> extends EntityModel
 
 		PartDefinition TailBase_r8 = Hair2.addOrReplaceChild("TailBase_r8", CubeListBuilder.create().texOffs(73, 20).addBox(1.5F, 20.3F, 7.1F, 0.0F, 3.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-1.6F, -17.8F, -8.5F, 0.4363F, 0.0F, 0.0F));
 
-		PartDefinition bone2 = Torso.addOrReplaceChild("bone2", CubeListBuilder.create().texOffs(0, 83).addBox(-4.0F, 7.0F, 5.0F, 8.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
-		.texOffs(0, 85).addBox(-4.0F, 6.75F, 5.75F, 8.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -9.0F, -1.0F, -0.7854F, 0.0F, 0.0F));
+		PartDefinition bone2 = Torso.addOrReplaceChild("bone2", CubeListBuilder.create().texOffs(0, 93).addBox(-4.0F, 11.9F, 18.5F, 8.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -9.9F, -21.0F));
+
+		PartDefinition Base_r1 = bone2.addOrReplaceChild("Base_r1", CubeListBuilder.create().texOffs(0, 85).addBox(-4.0F, -16.0F, -2.0F, 8.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 22.85F, 9.25F, -0.7854F, 0.0F, 0.0F));
+
+		PartDefinition Base_r2 = bone2.addOrReplaceChild("Base_r2", CubeListBuilder.create().texOffs(0, 85).addBox(-4.0F, -16.0F, -2.0F, 8.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 23.65F, 9.75F, -0.7854F, 0.0F, 0.0F));
+
+		PartDefinition Base_r3 = bone2.addOrReplaceChild("Base_r3", CubeListBuilder.create().texOffs(0, 83).addBox(-4.0F, -15.0F, -2.0F, 8.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 22.0F, 9.1F, -0.7854F, 0.0F, 0.0F));
 
 		PartDefinition RightArm = partdefinition.addOrReplaceChild("RightArm", CubeListBuilder.create().texOffs(16, 40).addBox(-3.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F))
+		.texOffs(16, 66).addBox(-3.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.1F))
 		.texOffs(90, 4).addBox(-2.9F, 9.1F, -1.5F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
 		.texOffs(90, 4).addBox(-1.6F, 9.1F, -1.8F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
 		.texOffs(88, 3).addBox(-2.0F, 9.1F, -0.3F, 2.0F, 1.0F, 2.0F, new CubeDeformation(0.0F))
@@ -193,7 +199,8 @@ public class Latex_kamona_HSguy_dragonwolf<T extends Entity> extends EntityModel
 		.texOffs(90, 1).addBox(1.8F, 9.1F, -1.6F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
 		.texOffs(90, 1).addBox(-0.8F, 9.1F, -1.6F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
 		.texOffs(90, 1).addBox(0.5F, 9.1F, -1.8F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
-		.texOffs(88, 0).addBox(0.0F, 9.1F, -0.3F, 2.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(5.0F, 1.5F, 0.0F));
+		.texOffs(88, 0).addBox(0.0F, 9.1F, -0.3F, 2.0F, 1.0F, 2.0F, new CubeDeformation(0.0F))
+		.texOffs(0, 66).mirror().addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.1F)).mirror(false), PartPose.offset(5.0F, 1.5F, 0.0F));
 
 		return LayerDefinition.create(meshdefinition, 96, 96);
 	}

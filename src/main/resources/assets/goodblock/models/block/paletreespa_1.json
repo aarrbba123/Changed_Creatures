@@ -1,7 +1,7 @@
 {
-  "parent": "goodblock:custom/oak_sapling",
+  "parent": "minecraft:block/cross",
   "textures": {
-    "all": "goodblock:block/pale_tree",
-    "particle": "goodblock:block/pale_tree"
-  }
+    "cross": "goodblock:block/pale_tree"
+  },
+  "render_type": "cutout"
 }

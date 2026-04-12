@@ -4,6 +4,7 @@
  */
 package net.hhdsj.goodblock.init;
 
+import net.hhdsj.goodblock.client.armor.ArmorLatexMaleWolfWingedDragonModel;
 import net.hhdsj.goodblock.client.model.boss.ModelLatexIceFieldWolfDragonBoss;
 import net.hhdsj.goodblock.client.model.boss.ModelLatexNightOwl;
 import net.hhdsj.goodblock.client.model.boss.ModelLatexNightOwlBoss;
@@ -16,10 +17,15 @@ import net.hhdsj.goodblock.client.model.latex_pup.Modelwhitebluepup;
 import net.hhdsj.goodblock.client.model.latex_shark.ModelLatexKcahraShark;
 import net.hhdsj.goodblock.client.model.latex_taur.ModelLatexDarkPurpleDragonTaur;
 import net.hhdsj.goodblock.client.model.latex_wolf.*;
+import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorModelSet;
+import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorNoTailModel;
+import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorNoneModel;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.api.distmarker.Dist;
+
+import java.util.Objects;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = {Dist.CLIENT})
 public class GoodblockModModels {
@@ -50,5 +56,7 @@ public class GoodblockModModels {
 		event.registerLayerDefinition(ModelLatexIceFieldWolfDragonBoss.LAYER_LOCATION, ModelLatexIceFieldWolfDragonBoss::createBodyLayer);
 		event.registerLayerDefinition(ModelLuoHongEarlySpringFoxDragon.LAYER_LOCATION, ModelLuoHongEarlySpringFoxDragon::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexFruitDragonWolf.LAYER_LOCATION, ModelLatexFruitDragonWolf::createBodyLayer);
+		event.registerLayerDefinition(ModelNeondimnessWolf.LAYER_LOCATION, ModelNeondimnessWolf::createBodyLayer);
+		ArmorLatexMaleWolfWingedDragonModel.MODEL_SET.registerDefinitions(event::registerLayerDefinition);
 	}
 }

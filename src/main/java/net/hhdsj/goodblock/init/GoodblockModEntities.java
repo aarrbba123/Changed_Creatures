@@ -8,6 +8,7 @@ import net.hhdsj.goodblock.entity.boss.*;
 import net.hhdsj.goodblock.entity.simple.LatexFruitDragonEntity;
 import net.hhdsj.goodblock.entity.simple.LatexIqGoldDragonEntity;
 import net.hhdsj.goodblock.entity.simple.LatexLuoHongEarlySpringFoxDragonEntity;
+import net.hhdsj.goodblock.entity.simple.LatexNeondimnessWolfEntity;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.registries.RegistryObject;
@@ -87,7 +88,7 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<LatexIceFieldWolfDragonEntity>> LATEX_ICE_FIELD_WOLF_DRAGON;
     public static final RegistryObject<EntityType<LatexDragonFruitWolfEntity>> LATEXDRAGONFRUITWOLF;
     public static final RegistryObject<EntityType<LatexFruitDragonEntity>> LATEXFRUITDRAGONWOLF;
-
+    public static final RegistryObject<EntityType<LatexNeondimnessWolfEntity>> LATEXNEONDIMNESSWOLF;
     // 幼崽变体
     public static final RegistryObject<EntityType<BlackpupmaleEntity>> BLACKPUPMALE;
     public static final RegistryObject<EntityType<WhitebluepupEntity>> WHITEBLUEPUP;
@@ -141,15 +142,25 @@ public class GoodblockModEntities {
                         .sized(0.7f, 1.93f),
                 LatexRadiationFoxEntity::createLatexAttributes);
 
+        LATEXNEONDIMNESSWOLF = registerSpawning("latex_neondimness_wolf", 0x7CFC00, 0x32CD32,
+                EntityType.Builder.<LatexNeondimnessWolfEntity>of(LatexNeondimnessWolfEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .setCustomClientFactory(LatexNeondimnessWolfEntity::new)
+                        .sized(0.7f, 1.93f),
+                LatexNeondimnessWolfEntity::createLatexAttributes);
+
         // 鲨鱼变体
-        LATEX_KCAHRA_SHARK = registerSpawning("latex_kcahra_shark", 0x2E8B57, 0x228B22,
+        LATEX_KCAHRA_SHARK = registerAquaticSpawning("latex_kcahra_shark", 0x2E8B57, 0x228B22,
                 EntityType.Builder.<LatexKcahraSharkEntity>of(LatexKcahraSharkEntity::new, MobCategory.WATER_CREATURE)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
                         .setUpdateInterval(3)
                         .setCustomClientFactory(LatexKcahraSharkEntity::new)
                         .sized(0.6f, 1.8f),
-                LatexKcahraSharkEntity::createLatexAttributes);
+                        LatexKcahraSharkEntity::createLatexAttributes,
+                2);
 
         // 狼变体
         DARKFU_LATEX_WOLF_MALE = registerSpawning("darkfu_latex_wolf_male", 0x4A4A4A, 0x2D2D2D,
@@ -424,6 +435,58 @@ public class GoodblockModEntities {
                 }
             });
         }
+    }
+
+    private static <T extends ChangedEntity> RegistryObject<EntityType<T>> registerAquaticSpawning(
+            String name,
+            int eggBack,
+            int eggHighlight,
+            EntityType.Builder<T> builder,
+            Supplier<AttributeSupplier.Builder> attributes,
+            int requiredWaterHeight) {
+
+        ResourceLocation resourceLocation = new ResourceLocation(GoodblockMod.MODID, name);
+        ENTITY_COLOR_MAP.put(resourceLocation, new Pair<>(eggBack, eggHighlight));
+
+        String regName = resourceLocation.toString();
+        RegistryObject<EntityType<T>> entityType = REGISTRY.register(name, () -> builder.build(regName));
+
+        // 存储属性构建器
+        ATTR_FUNC_REGISTRY.add(new Pair<>(entityType::get, attributes));
+
+        // 创建刷怪蛋
+        RegistryObject<ForgeSpawnEggItem> spawnEggItem = ITEMS.register(name + "_spawn_egg",
+                () -> new ForgeSpawnEggItem(entityType, eggBack, eggHighlight, new Item.Properties()));
+        SPAWN_EGGS.put(entityType, spawnEggItem);
+
+        INIT_FUNC_REGISTRY.add(() -> {
+            SpawnPlacements.register(entityType.get(),
+                    SpawnPlacements.Type.IN_WATER,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    (entityType1, level, spawnType, pos, random) -> {
+                        // 检查是否为自然生成
+                        if (spawnType != net.minecraft.world.entity.MobSpawnType.NATURAL) {
+                            return true;
+                        }
+
+                        for (int i = 0; i < requiredWaterHeight; i++) {
+                            if (!level.isWaterAt(pos.above(i))) {
+                                return false;
+                            }
+                        }
+                        // 检查水面上的空间
+                        if (!level.getBlockState(pos.above(requiredWaterHeight)).isAir()) {
+                            return false;
+                        }
+                        // 检查底部是否有固体方块
+                        if (!level.getBlockState(pos.below()).isSolid()) {
+                            return false;
+                        }
+                        return true;
+                    });
+        });
+
+        return entityType;
     }
 
     /**

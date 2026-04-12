@@ -9,5 +9,7 @@
   "result": {
     "item": "minecraft:netherite_chestplate"
   },
-  smithing
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  }
 }

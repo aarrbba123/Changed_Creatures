@@ -4,10 +4,13 @@ import net.hhdsj.goodblock.entity.LatexthreemonthwolfEntityProjectile;
 import net.ltxprogrammer.changed.entity.variant.TransfurVariantInstance;
 import net.ltxprogrammer.changed.process.ProcessTransfur;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ArrowItem;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -21,9 +24,11 @@ import java.util.Objects;
 @Mod.EventBusSubscriber
 public class ArrowReplacementHandler {
 
+    private static final float BASE_ARROW_DAMAGE = 2.0F;
+
     @SubscribeEvent
     public static void onArrowLoose(ArrowLooseEvent event) {
-        Player player = (Player) event.getEntity();
+        Player player = event.getEntity();
         TransfurVariantInstance<?> variant = ProcessTransfur.getPlayerTransfurVariant(player);
         ItemStack bow = event.getBow();
         int charge = event.getCharge();
@@ -31,26 +36,20 @@ public class ArrowReplacementHandler {
 
         // 只在服务端处理
         if (level.isClientSide) return;
-
         if (variant == null) return;
 
-        // 检查getFormId()返回是否为null
         ResourceLocation formId = variant.getFormId();
         if (formId == null) return;
 
-        if (!Objects.equals(formId, new ResourceLocation("goodblock", "form_latex_three_month_wolf"))) {
-            if (!Objects.equals(formId, new ResourceLocation("goodblock", "form_latex_ice_field_wolf_dragon"))) {
-                return;
-            }
-        }
+        // 检查是否是有效的形态
+        boolean isValidForm = Objects.equals(formId, new ResourceLocation("goodblock", "form_latex_three_month_wolf")) ||
+                Objects.equals(formId, new ResourceLocation("goodblock", "form_latex_ice_field_wolf_dragon"));
+        if (!isValidForm) return;
 
-        // 检查是否使用弓
         if (!(bow.getItem() instanceof BowItem)) return;
 
-        // 获取玩家使用的箭矢
         ItemStack arrowStack = player.getProjectile(bow);
         if (arrowStack.isEmpty() || !(arrowStack.getItem() instanceof ArrowItem)) {
-            // 尝试从栏位获取
             if (player.getAbilities().instabuild) {
                 arrowStack = new ItemStack(Items.ARROW);
             } else {
@@ -76,24 +75,60 @@ public class ArrowReplacementHandler {
             customArrow.setFormVariant(new ResourceLocation("goodblock", "form_latex_ice_field_wolf_dragon"));
         }
 
-
         // 设置箭矢属性
         customArrow.shootFromRotation(player, player.getXRot(), player.getYRot(),
                 0.0F, velocity * 3.0F, 1.0F);
 
+        float damage = BASE_ARROW_DAMAGE;
+
+        int powerLevel = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.POWER_ARROWS, bow);
+        if (powerLevel > 0) {
+            damage += damage * (powerLevel * 0.25F);
+        }
+
+        int punchLevel = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.PUNCH_ARROWS, bow);
+        if (punchLevel > 0) {
+            customArrow.setKnockback(punchLevel);
+        }
+
+        boolean isFlame = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.FLAMING_ARROWS, bow) > 0;
+
+        int pierceLevel = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.PIERCING, bow);
+        if (pierceLevel > 0) {
+            customArrow.setPierceLevel((byte) pierceLevel);
+        }
+
         // 设置伤害
-        customArrow.setBaseDamage(customArrow.getBaseDamage() * 0.6);
+        customArrow.setProjectileDamage(damage);
+        customArrow.setBaseDamage(damage);
+
+        // 设置火矢效果
+        if (isFlame) {
+            customArrow.setSecondsOnFire(100);
+        }
+
+        // 可选：设置箭矢为可拾取
+        customArrow.pickup = AbstractArrow.Pickup.ALLOWED;
+
+        // 调试日志
+        if (!level.isClientSide) {
+            level.getServer().sendSystemMessage(
+                    net.minecraft.network.chat.Component.literal(
+                            String.format("Arrow damage: %.1f (Power %d, Punch %d, Flame %s, Pierce %d)",
+                                    damage, powerLevel, punchLevel, isFlame, pierceLevel)
+                    )
+            );
+        }
 
         // 播放射箭音效
         level.playSound(null, player.getX(), player.getY(), player.getZ(),
                 SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS,
                 1.0F, 1.0F / (level.random.nextFloat() * 0.4F + 1.2F) + velocity * 0.5F);
 
-        // 消耗耐久(其实没用)
+        // 消耗耐久和箭矢
         if (!player.getAbilities().instabuild) {
             bow.hurtAndBreak(1, player, (p) -> p.broadcastBreakEvent(player.getUsedItemHand()));
 
-            // 消耗箭矢
             if (!arrowStack.isEmpty()) {
                 arrowStack.shrink(1);
                 if (arrowStack.isEmpty()) {
@@ -107,11 +142,8 @@ public class ArrowReplacementHandler {
     }
 
     private static float getArrowVelocity(int charge) {
-        float f = (float)charge / 20.0F;
+        float f = (float) charge / 20.0F;
         f = (f * f + f * 2.0F) / 3.0F;
-        if (f > 1.0F) {
-            f = 1.0F;
-        }
-        return f;
+        return Math.min(f, 1.0F);
     }
 }

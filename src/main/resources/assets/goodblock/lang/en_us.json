@@ -92,7 +92,9 @@
   "entity.goodblock.latexthreemonthwolf": "Three Month Latex Wolf",
   "entity.goodblock.latexyunxqhotdragon": "Yun XQ Hot Latex Dragon",
   "entity.goodblock.latexyunxqicedragon": "Yun XQ Ice Latex Dragon",
+  "entity.goodblock.latex_neondimness_wolf": "Latex Neondimness Wolf",
   "entity.goodblock.whitebluepup": "White Blue Pup",
+  "entity.goodblock.latex_cheng_xi_fox": "Latex Cheng Xi Fox",
   "entity.goodblock.latex_luo_hong_early_spring_fox_dragon": "Latex LuoHong Early Spring Fox Dragon",
   "fluid.goodblock.fluidhottest": "test item",
   "gamerule.initiateAchievements": "Good Block Achievements",
@@ -147,6 +149,9 @@
   "item.goodblock.latex_dragon_fruit_wolf_spawn_egg.desc": "Latex Dragon Fruit Wolf",
   "item.goodblock.latex_fruit_dragon_wolf_spawn_egg": "Latex Dragon Fruit Wolf Spawn Egg",
   "item.goodblock.latex_fruit_dragon_wolf_spawn_egg.desc": "Latex Dragon Fruit Wolf",
+  "item.goodblock.latex_neondimness_wolf_spawn_egg": "Latex Neondimness Wolf Spawn Egg",
+  "item.goodblock.latex_neondimness_wolf_spawn_egg.desc": "Latex Neondimness Wolf",
+  "item.goodblock.latex_cheng_xi_fox_spawn_egg": "Latex Cheng Xi Fox Spawn Egg",
   "item.goodblock.blackpupmale_spawn_egg": "Black Male Pup Spawn Egg",
   "item.goodblock.blackpupmale_spawn_egg.desc": "Black Male Pup",
   "item.goodblock.whitebluepup_spawn_egg": "White Blue Pup Spawn Egg",
@@ -207,5 +212,10 @@
   "subtitles.srening_ogg1": "Music",
   "subtitles.the_fluffy_heartbeat_in_the_cubicle": "Play The Fluffy Heartbeat in the Cubicle Music",
   "subtitles.the_fluffy_heartbeatinthe_cubiclemusic": "The Fluffy Heartbeat in the Cubicle Music",
-  "enchantment.goodblock.three_month_latex":"Latex Bound"
+  "enchantment.goodblock.three_month_latex":"Latex Bound",
+  "gui.goodblock.guihotpa.label_test_gui": "Test gui",
+  "item.goodblock.latex_kamona_hsguy_dragon_wolf_spawn_egg": "Latex Ice Field Wolf Dragon Spawn egg",
+  "item.goodblock.latex_nighe_owl_spawn_egg": "Latex Nighe Owl Spawn Egg",
+  "item.goodblock.latex_yun_qi_dragon_spawn_egg": "Latex Yun Qi Dragon Spawn Egg",
+  "item.goodblock.latexice_dragon_spawn_egg": "Latex Ice Dragon Spawn Egg"
 }

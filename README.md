@@ -1,8 +1,33 @@
-# good_blocks Mc 1.18.2 FORGE Mod
-These are some of my ideas. This mod is my server addon mod. please report the errors you find.
+# good_blocks - Minecraft 1.18.2 Forge Mod
 
-#Attention Content:
-1.The content model of this mod is prohibited from being redistributed (it can be used individually for personal use, but not for commercial purposes!)
-2.If you need to use the Latex textures from this mod, you need to communicate with the original author.
-3.You can compile this mod and distribute it twice, but you cannot (please see content 1)
+This mod is a server addon mod.
+---
 
+## Terms of Use
+
+### 1. Model Resources
+- Redistribution (including modified versions) is strictly prohibited
+- Personal use is permitted
+- Server use is permitted
+- Commercial use is strictly prohibited
+
+### 2. Latex Textures
+- Copyright remains with the original author
+- You must obtain permission from the original author before using these textures
+
+### 3. Compilation and Redistribution of the Mod
+- You are permitted to compile this mod
+- You are permitted to redistribute the compiled mod as a whole
+- You are NOT permitted to extract and redistribute the models/textures separately
+
+---
+
+## Disclaimer
+
+This mod is provided "as is". The author assumes no responsibility for any damages or losses arising from the use of this mod.
+
+---
+
+## Contact
+
+For questions or permission requests, please contact the author.

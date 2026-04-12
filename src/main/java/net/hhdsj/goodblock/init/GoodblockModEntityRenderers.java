@@ -53,5 +53,6 @@ public class GoodblockModEntityRenderers {
 		event.registerEntityRenderer(GoodblockModEntities.LATEXLUOHONGEARLYSPRINGFOXDRAGON.get(), LatexLuoHongEarlySpringFoxDragonRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEXFRUITDRAGONWOLF.get(), LatexFruitDragonRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEXNEONDIMNESSWOLF.get(), LatexNeondimnessWolfRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.LATEX_CHENG_XI.get(), LatexChengXiRenderer::new);
 	}
 }

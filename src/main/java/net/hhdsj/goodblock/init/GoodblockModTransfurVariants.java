@@ -277,7 +277,6 @@ public class GoodblockModTransfurVariants {
 					.addAbility(ChangedAddonAbilities.CARRY)
 					.addAbility(ChangedAbilities.GRAB_ENTITY_ABILITY)
 					.addAbility(ChangedAddonAbilities.DODGE)
-					.addAbility(ChangedAddonAbilities.TURN_FERAL_SNEP)
 					.addAbility(ChangedAddonAbilities.CUSTOM_INTERACTION)
 					.build());
 	//

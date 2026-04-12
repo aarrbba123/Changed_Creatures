@@ -103,42 +103,54 @@ public class LatexthreemonthwolfEntityProjectile extends AbstractArrow {
                 0.0D, 0.0D, 0.0D);
         }
     }
-    
+
     @Override
     protected void onHitEntity(EntityHitResult result) {
         Entity target = result.getEntity();
-        
+
         if (!this.level().isClientSide && target instanceof LivingEntity livingTarget) {
             if (target == this.getOwner()) {
                 return;
             }
-            
+
             // 格挡检查
-            if (this.isParryable() && livingTarget.isBlocking() && 
-                livingTarget.hasLineOfSight(this)) {
+            if (this.isParryable() && livingTarget.isBlocking() &&
+                    livingTarget.hasLineOfSight(this)) {
                 this.handleParry(livingTarget);
                 return;
             }
-            
-            // 伤害
-            DamageSource source = this.damageSources().indirectMagic(this, (LivingEntity) this.getOwner());
-            
-            if (livingTarget.hurt(source, this.getProjectileDamage())) {
+
+            // 使用正确的伤害类型
+            DamageSource source;
+            if (this.getOwner() instanceof LivingEntity owner) {
+                source = this.damageSources().arrow(this, owner);
+            } else {
+                source = this.damageSources().arrow(this, null);
+            }
+
+            // 获取伤害（已包含力量附魔加成）
+            float damage = this.getProjectileDamage();
+
+            // 应用伤害
+            if (livingTarget.hurt(source, damage)) {
                 // 应用转化效果
                 this.applyTransfurEffect(livingTarget);
-                
+
                 // 音效
-                this.playSound(SoundEvents.ARROW_HIT, 1.0F, 1.2F / (this.random.nextFloat() * 0.2F + 0.9F));
-                
-                // 设置箭矢为"射中实体"状态
-                this.setPierceLevel((byte)0);
-                this.setSoundEvent(SoundEvents.ARROW_HIT);
-                
+                this.playSound(SoundEvents.ARROW_HIT, 1.0F, 1.2F);
+
+                // 如果箭矢有击退效果，应用到目标
+                if (this.getKnockback() > 0) {
+                    Vec3 knockbackVec = this.getDeltaMovement().normalize().scale(this.getKnockback() * 0.6);
+                    livingTarget.setDeltaMovement(livingTarget.getDeltaMovement().add(knockbackVec));
+                    livingTarget.hurtMarked = true;
+                }
+
                 if (this.getPierceLevel() <= 0) {
                     this.discard();
                 }
             } else {
-                // 如果未造成伤害，反弹
+                // 反弹逻辑
                 this.setDeltaMovement(this.getDeltaMovement().scale(-0.1D));
                 this.setYRot(this.getYRot() + 180.0F);
                 this.yRotO += 180.0F;

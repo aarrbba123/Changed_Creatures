@@ -5,10 +5,7 @@ package net.hhdsj.goodblock.init;
 
 import net.hhdsj.goodblock.entity.*;
 import net.hhdsj.goodblock.entity.boss.*;
-import net.hhdsj.goodblock.entity.simple.LatexFruitDragonEntity;
-import net.hhdsj.goodblock.entity.simple.LatexIqGoldDragonEntity;
-import net.hhdsj.goodblock.entity.simple.LatexLuoHongEarlySpringFoxDragonEntity;
-import net.hhdsj.goodblock.entity.simple.LatexNeondimnessWolfEntity;
+import net.hhdsj.goodblock.entity.simple.*;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.registries.RegistryObject;
@@ -89,6 +86,8 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<LatexDragonFruitWolfEntity>> LATEXDRAGONFRUITWOLF;
     public static final RegistryObject<EntityType<LatexFruitDragonEntity>> LATEXFRUITDRAGONWOLF;
     public static final RegistryObject<EntityType<LatexNeondimnessWolfEntity>> LATEXNEONDIMNESSWOLF;
+    public static final RegistryObject<EntityType<LatexChengXiEntity>> LATEX_CHENG_XI;
+
     // 幼崽变体
     public static final RegistryObject<EntityType<BlackpupmaleEntity>> BLACKPUPMALE;
     public static final RegistryObject<EntityType<WhitebluepupEntity>> WHITEBLUEPUP;
@@ -114,6 +113,15 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<LatexthreemonthwolfEntityProjectile>> LATEXTHREEMONTHWOLF_PROJECTILE;
 
     static {
+
+        LATEX_CHENG_XI = registerSpawning("latex_cheng_xi_fox", 0xFDCD6E, 0xFEF19B,
+                EntityType.Builder.<LatexChengXiEntity>of(LatexChengXiEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .setCustomClientFactory(LatexChengXiEntity::new)
+                        .sized(0.6f, 1.95f),
+                LatexChengXiEntity::createLatexAttributes);  // 使用父类默认属性
         // 狐狸变体 - 使用注册方法
         LATEX_ORANGE_FOX = registerSpawning("latex_orange_fox", 0xFF8C42, 0xFF5500,
                 EntityType.Builder.<LatexOrangeFoxEntity>of(LatexOrangeFoxEntity::new, MobCategory.MONSTER)
@@ -142,7 +150,7 @@ public class GoodblockModEntities {
                         .sized(0.7f, 1.93f),
                 LatexRadiationFoxEntity::createLatexAttributes);
 
-        LATEXNEONDIMNESSWOLF = registerSpawning("latex_neondimness_wolf", 0x7CFC00, 0x32CD32,
+        LATEXNEONDIMNESSWOLF = registerSpawning("latex_neondimness_wolf", 0x333333, 0x444444,
                 EntityType.Builder.<LatexNeondimnessWolfEntity>of(LatexNeondimnessWolfEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -351,6 +359,8 @@ public class GoodblockModEntities {
                         .setCustomClientFactory(LatexIqGoldDragonEntity::new)
                         .sized(0.7f, 1.92f),
                 LatexIqGoldDragonEntity::createLatexAttributes);
+
+
 
         // 其他变体
         INKSUGER = registerSpawning("inksuger", 0x000000, 0x333333,

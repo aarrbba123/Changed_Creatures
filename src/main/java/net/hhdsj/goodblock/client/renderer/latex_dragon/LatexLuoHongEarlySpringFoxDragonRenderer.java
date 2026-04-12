@@ -21,7 +21,7 @@ import net.hhdsj.goodblock.client.armor.ArmorLatexMaleWolfWingedDragonModel;
 public class LatexLuoHongEarlySpringFoxDragonRenderer extends AdvancedHumanoidRenderer<LatexLuoHongEarlySpringFoxDragonEntity, ModelLuoHongEarlySpringFoxDragon> {
     public LatexLuoHongEarlySpringFoxDragonRenderer(EntityRendererProvider.Context context) {
         super(context, new ModelLuoHongEarlySpringFoxDragon(context.bakeLayer(ModelLuoHongEarlySpringFoxDragon.LAYER_LOCATION)),
-                ArmorLatexMaleWingedDragonModel.MODEL_SET,
+                ArmorLatexMaleWolfModel.MODEL_SET,
                 0.5f);
         this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()));
         this.addLayer(new CustomEyesLayer<>(this, context.getModelSet(), CustomEyesLayer::scleraColor, CustomEyesLayer::glowingIrisColorLeft, CustomEyesLayer::glowingIrisColorRight, CustomEyesLayer::noRender, CustomEyesLayer::noRender));

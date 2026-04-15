@@ -1,4 +1,4 @@
-# good_blocks - Minecraft 1.18.2 Forge Mod
+# good_blocks - Minecraft 1.20.1 Forge Mod
 
 This mod is a server addon mod.
 ---

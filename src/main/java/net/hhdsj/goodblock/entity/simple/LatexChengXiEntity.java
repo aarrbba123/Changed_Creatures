@@ -84,21 +84,12 @@ public class LatexChengXiEntity extends ChangedEntity {
         return MobType.UNDEFINED;
     }
 
-    @Override
-    public SoundEvent getHurtSound(DamageSource ds) {
-        return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.generic.hurt"));
-    }
-
-    @Override
-    public SoundEvent getDeathSound() {
-        return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.generic.death"));
-    }
-
+    /*
     protected void dropCustomDeathLoot(DamageSource source, int looting, boolean recentlyHitIn) {
         super.dropCustomDeathLoot(source, looting, recentlyHitIn);
-        int count = this.random.nextInt(5) + 1;
-        this.spawnAtLocation(new ItemStack(Items.GOLD_INGOT, count));
-    }
+        //int count = this.random.nextInt(5) + 1;
+        //this.spawnAtLocation(new ItemStack(Items.GOLD_INGOT, count));
+    }*/
 
     public static void init() {
         SpawnPlacements.register(GoodblockModEntities.LATEX_CHENG_XI.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,

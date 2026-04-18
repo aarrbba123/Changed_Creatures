@@ -7,37 +7,38 @@ import net.hhdsj.goodblock.init.GoodblockModTransfurVariants;
 import net.ltxprogrammer.changed.entity.TransfurCause;
 import net.ltxprogrammer.changed.entity.TransfurContext;
 import net.ltxprogrammer.changed.entity.variant.TransfurVariant;
+import net.ltxprogrammer.changed.init.ChangedRegistry;
 import net.ltxprogrammer.changed.process.ProcessTransfur;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
+import net.minecraft.core.Holder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.RegistryManager;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
-@Mod.EventBusSubscriber
+@Mod.EventBusSubscriber(modid = "goodblock")
 public class PlayerDeathHandler {
 
     private static final Random RANDOM = new Random();
 
     @SubscribeEvent
     public static void onLivingDeath(LivingDeathEvent event) {
-        if (event.getEntity() instanceof Player player && !player.level().isClientSide) {
-            if (ProcessTransfur.getPlayerTransfurVariant(player) != null) return;
+        if (!(event.getEntity() instanceof Player player)) return;
+        if (player.level().isClientSide) return;
+        if (ProcessTransfur.getPlayerTransfurVariant(player) != null) return;
+        if (!player.hasEffect(GoodblockModMobEffects.SLOWINFECTION.get())) return;
 
-            if (player.hasEffect(GoodblockModMobEffects.SLOWINFECTION.get())) {
-                handleSlowInfectionDeathRandom(player, event);
-            }
-        }
+        handleSlowInfectionDeath(player, event);
     }
 
-    private static void handleSlowInfectionDeathRandom(Player player, LivingDeathEvent event) {
+    private static void handleSlowInfectionDeath(Player player, LivingDeathEvent event) {
         TransfurVariant<?> selectedVariant = getRandomVariantFromTag();
 
         if (selectedVariant == null) {
+            GoodblockMod.LOGGER.warn("No variants found in tag, using default");
             selectedVariant = GoodblockModTransfurVariants.LATEXDARKPURPLEDRAGON.get();
         }
 
@@ -45,7 +46,7 @@ public class PlayerDeathHandler {
                 player,
                 selectedVariant,
                 TransfurContext.hazard(TransfurCause.GRAB_REPLICATE),
-                1f
+                1.0f
         );
 
         event.setCanceled(true);
@@ -55,28 +56,24 @@ public class PlayerDeathHandler {
 
     private static TransfurVariant<?> getRandomVariantFromTag() {
         try {
-            // 获取 Forge 注册表
-            var registry = RegistryManager.ACTIVE.getRegistry(
-                    new ResourceLocation("changed", "transfur_variant")
-            );
+            var registry = ChangedRegistry.TRANSFUR_VARIANT.get();
+            if (registry == null) return null;
 
-            if (registry != null) {
-                @SuppressWarnings("unchecked")
-                TagKey<Object> objectTagKey = (TagKey<Object>) (Object) GoodblockModTags.SLOW_INFECTION_VARIANTS;
+            // 直接获取所有注册的变体，然后筛选
+            var allVariants = registry.getValues().stream()
+                    .filter(variant -> variant.is(GoodblockModTags.SLOW_INFECTION_VARIANTS))
+                    .toList();
 
-                var tag = registry.tags().getTag(objectTagKey);
-
-                if (!tag.isEmpty()) {
-                    var list = tag.stream().toList();
-                    if (!list.isEmpty()) {
-                        return (TransfurVariant<?>) list.get(RANDOM.nextInt(list.size()));
-                    }
-                }
+            if (allVariants.isEmpty()) {
+                GoodblockMod.LOGGER.warn("Tag {} is empty", GoodblockModTags.SLOW_INFECTION_VARIANTS.location());
+                return null;
             }
-        } catch (Exception e) {
-            GoodblockMod.LOGGER.error("Error reading tag: {}", GoodblockModTags.SLOW_INFECTION_VARIANTS.location(), e);
-        }
 
-        return null;
+            return allVariants.get(RANDOM.nextInt(allVariants.size()));
+
+        } catch (Exception e) {
+            GoodblockMod.LOGGER.error("Failed to get random variant from tag", e);
+            return null;
+        }
     }
 }

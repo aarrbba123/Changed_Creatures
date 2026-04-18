@@ -1,6 +1,7 @@
 package net.hhdsj.goodblock.init;
 
 import net.ltxprogrammer.changed.entity.variant.TransfurVariant;
+import net.ltxprogrammer.changed.init.ChangedRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -14,10 +15,9 @@ public class GoodblockModTags {
     public static final ResourceLocation TRANSFUR_VARIANT_REGISTRY_NAME =
             new ResourceLocation("changed", "transfur_variant");
 
-    // 创建标签
     public static final TagKey<TransfurVariant<?>> SLOW_INFECTION_VARIANTS =
             TagKey.create(
-                    ResourceKey.createRegistryKey(TRANSFUR_VARIANT_REGISTRY_NAME),
+                    ChangedRegistry.TRANSFUR_VARIANT.get().getRegistryKey(),
                     new ResourceLocation("goodblock", "slow_infection_variants")
             );
 

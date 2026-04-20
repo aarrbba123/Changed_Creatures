@@ -1,13 +1,17 @@
 package net.hhdsj.goodblock.item;
 
+import net.hhdsj.goodblock.client.models.armor.GoodBlockModelMaleWingedDragonArmor;
+import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorModel;
+import net.ltxprogrammer.changed.entity.ChangedEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.*;
+import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.sounds.SoundEvent;
@@ -15,117 +19,202 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.*;
+import java.util.function.Consumer;
+
 public abstract class PainiteArmorItem extends ArmorItem {
-	public PainiteArmorItem(ArmorItem.Type type, Item.Properties properties) {
-		super(new ArmorMaterial() {
-			@Override
-			public int getDurabilityForType(ArmorItem.@NotNull Type type) {
-				// 使用明确的类型判断
-                return switch (type) {
-                    case HELMET -> 13 * 45;  // 头盔耐久
-                    case CHESTPLATE -> 15 * 45;  // 胸甲耐久
-                    case LEGGINGS -> 16 * 45;  // 护腿耐久
-                    case BOOTS -> 11 * 45;  // 靴子耐久
-                    default -> 0;
-                };
-			}
 
-			@Override
-			public int getDefenseForType(ArmorItem.@NotNull Type type) {
-				// 使用明确的类型判断
-                return switch (type) {
-                    case HELMET -> 3;  // 头盔防御
-                    case CHESTPLATE -> 6;  // 胸甲防御
-                    case LEGGINGS -> 8;  // 护腿防御
-                    case BOOTS -> 3;  // 靴子防御
-                    default -> 0;
-                };
-			}
+    // ==================== 材质定义 ====================
+    private static final ArmorMaterial PAINITE_MATERIAL = new ArmorMaterial() {
+        @Override public int getDurabilityForType(ArmorItem.@NotNull Type type) {
+            return switch (type) {
+                case HELMET -> 13 * 45;
+                case CHESTPLATE -> 15 * 45;
+                case LEGGINGS -> 16 * 45;
+                case BOOTS -> 11 * 45;
+                default -> 0;
+            };
+        }
+        @Override public int getDefenseForType(ArmorItem.@NotNull Type type) {
+            return switch (type) {
+                case HELMET -> 3;
+                case CHESTPLATE -> 6;
+                case LEGGINGS -> 8;
+                case BOOTS -> 3;
+                default -> 0;
+            };
+        }
+        @Override public int getEnchantmentValue() { return 50; }
+        @Override public @NotNull SoundEvent getEquipSound() {
+            SoundEvent sound = ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("goodblock:item.armor.equip_netherite"));
+            return sound != null ? sound : SoundEvents.ARMOR_EQUIP_NETHERITE;
+        }
+        @Override public @NotNull Ingredient getRepairIngredient() { return Ingredient.of(Items.NETHERITE_INGOT); }
+        @Override public @NotNull String getName() { return "painite_armor"; }
+        @Override public float getToughness() { return 3f; }
+        @Override public float getKnockbackResistance() { return 0.1f; }
+    };
 
-			@Override
-			public int getEnchantmentValue() {
-				return 50;
-			}
+    public PainiteArmorItem(ArmorItem.Type type, Item.Properties properties) {
+        super(PAINITE_MATERIAL, type, properties);
+    }
 
-			@Override
-			public @NotNull SoundEvent getEquipSound() {
-				// 添加安全处理
-				SoundEvent sound = ForgeRegistries.SOUND_EVENTS.getValue(
-						new ResourceLocation("goodblock:item.armor.equip_netherite")
-				);
-				return sound != null ? sound : SoundEvents.ARMOR_EQUIP_NETHERITE;
-			}
+    @Override public @NotNull EquipmentSlot getEquipmentSlot() { return this.type.getSlot(); }
 
-			@Override
-			public @NotNull Ingredient getRepairIngredient() {
-				return Ingredient.of(new ItemStack(Items.NETHERITE_INGOT));
-			}
+    // ==================== 模型缓存与动画 ====================
+    private static GoodBlockModelMaleWingedDragonArmor<ChangedEntity> cachedModel;
+    private static final ModelPart EMPTY_PART = new ModelPart(Collections.emptyList(), Collections.emptyMap());
 
-			@Override
-			public @NotNull String getName() {
-				return "painite_armor";
-			}
+    private static GoodBlockModelMaleWingedDragonArmor<ChangedEntity> getModel() {
+        if (cachedModel == null) {
+            cachedModel = new GoodBlockModelMaleWingedDragonArmor<>(
+                    Minecraft.getInstance().getEntityModels().bakeLayer(GoodBlockModelMaleWingedDragonArmor.LAYER_LOCATION),
+                    ArmorModel.ARMOR_OUTER
+            );
+        }
+        return cachedModel;
+    }
 
-			@Override
-			public float getToughness() {
-				return 3f;
-			}
+    private static void animate(LivingEntity entity) {
+        if (entity instanceof ChangedEntity changed) {
+            var model = getModel();
+            float age = entity.tickCount + Minecraft.getInstance().getFrameTime();
+            float limbSwing = entity.walkAnimation.position();
+            float limbSwingAmount = Math.min(entity.walkAnimation.speed(), 1.3F);
 
-			@Override
-			public float getKnockbackResistance() {
-				return 0.1f;
-			}
-		}, type, properties);
-	}
+            model.getAnimator(changed).setupAnim(changed,
+                    limbSwing,
+                    limbSwingAmount,
+                    age,
+                    entity.yHeadRot,
+                    entity.getXRot()
+            );
+        }
+    }
 
-	// 确保getEquipmentSlot方法正确返回槽位
-	@Override
-	public @NotNull EquipmentSlot getEquipmentSlot() {
-		// 根据ArmorItem.Type返回正确的EquipmentSlot
-		return this.type.getSlot();
-	}
+    // ==================== 盔甲模型构建器 ====================
+    private static HumanoidModel<?> buildModel(LivingEntity entity, HumanoidModel<?> original, Map<String, ModelPart> parts) {
+        animate(entity);
+        var model = new HumanoidModel<>(new ModelPart(Collections.emptyList(), parts));
+        model.crouching = entity.isShiftKeyDown();
+        model.riding = original.riding;
+        model.young = entity.isBaby();
+        return model;
+    }
 
-	public static class Helmet extends PainiteArmorItem {
-		public Helmet() {
-			super(ArmorItem.Type.HELMET, new Item.Properties().fireResistant().stacksTo(1));
-		}
+    private static Map<String, ModelPart> fullParts() {
+        Map<String, ModelPart> parts = new HashMap<>();
+        parts.put("head", EMPTY_PART);
+        parts.put("hat", EMPTY_PART);
+        parts.put("body", EMPTY_PART);
+        parts.put("right_arm", EMPTY_PART);
+        parts.put("left_arm", EMPTY_PART);
+        parts.put("right_leg", EMPTY_PART);
+        parts.put("left_leg", EMPTY_PART);
+        return parts;
+    }
 
-		@Override
-		public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-			return "goodblock:textures/models/armor/painite_layer_1.png";
-		}
-	}
+    // ==================== 头盔 ====================
+    public static class Helmet extends PainiteArmorItem {
+        public Helmet() { super(Type.HELMET, new Properties().fireResistant().stacksTo(1)); }
+        @Override public String getArmorTexture(ItemStack s, Entity e, EquipmentSlot slot, String t) {
+            return "goodblock:textures/models/armor/painite_male_winged_dragon_armor_1.png";
+        }
+        @Override public void initializeClient(Consumer<IClientItemExtensions> c) {
+            c.accept(new IClientItemExtensions() {
+                @Override public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity e, ItemStack s, EquipmentSlot slot, HumanoidModel<?> o) {
+                    var parts = fullParts();
+                    parts.put("head", getModel().Head);
+                    return buildModel(e, o, parts);
+                }
+            });
+        }
+    }
 
-	public static class Chestplate extends PainiteArmorItem {
-		public Chestplate() {
-			super(ArmorItem.Type.CHESTPLATE, new Item.Properties().fireResistant().stacksTo(1));
-		}
+    // ==================== 胸甲 ====================
+    public static class Chestplate extends PainiteArmorItem {
+        public Chestplate() { super(Type.CHESTPLATE, new Properties().fireResistant().stacksTo(1)); }
+        @Override public String getArmorTexture(ItemStack s, Entity e, EquipmentSlot slot, String t) {
+            return "goodblock:textures/models/armor/painite_male_winged_dragon_armor_1.png";
+        }
+        @Override public void initializeClient(Consumer<IClientItemExtensions> c) {
+            c.accept(new IClientItemExtensions() {
+                @Override public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity e, ItemStack s, EquipmentSlot slot, HumanoidModel<?> o) {
+                    var parts = fullParts();
+                    var m = getModel();
 
-		@Override
-		public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-			return "goodblock:textures/models/armor/painite_layer_1.png";
-		}
-	}
+                    m.Tail.visible = false;
+                    parts.put("body", m.Torso);
+                    parts.put("right_arm", m.RightArm);
+                    parts.put("left_arm", m.LeftArm);
+                    return buildModel(e, o, parts);
+                }
+            });
+        }
+    }
 
-	public static class Leggings extends PainiteArmorItem {
-		public Leggings() {
-			super(ArmorItem.Type.LEGGINGS, new Item.Properties().fireResistant().stacksTo(1));
-		}
+    // ==================== 护腿 ====================
+    public static class Leggings extends PainiteArmorItem {
+        public Leggings() { super(Type.LEGGINGS, new Properties().fireResistant().stacksTo(1)); }
+        @Override public String getArmorTexture(ItemStack s, Entity e, EquipmentSlot slot, String t) {
+            return "goodblock:textures/models/armor/painite_male_winged_dragon_armor_1.png";
+        }
+        @Override public void initializeClient(Consumer<IClientItemExtensions> c) {
+            c.accept(new IClientItemExtensions() {
+                @Override public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity e, ItemStack s, EquipmentSlot slot, HumanoidModel<?> o) {
+                    var parts = fullParts();
+                    var m = getModel();
 
-		@Override
-		public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-			return "goodblock:textures/models/armor/painite_layer_2.png";
-		}
-	}
+                    // 隐藏脚部子部件，避免与靴子重叠
+                    m.RightLowerLeg.visible = true;
+                    m.RightFoot.visible = true;
+                    m.RightPad.visible = false;
+                    m.LeftLowerLeg.visible = true;
+                    m.LeftFoot.visible = true;
+                    m.LeftPad.visible = false;
 
-	public static class Boots extends PainiteArmorItem {
-		public Boots() {
-			super(ArmorItem.Type.BOOTS, new Item.Properties().fireResistant().stacksTo(1));
-		}
+                    parts.put("right_leg", m.RightLeg);
+                    parts.put("left_leg", m.LeftLeg);
 
-		@Override
-		public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-			return "goodblock:textures/models/armor/painite_layer_1.png";
-		}
-	}
+                    var model = buildModel(e, o, parts);
+                    model.rightLeg.visible = true;
+                    model.leftLeg.visible = true;
+                    return model;
+                }
+            });
+        }
+    }
+
+    // ==================== 靴子 ====================
+    public static class Boots extends PainiteArmorItem {
+        public Boots() { super(Type.BOOTS, new Properties().fireResistant().stacksTo(1)); }
+        @Override public String getArmorTexture(ItemStack s, Entity e, EquipmentSlot slot, String t) {
+            return "goodblock:textures/models/armor/painite_male_winged_dragon_armor_2.png";
+        }
+
+        @Override public void initializeClient(Consumer<IClientItemExtensions> c) {
+            c.accept(new IClientItemExtensions() {
+                @Override public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity e, ItemStack s, EquipmentSlot slot, HumanoidModel<?> o) {
+                    var parts = fullParts();
+                    var m = getModel();
+
+                    // 隐藏脚部子部件，避免与靴子重叠
+                    m.RightLowerLeg.visible = true;
+                    m.RightFoot.visible = true;
+                    m.RightPad.visible = true;
+                    m.LeftLowerLeg.visible = true;
+                    m.LeftFoot.visible = true;
+                    m.LeftPad.visible = true;
+
+                    parts.put("right_leg", m.RightLeg);
+                    parts.put("left_leg", m.LeftLeg);
+
+                    var model = buildModel(e, o, parts);
+                    model.rightLeg.visible = true;
+                    model.leftLeg.visible = true;
+                    return model;
+                }
+            });
+        }
+    }
 }

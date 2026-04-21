@@ -13,7 +13,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 1.0
+                "max": 2.0
               },
               "add": false
             },
@@ -22,11 +22,11 @@
               "count": {
                 "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 2.0
+                "max": 1.0
               }
             }
           ],
-          "name": "minecraft:magenta_dye"
+          "name": "changed:dark_latex_goo"
         }
       ]
     },
@@ -42,7 +42,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 2.0
+                "max": 1.0
               },
               "add": false
             },
@@ -55,7 +55,7 @@
               }
             }
           ],
-          "name": "changed:syringe"
+          "name": "changed:orange"
         }
       ]
     },
@@ -65,26 +65,26 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "name": "changed:dark_latex_mask",
           "functions": [
             {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 0.0,
-                "max": 2.0
-              },
-              "add": false
-            },
-            {
-              "function": "minecraft:looting_enchant",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 0.0,
-                "max": 1.0
-              }
+              "function": "changed:random_variant",
+              "variants": [
+                "changed:form_dark_latex_wolf/male",
+                "changed:form_dark_latex_wolf/female"
+              ]
             }
-          ],
-          "name": "minecraft:bone"
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
+        },
+        {
+          "condition": "minecraft:random_chance_with_looting",
+          "chance": 0.05,
+          "looting_multiplier": 0.02
         }
       ]
     }

@@ -31,54 +31,64 @@ import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class GoodblockModVariables {
+
 	public static double _Progress = 0;
 
+	// ========== 网络初始化 ==========
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {
-		GoodblockMod.addNetworkMessage(PlayerVariablesSyncMessage.class, PlayerVariablesSyncMessage::buffer, PlayerVariablesSyncMessage::new, PlayerVariablesSyncMessage::handler);
+		GoodblockMod.addNetworkMessage(PlayerVariablesSyncMessage.class,
+				PlayerVariablesSyncMessage::buffer,
+				PlayerVariablesSyncMessage::new,
+				PlayerVariablesSyncMessage::handler);
 	}
 
+	// 注册能力类型
 	@SubscribeEvent
 	public static void init(RegisterCapabilitiesEvent event) {
 		event.register(PlayerVariables.class);
 	}
 
-	@Mod.EventBusSubscriber
-	public static class EventBusVariableHandlers {
-		@SubscribeEvent
-		public static void onPlayerLoggedInSyncPlayerVariables(PlayerEvent.PlayerLoggedInEvent event) {
-			if (!event.getEntity().level().isClientSide())
-				((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables())).syncPlayerVariables(event.getEntity());
+	// ========== 能力定义 ==========
+	public static final Capability<PlayerVariables> PLAYER_VARIABLES_CAPABILITY =
+			CapabilityManager.get(new CapabilityToken<PlayerVariables>() {});
+
+	// ========== 玩家数据类 ==========
+	public static class PlayerVariables {
+		public double Player_die = 0.0;           // 死亡次数
+		public long Player_Infection_tick = 0;    // 感染刻数
+		public boolean Player_Is_Infection = false;
+
+		// 同步到客户端
+		public void syncPlayerVariables(Entity entity) {
+			if (entity instanceof ServerPlayer serverPlayer)
+				GoodblockMod.PACKET_HANDLER.send(
+						PacketDistributor.PLAYER.with(() -> serverPlayer),
+						new PlayerVariablesSyncMessage(this));
 		}
 
-		@SubscribeEvent
-		public static void onPlayerRespawnedSyncPlayerVariables(PlayerEvent.PlayerRespawnEvent event) {
-			if (!event.getEntity().level().isClientSide())
-				((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables())).syncPlayerVariables(event.getEntity());
+		// 保存到NBT
+		public Tag writeNBT() {
+			CompoundTag nbt = new CompoundTag();
+			nbt.putDouble("Player_die", Player_die);
+			nbt.putLong("Player_Infection_tick", Player_Infection_tick);
+			nbt.putBoolean("Player_Is_Infection", Player_Is_Infection);
+			return nbt;
 		}
 
-		@SubscribeEvent
-		public static void onPlayerChangedDimensionSyncPlayerVariables(PlayerEvent.PlayerChangedDimensionEvent event) {
-			if (!event.getEntity().level().isClientSide())
-				((PlayerVariables)event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables())).syncPlayerVariables(event.getEntity());
-		}
-
-		@SubscribeEvent
-		public static void clonePlayer(PlayerEvent.Clone event) {
-			event.getOriginal().revive();
-			PlayerVariables original = event.getOriginal().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables());
-			PlayerVariables clone = event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables());
-			clone.Player_die = original.Player_die;
-			if (!event.isWasDeath()) {
-			}
+		// 从NBT读取
+		public void readNBT(Tag Tag) {
+			CompoundTag nbt = (CompoundTag) Tag;
+			Player_die = nbt.getDouble("Player_die");
+			Player_Infection_tick = nbt.getLong("Player_Infection_tick");
+			Player_Is_Infection = nbt.getBoolean("Player_Is_Infection");
 		}
 	}
 
-	public static final Capability<PlayerVariables> PLAYER_VARIABLES_CAPABILITY = CapabilityManager.get(new CapabilityToken<PlayerVariables>() {
-	});
-
+	// ========== 能力提供者 ==========
 	@Mod.EventBusSubscriber
 	private static class PlayerVariablesProvider implements ICapabilitySerializable<Tag> {
+
 		@SubscribeEvent
 		public static void onAttachCapabilities(AttachCapabilitiesEvent<Entity> event) {
 			if (event.getObject() instanceof Player && !(event.getObject() instanceof FakePlayer))
@@ -104,27 +114,50 @@ public class GoodblockModVariables {
 		}
 	}
 
-	public static class PlayerVariables {
-		public double Player_die = 0.0;
+	// ========== 事件处理器 ==========
+	@Mod.EventBusSubscriber
+	public static class EventBusVariableHandlers {
 
-		public void syncPlayerVariables(Entity entity) {
-			if (entity instanceof ServerPlayer serverPlayer)
-				GoodblockMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> serverPlayer), new PlayerVariablesSyncMessage(this));
+		@SubscribeEvent
+		public static void onPlayerLoggedInSyncPlayerVariables(PlayerEvent.PlayerLoggedInEvent event) {
+			if (!event.getEntity().level().isClientSide())
+				((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new PlayerVariables())).syncPlayerVariables(event.getEntity());
 		}
 
-		public Tag writeNBT() {
-			CompoundTag nbt = new CompoundTag();
-			nbt.putDouble("Player_die", Player_die);
-			return nbt;
+		@SubscribeEvent
+		public static void onPlayerRespawnedSyncPlayerVariables(PlayerEvent.PlayerRespawnEvent event) {
+			if (!event.getEntity().level().isClientSide())
+				((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new PlayerVariables())).syncPlayerVariables(event.getEntity());
 		}
 
-		public void readNBT(Tag Tag) {
-			CompoundTag nbt = (CompoundTag) Tag;
-			Player_die = nbt.getDouble("Player_die");
+		@SubscribeEvent
+		public static void onPlayerChangedDimensionSyncPlayerVariables(PlayerEvent.PlayerChangedDimensionEvent event) {
+			if (!event.getEntity().level().isClientSide())
+				((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new PlayerVariables())).syncPlayerVariables(event.getEntity());
+		}
+
+		// 玩家克隆时复制数据
+		@SubscribeEvent
+		public static void clonePlayer(PlayerEvent.Clone event) {
+			event.getOriginal().revive();
+
+			PlayerVariables original = event.getOriginal().getCapability(PLAYER_VARIABLES_CAPABILITY, null)
+					.orElse(new PlayerVariables());
+			PlayerVariables clone = event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null)
+					.orElse(new PlayerVariables());
+
+			clone.Player_die = original.Player_die;
+			clone.Player_Infection_tick = original.Player_Infection_tick;
+			clone.Player_Is_Infection = original.Player_Is_Infection;
 		}
 	}
 
+	// ========== 网络同步消息 ==========
 	public static class PlayerVariablesSyncMessage {
+
 		public PlayerVariables data;
 
 		public PlayerVariablesSyncMessage(FriendlyByteBuf buffer) {
@@ -144,8 +177,12 @@ public class GoodblockModVariables {
 			NetworkEvent.Context context = contextSupplier.get();
 			context.enqueueWork(() -> {
 				if (!context.getDirection().getReceptionSide().isServer()) {
-					PlayerVariables variables = Minecraft.getInstance().player.getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables());
+					PlayerVariables variables = Minecraft.getInstance().player
+							.getCapability(PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new PlayerVariables());
 					variables.Player_die = message.data.Player_die;
+					variables.Player_Infection_tick = message.data.Player_Infection_tick;
+					variables.Player_Is_Infection = message.data.Player_Is_Infection;
 				}
 			});
 			context.setPacketHandled(true);

@@ -217,5 +217,6 @@
   "item.goodblock.latex_kamona_hsguy_dragon_wolf_spawn_egg": "Latex Ice Field Wolf Dragon Spawn egg",
   "item.goodblock.latex_nighe_owl_spawn_egg": "Latex Nighe Owl Spawn Egg",
   "item.goodblock.latex_yun_qi_dragon_spawn_egg": "Latex Yun Qi Dragon Spawn Egg",
-  "item.goodblock.latexice_dragon_spawn_egg": "Latex Ice Dragon Spawn Egg"
+  "item.goodblock.latexice_dragon_spawn_egg": "Latex Ice Dragon Spawn Egg",
+  "entity.goodblock.boss_heath.ice_field_wolf_dragon": ""
 }

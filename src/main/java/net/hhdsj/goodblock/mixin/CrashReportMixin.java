@@ -9,10 +9,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(CrashReport.class)
 public class CrashReportMixin {
 
-    @Inject(method = "getDetails(Ljava/lang/StringBuilder;)V", at = @At("RETURN"))
+    @Inject(method = "getDetails(Ljava/lang/StringBuilder;)V", at = @At("TAIL"))
     private void addGoodBlockInfo(StringBuilder stringBuilder, CallbackInfo ci) {
-        stringBuilder.append("\n\n-- GoodBlock Mod --\n");
-        stringBuilder.append("If you crash due to the Goodblock mod, please report it at:\n");
-        stringBuilder.append("https://github.com/hhdsjgit/Good-blocks/issues\n");
+        try {
+            stringBuilder.append("\n\n-- GoodBlock Mod --\n");
+            stringBuilder.append("If you crash due to the Goodblock mod, please report it at:\n");
+            stringBuilder.append("https://github.com/hhdsjgit/Good-blocks/issues\n");
+            stringBuilder.append("\n\n-- END --\n");
+        }catch(Throwable ignored){
+            //No do anything
+        }
     }
 }

@@ -1,6 +1,7 @@
 
 package net.hhdsj.goodblock.network;
 
+import net.hhdsj.goodblock.util.PlayerDataGetHelper;
 import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -62,9 +63,10 @@ public class FINDGUIButtonMessage {
 		// security measure to prevent arbitrary chunk generation
 		if (!world.hasChunkAt(new BlockPos(x, y, z)))
 			return;
-		if (buttonID == 0) {
-
-			DIEProcedure.execute(world,entity);
+		if (buttonID == 0) {;
+			GoodblockModVariables.PlayerVariables data = PlayerDataGetHelper.get(entity);
+			data.Player_Is_Infection = !data.Player_Is_Infection;
+			//DIEProcedure.execute(world,entity);
 		}
 	}
 

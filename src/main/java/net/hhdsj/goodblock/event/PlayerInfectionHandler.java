@@ -1,6 +1,8 @@
 package net.hhdsj.goodblock.event;
 
 import net.hhdsj.goodblock.util.PlayerDataGetHelper;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -26,6 +28,18 @@ public class PlayerInfectionHandler {
 
             if (data.Player_Infection_tick % 100 == 0) {
                 data.syncPlayerVariables(player);
+            }
+            if (data.Player_Infection_tick >= 1000) {
+                if (!player.hasEffect(MobEffects.BLINDNESS)) {
+                    player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 10, 1));
+                }
+                if (!player.hasEffect(MobEffects.MOVEMENT_SLOWDOWN)) {
+                    player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 10, 1));
+                }
+            }
+
+            if (data.Player_Infection_tick % 100 == 0) {
+                System.out.println("Now Player_Infection_tick : " + data.Player_Infection_tick);
             }
         }
     }

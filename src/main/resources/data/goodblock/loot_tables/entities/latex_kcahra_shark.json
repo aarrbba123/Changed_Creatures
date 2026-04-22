@@ -1,106 +1,37 @@
 {
-  "type": "minecraft:entity",
-  "pools": [
+  "type": "minecraft:item",
+  "functions": [
     {
-      "rolls": 1.0,
-      "bonus_rolls": 0.0,
-      "entries": [
+      "function": "minecraft:set_count",
+      "count": {
+        "type": "minecraft:uniform",
+        "min": 0.0,
+        "max": 2.0
+      },
+      "add": false
+    },
+    {
+      "function": "minecraft:furnace_smelt",
+      "conditions": [
         {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 0.0,
-                "max": 2.0
-              },
-              "add": false
-            },
-            {
-              "function": "minecraft:looting_enchant",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 0.0,
-                "max": 1.0
-              }
+          "condition": "minecraft:entity_properties",
+          "predicate": {
+            "flags": {
+              "is_on_fire": true
             }
-          ],
-          "name": "minecraft:sand"
+          },
+          "entity": "this"
         }
       ]
     },
     {
-      "rolls": 1.0,
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 0.0,
-                "max": 2.0
-              },
-              "add": false
-            },
-            {
-              "function": "minecraft:looting_enchant",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 0.0,
-                "max": 1.0
-              }
-            }
-          ],
-          "name": "changed:white_latex_goo"
-        }
-      ]
-    },
-    {
-      "rolls": 1.0,
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 0.0,
-                "max": 2.0
-              },
-              "add": false
-            },
-            {
-              "function": "minecraft:furnace_smelt",
-              "conditions": [
-                {
-                  "condition": "minecraft:entity_properties",
-                  "predicate": {
-                    "flags": {
-                      "is_on_fire": true
-                    }
-                  },
-                  "entity": "this"
-                }
-              ]
-            },
-            {
-              "function": "minecraft:looting_enchant",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 0.0,
-                "max": 1.0
-              }
-            }
-          ],
-          "name": "minecraft:rabbit"
-        }
-      ]
+      "function": "minecraft:looting_enchant",
+      "count": {
+        "type": "minecraft:uniform",
+        "min": 0.0,
+        "max": 1.0
+      }
     }
-  ]
+  ],
+  "name": "minecraft:cooked_rabbit"
 }

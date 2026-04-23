@@ -6,10 +6,10 @@ license="MIT License"
 modId="goodblock"
 displayName="Changed:goodblock-1.20.1"
 version="1.1"
-credits="逸云 , 缘来007 ,洛虹·早春,Furry晖曜 ，ChengXi程曦....."
+credits="§bModel help:\n逸云,洛虹·早春,Furry晖曜,ChengXi程曦\n§rDev help: 缘来007"
 displayURL="https://github.com/hhdsjgit/Good-blocks"
 logoFile="logo.png"
-authors="Goodtimes2"
+authors="§4Goodtimes2"
 description='''
 Some of the content additions to Changed addon plus
 '''
@@ -25,13 +25,13 @@ Some of the content additions to Changed addon plus
     modId="changed"
     mandatory=true
     versionRange="[0,)"
-    ordering="NONE"
+    ordering="AFTER"
     side="BOTH"
 
 [[dependencies.goodblock]]
 modId="changed_addon"
 mandatory=true
 versionRange="[0,)"
-ordering="NONE"
+ordering="AFTER"
 side="BOTH"
 

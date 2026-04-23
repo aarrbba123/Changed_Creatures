@@ -16,7 +16,7 @@ import net.hhdsj.goodblock.GoodblockMod;
 public class GoodblockModSounds {
 	public static final DeferredRegister<SoundEvent> REGISTRY = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, GoodblockMod.MODID);
 
-	public static final RegistryObject<SoundEvent> INK_SANS = REGISTRY.register("ink_sans",
+	public static final RegistryObject<SoundEvent> INK_SANS = REGISTRY.register("music.ink_sans",
 			() -> SoundEvent.createVariableRangeEvent(new ResourceLocation("goodblock", "ink_sans")));
 	public static final RegistryObject<SoundEvent> GNUSMAS_GM_SOUNDFONT_2_00 = REGISTRY.register("gnusmas_gm_soundfont_2.00",
 			() -> SoundEvent.createVariableRangeEvent(new ResourceLocation("goodblock", "gnusmas_gm_soundfont_2.00")));

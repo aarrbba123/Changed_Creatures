@@ -35,6 +35,8 @@ public class GoodblockMod {
 
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
+		GoodblockModSounds.REGISTRY.register(bus);
+
 		GoodblockModFluidTypes.REGISTRY.register(bus);
 
 		GoodblockModFluids.REGISTRY.register(bus);

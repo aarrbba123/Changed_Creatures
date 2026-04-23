@@ -1,5 +1,5 @@
 {
-  "ink_sans": {
+  "music.ink_sans": {
     "category": "record",
     "subtitle": "subtitles.goodblock.ink_sans",
     "sounds": [
@@ -9,7 +9,7 @@
       }
     ]
   },
-  "the_fluffy_heartbeat_in_the_cubicle": {
+  "music.the_fluffy_heartbeat_in_the_cubicle": {
     "category": "record",
     "subtitle": "subtitles.goodblock.the_fluffy_heartbeat_in_the_cubicle",
     "sounds": [
@@ -19,7 +19,7 @@
       }
     ]
   },
-  "anit_furry_music": {
+  "music.anit_furry_music": {
     "category": "record",
     "subtitle": "subtitles.goodblock.anit_furry_music",
     "sounds": [
@@ -29,7 +29,7 @@
       }
     ]
   },
-  "flutemusica_1records": {
+  "music.flutemusica_1records": {
     "category": "record",
     "subtitle": "subtitles.goodblock.flutemusica_1records",
     "sounds": [
@@ -39,7 +39,7 @@
       }
     ]
   },
-  "srening_ogg1": {
+  "music.srening_ogg1": {
     "category": "record",
     "subtitle": "subtitles.goodblock.srening_ogg1",
     "sounds": [

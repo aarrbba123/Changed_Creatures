@@ -173,7 +173,7 @@ public class GoodblockModItems {
 		INKSANS_4 = registerRecord("inksans_4", GoodblockModSounds.INK_SANS);
 		THEFLUFFYHEARTBEATINTHECUBICLEMUSIC = registerRecord("thefluffyheartbeatinthecubiclemusic", GoodblockModSounds.INK_SANS);
 		FLUTEMUSICA_1RECORDS = registerRecord("flutemusica_1records", GoodblockModSounds.THE_FLUFFY_HEARTBEAT_IN_THE_CUBICLE);
-		NOTLISTENTHIS = registerRecord("notlistenthis", GoodblockModSounds.NO_STOP);
+		NOTLISTENTHIS = registerRecord("notlistenthis", GoodblockModSounds.ANIT_FURRY_MUSIC);
 		ANITFRRYMUSIC = registerRecord("anitfrrymusic", GoodblockModSounds.ANIT_FURRY_MUSIC);
 	}
 

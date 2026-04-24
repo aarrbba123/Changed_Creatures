@@ -136,6 +136,17 @@ public class GoodblockModTransfurVariants {
 				.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
 				.build());
 
+	public static final RegistryObject<TransfurVariant<LatexYaoLingDragonEntity>> LATEXYAOLINGDRAGON =
+			REGISTRY.register("form_latex_yao_ling_dragon", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEXYAOLINGDRAGON)
+					//.stepSize(0.7f)
+					.glide()
+					.scares(List.of(Creeper.class))
+					.addAbility(entityType -> ChangedAddonAbilities.WING_FLAP_ABILITY.get())
+					.replicating()
+					.nightVision()
+					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.build());
+
 	public static final RegistryObject<TransfurVariant<LatexyunxqicedragonEntity>> LATEXYUNXQICEDRAGON = 
 			REGISTRY.register("form_latex_yun_xq_ice_dragon", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEXYUNXQICEDRAGON)
 			//.stepSize(0.7f)

@@ -101,6 +101,7 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<LatexDarkPurpleDragonTaurEntity>> LATEXDARKPURPLEDRAGONTAUR;
     public static final RegistryObject<EntityType<DarkPurpleLatexDragonEntity>> LATEXDARKPURPLEDRAGON;
     public static final RegistryObject<EntityType<LatexLuoHongEarlySpringFoxDragonEntity>> LATEXLUOHONGEARLYSPRINGFOXDRAGON;
+    public static final RegistryObject<EntityType<LatexYaoLingDragonEntity>> LATEXYAOLINGDRAGON;
 
     // BOSS变体
     public static final RegistryObject<EntityType<LatexIceFieldWolfDragonBossEntity>> LATEX_ICE_FIELD_WOLF_DRAGON_BOSS;
@@ -260,6 +261,16 @@ public class GoodblockModEntities {
                         .setTrackingRange(64)
                         .setUpdateInterval(3)
                         .setCustomClientFactory(LatexyunxqhotdragonEntity::new)
+                        .fireImmune()
+                        .sized(0.6f, 1.9f),
+                LatexyunxqhotdragonEntity::createLatexAttributes);
+
+        LATEXYAOLINGDRAGON = registerSpawning("latex_yao_ling_dragon", 0xFFDD4F,0xF9CACA,
+                EntityType.Builder.<LatexYaoLingDragonEntity>of(LatexYaoLingDragonEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .setCustomClientFactory(LatexYaoLingDragonEntity::new)
                         .fireImmune()
                         .sized(0.6f, 1.9f),
                 LatexyunxqhotdragonEntity::createLatexAttributes);

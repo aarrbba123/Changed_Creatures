@@ -59,7 +59,9 @@ public class GoodblockModModels {
 		event.registerLayerDefinition(ModelLatexFruitDragonWolf.LAYER_LOCATION, ModelLatexFruitDragonWolf::createBodyLayer);
 		event.registerLayerDefinition(ModelNeondimnessWolf.LAYER_LOCATION, ModelNeondimnessWolf::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexChengXi.LAYER_LOCATION, ModelLatexChengXi::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexYaoLingDragon.LAYER_LOCATION, ModelLatexYaoLingDragon::createBodyLayer);
 		event.registerLayerDefinition(GoodBlockModelMaleWingedDragonArmor.LAYER_LOCATION, GoodBlockModelMaleWingedDragonArmor::createBodyLayer);
 		ArmorLatexMaleWolfWingedDragonModel.MODEL_SET.registerDefinitions(event::registerLayerDefinition);
+
 	}
 }

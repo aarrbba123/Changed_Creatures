@@ -74,4 +74,9 @@ public class GoodblockMod {
 		PACKET_HANDLER.registerMessage(messageID, messageType, encoder, decoder, messageConsumer);
 		messageID++;
 	}
+
+	public static ResourceLocation GoodBlockResourceLocation(String txt){
+		return new ResourceLocation(MODID, txt);
+	}
+
 }

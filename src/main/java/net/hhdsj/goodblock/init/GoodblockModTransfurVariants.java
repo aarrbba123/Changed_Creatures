@@ -323,6 +323,7 @@ public class GoodblockModTransfurVariants {
 					.replicating()
 					.nightVision()
 					.glide()
+					.addAbility(GoodblockModAbilities.CREATEBLUECRYSTALENTITYABILITY)
 					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
 					.scares(List.of(Creeper.class))
 					.build());

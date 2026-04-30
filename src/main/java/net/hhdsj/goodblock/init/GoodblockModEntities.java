@@ -116,6 +116,7 @@ public class GoodblockModEntities {
     // 其他变体
     public static final RegistryObject<EntityType<InksugerEntity>> INKSUGER;
     public static final RegistryObject<EntityType<LatexthreemonthwolfEntityProjectile>> LATEXTHREEMONTHWOLF_PROJECTILE;
+    public static final RegistryObject<EntityType<BlueCrystalProjectile>> BLUECRYSTALPROJECTILE;
 
     //Cat Latex
     public static final RegistryObject<EntityType<LatexBlueveCatEntity>> LATEX_BLUEVE_CAT;
@@ -471,6 +472,14 @@ public class GoodblockModEntities {
                         .setTrackingRange(64)
                         .setUpdateInterval(1)
                         .setCustomClientFactory(LatexthreemonthwolfEntityProjectile::new)
+                        .sized(0.5f, 0.5f));
+
+        BLUECRYSTALPROJECTILE = registerProjectile("projectile_blue_crystal",
+                EntityType.Builder.<BlueCrystalProjectile>of(BlueCrystalProjectile::new, MobCategory.MISC)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(1)
+                        .setCustomClientFactory(BlueCrystalProjectile::new)
                         .sized(0.5f, 0.5f));
     }
 

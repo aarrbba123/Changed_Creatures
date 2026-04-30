@@ -6,6 +6,8 @@ package net.hhdsj.goodblock.init;
 
 import net.hhdsj.goodblock.GoodblockMod;
 import net.hhdsj.goodblock.abilities.BetterHypnosisAbility;
+import net.hhdsj.goodblock.abilities.CreateBlueCrystalEntityAbility;
+import net.hhdsj.goodblock.abilities.CreateBlueCrystalEntityAbilityType;
 import net.hhdsj.goodblock.abilities.TurnFeraLatexDarkPurpleAbility;
 import net.ltxprogrammer.changed.Changed;
 import net.ltxprogrammer.changed.ability.*;
@@ -20,9 +22,11 @@ public class GoodblockModAbilities{
     public static RegistryObject<TurnFeraLatexDarkPurpleAbility> TURN_FERA_LATEX_DARK_PURPLE;
     public static RegistryObject<SimpleCreateItemAbility> CREATE_DRAGON_FRUIT;
     public static RegistryObject<BetterHypnosisAbility> BERRER_HYPNOSIE;
+    public static RegistryObject<CreateBlueCrystalEntityAbilityType> CREATEBLUECRYSTALENTITYABILITY;
 
 
     static {
+        CREATEBLUECRYSTALENTITYABILITY = REGISTRY.register("create_blue_crystal", CreateBlueCrystalEntityAbilityType::new);
         //更好的眩晕
         BERRER_HYPNOSIE = REGISTRY.register("better_hypnosie", BetterHypnosisAbility::new);
         //变体切换

@@ -34,7 +34,7 @@ public class GoodblockMod {
 	public GoodblockMod() {
 
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-
+		GoodBlockModGameRules.init();
 		GoodblockModSounds.REGISTRY.register(bus);
 
 		GoodblockModFluidTypes.REGISTRY.register(bus);
@@ -66,8 +66,6 @@ public class GoodblockMod {
         GoodblockModAbilities.REGISTRY.register(bus);
 		GoodblockModMenus.REGISTRY.register(bus);
 		GoodblockModTransfurVariants.REGISTRY.register(bus);
-
-
 	}
 
 	public static <T> void addNetworkMessage(Class<T> messageType, BiConsumer<T, FriendlyByteBuf> encoder, Function<FriendlyByteBuf, T> decoder, BiConsumer<T, Supplier<NetworkEvent.Context>> messageConsumer) {

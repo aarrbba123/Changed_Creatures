@@ -6,6 +6,8 @@ package net.hhdsj.goodblock.init;
 import net.hhdsj.goodblock.entity.*;
 import net.hhdsj.goodblock.entity.boss.*;
 import net.hhdsj.goodblock.entity.simple.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.registries.RegistryObject;
@@ -16,11 +18,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 
-import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.resources.ResourceLocation;
@@ -34,7 +32,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -73,9 +70,15 @@ public class GoodblockModEntities {
     // 狐狸变体
     public static final RegistryObject<EntityType<LatexOrangeFoxEntity>> LATEX_ORANGE_FOX;
     public static final RegistryObject<EntityType<LatexRadiationFoxEntity>> LATEXRADIATIONFOX;
+    public static final RegistryObject<EntityType<LatexDivineSwordKitsuneEntity>> LATEX_DIVINE_SWORD_KITSUNE;
+    public static final RegistryObject<EntityType<LatexGaoHuiFoxEntity>> LATEX_GAO_HUI_FOX;
+    public static final RegistryObject<EntityType<LatexHyazintheFoxEntity>> LATEX_HYAZINTHE_FOX;
+    public static final RegistryObject<EntityType<LatexYueXiFoxFemaleEntity>> LATEX_YUE_XI_FOX_FEMALE;
 
     // 鲨鱼变体
     public static final RegistryObject<EntityType<LatexKcahraSharkEntity>> LATEX_KCAHRA_SHARK;
+    public static final RegistryObject<EntityType<LatexEnkangDragonSharkEntity>> LATEX_ENKANG_DRAGON_SHARK;
+    public static final RegistryObject<EntityType<LatexQianGuiSharkEntity>> LATEX_QIAN_GUI_SHARK;
 
     // 狼变体
     public static final RegistryObject<EntityType<DarkfuLatexWolfMaleEntity>> DARKFU_LATEX_WOLF_MALE;
@@ -87,6 +90,7 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<LatexFruitDragonEntity>> LATEXFRUITDRAGONWOLF;
     public static final RegistryObject<EntityType<LatexNeondimnessWolfEntity>> LATEXNEONDIMNESSWOLF;
     public static final RegistryObject<EntityType<LatexChengXiEntity>> LATEX_CHENG_XI;
+    public static final RegistryObject<EntityType<LatexDawnWolfEntity>> LATEX_DAWN_WOLF;
 
     // 幼崽变体
     public static final RegistryObject<EntityType<BlackpupmaleEntity>> BLACKPUPMALE;
@@ -113,7 +117,71 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<InksugerEntity>> INKSUGER;
     public static final RegistryObject<EntityType<LatexthreemonthwolfEntityProjectile>> LATEXTHREEMONTHWOLF_PROJECTILE;
 
+    //Cat Latex
+    public static final RegistryObject<EntityType<LatexBlueveCatEntity>> LATEX_BLUEVE_CAT;
     static {
+        LATEX_YUE_XI_FOX_FEMALE = registerSpawning("latex_yue_xi_fox_female", 0xff9f0d, 0xffee86,
+                EntityType.Builder.<LatexYueXiFoxFemaleEntity>of(LatexYueXiFoxFemaleEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .setCustomClientFactory(LatexYueXiFoxFemaleEntity::new)
+                        .sized(0.6f, 1.95f),
+                LatexYueXiFoxFemaleEntity::createLatexAttributes);
+        
+        LATEX_QIAN_GUI_SHARK = registerSpawning("latex_qian_gui_shark", 0xcce063, 0x435150,
+                EntityType.Builder.<LatexQianGuiSharkEntity>of(LatexQianGuiSharkEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .setCustomClientFactory(LatexQianGuiSharkEntity::new)
+                        .sized(0.6f, 1.95f),
+                LatexQianGuiSharkEntity::createLatexAttributes);
+        
+        LATEX_GAO_HUI_FOX = registerSpawning("latex_gao_hui_fox", 0x0121cc, 0x7478fe,
+                EntityType.Builder.<LatexGaoHuiFoxEntity>of(LatexGaoHuiFoxEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .setCustomClientFactory(LatexGaoHuiFoxEntity::new)
+                        .sized(0.6f, 1.95f),
+                LatexGaoHuiFoxEntity::createLatexAttributes);
+        
+        LATEX_HYAZINTHE_FOX = registerSpawning("latex_hyazinthe_fox", 0xa2eaff, 0x42c7ed,
+                EntityType.Builder.<LatexHyazintheFoxEntity>of(LatexHyazintheFoxEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .setCustomClientFactory(LatexHyazintheFoxEntity::new)
+                        .sized(0.6f, 1.95f),
+                LatexHyazintheFoxEntity::createLatexAttributes);
+
+        LATEX_ENKANG_DRAGON_SHARK = registerSpawning("latex_enkang_dragon_shark", 0xff9199, 0xffb2e8,
+                EntityType.Builder.<LatexEnkangDragonSharkEntity>of(LatexEnkangDragonSharkEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .setCustomClientFactory(LatexEnkangDragonSharkEntity::new)
+                        .sized(0.6f, 1.95f),
+                LatexEnkangDragonSharkEntity::createLatexAttributes);
+
+        LATEX_DAWN_WOLF = registerSpawning("latex_dawn_wolf", 0xa2eaff, 0x42c7ed,
+                EntityType.Builder.<LatexDawnWolfEntity>of(LatexDawnWolfEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .setCustomClientFactory(LatexDawnWolfEntity::new)
+                        .sized(0.6f, 1.95f),
+                LatexDawnWolfEntity::createLatexAttributes);
+
+        LATEX_BLUEVE_CAT = registerSpawning("latex_blueve_cat", 0xf0f0f0, 0x4ea1ef,
+                EntityType.Builder.<LatexBlueveCatEntity>of(LatexBlueveCatEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .setCustomClientFactory(LatexBlueveCatEntity::new)
+                        .sized(0.6f, 1.95f),
+                LatexBlueveCatEntity::createLatexAttributes);
 
         LATEX_CHENG_XI = registerSpawning("latex_cheng_xi_fox", 0xFDCD6E, 0xFEF19B,
                 EntityType.Builder.<LatexChengXiEntity>of(LatexChengXiEntity::new, MobCategory.MONSTER)
@@ -216,6 +284,15 @@ public class GoodblockModEntities {
                         .setCustomClientFactory(LatexIceFieldWolfDragonEntity::new)
                         .sized(0.7f, 1.93f),
                 LatexIceFieldWolfDragonEntity::createLatexAttributes);
+
+        LATEX_DIVINE_SWORD_KITSUNE = registerSpawning("latex_divine_sword_kitsune", 0xFD1C0A, 0xFFFFFF,
+                EntityType.Builder.<LatexDivineSwordKitsuneEntity>of(LatexDivineSwordKitsuneEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .setCustomClientFactory(LatexDivineSwordKitsuneEntity::new)
+                        .sized(0.7f, 1.93f),
+                LatexDivineSwordKitsuneEntity::createLatexAttributes);
 
         LATEXDRAGONFRUITWOLF = registerSpawning("latex_dragon_fruit_wolf", 0xFF6B8B, 0xFF1493,
                 EntityType.Builder.<LatexDragonFruitWolfEntity>of(LatexDragonFruitWolfEntity::new, MobCategory.MONSTER)
@@ -337,10 +414,10 @@ public class GoodblockModEntities {
                         .sized(1.0f, 2.5f),  // Boss更大
                 () -> {  // 自定义Boss属性
                     AttributeSupplier.Builder builder = ChangedEntity.createLatexAttributes();
-                    builder.add(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH, 500);
-                    builder.add(net.minecraft.world.entity.ai.attributes.Attributes.ARMOR, 35);
-                    builder.add(net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE, 6.0);
-                    builder.add(net.minecraft.world.entity.ai.attributes.Attributes.KNOCKBACK_RESISTANCE, 1.0);
+                    builder.add(Attributes.MAX_HEALTH, 500);
+                    builder.add(Attributes.ARMOR, 35);
+                    builder.add(Attributes.ATTACK_DAMAGE, 6.0);
+                    builder.add(Attributes.KNOCKBACK_RESISTANCE, 1.0);
                     return builder;
                 });
 
@@ -423,11 +500,11 @@ public class GoodblockModEntities {
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     (entityType1, level, spawnType, pos, random) -> {
                         // 检查是否为自然生成
-                        if (spawnType != net.minecraft.world.entity.MobSpawnType.NATURAL) {
+                        if (spawnType != MobSpawnType.NATURAL) {
                             return true;
                         }
                         // 检查亮度是否小于4
-                        if (level instanceof net.minecraft.world.level.Level serverLevel) {
+                        if (level instanceof Level serverLevel) {
                             int brightness = serverLevel.getMaxLocalRawBrightness(pos);
                             return brightness <= 3; // 亮度小于4
                         }
@@ -486,7 +563,7 @@ public class GoodblockModEntities {
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     (entityType1, level, spawnType, pos, random) -> {
                         // 检查是否为自然生成
-                        if (spawnType != net.minecraft.world.entity.MobSpawnType.NATURAL) {
+                        if (spawnType != MobSpawnType.NATURAL) {
                             return true;
                         }
 

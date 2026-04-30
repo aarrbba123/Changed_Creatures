@@ -301,6 +301,112 @@ public class GoodblockModTransfurVariants {
 					.build());
 	//
 
+	public static final RegistryObject<TransfurVariant<LatexDivineSwordKitsuneEntity>> LATEX_DIVINE_SWORD_KITSUNE =
+			REGISTRY.register("form_latex_divine_sword_kitsune", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEX_DIVINE_SWORD_KITSUNE)
+					.addAbility(ChangedAddonAbilities.CLAWS)
+					.addAbility(ChangedAddonAbilities.DODGE)
+					.addAbility(ChangedAbilities.GRAB_ENTITY_ABILITY)
+					.scares(List.of(Creeper.class))
+					.glide()
+					.transfurMode(TransfurMode.ABSORPTION)
+					.replicating()
+					.nightVision()
+					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.build());
+
+	// 高辉狐 - 基础狐狸型
+	public static final RegistryObject<TransfurVariant<LatexGaoHuiFoxEntity>> LATEX_GAO_HUI_FOX =
+			REGISTRY.register("form_latex_gao_hui_fox", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEX_GAO_HUI_FOX)
+					.addAbility(ChangedAddonAbilities.CLAWS)
+					.addAbility(ChangedAddonAbilities.DODGE)
+					.transfurMode(TransfurMode.ABSORPTION)
+					.replicating()
+					.nightVision()
+					.glide()
+					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.scares(List.of(Creeper.class))
+					.build());
+
+	// 风信子狐 - 优雅型
+	public static final RegistryObject<TransfurVariant<LatexHyazintheFoxEntity>> LATEX_HYAZINTHE_FOX =
+			REGISTRY.register("form_latex_hyazinthe_fox", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEX_HYAZINTHE_FOX)
+					.addAbility(ChangedAddonAbilities.CLAWS)
+					.addAbility(ChangedAddonAbilities.DODGE)
+					.transfurMode(TransfurMode.ABSORPTION)
+					.replicating()
+					.nightVision()
+					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.scares(List.of(Creeper.class))
+					.build());
+
+	// 月夕雌狐 - 雌性狐狸型
+	public static final RegistryObject<TransfurVariant<LatexYueXiFoxFemaleEntity>> LATEX_YUE_XI_FOX_FEMALE =
+			REGISTRY.register("form_latex_yue_xi_fox_female", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEX_YUE_XI_FOX_FEMALE)
+					.addAbility(ChangedAddonAbilities.CLAWS)
+					.addAbility(ChangedAddonAbilities.DODGE)
+					.transfurMode(TransfurMode.ABSORPTION)
+					.replicating()
+					.nightVision()
+					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.scares(List.of(Creeper.class))
+					.build());
+
+	// 恩康龙鲨 - 水生龙鲨型
+	public static final RegistryObject<TransfurVariant<LatexEnkangDragonSharkEntity>> LATEX_ENKANG_DRAGON_SHARK =
+			REGISTRY.register("form_latex_enkang_dragon_shark", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEX_ENKANG_DRAGON_SHARK)
+					.addAbility(ChangedAddonAbilities.CLAWS)
+					.addAbility(ChangedAddonAbilities.DODGE)
+					.addAbility(ChangedAbilities.GRAB_ENTITY_ABILITY)
+					.gills()
+					.breatheMode(TransfurVariant.BreatheMode.ANY)
+					.transfurMode(TransfurMode.ABSORPTION)
+					.replicating()
+					.nightVision()
+					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.build());
+
+	// 千龟鲨 - 水生鲨鱼型
+	public static final RegistryObject<TransfurVariant<LatexQianGuiSharkEntity>> LATEX_QIAN_GUI_SHARK =
+			REGISTRY.register("form_latex_qian_gui_shark", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEX_QIAN_GUI_SHARK)
+					.addAbility(ChangedAddonAbilities.CLAWS)
+					.addAbility(ChangedAddonAbilities.DODGE)
+					.addAbility(ChangedAbilities.GRAB_ENTITY_ABILITY)
+					.gills()
+					.breatheMode(TransfurVariant.BreatheMode.ANY)
+					.transfurMode(TransfurMode.ABSORPTION)
+					.replicating()
+					.nightVision()
+					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.build());
+
+
+	// 黎明狼 - 基础狼型
+	public static final RegistryObject<TransfurVariant<LatexDawnWolfEntity>> LATEX_DAWN_WOLF =
+			REGISTRY.register("form_latex_dawn_wolf", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEX_DAWN_WOLF)
+					.addAbility(ChangedAddonAbilities.CLAWS)
+					.addAbility(ChangedAddonAbilities.DODGE)
+					.addAbility(ChangedAbilities.GRAB_ENTITY_ABILITY)
+					.transfurMode(TransfurMode.ABSORPTION)
+					.replicating()
+					.nightVision()
+					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.scares(List.of(Creeper.class))
+					.breatheMode(TransfurVariant.BreatheMode.ANY)
+					.build());
+
+	// 蓝脉猫 - 猫型
+	public static final RegistryObject<TransfurVariant<LatexBlueveCatEntity>> LATEX_BLUEVE_CAT =
+			REGISTRY.register("form_latex_blueve_cat", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEX_BLUEVE_CAT)
+					.addAbility(ChangedAddonAbilities.CLAWS)
+					.addAbility(ChangedAddonAbilities.DODGE)
+					.addAbility(ChangedAbilities.GRAB_ENTITY_ABILITY)
+					.transfurMode(TransfurMode.ABSORPTION)
+					.replicating()
+					.nightVision()
+					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.scares(List.of(Creeper.class))
+					.build());
+
 	public static void register(IEventBus bus) {
         REGISTRY.register(bus);
     }

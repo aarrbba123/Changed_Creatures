@@ -1,8 +1,9 @@
 package net.hhdsj.goodblock.abilities;
 
-import net.ltxprogrammer.changed.Changed;
 import net.ltxprogrammer.changed.ability.HypnosisAbility;
 import net.ltxprogrammer.changed.ability.IAbstractChangedEntity;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
@@ -47,6 +48,8 @@ public class BetterHypnosisAbility extends HypnosisAbility {
     public void onLivingHurt(LivingHurtEvent event) {
         if (!BLOCK_PLAYER_DAMAGE) return;
         if (isAbilityUser(event.getEntity()) && event.getSource().getEntity() instanceof Player) {
+            var entity = event.getEntity();
+            hurt_entity_effect(entity);
             event.setCanceled(true);
         }
     }
@@ -54,7 +57,6 @@ public class BetterHypnosisAbility extends HypnosisAbility {
     @SubscribeEvent
     public void onProjectileImpact(ProjectileImpactEvent event) {
         if (!BLOCK_PROJECTILE_DAMAGE) return;
-
         Projectile projectile = event.getProjectile();
         if (projectile.getOwner() instanceof Player &&
                 event.getRayTraceResult().getType() == net.minecraft.world.phys.HitResult.Type.ENTITY) {
@@ -62,9 +64,8 @@ public class BetterHypnosisAbility extends HypnosisAbility {
             net.minecraft.world.phys.EntityHitResult entityResult =
                     (net.minecraft.world.phys.EntityHitResult) event.getRayTraceResult();
 
-            if (entityResult.getEntity() instanceof LivingEntity target &&
-                    isAbilityUser(target) &&
-                    target.distanceTo(projectile) <= DAMAGE_BLOCK_RANGE) {
+            if (entityResult.getEntity() instanceof LivingEntity target && isAbilityUser(target) && target.distanceTo(projectile) <= DAMAGE_BLOCK_RANGE) {
+                hurt_entity_effect((LivingEntity) projectile.getOwner());
             }
         }
     }
@@ -73,5 +74,10 @@ public class BetterHypnosisAbility extends HypnosisAbility {
         if (!ACTIVE_USERS.containsKey(entity)) return false;
         Level level = entity.level();
         return level.getGameTime() - ACTIVE_USERS.get(entity) <= 5;
+    }
+
+    public void hurt_entity_effect(LivingEntity entity) {
+        entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 420, 1));
+        entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 420, 2));
     }
 }

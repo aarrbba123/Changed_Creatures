@@ -7,16 +7,21 @@ package net.hhdsj.goodblock.init;
 import net.hhdsj.goodblock.client.renderer.boss.LatexNightOwlBossRenderer;
 import net.hhdsj.goodblock.client.renderer.boss.LatexNightOwlRenderer;
 import net.hhdsj.goodblock.client.renderer.boss.LatexIceFieldWolfDragonBossRenderer;
+import net.hhdsj.goodblock.client.renderer.cat.LatexBlueveCatRenderer;
 import net.hhdsj.goodblock.client.renderer.latex_dragon.*;
-import net.hhdsj.goodblock.client.renderer.latex_fox.LatexOrangeFoxRenderer;
-import net.hhdsj.goodblock.client.renderer.latex_fox.LatexRadiationFoxRenderer;
+import net.hhdsj.goodblock.client.renderer.latex_fox.*;
 import net.hhdsj.goodblock.client.renderer.latex_pup.BlackpupmaleRenderer;
 import net.hhdsj.goodblock.client.renderer.latex_pup.InksugerRenderer;
 import net.hhdsj.goodblock.client.renderer.latex_pup.WhitebluepupRenderer;
+import net.hhdsj.goodblock.client.renderer.latex_shark.LatexEnkangDragonSharkRenderer;
 import net.hhdsj.goodblock.client.renderer.latex_shark.LatexKcahraSharkRenderer;
+import net.hhdsj.goodblock.client.renderer.latex_shark.LatexQianGuiSharkRenderer;
 import net.hhdsj.goodblock.client.renderer.latex_taur.LatexDarkPurpleDragonTaurRenderer;
 import net.hhdsj.goodblock.client.renderer.latex_wolf.*;
 import net.hhdsj.goodblock.client.renderer.projectile.LatexArrowRenderer;
+import net.hhdsj.goodblock.entity.simple.LatexDawnWolfEntity;
+import net.hhdsj.goodblock.entity.simple.LatexDivineSwordKitsuneEntity;
+import net.hhdsj.goodblock.entity.simple.LatexYueXiFoxFemaleEntity;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -55,5 +60,14 @@ public class GoodblockModEntityRenderers {
 		event.registerEntityRenderer(GoodblockModEntities.LATEXNEONDIMNESSWOLF.get(), LatexNeondimnessWolfRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_CHENG_XI.get(), LatexChengXiRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEXYAOLINGDRAGON.get(),LatexYaoLingDragonRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.LATEX_DIVINE_SWORD_KITSUNE.get(), LatexDivineSwordKitsuneRenderer::new);
+
+		event.registerEntityRenderer(GoodblockModEntities.LATEX_YUE_XI_FOX_FEMALE.get(), LatexYueXiFoxFemaleRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.LATEX_GAO_HUI_FOX.get(), LatexGaoHuiFoxRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.LATEX_DAWN_WOLF.get(), LatexDawnWolfRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.LATEX_ENKANG_DRAGON_SHARK.get(), LatexEnkangDragonSharkRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.LATEX_HYAZINTHE_FOX.get(), LatexHyazintheFoxRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.LATEX_BLUEVE_CAT.get(), LatexBlueveCatRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.LATEX_QIAN_GUI_SHARK.get(), LatexQianGuiSharkRenderer::new);
 	}
 }

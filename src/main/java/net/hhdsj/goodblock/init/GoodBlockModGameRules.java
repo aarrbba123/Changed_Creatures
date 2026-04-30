@@ -1,10 +1,6 @@
 package net.hhdsj.goodblock.init;
 
-import net.hhdsj.goodblock.GoodblockMod;
 import net.minecraft.world.level.GameRules;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 
 public class GoodBlockModGameRules {
     public static final GameRules.Key<GameRules.BooleanValue> TEST_RULE;
@@ -17,4 +13,6 @@ public class GoodBlockModGameRules {
                 GameRules.BooleanValue.create(false) // 默认值
         );
     }
+
+    public static void init() {}
 }

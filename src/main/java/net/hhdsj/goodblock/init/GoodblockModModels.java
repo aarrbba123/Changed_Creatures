@@ -8,13 +8,15 @@ import net.hhdsj.goodblock.client.armor.ArmorLatexMaleWolfWingedDragonModel;
 import net.hhdsj.goodblock.client.model.boss.ModelLatexIceFieldWolfDragonBoss;
 import net.hhdsj.goodblock.client.model.boss.ModelLatexNightOwl;
 import net.hhdsj.goodblock.client.model.boss.ModelLatexNightOwlBoss;
+import net.hhdsj.goodblock.client.model.cat.ModelLatexBlueveCat;
 import net.hhdsj.goodblock.client.model.latex_dragon.*;
-import net.hhdsj.goodblock.client.model.latex_fox.ModelLatexOrangeFox;
-import net.hhdsj.goodblock.client.model.latex_fox.ModelLatexRadiationFox;
+import net.hhdsj.goodblock.client.model.latex_fox.*;
 import net.hhdsj.goodblock.client.model.latex_pup.ModelInksuger;
 import net.hhdsj.goodblock.client.model.latex_pup.Modelblackpupmale;
 import net.hhdsj.goodblock.client.model.latex_pup.Modelwhitebluepup;
+import net.hhdsj.goodblock.client.model.latex_shark.ModelLatexEnkangDragonShark;
 import net.hhdsj.goodblock.client.model.latex_shark.ModelLatexKcahraShark;
+import net.hhdsj.goodblock.client.model.latex_shark.ModelLatexQianGuiShark;
 import net.hhdsj.goodblock.client.model.latex_taur.ModelLatexDarkPurpleDragonTaur;
 import net.hhdsj.goodblock.client.model.latex_wolf.*;
 import net.hhdsj.goodblock.client.models.armor.GoodBlockModelMaleWingedDragonArmor;
@@ -60,6 +62,17 @@ public class GoodblockModModels {
 		event.registerLayerDefinition(ModelNeondimnessWolf.LAYER_LOCATION, ModelNeondimnessWolf::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexChengXi.LAYER_LOCATION, ModelLatexChengXi::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexYaoLingDragon.LAYER_LOCATION, ModelLatexYaoLingDragon::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexDivineSwordKitsune.LAYER_LOCATION, ModelLatexDivineSwordKitsune::createBodyLayer);
+
+		event.registerLayerDefinition(ModelLatexYueXiFoxFemale.LAYER_LOCATION, ModelLatexYueXiFoxFemale::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexGaoHuiFox.LAYER_LOCATION, ModelLatexGaoHuiFox::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexQianGuiShark.LAYER_LOCATION, ModelLatexQianGuiShark::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexHyazintheFox.LAYER_LOCATION, ModelLatexHyazintheFox::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexEnkangDragonShark.LAYER_LOCATION, ModelLatexEnkangDragonShark::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexDawnWolf.LAYER_LOCATION, ModelLatexDawnWolf::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexBlueveCat.LAYER_LOCATION, ModelLatexBlueveCat::createBodyLayer);
+
+
 		event.registerLayerDefinition(GoodBlockModelMaleWingedDragonArmor.LAYER_LOCATION, GoodBlockModelMaleWingedDragonArmor::createBodyLayer);
 		ArmorLatexMaleWolfWingedDragonModel.MODEL_SET.registerDefinitions(event::registerLayerDefinition);
 

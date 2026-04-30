@@ -194,7 +194,6 @@ public class GoodblockModTransfurVariants {
 	public static final RegistryObject<TransfurVariant<LatexRadiationFoxEntity>> LATEXRADIATIONFOX =
 			REGISTRY.register("form_latex_radiation_fox", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEXRADIATIONFOX)
 					//.stepSize(0.7f)
-					.glide()
 					.transfurMode(TransfurMode.ABSORPTION)
 					.replicating()
 					.nightVision()

@@ -22,6 +22,8 @@ public class LatexEnkangDragonSharkEntity extends AbstractPooltoy {
         super.setAttributes(attributes);
         Objects.requireNonNull(attributes.getInstance(Attributes.MOVEMENT_SPEED)).setBaseValue(1.1);
         Objects.requireNonNull(attributes.getInstance(ForgeMod.SWIM_SPEED.get())).setBaseValue(1.1);
+        Objects.requireNonNull(attributes.getInstance(Attributes.MAX_HEALTH)).setBaseValue(10);
+        Objects.requireNonNull(attributes.getInstance(Attributes.ARMOR)).setBaseValue(5);
     }
 
     public LatexEnkangDragonSharkEntity(EntityType<? extends ChangedEntity> type, Level level) {

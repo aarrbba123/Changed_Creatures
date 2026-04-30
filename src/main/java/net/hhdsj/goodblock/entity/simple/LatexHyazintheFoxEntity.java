@@ -18,7 +18,8 @@ public class LatexHyazintheFoxEntity extends AbstractKitsuneEntity {
     protected void setAttributes(AttributeMap attributes) {
         super.setAttributes(attributes);
         Objects.requireNonNull(attributes.getInstance(Attributes.MOVEMENT_SPEED)).setBaseValue(1.1);
-        Objects.requireNonNull(attributes.getInstance(ForgeMod.SWIM_SPEED.get())).setBaseValue(1.1);
+        Objects.requireNonNull(attributes.getInstance(ForgeMod.SWIM_SPEED.get())).setBaseValue(0.85);
+        Objects.requireNonNull(attributes.getInstance(Attributes.MAX_HEALTH)).setBaseValue(40);
     }
 
     public LatexHyazintheFoxEntity(EntityType<? extends ChangedEntity> type, Level level) {

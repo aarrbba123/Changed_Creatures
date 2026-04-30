@@ -153,7 +153,7 @@ public class GoodblockModEntities {
                         .setTrackingRange(64)
                         .setUpdateInterval(3)
                         .setCustomClientFactory(LatexHyazintheFoxEntity::new)
-                        .sized(0.6f, 1.95f),
+                        .sized(0.6f, 2f),
                 LatexHyazintheFoxEntity::createLatexAttributes);
 
         LATEX_ENKANG_DRAGON_SHARK = registerSpawning("latex_enkang_dragon_shark", 0xff9199, 0xffb2e8,
@@ -161,6 +161,7 @@ public class GoodblockModEntities {
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
                         .setUpdateInterval(3)
+                        .fireImmune()
                         .setCustomClientFactory(LatexEnkangDragonSharkEntity::new)
                         .sized(0.6f, 1.95f),
                 LatexEnkangDragonSharkEntity::createLatexAttributes);
@@ -416,6 +417,7 @@ public class GoodblockModEntities {
                     AttributeSupplier.Builder builder = ChangedEntity.createLatexAttributes();
                     builder.add(Attributes.MAX_HEALTH, 500);
                     builder.add(Attributes.ARMOR, 35);
+                    .fireImmune()
                     builder.add(Attributes.ATTACK_DAMAGE, 6.0);
                     builder.add(Attributes.KNOCKBACK_RESISTANCE, 1.0);
                     return builder;
@@ -426,6 +428,7 @@ public class GoodblockModEntities {
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
                         .setUpdateInterval(3)
+                        .fireImmune()
                         .setCustomClientFactory(LatexNightOwlBossEntity::new)
                         .sized(0.9f, 2.2f),
                 LatexNightOwlBossEntity::createLatexAttributes);
@@ -434,6 +437,7 @@ public class GoodblockModEntities {
                 EntityType.Builder.<LatexNightOwlEntity>of(LatexNightOwlEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
+                        .fireImmune()
                         .setUpdateInterval(3)
                         .setCustomClientFactory(LatexNightOwlEntity::new)
                         .sized(0.7f, 1.92f),

@@ -18,8 +18,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-;
-
 @OnlyIn(Dist.CLIENT)
 public class ModelLatexFruitDragonWolf extends AdvancedHumanoidModel<LatexFruitDragonEntity>{
 public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "latex_fruit_dragon_wolf"), "main");

@@ -403,6 +403,8 @@ public class GoodblockModTransfurVariants {
 					.transfurMode(TransfurMode.ABSORPTION)
 					.replicating()
 					.nightVision()
+					.canClimb()
+					.addAbility(ChangedAddonAbilities.TOGGLE_CLIMB)
 					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
 					.scares(List.of(Creeper.class))
 					.build());

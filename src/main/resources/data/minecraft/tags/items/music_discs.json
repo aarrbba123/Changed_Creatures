@@ -1,10 +1,11 @@
 {
   "replace": false,
   "values": [
-    "goodblock:music_disc_ink_sans",
-    "goodblock:music_disc_the_fluffy_heartbeat_in_the_cubicle",
-    "goodblock:music_disc_anit_furry_music",
-    "goodblock:music_disc_flutemusica_1records",
-    "goodblock:music_disc_srening_ogg1"
+    "goodblock:flutemusica_1records",
+    "goodblock:thefluffyheartbeatinthecubiclemusic",
+    "goodblock:inksans_4",
+    "goodblock:anitfrrymusic",
+    "goodblock:flute",
+    "goodblock:notlistenthis"
   ]
 }

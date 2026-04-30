@@ -30,6 +30,6 @@ public class LatexYueXiFoxFemaleEntity extends AbstractKitsuneEntity {
     }
 
     public Gender getGender() {
-        return Gender.MALE;
+        return Gender.FEMALE;
     }
 }

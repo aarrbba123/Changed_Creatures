@@ -411,13 +411,13 @@ public class GoodblockModEntities {
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
                         .setUpdateInterval(3)
+                        .fireImmune()
                         .setCustomClientFactory(LatexIceFieldWolfDragonBossEntity::new)
                         .sized(1.0f, 2.5f),  // Boss更大
                 () -> {  // 自定义Boss属性
                     AttributeSupplier.Builder builder = ChangedEntity.createLatexAttributes();
                     builder.add(Attributes.MAX_HEALTH, 500);
                     builder.add(Attributes.ARMOR, 35);
-                    .fireImmune()
                     builder.add(Attributes.ATTACK_DAMAGE, 6.0);
                     builder.add(Attributes.KNOCKBACK_RESISTANCE, 1.0);
                     return builder;

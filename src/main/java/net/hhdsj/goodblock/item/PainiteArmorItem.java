@@ -3,16 +3,21 @@ package net.hhdsj.goodblock.item;
 import net.hhdsj.goodblock.client.models.armor.GoodBlockModelMaleWingedDragonArmor;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorModel;
 import net.ltxprogrammer.changed.entity.ChangedEntity;
+import net.ltxprogrammer.changed.process.ProcessTransfur;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -80,7 +85,7 @@ public abstract class PainiteArmorItem extends ArmorItem {
             var model = getModel();
             float age = entity.tickCount + Minecraft.getInstance().getFrameTime();
             float limbSwing = entity.walkAnimation.position();
-            float limbSwingAmount = Math.min(entity.walkAnimation.speed(), 1.3F);
+            float limbSwingAmount = Math.min(entity.walkAnimation.speed(), 1.5F);
 
             model.getAnimator(changed).setupAnim(changed,
                     limbSwing,
@@ -165,7 +170,6 @@ public abstract class PainiteArmorItem extends ArmorItem {
                     var parts = fullParts();
                     var m = getModel();
 
-                    // 隐藏脚部子部件，避免与靴子重叠
                     m.RightLowerLeg.visible = true;
                     m.RightFoot.visible = true;
                     m.RightPad.visible = false;
@@ -198,7 +202,6 @@ public abstract class PainiteArmorItem extends ArmorItem {
                     var parts = fullParts();
                     var m = getModel();
 
-                    // 隐藏脚部子部件，避免与靴子重叠
                     m.RightLowerLeg.visible = true;
                     m.RightFoot.visible = true;
                     m.RightPad.visible = true;

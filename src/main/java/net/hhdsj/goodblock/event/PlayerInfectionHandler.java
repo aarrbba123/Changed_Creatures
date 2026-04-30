@@ -20,9 +20,40 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraft.world.entity.player.Player;
 import net.hhdsj.goodblock.network.GoodblockModVariables;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
 @Mod.EventBusSubscriber
 public class PlayerInfectionHandler {
-    private static final ResourceLocation FORM_VARIANT = new ResourceLocation("goodblock", "form_latex_yunxq_hot_dragon");
+    private static final Random RANDOM = new Random();
+    private static final List<String> LIST_VARIANT = new ArrayList<>(List.of(
+            "goodblock:latex_orange_fox",
+            "goodblock:latex_kcahra_shark",
+            "goodblock:latexbluedragon",
+            "goodblock:darkfu_latex_wolf_male",
+            "goodblock:latex_ko_qi_ice_dragon",
+            "goodblock:inksuger",
+            "goodblock:blackpupmale",
+            "goodblock:whitebluepup",
+            "goodblock:latexpurplewswolf",
+            "goodblock:latexyunxqhotdragon",
+            "goodblock:latexyunxqicedragon",
+            "goodblock:latex_ice_field_wolf_dragon",
+            "goodblock:latex_purple_cooc_wolf",
+            "goodblock:latexthreemonthwolf",
+            "goodblock:latex_yun_qi_ice_dragon",
+            "goodblock:latex_radiation_fox",
+            "goodblock:latex_night_owl_dragon",
+            "goodblock:latex_iq_gold_dragon",
+            "goodblock:latex_dark_purple_dragon_taur",
+            "goodblock:latex_dark_purple_dragon",
+            "goodblock:latex_luo_hong_early_spring_fox_dragon",
+            "goodblock:latex_neondimness_wolf",
+            "goodblock:latex_cheng_xi_fox")
+    );
+    private static ResourceLocation FORM_VARIANT = new ResourceLocation("goodblock", "form_latex_yunxq_hot_dragon");
     //private static final TransfurVariant<?> variant = ChangedRegistry.TRANSFUR_VARIANT.get().getValue(FORM_VARIANT);
 
     @SubscribeEvent
@@ -65,16 +96,14 @@ public class PlayerInfectionHandler {
             }
 
             if (data.Player_Infection_tick >= 1000) {
-
                 player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 50, 1));
                 player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 50, 2));
+                FORM_VARIANT = new ResourceLocation(LIST_VARIANT.get(RANDOM.nextInt(LIST_VARIANT.size())));
                 TransfurVariant<?> variant = ChangedRegistry.TRANSFUR_VARIANT.get().getValue(FORM_VARIANT);
                 if (variant != null) {
                     GoodblockProcessTransfur.progressTransfur(player, 1f, variant, TransfurContext.hazard(TransfurCause.FACE_HAZARD));
                 }
-                ;
             }
-            ;
 
             if (data.Player_Infection_tick % 100 == 0) {
                 System.out.println("Now Player_Infection_tick : " + data.Player_Infection_tick);

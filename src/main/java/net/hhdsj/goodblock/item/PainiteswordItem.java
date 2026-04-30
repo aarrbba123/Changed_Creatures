@@ -37,5 +37,7 @@ public class PainiteswordItem extends SwordItem {
 				return Ingredient.of(new ItemStack(Items.NETHERITE_INGOT));
 			}
 		}, 3, -2.7f, new Item.Properties().fireResistant());
+
+
 	}
 }

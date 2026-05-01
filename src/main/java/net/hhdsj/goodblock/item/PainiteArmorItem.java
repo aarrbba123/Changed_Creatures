@@ -23,9 +23,11 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public abstract class PainiteArmorItem extends ArmorItem {
 
@@ -66,23 +68,63 @@ public abstract class PainiteArmorItem extends ArmorItem {
 
     @Override public @NotNull EquipmentSlot getEquipmentSlot() { return this.type.getSlot(); }
 
-    // ==================== 模型缓存与动画 ====================
-    private static GoodBlockModelMaleWingedDragonArmor<ChangedEntity> cachedModel;
-    private static final ModelPart EMPTY_PART = new ModelPart(Collections.emptyList(), Collections.emptyMap());
+    // ==================== 客户端安全持有者 ====================
+    /**
+     * 所有客户端专有对象都通过此内部类延迟加载。
+     * 只有当 get() 被调用且运行在客户端时，才会初始化这些字段。
+     * 在服务端，这些字段保持为 null。
+     */
+    private static final class ClientHolder {
+        private static boolean initialized;
+        private static boolean initFailed;
 
-    private static GoodBlockModelMaleWingedDragonArmor<ChangedEntity> getModel() {
-        if (cachedModel == null) {
-            cachedModel = new GoodBlockModelMaleWingedDragonArmor<>(
-                    Minecraft.getInstance().getEntityModels().bakeLayer(GoodBlockModelMaleWingedDragonArmor.LAYER_LOCATION),
-                    ArmorModel.ARMOR_OUTER
-            );
+        @Nullable
+        private static GoodBlockModelMaleWingedDragonArmor<ChangedEntity> cachedModel;
+
+        @Nullable
+        private static ModelPart emptyPart;
+
+        private static void ensureInitialized() {
+            if (initialized || initFailed) return;
+            try {
+                // 测试是否能加载客户端类
+                Class.forName("net.minecraft.client.Minecraft");
+
+                cachedModel = new GoodBlockModelMaleWingedDragonArmor<>(
+                        Minecraft.getInstance().getEntityModels().bakeLayer(GoodBlockModelMaleWingedDragonArmor.LAYER_LOCATION),
+                        ArmorModel.ARMOR_OUTER
+                );
+                emptyPart = new ModelPart(Collections.emptyList(), Collections.emptyMap());
+                initialized = true;
+            } catch (ClassNotFoundException | NoClassDefFoundError | ExceptionInInitializerError e) {
+                // 服务端环境，标记为失败，不再重试
+                initFailed = true;
+            }
         }
-        return cachedModel;
-    }
 
-    private static void animate(LivingEntity entity) {
-        if (entity instanceof ChangedEntity changed) {
+        @Nullable
+        static GoodBlockModelMaleWingedDragonArmor<ChangedEntity> getModel() {
+            ensureInitialized();
+            return cachedModel;
+        }
+
+        @Nullable
+        static ModelPart getEmptyPart() {
+            ensureInitialized();
+            return emptyPart;
+        }
+
+        static boolean isAvailable() {
+            ensureInitialized();
+            return initialized;
+        }
+
+        static void animateIfPossible(LivingEntity entity) {
+            if (!isAvailable()) return;
+            if (!(entity instanceof ChangedEntity changed)) return;
             var model = getModel();
+            if (model == null) return;
+
             float age = entity.tickCount + Minecraft.getInstance().getFrameTime();
             float limbSwing = entity.walkAnimation.position();
             float limbSwingAmount = Math.min(entity.walkAnimation.speed(), 1.5F);
@@ -97,40 +139,67 @@ public abstract class PainiteArmorItem extends ArmorItem {
         }
     }
 
-    // ==================== 盔甲模型构建器 ====================
-    private static HumanoidModel<?> buildModel(LivingEntity entity, HumanoidModel<?> original, Map<String, ModelPart> parts) {
-        animate(entity);
+    // ==================== 客户端模型构建 ====================
+    @Nullable
+    private static HumanoidModel<?> buildModel(@Nullable LivingEntity entity,
+                                               @Nullable HumanoidModel<?> original,
+                                               @NotNull Map<String, ModelPart> parts) {
+        if (!ClientHolder.isAvailable()) return original;
+        ModelPart emptyPart = ClientHolder.getEmptyPart();
+        if (emptyPart == null) return original;
+
+        ClientHolder.animateIfPossible(entity);
+
         var model = new HumanoidModel<>(new ModelPart(Collections.emptyList(), parts));
-        model.crouching = entity.isShiftKeyDown();
-        model.riding = original.riding;
-        model.young = entity.isBaby();
+        if (entity != null) {
+            model.crouching = entity.isShiftKeyDown();
+            model.young = entity.isBaby();
+        }
+        if (original != null) {
+            model.riding = original.riding;
+        }
         return model;
     }
 
-    private static Map<String, ModelPart> fullParts() {
+    @NotNull
+    private static Map<String, ModelPart> buildPartsMap() {
+        if (!ClientHolder.isAvailable()) return Collections.emptyMap();
+        ModelPart empty = ClientHolder.getEmptyPart();
+        if (empty == null) return Collections.emptyMap();
+
         Map<String, ModelPart> parts = new HashMap<>();
-        parts.put("head", EMPTY_PART);
-        parts.put("hat", EMPTY_PART);
-        parts.put("body", EMPTY_PART);
-        parts.put("right_arm", EMPTY_PART);
-        parts.put("left_arm", EMPTY_PART);
-        parts.put("right_leg", EMPTY_PART);
-        parts.put("left_leg", EMPTY_PART);
+        parts.put("head", empty);
+        parts.put("hat", empty);
+        parts.put("body", empty);
+        parts.put("right_arm", empty);
+        parts.put("left_arm", empty);
+        parts.put("right_leg", empty);
+        parts.put("left_leg", empty);
         return parts;
     }
 
     // ==================== 头盔 ====================
     public static class Helmet extends PainiteArmorItem {
         public Helmet() { super(Type.HELMET, new Properties().fireResistant().stacksTo(1)); }
-        @Override public String getArmorTexture(ItemStack s, Entity e, EquipmentSlot slot, String t) {
+
+        @Override
+        public String getArmorTexture(ItemStack s, Entity e, EquipmentSlot slot, String t) {
             return "goodblock:textures/models/armor/painite_male_winged_dragon_armor_1.png";
         }
-        @Override public void initializeClient(Consumer<IClientItemExtensions> c) {
+
+        @Override
+        public void initializeClient(Consumer<IClientItemExtensions> c) {
             c.accept(new IClientItemExtensions() {
-                @Override public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity e, ItemStack s, EquipmentSlot slot, HumanoidModel<?> o) {
-                    var parts = fullParts();
-                    parts.put("head", getModel().Head);
-                    return buildModel(e, o, parts);
+                @Override
+                public @NotNull HumanoidModel<?> getHumanoidArmorModel(
+                        LivingEntity entity, ItemStack stack, EquipmentSlot slot, HumanoidModel<?> original) {
+                    if (!ClientHolder.isAvailable()) return original;
+                    var model = ClientHolder.getModel();
+                    if (model == null) return original;
+
+                    var parts = buildPartsMap();
+                    parts.put("head", model.Head);
+                    return Objects.requireNonNull(buildModel(entity, original, parts));
                 }
             });
         }
@@ -139,20 +208,28 @@ public abstract class PainiteArmorItem extends ArmorItem {
     // ==================== 胸甲 ====================
     public static class Chestplate extends PainiteArmorItem {
         public Chestplate() { super(Type.CHESTPLATE, new Properties().fireResistant().stacksTo(1)); }
-        @Override public String getArmorTexture(ItemStack s, Entity e, EquipmentSlot slot, String t) {
+
+        @Override
+        public String getArmorTexture(ItemStack s, Entity e, EquipmentSlot slot, String t) {
             return "goodblock:textures/models/armor/painite_male_winged_dragon_armor_1.png";
         }
-        @Override public void initializeClient(Consumer<IClientItemExtensions> c) {
-            c.accept(new IClientItemExtensions() {
-                @Override public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity e, ItemStack s, EquipmentSlot slot, HumanoidModel<?> o) {
-                    var parts = fullParts();
-                    var m = getModel();
 
-                    m.Tail.visible = false;
-                    parts.put("body", m.Torso);
-                    parts.put("right_arm", m.RightArm);
-                    parts.put("left_arm", m.LeftArm);
-                    return buildModel(e, o, parts);
+        @Override
+        public void initializeClient(Consumer<IClientItemExtensions> c) {
+            c.accept(new IClientItemExtensions() {
+                @Override
+                public @NotNull HumanoidModel<?> getHumanoidArmorModel(
+                        LivingEntity entity, ItemStack stack, EquipmentSlot slot, HumanoidModel<?> original) {
+                    if (!ClientHolder.isAvailable()) return original;
+                    var model = ClientHolder.getModel();
+                    if (model == null) return original;
+
+                    model.Tail.visible = false;
+                    var parts = buildPartsMap();
+                    parts.put("body", model.Torso);
+                    parts.put("right_arm", model.RightArm);
+                    parts.put("left_arm", model.LeftArm);
+                    return Objects.requireNonNull(buildModel(entity, original, parts));
                 }
             });
         }
@@ -161,29 +238,39 @@ public abstract class PainiteArmorItem extends ArmorItem {
     // ==================== 护腿 ====================
     public static class Leggings extends PainiteArmorItem {
         public Leggings() { super(Type.LEGGINGS, new Properties().fireResistant().stacksTo(1)); }
-        @Override public String getArmorTexture(ItemStack s, Entity e, EquipmentSlot slot, String t) {
+
+        @Override
+        public String getArmorTexture(ItemStack s, Entity e, EquipmentSlot slot, String t) {
             return "goodblock:textures/models/armor/painite_male_winged_dragon_armor_1.png";
         }
-        @Override public void initializeClient(Consumer<IClientItemExtensions> c) {
+
+        @Override
+        public void initializeClient(Consumer<IClientItemExtensions> c) {
             c.accept(new IClientItemExtensions() {
-                @Override public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity e, ItemStack s, EquipmentSlot slot, HumanoidModel<?> o) {
-                    var parts = fullParts();
-                    var m = getModel();
+                @Override
+                public @NotNull HumanoidModel<?> getHumanoidArmorModel(
+                        LivingEntity entity, ItemStack stack, EquipmentSlot slot, HumanoidModel<?> original) {
+                    if (!ClientHolder.isAvailable()) return original;
+                    var model = ClientHolder.getModel();
+                    if (model == null) return original;
 
-                    m.RightLowerLeg.visible = true;
-                    m.RightFoot.visible = true;
-                    m.RightPad.visible = false;
-                    m.LeftLowerLeg.visible = true;
-                    m.LeftFoot.visible = true;
-                    m.LeftPad.visible = false;
+                    model.RightLowerLeg.visible = true;
+                    model.RightFoot.visible = true;
+                    model.RightPad.visible = false;
+                    model.LeftLowerLeg.visible = true;
+                    model.LeftFoot.visible = true;
+                    model.LeftPad.visible = false;
 
-                    parts.put("right_leg", m.RightLeg);
-                    parts.put("left_leg", m.LeftLeg);
+                    var parts = buildPartsMap();
+                    parts.put("right_leg", model.RightLeg);
+                    parts.put("left_leg", model.LeftLeg);
 
-                    var model = buildModel(e, o, parts);
-                    model.rightLeg.visible = true;
-                    model.leftLeg.visible = true;
-                    return model;
+                    var result = buildModel(entity, original, parts);
+                    if (result != null) {
+                        result.rightLeg.visible = true;
+                        result.leftLeg.visible = true;
+                    }
+                    return result != null ? result : original;
                 }
             });
         }
@@ -192,30 +279,39 @@ public abstract class PainiteArmorItem extends ArmorItem {
     // ==================== 靴子 ====================
     public static class Boots extends PainiteArmorItem {
         public Boots() { super(Type.BOOTS, new Properties().fireResistant().stacksTo(1)); }
-        @Override public String getArmorTexture(ItemStack s, Entity e, EquipmentSlot slot, String t) {
+
+        @Override
+        public String getArmorTexture(ItemStack s, Entity e, EquipmentSlot slot, String t) {
             return "goodblock:textures/models/armor/painite_male_winged_dragon_armor_2.png";
         }
 
-        @Override public void initializeClient(Consumer<IClientItemExtensions> c) {
+        @Override
+        public void initializeClient(Consumer<IClientItemExtensions> c) {
             c.accept(new IClientItemExtensions() {
-                @Override public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity e, ItemStack s, EquipmentSlot slot, HumanoidModel<?> o) {
-                    var parts = fullParts();
-                    var m = getModel();
+                @Override
+                public @NotNull HumanoidModel<?> getHumanoidArmorModel(
+                        LivingEntity entity, ItemStack stack, EquipmentSlot slot, HumanoidModel<?> original) {
+                    if (!ClientHolder.isAvailable()) return original;
+                    var model = ClientHolder.getModel();
+                    if (model == null) return original;
 
-                    m.RightLowerLeg.visible = true;
-                    m.RightFoot.visible = true;
-                    m.RightPad.visible = true;
-                    m.LeftLowerLeg.visible = true;
-                    m.LeftFoot.visible = true;
-                    m.LeftPad.visible = true;
+                    model.RightLowerLeg.visible = true;
+                    model.RightFoot.visible = true;
+                    model.RightPad.visible = true;
+                    model.LeftLowerLeg.visible = true;
+                    model.LeftFoot.visible = true;
+                    model.LeftPad.visible = true;
 
-                    parts.put("right_leg", m.RightLeg);
-                    parts.put("left_leg", m.LeftLeg);
+                    var parts = buildPartsMap();
+                    parts.put("right_leg", model.RightLeg);
+                    parts.put("left_leg", model.LeftLeg);
 
-                    var model = buildModel(e, o, parts);
-                    model.rightLeg.visible = true;
-                    model.leftLeg.visible = true;
-                    return model;
+                    var result = buildModel(entity, original, parts);
+                    if (result != null) {
+                        result.rightLeg.visible = true;
+                        result.leftLeg.visible = true;
+                    }
+                    return result != null ? result : original;
                 }
             });
         }

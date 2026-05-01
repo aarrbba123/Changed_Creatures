@@ -72,6 +72,24 @@ public class BlueCrystalProjectile extends AbstractArrow {
     }
 
     @Override
+    public void onSyncedDataUpdated(EntityDataAccessor<?> key) {
+        // 防止客户端同步异常
+        if (this.level().isClientSide && !this.isAlive()) {
+            return;
+        }
+        super.onSyncedDataUpdated(key);
+    }
+
+    @Override
+    public void remove(RemovalReason reason) {
+        // 防止重复移除导致的客户端异常
+        if (!this.isAlive() && reason == RemovalReason.DISCARDED) {
+            return;
+        }
+        super.remove(reason);
+    }
+
+    @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(FORM_VARIANT, "goodblock:form_latex_gao_hui_fox");
@@ -81,6 +99,12 @@ public class BlueCrystalProjectile extends AbstractArrow {
     
     @Override
     public void tick() {
+
+        if (this.getOwner() == null && this.tickCount > 20) {
+            this.discard();
+            return;
+        }
+
         super.tick();
         
         if (this.tickCount > life) {
@@ -97,23 +121,31 @@ public class BlueCrystalProjectile extends AbstractArrow {
         }
         
         // 粒子效果
-        if (!this.inGround && this.level().isClientSide && this.tickCount % 1 == 0) {
+        if (!this.inGround && this.level().isClientSide && this.tickCount % 2 == 0) {
             this.level().addParticle(ParticleTypes.END_ROD,
                 this.getX(), this.getY(), this.getZ(), 
                 0.0D, 0.0D, 0.0D);
         }
     }
 
+
+
     @Override
     protected void onHitEntity(EntityHitResult result) {
         Entity target = result.getEntity();
+
+        // 检查目标是否有效
+        if (target == null || !target.isAlive()) {
+            this.discard();
+            return;
+        }
 
         // 检查是否击中自己
         if (target == this.getOwner()) {
             return;
         }
 
-        // 只在服务端处理伤害
+        // 只在服务端处理伤害，客户端直接返回
         if (this.level().isClientSide) {
             return;
         }
@@ -123,8 +155,8 @@ public class BlueCrystalProjectile extends AbstractArrow {
             return;
         }
 
-        // 检查目标是否存活且可攻击
-        if (!livingTarget.isAlive() || !livingTarget.isAttackable()) {
+        // 检查目标是否可攻击
+        if (!livingTarget.isAttackable() || livingTarget.isRemoved()) {
             return;
         }
 
@@ -136,16 +168,15 @@ public class BlueCrystalProjectile extends AbstractArrow {
 
         // 获取伤害来源
         DamageSource source;
-        if (this.getOwner() instanceof LivingEntity owner) {
-            source = this.damageSources().arrow(this, owner);
+        Entity owner = this.getOwner();
+        if (owner instanceof LivingEntity livingOwner) {
+            source = this.damageSources().arrow(this, livingOwner);
         } else {
-            source = this.damageSources().arrow(this, null);
+            source = this.damageSources().arrow(this, this);
         }
 
-        // 获取伤害值
-        float damage = this.getProjectileDamage();
-
         // 应用伤害
+        float damage = this.getProjectileDamage();
         boolean hurtResult = livingTarget.hurt(source, damage);
 
         if (hurtResult) {
@@ -154,13 +185,6 @@ public class BlueCrystalProjectile extends AbstractArrow {
 
             // 播放命中音效
             this.playSound(SoundEvents.ARROW_HIT, 1.0F, 1.2F);
-
-            // 应用击退
-            if (this.getKnockback() > 0) {
-                Vec3 knockbackVec = this.getDeltaMovement().normalize().scale(this.getKnockback() * 0.6);
-                livingTarget.setDeltaMovement(livingTarget.getDeltaMovement().add(knockbackVec));
-                livingTarget.hurtMarked = true;
-            }
 
             // 如果没有穿透效果，消失
             if (this.getPierceLevel() <= 0) {
@@ -178,7 +202,12 @@ public class BlueCrystalProjectile extends AbstractArrow {
             }
         }
     }
-    
+
+    @Override
+    public int getKnockback() {
+        return 0; // 禁用击退
+    }
+
     @Override
     protected void onHitBlock(BlockHitResult result) {
         super.onHitBlock(result);

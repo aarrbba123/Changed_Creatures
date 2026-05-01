@@ -19,6 +19,7 @@ import net.hhdsj.goodblock.client.model.latex_shark.ModelLatexKcahraShark;
 import net.hhdsj.goodblock.client.model.latex_shark.ModelLatexQianGuiShark;
 import net.hhdsj.goodblock.client.model.latex_taur.ModelLatexDarkPurpleDragonTaur;
 import net.hhdsj.goodblock.client.model.latex_wolf.*;
+import net.hhdsj.goodblock.client.model.other.CrystalJavelinModel;
 import net.hhdsj.goodblock.client.models.armor.GoodBlockModelMaleWingedDragonArmor;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorModelSet;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorNoTailModel;
@@ -71,7 +72,7 @@ public class GoodblockModModels {
 		event.registerLayerDefinition(ModelLatexEnkangDragonShark.LAYER_LOCATION, ModelLatexEnkangDragonShark::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexDawnWolf.LAYER_LOCATION, ModelLatexDawnWolf::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexBlueveCat.LAYER_LOCATION, ModelLatexBlueveCat::createBodyLayer);
-
+		event.registerLayerDefinition(CrystalJavelinModel.LAYER_LOCATION, CrystalJavelinModel::createBodyLayer);
 
 		event.registerLayerDefinition(GoodBlockModelMaleWingedDragonArmor.LAYER_LOCATION, GoodBlockModelMaleWingedDragonArmor::createBodyLayer);
 		ArmorLatexMaleWolfWingedDragonModel.MODEL_SET.registerDefinitions(event::registerLayerDefinition);

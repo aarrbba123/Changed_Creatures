@@ -18,6 +18,7 @@ import net.hhdsj.goodblock.client.renderer.latex_shark.LatexKcahraSharkRenderer;
 import net.hhdsj.goodblock.client.renderer.latex_shark.LatexQianGuiSharkRenderer;
 import net.hhdsj.goodblock.client.renderer.latex_taur.LatexDarkPurpleDragonTaurRenderer;
 import net.hhdsj.goodblock.client.renderer.latex_wolf.*;
+import net.hhdsj.goodblock.client.renderer.projectile.BlueCrystalProjectileRenderer;
 import net.hhdsj.goodblock.client.renderer.projectile.LatexArrowRenderer;
 import net.hhdsj.goodblock.entity.simple.LatexDawnWolfEntity;
 import net.hhdsj.goodblock.entity.simple.LatexDivineSwordKitsuneEntity;
@@ -61,6 +62,7 @@ public class GoodblockModEntityRenderers {
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_CHENG_XI.get(), LatexChengXiRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEXYAOLINGDRAGON.get(),LatexYaoLingDragonRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_DIVINE_SWORD_KITSUNE.get(), LatexDivineSwordKitsuneRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.BLUECRYSTALPROJECTILE.get(), BlueCrystalProjectileRenderer::new);
 
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_YUE_XI_FOX_FEMALE.get(), LatexYueXiFoxFemaleRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_GAO_HUI_FOX.get(), LatexGaoHuiFoxRenderer::new);

@@ -7,6 +7,7 @@ import net.foxyas.changedaddon.entity.projectile.VoidFoxParticleProjectile;
 import net.foxyas.changedaddon.init.ChangedAddonEntities;
 import net.foxyas.changedaddon.init.ChangedAddonParticleTypes;
 import net.hhdsj.goodblock.init.GoodblockModEntities;
+import net.hhdsj.goodblock.init.GoodblockModSounds;
 import net.ltxprogrammer.changed.entity.ChangedEntity;
 //import net.ltxprogrammer.changed.entity.LatexType;
 import net.minecraft.network.chat.Component;
@@ -308,7 +309,7 @@ public class LatexNightOwlBossEntity extends ChangedEntity{
             );
         }
         player.displayClientMessage(
-                Component.literal("You can't exit me!").withStyle((style -> {
+                Component.literal("There is no escape!").withStyle((style -> {
                     Style returnStyle = style.withColor(ChatFormatting.DARK_RED);
                     returnStyle = returnStyle.withItalic(true);
                     return returnStyle;
@@ -474,7 +475,7 @@ public class LatexNightOwlBossEntity extends ChangedEntity{
                     int randomIntBound = LatexNightOwlBossEntity.this.random.nextInt(20); // 0-20之间的随机整数
                     if (randomIntBound >= 10) {
                         if (getTarget() instanceof Player player) {
-                            player.displayClientMessage(Component.literal("Can you think ....?").withStyle((style -> {
+                            player.displayClientMessage(Component.literal("Can you keep up with my speed?").withStyle((style -> {
                                 Style returnStyle = style.withColor(ChatFormatting.DARK_RED);
                                 returnStyle = returnStyle.withItalic(true);
                                 return returnStyle;
@@ -515,7 +516,7 @@ public class LatexNightOwlBossEntity extends ChangedEntity{
                     } else {
 
                         if (getTarget() instanceof Player player) {
-                            player.displayClientMessage(Component.literal("Test message--1?").withStyle((style -> {
+                            player.displayClientMessage(Component.literal("You are too slow!").withStyle((style -> {
                                 Style returnStyle = style.withColor(ChatFormatting.DARK_RED);
                                 returnStyle = returnStyle.withItalic(true);
                                 return returnStyle;
@@ -529,7 +530,7 @@ public class LatexNightOwlBossEntity extends ChangedEntity{
             }
             public void stop() {
                 if (getTarget() instanceof Player player) {
-                    player.displayClientMessage(Component.literal("Test message--0?").withStyle((style -> {
+                    player.displayClientMessage(Component.literal("Your tricks won't work on me!").withStyle((style -> {
                         Style returnStyle = style.withColor(ChatFormatting.DARK_RED);
                         returnStyle = returnStyle.withItalic(true);
                         return returnStyle;
@@ -605,4 +606,17 @@ public class LatexNightOwlBossEntity extends ChangedEntity{
     }
 
     private final ServerBossEvent bossEvent;
+
+    @Override
+    public void onAddedToWorld() {
+        super.onAddedToWorld();
+        if (!this.level().isClientSide) {
+            // 播放Boss音乐
+            this.level().playSound(null,
+                    this.getX(), this.getY(), this.getZ(),
+                    GoodblockModSounds.INK_SANS.get(),
+                    SoundSource.HOSTILE,
+                    2.0f, 0.8f);
+        }
+    }
 }

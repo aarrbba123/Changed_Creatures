@@ -7,6 +7,7 @@ import net.foxyas.changedaddon.entity.projectile.VoidFoxParticleProjectile;
 import net.foxyas.changedaddon.init.ChangedAddonEntities;
 import net.foxyas.changedaddon.init.ChangedAddonParticleTypes;
 import net.hhdsj.goodblock.init.GoodblockModEntities;
+import net.hhdsj.goodblock.init.GoodblockModSounds;
 import net.ltxprogrammer.changed.entity.ChangedEntity;
 import net.ltxprogrammer.changed.entity.TransfurMode;
 import net.ltxprogrammer.changed.init.ChangedAttributes;
@@ -590,4 +591,17 @@ public class LatexIceFieldWolfDragonBossEntity extends ChangedEntity{
     }
 
     private final ServerBossEvent bossEvent;
+
+    @Override
+    public void onAddedToWorld() {
+        super.onAddedToWorld();
+        if (!this.level().isClientSide) {
+            // 播放Boss音乐
+            this.level().playSound(null,
+                    this.getX(), this.getY(), this.getZ(),
+                    GoodblockModSounds.INK_SANS.get(),
+                    SoundSource.HOSTILE,
+                    2.0f, 0.8f);
+        }
+    }
 }

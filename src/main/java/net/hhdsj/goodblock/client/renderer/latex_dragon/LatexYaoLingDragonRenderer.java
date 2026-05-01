@@ -18,8 +18,8 @@ public class LatexYaoLingDragonRenderer extends AdvancedHumanoidRenderer<LatexYa
                 new ResourceLocation("goodblock", "textures/entities/latex/latex_yao_ling_dragon_light.png")));
         this.addLayer(new LatexParticlesLayer<>(this, getModel()));
         this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()));
-        //this.addLayer(CustomEyesLayer.builder(this, context.getModelSet())
-        this.addLayer(new CustomEyesLayer<>(this, context.getModelSet(), CustomEyesLayer::scleraColor, CustomEyesLayer.fixedColorGlowing(Color3.parseHex("#8dcfff")), CustomEyesLayer.fixedColorGlowing(Color3.parseHex("#8dcfff")), CustomEyesLayer::noRender, CustomEyesLayer::noRender));
+        this.addLayer(CustomEyesLayer.builder(this, context.getModelSet())
+                .withSclera(Color3.WHITE).withIris(Color3.fromInt(0xff3333)).build());
         this.addLayer(GasMaskLayer.forSnouted(this, context.getModelSet()));
 
     }

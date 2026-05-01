@@ -42,7 +42,7 @@ public class LatexthreemonthwolfEntityProjectile extends AbstractArrow {
     private static final EntityDataAccessor<Float> PROJECTILE_DAMAGE =
             SynchedEntityData.defineId(LatexthreemonthwolfEntityProjectile.class, EntityDataSerializers.FLOAT);
     
-    private int life = 1200; 
+    private int life = 1200;
     private ResourceLocation formVariant = new ResourceLocation("goodblock", "form_latex_three_month_wolf");
     private float projectileDamage = 1.0f;
     private int shakeTime = 0;
@@ -108,8 +108,20 @@ public class LatexthreemonthwolfEntityProjectile extends AbstractArrow {
     protected void onHitEntity(EntityHitResult result) {
         Entity target = result.getEntity();
 
+        // 增加有效性检查
+        if (target == null || !target.isAlive()) {
+            this.discard();
+            return;
+        }
+
         if (!this.level().isClientSide && target instanceof LivingEntity livingTarget) {
+            // 检查目标是否有效且不是自己
             if (target == this.getOwner()) {
+                return;
+            }
+
+            // 检查目标是否可攻击
+            if (!livingTarget.isAttackable()) {
                 return;
             }
 
@@ -120,43 +132,42 @@ public class LatexthreemonthwolfEntityProjectile extends AbstractArrow {
                 return;
             }
 
-            // 使用正确的伤害类型
-            DamageSource source;
-            if (this.getOwner() instanceof LivingEntity owner) {
-                source = this.damageSources().arrow(this, owner);
-            } else {
-                source = this.damageSources().arrow(this, null);
-            }
-
-            // 获取伤害（已包含力量附魔加成）
-            float damage = this.getProjectileDamage();
-
-            // 应用伤害
-            if (livingTarget.hurt(source, damage)) {
-                // 应用转化效果
-                this.applyTransfurEffect(livingTarget);
-
-                // 音效
-                this.playSound(SoundEvents.ARROW_HIT, 1.0F, 1.2F);
-
-                // 如果箭矢有击退效果，应用到目标
-                if (this.getKnockback() > 0) {
-                    Vec3 knockbackVec = this.getDeltaMovement().normalize().scale(this.getKnockback() * 0.6);
-                    livingTarget.setDeltaMovement(livingTarget.getDeltaMovement().add(knockbackVec));
-                    livingTarget.hurtMarked = true;
+            try {
+                // 使用正确的伤害类型
+                DamageSource source;
+                if (this.getOwner() instanceof LivingEntity owner) {
+                    source = this.damageSources().arrow(this, owner);
+                } else {
+                    source = this.damageSources().arrow(this, null);
                 }
 
-                if (this.getPierceLevel() <= 0) {
-                    this.discard();
+                float damage = this.getProjectileDamage();
+
+                // 应用伤害
+                if (livingTarget.hurt(source, damage)) {
+                    this.applyTransfurEffect(livingTarget);
+                    this.playSound(SoundEvents.ARROW_HIT, 1.0F, 1.2F);
+
+                    if (this.getKnockback() > 0) {
+                        Vec3 knockbackVec = this.getDeltaMovement().normalize().scale(this.getKnockback() * 0.6);
+                        livingTarget.setDeltaMovement(livingTarget.getDeltaMovement().add(knockbackVec));
+                        livingTarget.hurtMarked = true;
+                    }
+
+                    if (this.getPierceLevel() <= 0) {
+                        this.discard();
+                    }
+                } else {
+                    this.setDeltaMovement(this.getDeltaMovement().scale(-0.1D));
+                    this.setYRot(this.getYRot() + 180.0F);
+                    this.yRotO += 180.0F;
+                    if (!this.level().isClientSide && this.getDeltaMovement().lengthSqr() < 1.0E-7D) {
+                        this.discard();
+                    }
                 }
-            } else {
-                // 反弹逻辑
-                this.setDeltaMovement(this.getDeltaMovement().scale(-0.1D));
-                this.setYRot(this.getYRot() + 180.0F);
-                this.yRotO += 180.0F;
-                if (!this.level().isClientSide && this.getDeltaMovement().lengthSqr() < 1.0E-7D) {
-                    this.discard();
-                }
+            } catch (Exception e) {
+                // 捕获异常避免崩溃
+                this.discard();
             }
         }
     }

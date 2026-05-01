@@ -2,6 +2,7 @@ package net.hhdsj.goodblock.entity.simple;
 
 import net.foxyas.changedaddon.entity.advanced.AbstractKitsuneEntity;
 import net.hhdsj.goodblock.init.GoodblockModEntities;
+import net.hhdsj.goodblock.init.GoodblockModParticleTypes;
 import net.ltxprogrammer.changed.entity.ChangedEntity;
 import net.ltxprogrammer.changed.entity.Gender;
 import net.minecraft.core.particles.ParticleTypes;
@@ -20,6 +21,7 @@ public class LatexGaoHuiFoxEntity extends AbstractKitsuneEntity {
         super.setAttributes(attributes);
         Objects.requireNonNull(attributes.getInstance(Attributes.MOVEMENT_SPEED)).setBaseValue(1.1);
         Objects.requireNonNull(attributes.getInstance(ForgeMod.SWIM_SPEED.get())).setBaseValue(0.9);
+        Objects.requireNonNull(attributes.getInstance(Attributes.MAX_HEALTH)).setBaseValue(40);
     }
 
     public LatexGaoHuiFoxEntity(EntityType<? extends ChangedEntity> type, Level level) {
@@ -48,7 +50,7 @@ public class LatexGaoHuiFoxEntity extends AbstractKitsuneEntity {
             // 环绕粒子的半径
             double radius = 1;
             // 粒子数量
-            int particleCount = 4;
+            int particleCount = 2;
 
             for (int i = 0; i < particleCount; i++) {
                 // 计算环绕角度
@@ -63,7 +65,7 @@ public class LatexGaoHuiFoxEntity extends AbstractKitsuneEntity {
 
                 // 生成粒子
                 this.level().addParticle(
-                        ParticleTypes.FLAME,  // 火焰粒子（亮绿色类似火把）
+                        GoodblockModParticleTypes.GREEN_FLAME.get(),  // 火焰粒子（亮绿色类似火把）
                         x + offsetX,
                         y + offsetY,
                         z + offsetZ,

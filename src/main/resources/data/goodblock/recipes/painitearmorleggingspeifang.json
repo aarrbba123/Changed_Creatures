@@ -4,7 +4,7 @@
     "item": "minecraft:netherite_leggings"
   },
   "addition": {
-    "item": "goodblock:painite_block"
+    "item": "changed_addon:painite_block"
   },
   "result": {
     "item": "goodblock:painite_armor_leggings"

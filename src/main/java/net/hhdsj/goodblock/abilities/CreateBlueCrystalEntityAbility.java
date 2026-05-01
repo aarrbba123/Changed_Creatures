@@ -15,8 +15,21 @@ public class CreateBlueCrystalEntityAbility extends SimpleAbility {
     private static final double SPREAD_OFFSET = 0.08D;
     private static final float PROJECTILE_DAMAGE = 5.0F;
 
+    // 关键：必须覆盖这个方法，返回 true
+    @Override
+    public boolean canUse(IAbstractChangedEntity entity) {
+        // 检查实体是否存在且存活
+        if (entity == null || entity.getEntity() == null || !entity.getEntity().isAlive()) {
+            return false;
+        }
+        // 返回 true 表示可以使用
+        return true;
+    }
+
     @Override
     public void startUsing(IAbstractChangedEntity entity) {
+        System.out.println("CreateBlueCrystalEntityAbility.startUsing() called!");
+
         if (entity.getEntity().level().isClientSide) {
             return;
         }
@@ -30,9 +43,12 @@ public class CreateBlueCrystalEntityAbility extends SimpleAbility {
         // 创建投射物
         BlueCrystalProjectile projectile = new BlueCrystalProjectile(serverLevel, shooter);
         projectile.setProjectileDamage(PROJECTILE_DAMAGE);
+        projectile.setParryable(false);
 
-        // 添加散射效果
+        // 获取发射方向
         Vec3 lookVec = shooter.getLookAngle();
+
+        // 添加随机散射
         double spreadX = (Math.random() - 0.5D) * SPREAD_OFFSET;
         double spreadY = (Math.random() - 0.5D) * SPREAD_OFFSET;
         double spreadZ = (Math.random() - 0.5D) * SPREAD_OFFSET;
@@ -43,10 +59,13 @@ public class CreateBlueCrystalEntityAbility extends SimpleAbility {
                 lookVec.z + spreadZ
         ).normalize();
 
+        // 设置速度和位置
         projectile.setDeltaMovement(finalDirection.scale(PROJECTILE_SPEED));
+        projectile.setPos(shooter.getX(), shooter.getEyeY() - 0.2, shooter.getZ());
 
         // 添加到世界
         serverLevel.addFreshEntity(projectile);
+        System.out.println("Projectile spawned at: " + shooter.getX() + ", " + shooter.getY() + ", " + shooter.getZ());
 
         // 播放音效
         serverLevel.playSound(
@@ -59,7 +78,7 @@ public class CreateBlueCrystalEntityAbility extends SimpleAbility {
 
     @Override
     public int getCoolDown(IAbstractChangedEntity entity) {
-        return 30; // 1.5秒冷却
+        return 20; // 1秒冷却
     }
 
     @Override

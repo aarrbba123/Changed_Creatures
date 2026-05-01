@@ -1,4 +1,3 @@
-// 文件名：BlueCrystalProjectileRenderer.java
 package net.hhdsj.goodblock.client.renderer.projectile;
 
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -12,12 +11,12 @@ import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 import org.jetbrains.annotations.NotNull;
 
 public class BlueCrystalProjectileRenderer extends EntityRenderer<BlueCrystalProjectile> {
-    // 你的模型纹理文件路径
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation("goodblock", "textures/entity/crystal_javelin.png");
+            new ResourceLocation("goodblock", "textures/entities/crystal_javelin.png");
 
     private final CrystalJavelinModel<BlueCrystalProjectile> model;
 
@@ -34,15 +33,19 @@ public class BlueCrystalProjectileRenderer extends EntityRenderer<BlueCrystalPro
 
         poseStack.pushPose();
 
-        float rotationYaw = entity.getYRot() + 90.0F; // 90度偏移调整朝向
-        float rotationPitch = -entity.getXRot();
+        // 获取飞行的角度
+        float yaw = Mth.lerp(partialTicks, entity.yRotO, entity.getYRot());
+        float pitch = Mth.lerp(partialTicks, entity.xRotO, entity.getXRot());
 
-        poseStack.mulPose(com.mojang.math.Axis.YP.rotationDegrees(rotationYaw));
-        poseStack.mulPose(com.mojang.math.Axis.XP.rotationDegrees(rotationPitch));
+        // 关键：模型默认是垂直的（沿Y轴），需要旋转使其指向飞行方向
+        // 先绕Y轴旋转水平方向
+        poseStack.mulPose(com.mojang.math.Axis.YP.rotationDegrees(yaw + 90.0F));
+        // 再绕X轴旋转垂直方向（使其指向正确的俯仰角）
+        poseStack.mulPose(com.mojang.math.Axis.XP.rotationDegrees(pitch));
+        // 最后绕Z轴旋转90度，让模型从垂直变成水平指向
+        poseStack.mulPose(com.mojang.math.Axis.ZP.rotationDegrees(90.0F));
 
-        float spin = (entity.tickCount + partialTicks) * 0.5f;
-        poseStack.mulPose(com.mojang.math.Axis.ZP.rotationDegrees(spin));
-
+        // 缩放模型大小
         poseStack.scale(0.8F, 0.8F, 0.8F);
 
         VertexConsumer vertexConsumer = bufferSource.getBuffer(

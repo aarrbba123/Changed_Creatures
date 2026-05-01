@@ -23,11 +23,8 @@ public class CrystalJavelinModel<T extends Entity> extends EntityModel<T> {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
 
-        PartDefinition bb_main = partdefinition.addOrReplaceChild("bb_main",
-                CubeListBuilder.create()
-                        .texOffs(0, 0)
-                        .addBox(-1.0F, -18.0F, -1.0F, 3.0F, 18.0F, 3.0F, new CubeDeformation(0.0F)),
-                PartPose.offset(0.0F, 24.0F, 0.0F));
+        PartDefinition bb_main = partdefinition.addOrReplaceChild("bb_main", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0F, -18.0F, -1.0F, 3.0F, 18.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
+
 
         return LayerDefinition.create(meshdefinition, 32, 32);
     }
@@ -35,9 +32,6 @@ public class CrystalJavelinModel<T extends Entity> extends EntityModel<T> {
     @Override
     public void setupAnim(T entity, float limbSwing, float limbSwingAmount,
                           float ageInTicks, float netHeadYaw, float headPitch) {
-
-        bb_main.yRot = ageInTicks * 0.5f;
-        bb_main.xRot = ageInTicks * 0.3f;
     }
 
     @Override

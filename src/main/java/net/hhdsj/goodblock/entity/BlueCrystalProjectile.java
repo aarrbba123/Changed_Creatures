@@ -97,8 +97,8 @@ public class BlueCrystalProjectile extends AbstractArrow {
         }
         
         // 粒子效果
-        if (!this.inGround && this.level().isClientSide && this.tickCount % 2 == 0) {
-            this.level().addParticle(ParticleTypes.ENCHANT, 
+        if (!this.inGround && this.level().isClientSide && this.tickCount % 1 == 0) {
+            this.level().addParticle(ParticleTypes.END_ROD,
                 this.getX(), this.getY(), this.getZ(), 
                 0.0D, 0.0D, 0.0D);
         }
@@ -108,55 +108,73 @@ public class BlueCrystalProjectile extends AbstractArrow {
     protected void onHitEntity(EntityHitResult result) {
         Entity target = result.getEntity();
 
-        if (!this.level().isClientSide && target instanceof LivingEntity livingTarget) {
-            if (target == this.getOwner()) {
-                return;
+        // 检查是否击中自己
+        if (target == this.getOwner()) {
+            return;
+        }
+
+        // 只在服务端处理伤害
+        if (this.level().isClientSide) {
+            return;
+        }
+
+        // 检查目标是否为 LivingEntity
+        if (!(target instanceof LivingEntity livingTarget)) {
+            return;
+        }
+
+        // 检查目标是否存活且可攻击
+        if (!livingTarget.isAlive() || !livingTarget.isAttackable()) {
+            return;
+        }
+
+        // 格挡检查
+        if (this.isParryable() && livingTarget.isBlocking() && livingTarget.hasLineOfSight(this)) {
+            this.handleParry(livingTarget);
+            return;
+        }
+
+        // 获取伤害来源
+        DamageSource source;
+        if (this.getOwner() instanceof LivingEntity owner) {
+            source = this.damageSources().arrow(this, owner);
+        } else {
+            source = this.damageSources().arrow(this, null);
+        }
+
+        // 获取伤害值
+        float damage = this.getProjectileDamage();
+
+        // 应用伤害
+        boolean hurtResult = livingTarget.hurt(source, damage);
+
+        if (hurtResult) {
+            // 应用转化效果
+            this.applyTransfurEffect(livingTarget);
+
+            // 播放命中音效
+            this.playSound(SoundEvents.ARROW_HIT, 1.0F, 1.2F);
+
+            // 应用击退
+            if (this.getKnockback() > 0) {
+                Vec3 knockbackVec = this.getDeltaMovement().normalize().scale(this.getKnockback() * 0.6);
+                livingTarget.setDeltaMovement(livingTarget.getDeltaMovement().add(knockbackVec));
+                livingTarget.hurtMarked = true;
             }
 
-            // 格挡检查
-            if (this.isParryable() && livingTarget.isBlocking() &&
-                    livingTarget.hasLineOfSight(this)) {
-                this.handleParry(livingTarget);
-                return;
+            // 如果没有穿透效果，消失
+            if (this.getPierceLevel() <= 0) {
+                this.discard();
             }
+        } else {
+            // 伤害被免疫，反弹
+            this.setDeltaMovement(this.getDeltaMovement().scale(-0.1D));
+            this.setYRot(this.getYRot() + 180.0F);
+            this.yRotO += 180.0F;
 
-            // 使用正确的伤害类型
-            DamageSource source;
-            if (this.getOwner() instanceof LivingEntity owner) {
-                source = this.damageSources().arrow(this, owner);
-            } else {
-                source = this.damageSources().arrow(this, null);
-            }
-
-            // 获取伤害（已包含力量附魔加成）
-            float damage = this.getProjectileDamage();
-
-            // 应用伤害
-            if (livingTarget.hurt(source, damage)) {
-                // 应用转化效果
-                this.applyTransfurEffect(livingTarget);
-
-                // 音效
-                this.playSound(SoundEvents.ARROW_HIT, 1.0F, 1.2F);
-
-                // 如果箭矢有击退效果，应用到目标
-                if (this.getKnockback() > 0) {
-                    Vec3 knockbackVec = this.getDeltaMovement().normalize().scale(this.getKnockback() * 0.6);
-                    livingTarget.setDeltaMovement(livingTarget.getDeltaMovement().add(knockbackVec));
-                    livingTarget.hurtMarked = true;
-                }
-
-                if (this.getPierceLevel() <= 0) {
-                    this.discard();
-                }
-            } else {
-                // 反弹逻辑
-                this.setDeltaMovement(this.getDeltaMovement().scale(-0.1D));
-                this.setYRot(this.getYRot() + 180.0F);
-                this.yRotO += 180.0F;
-                if (!this.level().isClientSide && this.getDeltaMovement().lengthSqr() < 1.0E-7D) {
-                    this.discard();
-                }
+            // 速度太慢时消失
+            if (this.getDeltaMovement().lengthSqr() < 1.0E-7D) {
+                this.discard();
             }
         }
     }

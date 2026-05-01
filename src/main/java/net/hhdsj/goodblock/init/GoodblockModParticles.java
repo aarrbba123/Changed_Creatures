@@ -1,4 +1,3 @@
-
 /*
  *    这些为注册类,请将注册写在这里,而不是其它地方!
  */
@@ -9,15 +8,16 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.api.distmarker.Dist;
 
-import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.client.Minecraft;
-
+import net.hhdsj.goodblock.GoodblockMod;
 import net.hhdsj.goodblock.client.particle.ParhotxParticle;
+import net.hhdsj.goodblock.client.particle.GreenFlameParticle; // 你需要创建这个类
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@Mod.EventBusSubscriber(modid = GoodblockMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class GoodblockModParticles {
+
 	@SubscribeEvent
-	public static void registerParticles(RegisterParticleProvidersEvent event) {
-		Minecraft.getInstance().particleEngine.register((SimpleParticleType) GoodblockModParticleTypes.PARHOTX.get(), ParhotxParticle::provider);
-	}
+	public static void registerParticleProviders(RegisterParticleProvidersEvent event) {
+		event.registerSpriteSet(GoodblockModParticleTypes.PARHOTX.get(), ParhotxParticle::provider);
+		event.registerSpriteSet(GoodblockModParticleTypes.GREEN_FLAME.get(), GreenFlameParticle::provider);
+}
 }

@@ -322,7 +322,6 @@ public class GoodblockModTransfurVariants {
 					.replicating()
 					.nightVision()
 					.glide()
-					.addAbility(GoodblockModAbilities.CREATEBLUECRYSTALENTITYABILITY)
 					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
 					.scares(List.of(Creeper.class))
 					.build());
@@ -331,6 +330,7 @@ public class GoodblockModTransfurVariants {
 	public static final RegistryObject<TransfurVariant<LatexHyazintheFoxEntity>> LATEX_HYAZINTHE_FOX =
 			REGISTRY.register("form_latex_hyazinthe_fox", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEX_HYAZINTHE_FOX)
 					.addAbility(ChangedAddonAbilities.CLAWS)
+					.addAbility(GoodblockModAbilities.CREATEBLUECRYSTALENTITYABILITY)
 					.addAbility(ChangedAddonAbilities.DODGE)
 					.transfurMode(TransfurMode.ABSORPTION)
 					.replicating()

@@ -139,7 +139,7 @@ public class GoodblockModEntities {
                         .sized(0.6f, 1.95f),
                 LatexQianGuiSharkEntity::createLatexAttributes);
         
-        LATEX_GAO_HUI_FOX = registerSpawning("latex_gao_hui_fox", 0x0121cc, 0x7478fe,
+        LATEX_GAO_HUI_FOX = registerSpawning("latex_gao_hui_fox", 0x7478fe, 0x8c74fe,
                 EntityType.Builder.<LatexGaoHuiFoxEntity>of(LatexGaoHuiFoxEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)

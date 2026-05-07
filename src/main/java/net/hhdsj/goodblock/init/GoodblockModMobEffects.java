@@ -17,7 +17,7 @@ import net.hhdsj.goodblock.GoodblockMod;
 
 public class GoodblockModMobEffects {
 	public static final DeferredRegister<MobEffect> REGISTRY = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, GoodblockMod.MODID);
-	public static final RegistryObject<MobEffect> RADIATION = REGISTRY.register("radiation", () -> new RadiationMobEffect());
-	public static final RegistryObject<MobEffect> LATEXHOTPAR = REGISTRY.register("latexhotpar", () -> new LatexhotparMobEffect());
-	public static final RegistryObject<MobEffect> SLOWINFECTION = REGISTRY.register("slowinfection", () -> new SlowinfectionMobEffect());
+	public static final RegistryObject<MobEffect> RADIATION = REGISTRY.register("radiation", RadiationMobEffect::new);
+	public static final RegistryObject<MobEffect> LATEXHOTPAR = REGISTRY.register("latexhotpar", LatexhotparMobEffect::new);
+	public static final RegistryObject<MobEffect> SLOWINFECTION = REGISTRY.register("slowinfection", SlowinfectionMobEffect::new);
 }

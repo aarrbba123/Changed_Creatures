@@ -5,6 +5,10 @@
 package net.hhdsj.goodblock.init;
 
 import net.hhdsj.goodblock.item.*;
+import net.hhdsj.goodblock.item.tool.LunarDawnAxeItem;
+import net.hhdsj.goodblock.item.tool.LunarDawnHoeItem;
+import net.hhdsj.goodblock.item.tool.LunarDawnManuScriptItem;
+import net.hhdsj.goodblock.item.tool.LunarDawnShovelItem;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.registries.RegistryObject;
@@ -83,6 +87,11 @@ public class GoodblockModItems {
 	public static RegistryObject<Item> PAINITESHOVEL;
 	public static RegistryObject<Item> PAINITEMANUSCRIPT;
 
+	public static RegistryObject<Item> LUNARDAWNEAXE;
+	public static RegistryObject<Item> LUNARDAWNEHOE;
+	public static RegistryObject<Item> LUNARDAWNESHOVEL;
+	public static RegistryObject<Item> LUNARDAWNEMANUSCRIPT;
+	public static RegistryObject<Item> CURSED_SCYTHE;
 	// ==================== 唱片声明 (Music Discs Declaration) ====================
 
 	public static RegistryObject<MusicRecordItem> INKSANS_4;
@@ -155,6 +164,13 @@ public class GoodblockModItems {
 		PAINITEHOE = ITEMS.register("painitehoe", PainitehoeItem::new);
 		PAINITESHOVEL = ITEMS.register("painiteshovel", PainiteshovelItem::new);
 		PAINITEMANUSCRIPT = ITEMS.register("painitemanuscript", PainitemanuscriptItem::new);
+
+		LUNARDAWNEAXE = ITEMS.register("lunar_dawn_axe", LunarDawnAxeItem::new);
+		LUNARDAWNEHOE = ITEMS.register("lunar_dawn_hoe", LunarDawnHoeItem::new);
+		LUNARDAWNESHOVEL = ITEMS.register("lunar_dawn_shovel", LunarDawnShovelItem::new);
+		LUNARDAWNEMANUSCRIPT = ITEMS.register("lunar_dawn_manu_script", LunarDawnManuScriptItem::new);
+
+		CURSED_SCYTHE = ITEMS.register("cursed_scythe", CursedScytheItem::new);
 
 		// -------------------- 盔甲初始化 --------------------
 		// armora_1 系列

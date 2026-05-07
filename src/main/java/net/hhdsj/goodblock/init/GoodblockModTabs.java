@@ -73,6 +73,7 @@ public class GoodblockModTabs {
 			tabData.accept(GoodblockModItems.PAINITEAXE.get());
 			tabData.accept(GoodblockModItems.PAINITEHOE.get());
 			tabData.accept(GoodblockModItems.PAINITESHOVEL.get());
+			tabData.accept(GoodblockModItems.CURSED_SCYTHE.get());
 			tabData.accept(GoodblockModItems.THEFLUFFYHEARTBEATINTHECUBICLEMUSIC.get());
 			tabData.accept(GoodblockModItems.FLUTEMUSICA_1RECORDS.get());
 			tabData.accept(GoodblockModItems.NOTLISTENTHIS.get());

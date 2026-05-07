@@ -246,5 +246,9 @@
   "item.goodblock.latex_nighe_owl_spawn_egg": "夜枭胶液龙刷怪蛋",
   "item.goodblock.latex_yun_qi_dragon_spawn_egg": "云气胶液龙刷怪蛋",
   "item.goodblock.latexice_dragon_spawn_egg": "冰胶液龙刷怪蛋",
-  "entity.goodblock.boss_heath.ice_field_wolf_dragon": ""
+  "entity.goodblock.boss_heath.ice_field_wolf_dragon": "",
+  "item.goodblock.cursed_scythe": "Cursed Scythe",
+  "item.goodblock.cursed_scythe.description_0": "§l§u 锆晖的专属武器\\n",
+  "item.goodblock.cursed_scythe.description_1": "§m§9 伤害巨高，但代价也极大，谨慎使用\\n",
+  "item.goodblock.cursed_scythe.description_2": "§m§6蹲下+右键献祭8滴血进行小范围强力打击"
 }

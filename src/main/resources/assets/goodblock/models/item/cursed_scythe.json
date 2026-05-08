@@ -2,29 +2,29 @@
   "loader": "forge:separate_transforms",
   "gui_light": "front",
   "base": {
-    "parent": "ghhgffhjf_scythe:custom/scythe",
+    "parent": "goodblock:custom/scythe",
     "textures": {
-      "0": "ghhgffhjf_scythe:block/scythe",
-      "particle": "ghhgffhjf_scythe:item/crusedscythe"
+      "0": "goodblock:block/scythe",
+      "particle": "goodblock:item/crusedscythe"
     }
   },
   "perspectives": {
     "gui": {
       "parent": "item/generated",
       "textures": {
-        "layer0": "ghhgffhjf_scythe:item/cursedscythe"
+        "layer0": "goodblock:item/cursedscythe"
       }
     },
     "fixed": {
       "parent": "item/generated",
       "textures": {
-        "layer0": "ghhgffhjf_scythe:item/cursedscythe"
+        "layer0": "goodblock:item/cursedscythe"
       }
     },
     "ground": {
       "parent": "item/generated",
       "textures": {
-        "layer0": "ghhgffhjf_scythe:item/cursedscythe"
+        "layer0": "goodblock:item/cursedscythe"
       }
     }
   }

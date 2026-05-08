@@ -1,11 +1,11 @@
-package net.hhdsj.goodblock.procedures;
+package net.hhdsj.goodblock.procedures.tool;
 
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.effect.MobEffectInstance;
 
-public class Crusedscythe1Procedure {
+public class CrusedScytheEffectProcedure {
 	public static void execute(Entity entity) {
 		if (entity == null)
 			return;

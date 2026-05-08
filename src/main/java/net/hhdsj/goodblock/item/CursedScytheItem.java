@@ -1,7 +1,7 @@
 package net.hhdsj.goodblock.item;
 
-import net.hhdsj.goodblock.procedures.Crusedscythe1Procedure;
-import net.hhdsj.goodblock.procedures.Crusedscythe2Procedure;
+import net.hhdsj.goodblock.procedures.tool.CrusedScytheEffectProcedure;
+import net.hhdsj.goodblock.procedures.tool.Crusedscythe2Procedure;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
@@ -50,7 +50,7 @@ public class CursedScytheItem extends SwordItem {
 	@Override
 	public boolean hurtEnemy(ItemStack itemstack, LivingEntity entity, LivingEntity sourceentity) {
 		boolean retval = super.hurtEnemy(itemstack, entity, sourceentity);
-		Crusedscythe1Procedure.execute(entity);
+		CrusedScytheEffectProcedure.execute(entity);
 		return retval;
 	}
 

@@ -1,4 +1,4 @@
-package net.hhdsj.goodblock.procedures;
+package net.hhdsj.goodblock.procedures.tool;
 
 import net.hhdsj.goodblock.init.GoodblockModItems;
 import net.minecraft.world.phys.Vec3;

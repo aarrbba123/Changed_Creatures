@@ -1,4 +1,4 @@
-package net.hhdsj.goodblock.mixin;
+package net.hhdsj.goodblock.mixin.no_use;
 
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;
 import net.minecraft.client.model.geom.builders.CubeDeformation;

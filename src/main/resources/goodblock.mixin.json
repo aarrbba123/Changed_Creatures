@@ -13,7 +13,7 @@
   "client": [
   ],
   "server": [
-    "PlayerDieMixin"
+    "no_use.PlayerDieMixin"
   ],
   "injectors": {
     "defaultRequire": 1

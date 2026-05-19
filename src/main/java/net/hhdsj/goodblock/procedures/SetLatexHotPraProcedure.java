@@ -5,7 +5,7 @@ import net.minecraft.world.entity.Entity;
 
 import net.hhdsj.goodblock.init.GoodblockModMobEffects;
 
-public class GuihotpaXianShiYouXiNeiDieJiaCengProcedure {
+public class SetLatexHotPraProcedure {
 	public static boolean execute(Entity entity) {
 		if (entity == null)
 			return false;

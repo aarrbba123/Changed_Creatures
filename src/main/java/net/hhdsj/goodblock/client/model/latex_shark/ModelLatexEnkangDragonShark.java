@@ -74,8 +74,10 @@ public class ModelLatexEnkangDragonShark extends AdvancedHumanoidModel<LatexEnka
                         camera.setCameraPosition(
                                 camera.getCameraPosition().add(0.0f, spring, 0.0f));
                     }
-                });}
+                });
+    }
 
+    @SuppressWarnings("unused")
     public static LayerDefinition createBodyLayer() {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();

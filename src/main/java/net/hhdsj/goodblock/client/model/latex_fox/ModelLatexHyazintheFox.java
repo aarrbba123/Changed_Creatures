@@ -62,6 +62,7 @@ public class ModelLatexHyazintheFox extends AdvancedHumanoidModel<LatexHyazinthe
                         rightFoot.getChild("RightPad")));
 	}
 
+	@SuppressWarnings("unused")
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();

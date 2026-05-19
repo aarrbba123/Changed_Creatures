@@ -21,6 +21,11 @@ public class GoodblockModTags {
                     new ResourceLocation("goodblock", "slow_infection_variants")
             );
 
+    public static final TagKey<TransfurVariant<?>> ANTI_FIRE = TagKey.create(
+            ChangedRegistry.TRANSFUR_VARIANT.get().getRegistryKey(),
+            new ResourceLocation("goodblock", "anti_fire_latex")
+    );
+
     // 辅助方法：获取 Forge 注册表
     public static IForgeRegistry<TransfurVariant<?>> getTransfurVariantRegistry() {
         return RegistryManager.ACTIVE.getRegistry(TRANSFUR_VARIANT_REGISTRY_NAME);

@@ -60,7 +60,7 @@ public ModelLatexFruitDragonWolf(ModelPart root) {
                         rightFoot, 
                         rightFoot.getChild("RightPad")));
 
-	}
+	}	@SuppressWarnings("unused")
 	public static LayerDefinition createBodyLayer() {
 
 		MeshDefinition meshdefinition = new MeshDefinition();

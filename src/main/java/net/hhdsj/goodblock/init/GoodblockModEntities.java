@@ -3,6 +3,7 @@
  */
 package net.hhdsj.goodblock.init;
 
+import net.foxyas.changedaddon.init.ChangedAddonItems;
 import net.hhdsj.goodblock.entity.*;
 import net.hhdsj.goodblock.entity.boss.*;
 import net.hhdsj.goodblock.entity.simple.*;
@@ -40,7 +41,7 @@ public class GoodblockModEntities {
 
     public static final DeferredRegister<EntityType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, GoodblockMod.MODID);
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, GoodblockMod.MODID);
-
+    
     // 存储实体颜色（用于刷怪蛋）
     private static final Map<ResourceLocation, Pair<Integer, Integer>> ENTITY_COLOR_MAP = new HashMap<>();
 
@@ -74,6 +75,7 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<LatexGaoHuiFoxEntity>> LATEX_GAO_HUI_FOX;
     public static final RegistryObject<EntityType<LatexHyazintheFoxEntity>> LATEX_HYAZINTHE_FOX;
     public static final RegistryObject<EntityType<LatexYueXiFoxFemaleEntity>> LATEX_YUE_XI_FOX_FEMALE;
+    public static final RegistryObject<EntityType<LatexFloraFoxEntity>> LATEX_FLORA_FOX;
 
     // 鲨鱼变体
     public static final RegistryObject<EntityType<LatexKcahraSharkEntity>> LATEX_KCAHRA_SHARK;
@@ -117,10 +119,30 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<InksugerEntity>> INKSUGER;
     public static final RegistryObject<EntityType<LatexthreemonthwolfEntityProjectile>> LATEXTHREEMONTHWOLF_PROJECTILE;
     public static final RegistryObject<EntityType<BlueCrystalProjectile>> BLUECRYSTALPROJECTILE;
+    public static final RegistryObject<EntityType<ThrownCrystalJavelinTrident>> THROWN_CRYSTAL_JAVELIN;
 
+    //龙鲨变体
+    public static final RegistryObject<EntityType<LatexLuoLongDragonSharkEntity>> LUOLONG_DRAGON_SHARK;
     //Cat Latex
     public static final RegistryObject<EntityType<LatexBlueveCatEntity>> LATEX_BLUEVE_CAT;
     static {
+        LUOLONG_DRAGON_SHARK = registerSpawning("latex_luo_long_dragon_shark", 0x282b30, 0xe2506c,
+                EntityType.Builder.<LatexLuoLongDragonSharkEntity>of(LatexLuoLongDragonSharkEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .setCustomClientFactory(LatexLuoLongDragonSharkEntity::new)
+                        .sized(0.6f, 1.95f),
+                LatexLuoLongDragonSharkEntity::createLatexAttributes);
+
+        LATEX_FLORA_FOX = registerSpawning("latex_flora_fox/female", 0xd72454, 0xfdb1ef,
+                EntityType.Builder.<LatexFloraFoxEntity>of(LatexFloraFoxEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .setCustomClientFactory(LatexFloraFoxEntity::new)
+                        .sized(0.6f, 1.95f),
+                LatexFloraFoxEntity::createLatexAttributes);
         LATEX_YUE_XI_FOX_FEMALE = registerSpawning("latex_yue_xi_fox_female", 0xff9f0d, 0xffee86,
                 EntityType.Builder.<LatexYueXiFoxFemaleEntity>of(LatexYueXiFoxFemaleEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
@@ -481,6 +503,14 @@ public class GoodblockModEntities {
                         .setUpdateInterval(1)
                         .setCustomClientFactory(BlueCrystalProjectile::new)
                         .sized(0.5f, 0.5f));
+
+        THROWN_CRYSTAL_JAVELIN = registerProjectile("thrown_crystal_javelin_trident",
+                EntityType.Builder.<ThrownCrystalJavelinTrident>of(ThrownCrystalJavelinTrident::new, MobCategory.MISC)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(1)
+                        .sized(0.5f, 0.5f));  // 原版三叉戟碰撞箱大小
+
     }
 
     /**

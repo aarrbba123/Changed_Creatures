@@ -65,6 +65,7 @@ public class ModelLatexNightOwl extends AdvancedHumanoidModel<LatexNightOwlEntit
                         rightWingRoot, rightWingRoot.getChild("rightSecondaries"), rightWingRoot.getChild("rightSecondaries").getChild("rightTertiaries")));
     }
 
+    @SuppressWarnings("unused")
     public static LayerDefinition createBodyLayer() {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();

@@ -8,10 +8,11 @@ import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.material.PushReaction;
 
 public class Pale_woodLeavesBlock extends LeavesBlock {
 	public Pale_woodLeavesBlock() {
-		super(BlockBehaviour.Properties.of().ignitedByLava().sound(SoundType.GRASS).strength(0.2f).noOcclusion());
+		super(BlockBehaviour.Properties.of().ignitedByLava().sound(SoundType.GRASS).strength(0.2f).noOcclusion().pushReaction(PushReaction.DESTROY));
 	}
 
 	@Override

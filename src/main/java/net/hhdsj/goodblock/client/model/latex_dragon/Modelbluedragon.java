@@ -82,7 +82,7 @@ public class Modelbluedragon extends AdvancedHumanoidModel<LatexbluedragonEntity
                         rightWingRoot, rightWingRoot.getChild("rightSecondaries"),
 						rightWingRoot.getChild("rightSecondaries").getChild("rightTertiaries")));
 	}
-
+	@SuppressWarnings("unused")
 	public static LayerDefinition createBodyLayer() {
 	
 		MeshDefinition meshdefinition = new MeshDefinition();

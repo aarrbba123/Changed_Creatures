@@ -1,7 +1,6 @@
 package net.hhdsj.goodblock.procedures;
 
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
@@ -11,7 +10,7 @@ import net.minecraft.core.BlockPos;
 
 import net.hhdsj.goodblock.init.GoodblockModBlocks;
 
-public class Paletreespa1GengXintreeProcedure {
+public class PaleTreeSpawnProcedure {
 	private static final double TREE_HEIGHT = 7;
 	private static final double SPAWN_CHANCE_MIN = -3;
 	private static final double SPAWN_CHANCE_MAX = 18;

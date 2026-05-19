@@ -86,6 +86,7 @@ public class ModelLatexDarkPurpleDragonTaur extends AdvancedHumanoidModel<LatexD
                 .forwardOffset(-7.0f).hipOffset(-1.5f).legLength(13.5f).torsoLength(11.05f);
     }
 
+    @SuppressWarnings("unused")
     public static LayerDefinition createBodyLayer() {
         MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();

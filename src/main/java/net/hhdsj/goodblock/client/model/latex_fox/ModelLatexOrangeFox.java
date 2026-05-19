@@ -76,6 +76,7 @@ public class ModelLatexOrangeFox extends AdvancedHumanoidModel<LatexOrangeFoxEnt
                         rightFoot.getChild("RightPad")));
 	}
 
+	@SuppressWarnings("unused")
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();

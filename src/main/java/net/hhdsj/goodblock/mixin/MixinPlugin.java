@@ -1,5 +1,6 @@
-package net.hhdsj.goodblock.mixin;
+// 路径：src/main/java/net/hhdsj/goodblock/mixin/MixinPlugin.java
 
+package net.hhdsj.goodblock.mixin;
 
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
@@ -14,7 +15,7 @@ public class MixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public String getRefMapperConfig() {
-        return null; // 使用 Mixin 自动生成的 refmap
+        return null;
     }
 
     @Override
@@ -27,7 +28,7 @@ public class MixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public List<String> getMixins() {
-        return null;
+        return List.of();  // 改成返回空列表，而不是 null
     }
 
     @Override

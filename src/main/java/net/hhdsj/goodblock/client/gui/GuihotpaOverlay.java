@@ -13,7 +13,7 @@ import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 
-import net.hhdsj.goodblock.procedures.GuihotpaXianShiYouXiNeiDieJiaCengProcedure;
+import net.hhdsj.goodblock.procedures.SetLatexHotPraProcedure;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.platform.GlStateManager;
@@ -28,7 +28,7 @@ public class GuihotpaOverlay {
 			Minecraft mc = Minecraft.getInstance();
 			Player entity = mc.player;
 
-			if (entity != null && GuihotpaXianShiYouXiNeiDieJiaCengProcedure.execute(entity)) {
+			if (entity != null && SetLatexHotPraProcedure.execute(entity)) {
 				int w = mc.getWindow().getGuiScaledWidth();
 				int h = mc.getWindow().getGuiScaledHeight();
 

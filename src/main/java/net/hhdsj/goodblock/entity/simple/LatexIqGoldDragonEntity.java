@@ -65,7 +65,6 @@ public class LatexIqGoldDragonEntity extends ChangedEntity {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-
 	}
 
 	public Color3 getTransfurColor(TransfurCause cause) {
@@ -75,11 +74,6 @@ public class LatexIqGoldDragonEntity extends ChangedEntity {
 	@Override
 	public MobType getMobType() {
 		return MobType.UNDEFINED;
-	}
-
-	protected void dropCustomDeathLoot(DamageSource source, int looting, boolean recentlyHitIn) {
-		super.dropCustomDeathLoot(source, looting, recentlyHitIn);
-		this.spawnAtLocation(new ItemStack(Items.BLAZE_ROD));
 	}
 
 	@Override

@@ -20,9 +20,7 @@ import net.hhdsj.goodblock.client.renderer.latex_taur.LatexDarkPurpleDragonTaurR
 import net.hhdsj.goodblock.client.renderer.latex_wolf.*;
 import net.hhdsj.goodblock.client.renderer.projectile.BlueCrystalProjectileRenderer;
 import net.hhdsj.goodblock.client.renderer.projectile.LatexArrowRenderer;
-import net.hhdsj.goodblock.entity.simple.LatexDawnWolfEntity;
-import net.hhdsj.goodblock.entity.simple.LatexDivineSwordKitsuneEntity;
-import net.hhdsj.goodblock.entity.simple.LatexYueXiFoxFemaleEntity;
+import net.hhdsj.goodblock.client.renderer.projectile.ThrownCrystalJavelinTridentRenderer;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -63,6 +61,7 @@ public class GoodblockModEntityRenderers {
 		event.registerEntityRenderer(GoodblockModEntities.LATEXYAOLINGDRAGON.get(),LatexYaoLingDragonRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_DIVINE_SWORD_KITSUNE.get(), LatexDivineSwordKitsuneRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.BLUECRYSTALPROJECTILE.get(), BlueCrystalProjectileRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.THROWN_CRYSTAL_JAVELIN.get(), ThrownCrystalJavelinTridentRenderer::new);
 
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_YUE_XI_FOX_FEMALE.get(), LatexYueXiFoxFemaleRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_GAO_HUI_FOX.get(), LatexGaoHuiFoxRenderer::new);
@@ -71,5 +70,7 @@ public class GoodblockModEntityRenderers {
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_HYAZINTHE_FOX.get(), LatexHyazintheFoxRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_BLUEVE_CAT.get(), LatexBlueveCatRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_QIAN_GUI_SHARK.get(), LatexQianGuiSharkRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.LATEX_FLORA_FOX.get(), LatexFloraFoxRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.LUOLONG_DRAGON_SHARK.get(), LatexLuoLongDragonSharkRenderer::new);
 	}
 }

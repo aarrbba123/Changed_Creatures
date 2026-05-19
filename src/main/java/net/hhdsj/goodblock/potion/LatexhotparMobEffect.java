@@ -5,7 +5,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffect;
 
-import net.hhdsj.goodblock.procedures.LatexhotparZaiXiaoGuoChiXuShiMeiKeFaShengProcedure;
+import net.hhdsj.goodblock.procedures.LatexHotParChangedProcedure;
 
 public class LatexhotparMobEffect extends MobEffect {
 	public LatexhotparMobEffect() {
@@ -19,7 +19,7 @@ public class LatexhotparMobEffect extends MobEffect {
 
 	@Override
 	public void applyEffectTick(LivingEntity entity, int amplifier) {
-		LatexhotparZaiXiaoGuoChiXuShiMeiKeFaShengProcedure.execute(entity);
+		LatexHotParChangedProcedure.execute(entity);
 	}
 
 	@Override

@@ -57,7 +57,6 @@ public class GoodblockModTabs {
 			tabData.accept(GoodblockModBlocks.PALE_WOOD_STAIRS.get().asItem());
 			tabData.accept(GoodblockModBlocks.PALE_WOOD_SLAB.get().asItem());
 			tabData.accept(GoodblockModBlocks.PALE_WOOD_BUTTON.get().asItem());
-			tabData.accept(GoodblockModBlocks.PALETREESPA_1.get().asItem());
 			tabData.accept(GoodblockModBlocks.BLOCKBW_1.get().asItem());
 			tabData.accept(GoodblockModBlocks.BLOCKBW_2.get().asItem());
 			tabData.accept(GoodblockModBlocks.BLUE_CRYSTALORE.get().asItem()); // 修复：添加到标签页
@@ -85,10 +84,10 @@ public class GoodblockModTabs {
 			tabData.accept(GoodblockModItems.INKSANS_4.get());
 
 			// 盔甲
-			tabData.accept(GoodblockModItems.ARMORA_1_ARMOR_HELMET.get());
-			tabData.accept(GoodblockModItems.ARMORA_1_ARMOR_CHESTPLATE.get());
-			tabData.accept(GoodblockModItems.ARMORA_1_ARMOR_LEGGINGS.get());
-			tabData.accept(GoodblockModItems.ARMORA_1_ARMOR_BOOTS.get());
+			//tabData.accept(GoodblockModItems.ARMORA_1_ARMOR_HELMET.get());
+			//tabData.accept(GoodblockModItems.ARMORA_1_ARMOR_CHESTPLATE.get());
+			//tabData.accept(GoodblockModItems.ARMORA_1_ARMOR_LEGGINGS.get());
+			//tabData.accept(GoodblockModItems.ARMORA_1_ARMOR_BOOTS.get());
 			tabData.accept(GoodblockModItems.PAINITE_ARMOR_HELMET.get());
 			tabData.accept(GoodblockModItems.PAINITE_ARMOR_CHESTPLATE.get());
 			tabData.accept(GoodblockModItems.PAINITE_ARMOR_LEGGINGS.get());

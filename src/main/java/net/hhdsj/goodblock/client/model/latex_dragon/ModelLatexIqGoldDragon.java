@@ -79,6 +79,7 @@ public class ModelLatexIqGoldDragon extends AdvancedHumanoidModel<LatexIqGoldDra
                         rightWingRoot, rightWingRoot.getChild("rightSecondaries"), rightWingRoot.getChild("rightSecondaries").getChild("rightTertiaries")));
     }
 
+	@SuppressWarnings("unused")
     public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();

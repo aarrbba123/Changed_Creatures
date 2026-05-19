@@ -73,7 +73,7 @@ public class ModelLatexthreemonthwolf extends AdvancedHumanoidModel<Latexthreemo
                         Tail, List.of(tailPrimary, tailSecondary, tailTertiary, tailQuaternary),
                         LeftLeg, leftLowerLeg, leftFoot, leftFoot.getChild("LeftPad"), RightLeg, rightLowerLeg, rightFoot, rightFoot.getChild("RightPad")));
 	}
-
+	@SuppressWarnings("unused")
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();

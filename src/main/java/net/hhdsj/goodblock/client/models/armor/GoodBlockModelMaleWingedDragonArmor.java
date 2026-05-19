@@ -144,6 +144,7 @@ public class GoodBlockModelMaleWingedDragonArmor<T extends ChangedEntity> extend
 		poseStack.popPose();
 	}
 
+	@SuppressWarnings("unused")
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();

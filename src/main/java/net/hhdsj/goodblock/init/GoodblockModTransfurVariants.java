@@ -22,6 +22,7 @@ import net.hhdsj.goodblock.entity.*;//推荐不要用*(来自hhdsj的话=))
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class GoodblockModTransfurVariants {
     public static final DeferredRegister<TransfurVariant<?>> REGISTRY = ChangedRegistry.TRANSFUR_VARIANT.createDeferred("goodblock");
 	
@@ -407,6 +408,28 @@ public class GoodblockModTransfurVariants {
 					.addAbility(ChangedAddonAbilities.TOGGLE_CLIMB)
 					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
 					.scares(List.of(Creeper.class))
+					.build());
+
+	public static final RegistryObject<TransfurVariant<LatexFloraFoxEntity>> LATEX_FLORA_FOX =
+			REGISTRY.register("form_latex_flora_fox/female", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEX_FLORA_FOX)
+					.scares(List.of(Creeper.class))
+					.addAbility(ChangedAbilities.GRAB_ENTITY_ABILITY)
+					.addAbility(ChangedAddonAbilities.SOFTEN_ABILITY)
+					.addAbility(ChangedAddonAbilities.DODGE)
+					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.addAbility(ChangedAddonAbilities.TELEPORT)
+					.build());
+
+	public static final RegistryObject<TransfurVariant<LatexLuoLongDragonSharkEntity>> LUOLONG_DRAGON_SHARK =
+			REGISTRY.register("form_latex_luolong_dragon_shark", () -> TransfurVariant.Builder.of(GoodblockModEntities.LUOLONG_DRAGON_SHARK)
+					.scares(List.of(Creeper.class))
+					.addAbility(ChangedAbilities.GRAB_ENTITY_ABILITY)
+					.addAbility(ChangedAddonAbilities.SOFTEN_ABILITY)
+					.addAbility(ChangedAddonAbilities.DODGE)
+					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.addAbility(ChangedAddonAbilities.TELEPORT)
+					.breatheMode(TransfurVariant.BreatheMode.ANY)
+					.glide()
 					.build());
 
 	public static void register(IEventBus bus) {

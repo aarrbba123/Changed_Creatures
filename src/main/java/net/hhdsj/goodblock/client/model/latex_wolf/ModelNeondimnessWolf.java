@@ -58,6 +58,8 @@ public class ModelNeondimnessWolf extends AdvancedHumanoidModel<LatexNeondimness
                         rightFoot.getChild("RightPad")));
 
     }
+
+    @SuppressWarnings("unused")
     public static LayerDefinition createBodyLayer() {
 
         MeshDefinition meshdefinition = new MeshDefinition();

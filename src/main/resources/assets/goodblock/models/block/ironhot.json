@@ -8,5 +8,6 @@
     "south": "goodblock:block/iron_hot",
     "west": "goodblock:block/iron_hot",
     "particle": "goodblock:block/iron_hot"
-  }
+  },
+  "render_type": "translucent"
 }

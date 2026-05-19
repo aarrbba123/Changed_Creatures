@@ -4,7 +4,9 @@
  */
 package net.hhdsj.goodblock.init;
 
+import net.foxyas.changedaddon.client.model.ModelFoxyasModel;
 import net.hhdsj.goodblock.client.armor.ArmorLatexMaleWolfWingedDragonModel;
+import net.hhdsj.goodblock.client.model.TailModel;
 import net.hhdsj.goodblock.client.model.boss.ModelLatexIceFieldWolfDragonBoss;
 import net.hhdsj.goodblock.client.model.boss.ModelLatexNightOwl;
 import net.hhdsj.goodblock.client.model.boss.ModelLatexNightOwlBoss;
@@ -21,6 +23,7 @@ import net.hhdsj.goodblock.client.model.latex_taur.ModelLatexDarkPurpleDragonTau
 import net.hhdsj.goodblock.client.model.latex_wolf.*;
 import net.hhdsj.goodblock.client.model.other.CrystalJavelinModel;
 import net.hhdsj.goodblock.client.models.armor.GoodBlockModelMaleWingedDragonArmor;
+import net.hhdsj.goodblock.mixin.Player.MixinPlayerRenderer;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorModelSet;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorNoTailModel;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorNoneModel;
@@ -72,10 +75,16 @@ public class GoodblockModModels {
 		event.registerLayerDefinition(ModelLatexEnkangDragonShark.LAYER_LOCATION, ModelLatexEnkangDragonShark::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexDawnWolf.LAYER_LOCATION, ModelLatexDawnWolf::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexBlueveCat.LAYER_LOCATION, ModelLatexBlueveCat::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexFloraFox.LAYER_LOCATION, ModelLatexFloraFox::createBodyLayer);
+
+		event.registerLayerDefinition(ModelLatexLuoLongDragonShark.LAYER_LOCATION, ModelLatexLuoLongDragonShark::createBodyLayer);
+
 		event.registerLayerDefinition(CrystalJavelinModel.LAYER_LOCATION, CrystalJavelinModel::createBodyLayer);
 
 		event.registerLayerDefinition(GoodBlockModelMaleWingedDragonArmor.LAYER_LOCATION, GoodBlockModelMaleWingedDragonArmor::createBodyLayer);
 		ArmorLatexMaleWolfWingedDragonModel.MODEL_SET.registerDefinitions(event::registerLayerDefinition);
+
+		event.registerLayerDefinition(GoodblockModModelLayers.TAIL_LAYER, TailModel::createBodyLayer);
 
 	}
 }

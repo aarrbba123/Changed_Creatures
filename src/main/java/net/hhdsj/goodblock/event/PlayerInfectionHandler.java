@@ -29,30 +29,43 @@ import java.util.Random;
 public class PlayerInfectionHandler {
     private static final Random RANDOM = new Random();
     private static final List<String> LIST_VARIANT = new ArrayList<>(List.of(
-            "goodblock:latex_orange_fox",
-            "goodblock:latex_kcahra_shark",
-            "goodblock:latexbluedragon",
-            "goodblock:darkfu_latex_wolf_male",
-            "goodblock:latex_ko_qi_ice_dragon",
-            "goodblock:inksuger",
-            "goodblock:blackpupmale",
-            "goodblock:whitebluepup",
-            "goodblock:latexpurplewswolf",
-            "goodblock:latexyunxqhotdragon",
-            "goodblock:latexyunxqicedragon",
-            "goodblock:latex_ice_field_wolf_dragon",
-            "goodblock:latex_purple_cooc_wolf",
-            "goodblock:latexthreemonthwolf",
-            "goodblock:latex_yun_qi_ice_dragon",
-            "goodblock:latex_radiation_fox",
-            "goodblock:latex_night_owl_dragon",
-            "goodblock:latex_iq_gold_dragon",
-            "goodblock:latex_dark_purple_dragon_taur",
-            "goodblock:latex_dark_purple_dragon",
-            "goodblock:latex_luo_hong_early_spring_fox_dragon",
-            "goodblock:latex_neondimness_wolf",
-            "goodblock:latex_cheng_xi_fox")
-    );
+            // === 原有 23 项 ===
+            "goodblock:form_orange_fox",
+            "goodblock:form_latex_kcahra_shark",
+            "goodblock:form_blue_dragon",
+            "goodblock:form_darkfu_latex_wolf_male",
+            "goodblock:form_latex_ice_dragon",
+            "goodblock:form_ink_suger",
+            "goodblock:form_black_pup",
+            "goodblock:form_white_blue_pup",
+            "goodblock:form_latex_purplews_wolf",
+            "goodblock:form_latex_three_month_wolf",
+            "goodblock:form_latex_yunxq_hot_dragon",
+            "goodblock:form_latex_yun_xq_ice_dragon",
+            "goodblock:form_latex_ice_field_wolf_dragon",
+            "goodblock:form_latex_purple_cooc_wolf",
+            "goodblock:form_latex_yun_qi_ice_dragon",
+            "goodblock:form_latex_radiation_fox",
+            "goodblock:form_latex_night_owl_dragon",
+            "goodblock:form_latex_iq_gold_dragon",
+            "goodblock:form_latex_dark_purple_dragon_taur",
+            "goodblock:form_latex_dark_purple_dragon",
+            "goodblock:form_latex_luo_hong_early_spring_fox_dragon",
+            "goodblock:form_latex_neondimness_wolf",
+            "goodblock:form_latex_cheng_xi_fox",
+
+            // === 新增（注册表中存在但 LIST_VARIANT 中缺失的） ===
+            "goodblock:form_latex_yao_ling_dragon",
+            "goodblock:form_latex_dragon_fruit_wolf",
+            "goodblock:form_latex_divine_sword_kitsune",
+            "goodblock:form_latex_gao_hui_fox",
+            "goodblock:form_latex_hyazinthe_fox",
+            "goodblock:form_latex_yue_xi_fox_female",
+            "goodblock:form_latex_enkang_dragon_shark",
+            "goodblock:form_latex_qian_gui_shark",
+            "goodblock:form_latex_dawn_wolf",
+            "goodblock:form_latex_blueve_cat"
+    ));
     private static ResourceLocation FORM_VARIANT = new ResourceLocation("goodblock", "form_latex_yunxq_hot_dragon");
     //private static final TransfurVariant<?> variant = ChangedRegistry.TRANSFUR_VARIANT.get().getValue(FORM_VARIANT);
 

@@ -92,6 +92,8 @@ public class GoodblockModItems {
 	public static RegistryObject<Item> LUNARDAWNESHOVEL;
 	public static RegistryObject<Item> LUNARDAWNEMANUSCRIPT;
 	public static RegistryObject<Item> CURSED_SCYTHE;
+
+	public static RegistryObject<Item> CRYSTAL_JAVELIN;
 	// ==================== 唱片声明 (Music Discs Declaration) ====================
 
 	public static RegistryObject<MusicRecordItem> INKSANS_4;
@@ -171,6 +173,12 @@ public class GoodblockModItems {
 		LUNARDAWNEMANUSCRIPT = ITEMS.register("lunar_dawn_manu_script", LunarDawnManuScriptItem::new);
 
 		CURSED_SCYTHE = ITEMS.register("cursed_scythe", CursedScytheItem::new);
+		CRYSTAL_JAVELIN= ITEMS.register("thrown_crystal_javelin_trident",
+				() -> new CrystalJavelinTridentItem(
+						new Item.Properties()
+								.stacksTo(1)    // 三叉戟不可堆叠
+								.durability(250) // 设定耐久度，和原版三叉戟一样
+				));
 
 		// -------------------- 盔甲初始化 --------------------
 		// armora_1 系列

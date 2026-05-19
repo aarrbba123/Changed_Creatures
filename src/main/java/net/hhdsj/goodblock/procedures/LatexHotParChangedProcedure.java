@@ -1,26 +1,14 @@
 package net.hhdsj.goodblock.procedures;
 
 import net.hhdsj.goodblock.event.GoodblockProcessTransfur;
-import net.ltxprogrammer.changed.init.ChangedItems;
-import net.ltxprogrammer.changed.init.ChangedTransfurVariants;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
-import net.ltxprogrammer.changed.Changed;
 import net.ltxprogrammer.changed.entity.TransfurCause;
 import net.ltxprogrammer.changed.entity.TransfurContext;
-import net.ltxprogrammer.changed.entity.variant.TransfurVariant;
 import net.ltxprogrammer.changed.init.ChangedRegistry;
-import net.ltxprogrammer.changed.init.ChangedTabs;
-import net.ltxprogrammer.changed.process.ProcessTransfur;
-import net.ltxprogrammer.changed.util.TagUtil;
-import net.ltxprogrammer.changed.util.UniversalDist;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.ltxprogrammer.changed.entity.*;
-
-import java.util.List;
 
 
-public class LatexhotparZaiXiaoGuoChiXuShiMeiKeFaShengProcedure {
+public class LatexHotParChangedProcedure {
     private static final ResourceLocation FORM_VARIANT = new ResourceLocation("goodblock", "form_latex_yunxq_hot_dragon");
 
     public static void execute(LivingEntity livingEntity) {

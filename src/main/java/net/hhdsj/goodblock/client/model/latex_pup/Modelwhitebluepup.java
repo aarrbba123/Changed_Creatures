@@ -70,7 +70,7 @@ public class Modelwhitebluepup extends AdvancedHumanoidModel<WhitebluepupEntity>
                 .addPreset(AnimatorPresets.wolfTail(Tail, List.of(tailPrimary, tailSecondary, tailTertiary)));
     }
 
-
+    @SuppressWarnings("unused")
     public static LayerDefinition createBodyLayer() {
        MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();

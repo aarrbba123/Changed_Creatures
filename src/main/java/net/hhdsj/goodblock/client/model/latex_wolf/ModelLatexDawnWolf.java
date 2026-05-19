@@ -63,7 +63,7 @@ public class ModelLatexDawnWolf extends AdvancedHumanoidModel<LatexDawnWolfEntit
                         rightFoot, 
                         rightFoot.getChild("RightPad")));
 	}
-
+	@SuppressWarnings("unused")
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();

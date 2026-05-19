@@ -66,6 +66,7 @@ public class ModelLatexChengXi extends AdvancedHumanoidModel<LatexChengXiEntity>
                         rightFoot.getChild("RightPad")));
     }
 
+    @SuppressWarnings("unused")
     public static LayerDefinition createBodyLayer() {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();

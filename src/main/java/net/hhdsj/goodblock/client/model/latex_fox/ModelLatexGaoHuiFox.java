@@ -64,6 +64,7 @@ public class ModelLatexGaoHuiFox extends AdvancedHumanoidModel<LatexGaoHuiFoxEnt
                         rightFoot.getChild("RightPad")));
 	}
 
+	@SuppressWarnings("unused")
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();

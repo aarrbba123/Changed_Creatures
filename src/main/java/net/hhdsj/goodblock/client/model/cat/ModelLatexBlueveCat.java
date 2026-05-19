@@ -61,6 +61,8 @@ public class ModelLatexBlueveCat extends AdvancedHumanoidModel<LatexBlueveCatEnt
                         rightFoot.getChild("RightPad")));
 
     }
+
+    @SuppressWarnings("unused")
     public static LayerDefinition createBodyLayer() {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();

@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
-
+/*
 @Mixin(CustomEyesLayer.HeadShape.class)
 public class HeadShapeMixin {
 
@@ -116,4 +116,4 @@ public class HeadShapeMixin {
             return null;
         }
     }
-}
+}*/

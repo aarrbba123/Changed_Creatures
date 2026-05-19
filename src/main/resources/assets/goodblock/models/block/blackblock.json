@@ -8,5 +8,6 @@
     "south": "goodblock:block/black_block",
     "west": "goodblock:block/black_block",
     "particle": "goodblock:block/black_block"
-  }
+  },
+  "render_type": "translucent"
 }

@@ -1,6 +1,5 @@
 buildscript {
     repositories {
-        // These repositories are only for Gradle plugins, put any other repositories in the repository block further below
         maven { url = 'https://maven.minecraftforge.net' }
         maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
         mavenCentral()
@@ -10,22 +9,15 @@ buildscript {
         classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
     }
 }
+
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
-// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
-/*
-plugins {
 
-    id 'eclipse'
-    id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
-}
-
-*/
 version = '1.0'
-group = 'com.yourname.modid'
-archivesBaseName = 'modid'
+group = 'net.hhdsj.goodblock'  // 改为你的实际包名
+archivesBaseName = 'goodblock'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
@@ -43,8 +35,12 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
 
+            // Mixin 配置
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+
             mods {
-                examplemod {
+                goodblock {  // 改为你的modid
                     source sourceSets.main
                 }
             }
@@ -56,8 +52,12 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
 
+            // Mixin 配置
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg'"
+
             mods {
-                examplemod {
+                goodblock {
                     source sourceSets.main
                 }
             }
@@ -65,15 +65,54 @@ minecraft {
     }
 }
 
+repositories {
+    mavenCentral()
+    maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+}
+
 dependencies {
     minecraft 'net.minecraftforge:forge:1.20.1-47.2.0'
+
+    // Mixin 依赖
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
+    // 你的其他依赖
     implementation files('/ChangedAddon-m1.20.1-2.8.0-all-patches.jar')
     implementation files('/Changed-m1.20.1-v0.15.4-all.jar')
 }
 
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+// Mixin 配置
+mixin {
+    // MixinGradle 设置
+    add sourceSets.main, 'goodblock.refmap.json'  // 与你的mixins.json中的refmap一致
+    config 'goodblock.mixins.json'  // 你的mixins配置文件名
+
+    debug.verbose = true
+    debug.export = true
 }
 
-apply from: 'mcreator.gradle'
+jar {
+    manifest {
+        attributes([
+                "Specification-Title"     : "goodblock",
+                "Specification-Vendor"    : "hhdsj",
+                "Specification-Version"   : "1",
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : project.jar.archiveVersion,
+                "Implementation-Vendor"   : "hhdsj",
+                "MixinConfigs"            : "goodblock.mixins.json"
+        ])
+    }
+}
 
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+}

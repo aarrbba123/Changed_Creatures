@@ -1,21 +1,25 @@
 {
   "required": true,
-  "minVersion": "0.8.5",
+  "minVersion": "0.8",
   "package": "net.hhdsj.goodblock.mixin",
-  "refmap": "serverlogin.refmap.json",
+  "refmap": "goodblock.refmap.json",
   "plugin": "net.hhdsj.goodblock.mixin.MixinPlugin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "CrashReportExtenderMixin",
-    "CrashReportMixin",
-    "ModelPartAccessor"
+    "CrashReportMixin"
   ],
   "client": [
+    "Player.HumanoidModelAccessor",
+    "Player.MixinPlayerRenderer",
+    "Player.PlayerModelAccessor"
   ],
   "server": [
-    "no_use.PlayerDieMixin"
   ],
   "injectors": {
     "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
   }
 }

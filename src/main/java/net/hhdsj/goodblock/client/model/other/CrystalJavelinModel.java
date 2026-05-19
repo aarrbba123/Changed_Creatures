@@ -19,6 +19,7 @@ public class CrystalJavelinModel<T extends Entity> extends EntityModel<T> {
         this.bb_main = root.getChild("bb_main");
     }
 
+    @SuppressWarnings("unused")
     public static LayerDefinition createBodyLayer() {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();

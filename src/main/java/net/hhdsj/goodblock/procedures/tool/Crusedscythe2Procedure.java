@@ -41,11 +41,11 @@ public class Crusedscythe2Procedure {
 					LightningBolt entityToSpawn = EntityType.LIGHTNING_BOLT.create(_level);
                     if (entityToSpawn != null) {
                         entityToSpawn.moveTo(Vec3.atBottomCenterOf(BlockPos.containing(entityiterator.getX(), entityiterator.getY(), entityiterator.getZ())));
-                    }
-					//设置为无伤害
-                    entityToSpawn.setVisualOnly(true);
-					//实体生成
-					_level.addFreshEntity(entityToSpawn);
+						//设置为无伤害
+						entityToSpawn.setVisualOnly(true);
+						//实体生成
+						_level.addFreshEntity(entityToSpawn);
+					}
 				}
 				//消耗提供物品的耐久
 				if (itemstack.hurt(1, RandomSource.create(), null)) {

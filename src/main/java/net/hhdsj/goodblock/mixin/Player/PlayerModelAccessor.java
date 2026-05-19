@@ -1,0 +1,32 @@
+package net.hhdsj.goodblock.mixin.Player;
+
+import net.minecraft.client.model.PlayerModel;
+import net.minecraft.client.model.geom.ModelPart;
+import org.spongepowered.asm.mixin.Final;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+
+@Mixin(PlayerModel.class)
+public abstract class PlayerModelAccessor implements HumanoidModelAccessor {
+
+    // PlayerModel 特有的字段（如果需要）
+    @Final
+    @Shadow
+    public ModelPart jacket;
+
+    @Final
+    @Shadow
+    public ModelPart leftSleeve;
+
+    @Final
+    @Shadow
+    public ModelPart rightSleeve;
+
+    @Final
+    @Shadow
+    public ModelPart leftPants;
+
+    @Final
+    @Shadow
+    public ModelPart rightPants;
+}

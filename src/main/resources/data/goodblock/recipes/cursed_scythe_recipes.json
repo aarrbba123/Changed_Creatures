@@ -10,7 +10,7 @@
     "B": { "item": "minecraft:crying_obsidian" },
     "C": { "item": "minecraft:nether_star" },
     "D": { "item": "minecraft:blaze_powder" },
-    "E": { "item": "minecraft:lime_dye" },
+    "E": { "item": "minecraft:blaze_powder" },
     "F": { "item": "changed_addon:the_decimator" },
     "G": { "item": "minecraft:purple_carpet" },
     "H": { "item": "minecraft:purple_wool" },

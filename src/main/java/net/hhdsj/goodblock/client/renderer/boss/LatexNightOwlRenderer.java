@@ -1,8 +1,6 @@
 package net.hhdsj.goodblock.client.renderer.boss;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.PoseStack;
-import net.hhdsj.goodblock.client.model.boss.ModelLatexNightOwl;
+import net.hhdsj.goodblock.client.renderer.models.boss.ModelLatexNightOwl;
 import net.hhdsj.goodblock.entity.boss.LatexNightOwlEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;
@@ -11,12 +9,10 @@ import net.ltxprogrammer.changed.client.renderer.layers.LatexParticlesLayer;
 import net.ltxprogrammer.changed.client.renderer.layers.TransfurCapeLayer;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexMaleWingedDragonModel;
 import net.ltxprogrammer.changed.util.Color3;
-import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import org.jetbrains.annotations.NotNull;
 
 @OnlyIn(Dist.CLIENT)
 public class LatexNightOwlRenderer extends AdvancedHumanoidRenderer<LatexNightOwlEntity, ModelLatexNightOwl> {

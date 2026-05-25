@@ -5,7 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
 import net.hhdsj.goodblock.entity.LatexthreemonthwolfEntity;
-import net.hhdsj.goodblock.client.model.latex_wolf.ModelLatexthreemonthwolf;
+import net.hhdsj.goodblock.client.renderer.models.latex_wolf.ModelLatexthreemonthwolf;
 
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;
 import net.ltxprogrammer.changed.client.renderer.layers.GasMaskLayer;

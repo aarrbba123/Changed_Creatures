@@ -6,18 +6,18 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.api.distmarker.Dist;
 
-import net.hhdsj.goodblock.client.model.ModelLatexOrangeFox;
-import net.hhdsj.goodblock.client.model.ModelgreendragonUnified;
-import net.hhdsj.goodblock.client.model.ModelLatexKcahraShark;
-import net.hhdsj.goodblock.client.model.ModelLatexicedragon;
-import net.hhdsj.goodblock.client.model.DarkfuLatexWolfMale;
-import net.hhdsj.goodblock.client.model.ModelInksuger;
-import net.hhdsj.goodblock.client.model.ModelLatexkamonaHSguydragonwolf;
-import net.hhdsj.goodblock.client.model.Modelwhitebluepup;
-import net.hhdsj.goodblock.client.model.Modelblackpupmale;
-import net.hhdsj.goodblock.client.model.ModelLatexpurplewswolf;
-import net.hhdsj.goodblock.client.model.Modellatexyunxqhotdragon;
-import net.hhdsj.goodblock.client.model.ModelLatexthreemonthwolf;
+import net.hhdsj.goodblock.client.renderer.models.ModelLatexOrangeFox;
+import net.hhdsj.goodblock.client.renderer.models.ModelgreendragonUnified;
+import net.hhdsj.goodblock.client.renderer.models.ModelLatexKcahraShark;
+import net.hhdsj.goodblock.client.renderer.models.ModelLatexicedragon;
+import net.hhdsj.goodblock.client.renderer.models.DarkfuLatexWolfMale;
+import net.hhdsj.goodblock.client.renderer.models.ModelInksuger;
+import net.hhdsj.goodblock.client.renderer.models.ModelLatexkamonaHSguydragonwolf;
+import net.hhdsj.goodblock.client.renderer.models.Modelwhitebluepup;
+import net.hhdsj.goodblock.client.renderer.models.Modelblackpupmale;
+import net.hhdsj.goodblock.client.renderer.models.ModelLatexpurplewswolf;
+import net.hhdsj.goodblock.client.renderer.models.Modellatexyunxqhotdragon;
+import net.hhdsj.goodblock.client.renderer.models.ModelLatexthreemonthwolf;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = {Dist.CLIENT})
 public class GoodblocksModels {

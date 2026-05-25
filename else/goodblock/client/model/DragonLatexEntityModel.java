@@ -1,18 +1,19 @@
-package net.hhdsj.goodblock.client.model;
+package net.hhdsj.goodblock.client.renderer.models;
 // Made with Blockbench 4.1.5
 // Exported for Minecraft version 1.17 with Mojang mappings
 // Paste this class into your mod and generate all required imports
-/*
+
+/*
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.ltxprogrammer.changed.Changed;
 import net.ltxprogrammer.changed.client.renderer.animate.AnimatorPresets;
 import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
 import net.hhdsj.goodblock.entity.beast.DragonLatexEntity;
-import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.client.model.geom.PartPose;
-import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.models.geom.ModelLayerLocation;
+import net.minecraft.client.models.geom.ModelPart;
+import net.minecraft.client.models.geom.PartPose;
+import net.minecraft.client.models.geom.builders.*;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -22,7 +23,7 @@ import java.util.List;
 
 @OnlyIn(Dist.CLIENT)
 public class DragonLatexEntityModel extends AdvancedHumanoidModel<DragonLatexEntity> implements AdvancedHumanoidModelInterface<DragonLatexEntity, DragonLatexEntityModel> {
-    // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
+    // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this models's constructor
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(Changed.modResource("DragonLatexEntity"), "main");
     private final ModelPart RightLeg;
     private final ModelPart LeftLeg;

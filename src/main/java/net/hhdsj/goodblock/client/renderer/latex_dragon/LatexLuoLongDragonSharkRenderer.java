@@ -1,6 +1,6 @@
 package net.hhdsj.goodblock.client.renderer.latex_dragon;
 
-import net.hhdsj.goodblock.client.model.latex_dragon.ModelLatexLuoLongDragonShark;
+import net.hhdsj.goodblock.client.renderer.models.latex_dragon.ModelLatexLuoLongDragonShark;
 import net.hhdsj.goodblock.entity.simple.LatexLuoLongDragonSharkEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.*;

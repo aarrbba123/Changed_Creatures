@@ -1,6 +1,7 @@
-package net.hhdsj.goodblock.client.model;
+package net.hhdsj.goodblock.client.renderer.models;
 
-import net.minecraft.world.entity.Entity;
+
+import net.minecraft.world.entity.Entity;
 import net.minecraft.util.Mth;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.model.geom.builders.PartDefinition;
@@ -8,27 +9,20 @@ import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
-import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.EntityModel;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 
-import net.ltxprogrammer.changed.Changed;
 import net.ltxprogrammer.changed.client.renderer.animate.AnimatorPresets;
-import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
 import net.ltxprogrammer.changed.entity.beast.LatexTrafficConeDragon;
 
 import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.HumanoidArm;
 //Changed-mc mod import 我的世界转变MOD导入
 import net.ltxprogrammer.changed.Changed;
-import net.ltxprogrammer.changed.client.renderer.animate.AnimatorPresets;
 import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
 import net.ltxprogrammer.changed.client.renderer.model.AdvancedHumanoidModel;
 import net.ltxprogrammer.changed.client.renderer.model.AdvancedHumanoidModelInterface;
@@ -36,7 +30,6 @@ import net.ltxprogrammer.changed.client.renderer.model.AdvancedHumanoidModelInte
 //Goodblock mod import
 import net.hhdsj.goodblock.entity.*;
 
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.blaze3d.vertex.PoseStack;
 
 import org.jetbrains.annotations.NotNull;
@@ -44,7 +37,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public class ModelLatexkamonaHSguydragonwolf extends AdvancedHumanoidModel<LatexkamonaHSguydragonwolfEntity> implements AdvancedHumanoidModelInterface<LatexkamonaHSguydragonwolfEntity, ModelLatexkamonaHSguydragonwolf> {
-    // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
+    // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this models's constructor
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "latexnewfoxunified"), "main");
     private final ModelPart LeftLeg;
     public final ModelPart RightLeg;

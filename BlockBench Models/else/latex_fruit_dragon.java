@@ -4,7 +4,7 @@
 
 
 public class latex_fruit_dragon<T extends Entity> extends EntityModel<T> {
-	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
+	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this models's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "latex_fruit_dragon"), "main");
 	private final ModelPart RightLeg;
 	private final ModelPart RightLowerLeg;

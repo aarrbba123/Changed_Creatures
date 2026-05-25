@@ -1,11 +1,10 @@
 package net.hhdsj.goodblock.client.renderer.latex_fox;
 
-import net.hhdsj.goodblock.client.model.latex_wolf.ModelLatexDivineSwordKitsune;
+import net.hhdsj.goodblock.client.renderer.models.latex_wolf.ModelLatexDivineSwordKitsune;
 import net.hhdsj.goodblock.entity.simple.LatexDivineSwordKitsuneEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.*;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexMaleWolfModel;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;

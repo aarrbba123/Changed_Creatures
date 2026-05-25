@@ -1,12 +1,12 @@
-package net.hhdsj.goodblock.client.model.renderer;
+package net.hhdsj.goodblock.client.renderer.models.renderer;
 /*
 import net.ltxprogrammer.changed.Changed;
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;
 import net.ltxprogrammer.changed.client.renderer.layers.GasMaskLayer;
 import net.ltxprogrammer.changed.client.renderer.layers.LatexParticlesLayer;
 import net.ltxprogrammer.changed.client.renderer.layers.TransfurCapeLayer;
-import net.hhdsj.goodblock.client.model.DragonLatexEntityModel;
-import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexMaleWingedDragonModel;
+import net.hhdsj.goodblock.client.renderer.models.DragonLatexEntityModel;
+import net.ltxprogrammer.changed.client.renderer.models.armor.ArmorLatexMaleWingedDragonModel;
 import net.hhdsj.goodblock.entity.beast.DragonLatexEntity;
 import net.ltxprogrammer.changed.util.Color3;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

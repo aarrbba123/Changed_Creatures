@@ -2,7 +2,7 @@
 package net.hhdsj.goodblock.client.renderer.latex_shark;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.hhdsj.goodblock.client.model.latex_shark.ModelLatexEnkangDragonShark;
+import net.hhdsj.goodblock.client.renderer.models.latex_shark.ModelLatexEnkangDragonShark;
 import net.hhdsj.goodblock.entity.simple.LatexEnkangDragonSharkEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.*;

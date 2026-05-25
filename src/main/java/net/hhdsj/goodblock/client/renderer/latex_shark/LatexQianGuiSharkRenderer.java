@@ -1,7 +1,7 @@
 
 package net.hhdsj.goodblock.client.renderer.latex_shark;
 
-import net.hhdsj.goodblock.client.model.latex_shark.ModelLatexQianGuiShark;
+import net.hhdsj.goodblock.client.renderer.models.latex_shark.ModelLatexQianGuiShark;
 import net.hhdsj.goodblock.entity.simple.LatexQianGuiSharkEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.*;

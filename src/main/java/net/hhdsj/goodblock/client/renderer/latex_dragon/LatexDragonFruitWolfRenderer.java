@@ -1,7 +1,7 @@
 
 package net.hhdsj.goodblock.client.renderer.latex_dragon;
 
-import net.hhdsj.goodblock.client.model.latex_dragon.ModelLatexDragonFruitWolf;
+import net.hhdsj.goodblock.client.renderer.models.latex_dragon.ModelLatexDragonFruitWolf;
 import net.hhdsj.goodblock.entity.LatexDragonFruitWolfEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;

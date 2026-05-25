@@ -4,7 +4,7 @@
 
 public class ModelDarkLatexYufengUnified<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in
-	// the entity renderer and passed into this model's constructor
+	// the entity renderer and passed into this models's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
 			new ResourceLocation("modid", "darklatexyufengunified"), "main");
 	private final ModelPart RightLeg;

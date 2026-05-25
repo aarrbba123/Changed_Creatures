@@ -1,4 +1,4 @@
-package net.hhdsj.goodblock.client.model;
+package net.hhdsj.goodblock.client.renderer.models;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.util.Mth;
@@ -18,7 +18,6 @@ import net.minecraft.world.entity.HumanoidArm;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 
-import net.ltxprogrammer.changed.Changed;
 import net.ltxprogrammer.changed.client.renderer.animate.AnimatorPresets;
 import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
 import net.ltxprogrammer.changed.entity.beast.LatexPurpleFox;

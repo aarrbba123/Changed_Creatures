@@ -17,7 +17,7 @@ import net.ltxprogrammer.changed.util.Color3;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.*;
 
-import net.hhdsj.goodblock.client.model.ModelgreendragonUnified;
+import net.hhdsj.goodblock.client.renderer.models.ModelgreendragonUnified;
 import net.hhdsj.goodblock.entity.LatexgreendragonEntity;
 
 public class LatexgreendragonRenderer extends AdvancedHumanoidRenderer<LatexgreendragonEntity, ModelgreendragonUnified, ArmorLatexMaleWingedDragonModel<LatexgreendragonEntity>> {

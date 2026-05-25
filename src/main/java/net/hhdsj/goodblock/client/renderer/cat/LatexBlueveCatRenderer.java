@@ -1,6 +1,6 @@
 package net.hhdsj.goodblock.client.renderer.cat;
 
-import net.hhdsj.goodblock.client.model.cat.ModelLatexBlueveCat;
+import net.hhdsj.goodblock.client.renderer.models.cat.ModelLatexBlueveCat;
 import net.hhdsj.goodblock.entity.simple.LatexBlueveCatEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;

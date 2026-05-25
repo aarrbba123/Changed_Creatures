@@ -5,9 +5,9 @@ import net.ltxprogrammer.changed.client.renderer.blockentity.LatexContainerRende
 import net.ltxprogrammer.changed.client.renderer.blockentity.PillowRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;
 import net.ltxprogrammer.changed.client.renderer.layers.TransfurCapeLayer;
-import net.ltxprogrammer.changed.client.renderer.model.*;
-import net.ltxprogrammer.changed.client.renderer.model.armor.*;
-import net.ltxprogrammer.changed.client.renderer.model.hair.HairRemodel;
+import net.ltxprogrammer.changed.client.renderer.models.*;
+import net.ltxprogrammer.changed.client.renderer.models.armor.*;
+import net.ltxprogrammer.changed.client.renderer.models.hair.HairRemodel;
 import net.ltxprogrammer.changed.client.tfanimations.TransfurHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;

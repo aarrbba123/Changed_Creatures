@@ -1,6 +1,6 @@
 package net.hhdsj.goodblock.client.renderer.boss;
 
-import net.hhdsj.goodblock.client.model.boss.ModelLatexIceFieldWolfDragonBoss;
+import net.hhdsj.goodblock.client.renderer.models.boss.ModelLatexIceFieldWolfDragonBoss;
 import net.hhdsj.goodblock.entity.boss.LatexIceFieldWolfDragonBossEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;

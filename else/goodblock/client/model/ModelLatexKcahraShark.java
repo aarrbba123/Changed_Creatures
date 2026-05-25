@@ -1,4 +1,4 @@
-package net.hhdsj.goodblock.client.model;
+package net.hhdsj.goodblock.client.renderer.models;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.util.Mth;
@@ -13,22 +13,15 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.EntityModel;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 
 import net.ltxprogrammer.changed.Changed;
 import net.ltxprogrammer.changed.client.renderer.animate.AnimatorPresets;
-import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
 import net.ltxprogrammer.changed.entity.beast.LatexTigerShark;
 
-import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.HumanoidArm;
 //Changed-mc mod import 我的世界转变MOD导入
-import net.ltxprogrammer.changed.Changed;
-import net.ltxprogrammer.changed.client.renderer.animate.AnimatorPresets;
 import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
 import net.ltxprogrammer.changed.client.renderer.model.AdvancedHumanoidModel;
 import net.ltxprogrammer.changed.client.renderer.model.AdvancedHumanoidModelInterface;
@@ -36,7 +29,6 @@ import net.ltxprogrammer.changed.client.renderer.model.AdvancedHumanoidModelInte
 //Goodblock mod import
 import net.hhdsj.goodblock.entity.*;
 
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.blaze3d.vertex.PoseStack;
 
 import org.jetbrains.annotations.NotNull;
@@ -48,7 +40,7 @@ import java.util.List;
 // Paste this class into your mod and generate all required imports
 public class ModelLatexKcahraShark extends AdvancedHumanoidModel<LatexKcahraSharkEntity> implements AdvancedHumanoidModelInterface<LatexKcahraSharkEntity, ModelLatexKcahraShark> {//<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in
-	// the entity renderer and passed into this model's constructor
+	// the entity renderer and passed into this models's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "latex_kcahra_shark"), "main");
 	public final ModelPart RightLeg;
 	public final ModelPart LeftLeg;
@@ -79,7 +71,7 @@ public class ModelLatexKcahraShark extends AdvancedHumanoidModel<LatexKcahraShar
         var rightFoot = rightLowerLeg.getChild("RightFoot");
 
         // The animator is a helper class that reduces the duplicate code the many of Changed:MC's entities have.
-        // It has quite a few presets to just plug your model's parts into to bring it to life.
+        // It has quite a few presets to just plug your models's parts into to bring it to life.
         this.animator = HumanoidAnimator.of(this).hipOffset(-1.5f)
                 .addPreset(AnimatorPresets.sharkLike(
                         Head, Torso, LeftArm, RightArm,

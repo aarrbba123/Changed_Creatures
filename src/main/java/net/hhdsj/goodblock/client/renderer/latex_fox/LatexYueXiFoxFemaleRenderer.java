@@ -1,7 +1,7 @@
 
 package net.hhdsj.goodblock.client.renderer.latex_fox;
 
-import net.hhdsj.goodblock.client.model.latex_fox.ModelLatexYueXiFoxFemale;
+import net.hhdsj.goodblock.client.renderer.models.latex_fox.ModelLatexYueXiFoxFemale;
 import net.hhdsj.goodblock.entity.simple.LatexYueXiFoxFemaleEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.*;

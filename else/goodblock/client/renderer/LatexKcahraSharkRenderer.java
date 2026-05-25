@@ -18,7 +18,7 @@ import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.*;
 
 import net.hhdsj.goodblock.entity.LatexKcahraSharkEntity;
-import net.hhdsj.goodblock.client.model.ModelLatexKcahraShark;
+import net.hhdsj.goodblock.client.renderer.models.ModelLatexKcahraShark;
 
 //public class LatexKcahraSharkRenderer extends MobRenderer<LatexKcahraSharkEntity, ModelLatexKcahraShark> {
 public class LatexKcahraSharkRenderer extends AdvancedHumanoidRenderer<LatexKcahraSharkEntity, ModelLatexKcahraShark, ArmorLatexMaleSharkModel<LatexKcahraSharkEntity>>{

@@ -2,7 +2,7 @@ package net.hhdsj.goodblock.client.renderer.projectile;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.hhdsj.goodblock.client.model.other.CrystalJavelinModel;
+import net.hhdsj.goodblock.client.renderer.models.other.CrystalJavelinModel;
 import net.hhdsj.goodblock.entity.BlueCrystalProjectile;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.MultiBufferSource;

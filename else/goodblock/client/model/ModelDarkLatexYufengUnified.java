@@ -1,4 +1,4 @@
-package net.hhdsj.goodblock.client.model;
+package net.hhdsj.goodblock.client.renderer.models;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.resources.ResourceLocation;
@@ -20,7 +20,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 // Paste this class into your mod and generate all required imports
 public class ModelDarkLatexYufengUnified<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in
-	// the entity renderer and passed into this model's constructor
+	// the entity renderer and passed into this models's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "model_dark_latex_yufeng_unified"), "main");
 	public final ModelPart RightLeg;
 	public final ModelPart RightLowerLeg;

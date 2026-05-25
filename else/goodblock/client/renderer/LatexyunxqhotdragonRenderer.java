@@ -8,7 +8,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.RenderType;
 
 import net.hhdsj.goodblock.entity.LatexyunxqhotdragonEntity;
-import net.hhdsj.goodblock.client.model.Modellatexyunxqhotdragon;
+import net.hhdsj.goodblock.client.renderer.models.Modellatexyunxqhotdragon;
 
 import net.ltxprogrammer.changed.Changed;
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;

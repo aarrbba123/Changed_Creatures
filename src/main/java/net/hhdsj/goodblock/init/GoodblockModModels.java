@@ -4,35 +4,28 @@
  */
 package net.hhdsj.goodblock.init;
 
-import net.foxyas.changedaddon.client.model.ModelFoxyasModel;
 import net.hhdsj.goodblock.client.armor.ArmorLatexMaleWolfWingedDragonModel;
-import net.hhdsj.goodblock.client.model.TailModel;
-import net.hhdsj.goodblock.client.model.boss.ModelLatexIceFieldWolfDragonBoss;
-import net.hhdsj.goodblock.client.model.boss.ModelLatexNightOwl;
-import net.hhdsj.goodblock.client.model.boss.ModelLatexNightOwlBoss;
-import net.hhdsj.goodblock.client.model.cat.ModelLatexBlueveCat;
-import net.hhdsj.goodblock.client.model.latex_dragon.*;
-import net.hhdsj.goodblock.client.model.latex_fox.*;
-import net.hhdsj.goodblock.client.model.latex_pup.ModelInksuger;
-import net.hhdsj.goodblock.client.model.latex_pup.Modelblackpupmale;
-import net.hhdsj.goodblock.client.model.latex_pup.Modelwhitebluepup;
-import net.hhdsj.goodblock.client.model.latex_shark.ModelLatexEnkangDragonShark;
-import net.hhdsj.goodblock.client.model.latex_shark.ModelLatexKcahraShark;
-import net.hhdsj.goodblock.client.model.latex_shark.ModelLatexQianGuiShark;
-import net.hhdsj.goodblock.client.model.latex_taur.ModelLatexDarkPurpleDragonTaur;
-import net.hhdsj.goodblock.client.model.latex_wolf.*;
-import net.hhdsj.goodblock.client.model.other.CrystalJavelinModel;
-import net.hhdsj.goodblock.client.models.armor.GoodBlockModelMaleWingedDragonArmor;
-import net.hhdsj.goodblock.mixin.Player.MixinPlayerRenderer;
-import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorModelSet;
-import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorNoTailModel;
-import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorNoneModel;
+import net.hhdsj.goodblock.client.renderer.models.TailModel;
+import net.hhdsj.goodblock.client.renderer.models.boss.ModelLatexIceFieldWolfDragonBoss;
+import net.hhdsj.goodblock.client.renderer.models.boss.ModelLatexNightOwl;
+import net.hhdsj.goodblock.client.renderer.models.boss.ModelLatexNightOwlBoss;
+import net.hhdsj.goodblock.client.renderer.models.cat.ModelLatexBlueveCat;
+import net.hhdsj.goodblock.client.renderer.models.latex_dragon.*;
+import net.hhdsj.goodblock.client.renderer.models.latex_fox.*;
+import net.hhdsj.goodblock.client.renderer.models.latex_pup.ModelInksuger;
+import net.hhdsj.goodblock.client.renderer.models.latex_pup.Modelblackpupmale;
+import net.hhdsj.goodblock.client.renderer.models.latex_pup.Modelwhitebluepup;
+import net.hhdsj.goodblock.client.renderer.models.latex_shark.ModelLatexEnkangDragonShark;
+import net.hhdsj.goodblock.client.renderer.models.latex_shark.ModelLatexKcahraShark;
+import net.hhdsj.goodblock.client.renderer.models.latex_shark.ModelLatexQianGuiShark;
+import net.hhdsj.goodblock.client.renderer.models.latex_taur.ModelLatexDarkPurpleDragonTaur;
+import net.hhdsj.goodblock.client.renderer.models.latex_wolf.*;
+import net.hhdsj.goodblock.client.renderer.models.other.CrystalJavelinModel;
+import net.hhdsj.goodblock.client.renderer.models.armors.GoodBlockModelMaleWingedDragonArmor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.api.distmarker.Dist;
-
-import java.util.Objects;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = {Dist.CLIENT})
 public class GoodblockModModels {

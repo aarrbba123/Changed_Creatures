@@ -16,7 +16,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
 version = '1.0'
-group = 'net.hhdsj.goodblock'  // 改为你的实际包名
+group = 'net.hhdsj.goodblock'
 archivesBaseName = 'goodblock'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -40,7 +40,7 @@ minecraft {
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             mods {
-                goodblock {  // 改为你的modid
+                goodblock {
                     source sourceSets.main
                 }
             }
@@ -76,16 +76,14 @@ dependencies {
     // Mixin 依赖
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-    // 你的其他依赖
     implementation files('/ChangedAddon-m1.20.1-2.8.0-all-patches.jar')
     implementation files('/Changed-m1.20.1-v0.15.4-all.jar')
 }
 
 // Mixin 配置
 mixin {
-    // MixinGradle 设置
-    add sourceSets.main, 'goodblock.refmap.json'  // 与你的mixins.json中的refmap一致
-    config 'goodblock.mixins.json'  // 你的mixins配置文件名
+    add sourceSets.main, 'goodblock.refmap.json'
+    config 'goodblock.mixins.json'
 
     debug.verbose = true
     debug.export = true

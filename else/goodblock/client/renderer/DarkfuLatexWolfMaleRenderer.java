@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
 import net.hhdsj.goodblock.entity.DarkfuLatexWolfMaleEntity;
-import net.hhdsj.goodblock.client.model.DarkfuLatexWolfMale;
+import net.hhdsj.goodblock.client.renderer.models.DarkfuLatexWolfMale;
 
 
 import net.ltxprogrammer.changed.Changed;
@@ -34,10 +34,11 @@ public class DarkfuLatexWolfMaleRenderer extends AdvancedHumanoidRenderer<Darkfu
                 .withSclera(Color3.WHITE).withIris(Color3.fromInt(0x43b44e)).build());
         this.addLayer(GasMaskLayer.forSnouted(this, context.getModelSet()));
 	}
-	/*
+
+	/*
 	public DarkLatexWolfMaleRenderer(EntityRendererProvider.Context context) {
 		super(context, new DarkLatexWolfMaleModel(context.bakeLayer(DarkLatexWolfMaleModel.LAYER_LOCATION)), ArmorLatexMaleWolfModel.MODEL_SET, 0.5f);
-		this.addLayer(new LatexParticlesLayer<>(this, getModel(), model::isPartNotMask));
+		this.addLayer(new LatexParticlesLayer<>(this, getModel(), models::isPartNotMask));
 		this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()));
 		this.addLayer(CustomEyesLayer.builder(this, context.getModelSet())
 				.withSclera(Color3.fromInt(0x242424))

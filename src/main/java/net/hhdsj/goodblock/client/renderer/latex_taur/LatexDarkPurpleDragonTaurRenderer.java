@@ -1,11 +1,10 @@
 package net.hhdsj.goodblock.client.renderer.latex_taur;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.hhdsj.goodblock.client.model.latex_taur.ModelLatexDarkPurpleDragonTaur;
+import net.hhdsj.goodblock.client.renderer.models.latex_taur.ModelLatexDarkPurpleDragonTaur;
 import net.hhdsj.goodblock.entity.LatexDarkPurpleDragonTaurEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.*;
-import net.ltxprogrammer.changed.client.renderer.model.WhiteLatexCentaurModel;
 import net.ltxprogrammer.changed.client.renderer.model.armor.*;
 import net.ltxprogrammer.changed.util.Color3;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

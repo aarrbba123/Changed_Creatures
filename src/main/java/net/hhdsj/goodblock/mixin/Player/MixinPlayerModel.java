@@ -1,6 +1,6 @@
 package net.hhdsj.goodblock.mixin.Player;
 
-import net.hhdsj.goodblock.client.model.TailModel;
+import net.hhdsj.goodblock.client.renderer.models.TailModel;
 import net.hhdsj.goodblock.init.GoodblockModModelLayers;
 import net.hhdsj.goodblock.mixin.ModelPartAccessor;
 import net.minecraft.client.Minecraft;

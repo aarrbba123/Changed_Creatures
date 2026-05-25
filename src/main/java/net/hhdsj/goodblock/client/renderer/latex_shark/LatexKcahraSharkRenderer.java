@@ -9,7 +9,7 @@ import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexMaleShark
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 
 import net.hhdsj.goodblock.entity.LatexKcahraSharkEntity;
-import net.hhdsj.goodblock.client.model.latex_shark.ModelLatexKcahraShark;
+import net.hhdsj.goodblock.client.renderer.models.latex_shark.ModelLatexKcahraShark;
 
 //public class LatexKcahraSharkRenderer extends MobRenderer<LatexKcahraSharkEntity, ModelLatexKcahraShark> {
 public class LatexKcahraSharkRenderer extends AdvancedHumanoidRenderer<LatexKcahraSharkEntity, ModelLatexKcahraShark>{

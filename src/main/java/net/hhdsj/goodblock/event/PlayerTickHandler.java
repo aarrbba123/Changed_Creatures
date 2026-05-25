@@ -60,7 +60,6 @@ public class PlayerTickHandler {
         }
 
         if (variant.getParent() == GoodblockModTransfurVariants.LATEX_GAO_HUI_FOX.get()) {
-            // 在服务端生成粒子，所有玩家都能看到
             ServerLevel serverLevel = (ServerLevel) player.level();
 
             if (player.tickCount % 4 == 0) {
@@ -76,15 +75,14 @@ public class PlayerTickHandler {
                     double offsetZ = Math.sin(angle) * radius;
                     double offsetY = Math.sin(player.tickCount * 0.2 + i) * 0.15;
 
-                    // sendParticles 会将粒子同步给所有附近的玩家
                     serverLevel.sendParticles(
                             GoodblockModParticleTypes.GREEN_FLAME.get(),
                             x + offsetX,
                             y + offsetY,
                             z + offsetZ,
-                            1,           // 每个位置1个粒子
-                            0.0, 0.0, 0.0,  // 偏移范围
-                            0.02          // 速度
+                            1,
+                            0.0, 0.0, 0.0,
+                            0.02
                     );
                 }
             }

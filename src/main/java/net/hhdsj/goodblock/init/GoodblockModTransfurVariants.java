@@ -32,6 +32,9 @@ public class GoodblockModTransfurVariants {
 					.transfurMode(TransfurMode.ABSORPTION)
 					.addAbility(ChangedAddonAbilities.CLAWS)
 					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.addAbility(ChangedAddonAbilities.CARRY)
+					.addAbility(ChangedAbilities.GRAB_ENTITY_ABILITY)
+					.extraJumps(2)
 					.build());
 
     public static final RegistryObject<TransfurVariant<LatexOrangeFoxEntity>> LATEX_ORANGE_FOX = 

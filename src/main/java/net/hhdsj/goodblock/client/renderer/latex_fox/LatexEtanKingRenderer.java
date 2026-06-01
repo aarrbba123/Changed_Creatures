@@ -32,6 +32,6 @@ public class LatexEtanKingRenderer extends
 
     @Override
     public ResourceLocation getTextureLocation(LatexEtanKindEntity entity) {
-        return new ResourceLocation("goodblock:textures/entities/latex/latex_etan_kind.png");
+        return new ResourceLocation("goodblock:textures/entities/latex/latex_etan_kind.json.png");
     }
 }

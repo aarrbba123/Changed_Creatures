@@ -22,7 +22,7 @@ import java.util.List;
 public class ModelLatexEtanKind extends AdvancedHumanoidModel<LatexEtanKindEntity> {//implements AdvancedHumanoidModelInterface<LatexEtanKindEntity, ModelLatexOrangeFox> {//<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in
 	// the entity renderer and passed into this models's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "latex_etan_kind"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "latex_etan_kind.json"), "main");
 	public final ModelPart RightLeg;
 	public final ModelPart LeftLeg;
 	public final ModelPart Head;

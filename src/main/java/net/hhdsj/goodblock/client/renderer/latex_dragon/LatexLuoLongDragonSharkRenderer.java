@@ -1,13 +1,15 @@
 package net.hhdsj.goodblock.client.renderer.latex_dragon;
 
-import net.hhdsj.goodblock.client.renderer.models.latex_dragon.ModelLatexLuoLongDragonShark;
+import net.hhdsj.goodblock.client.models.latex_dragon.ModelLatexLuoLongDragonShark;
 import net.hhdsj.goodblock.entity.simple.LatexLuoLongDragonSharkEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.*;
+import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexMaleSharkModel;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexMaleWingedDragonModel;
 import net.ltxprogrammer.changed.util.Color3;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 
 public class LatexLuoLongDragonSharkRenderer extends AdvancedHumanoidRenderer<LatexLuoLongDragonSharkEntity, ModelLatexLuoLongDragonShark> {
     public LatexLuoLongDragonSharkRenderer(EntityRendererProvider.Context context) {
@@ -24,7 +26,7 @@ public class LatexLuoLongDragonSharkRenderer extends AdvancedHumanoidRenderer<La
     }
 
     @Override
-    public ResourceLocation getTextureLocation(LatexLuoLongDragonSharkEntity entity) {
+    public @NotNull ResourceLocation getTextureLocation(@NotNull LatexLuoLongDragonSharkEntity entity) {
         return new ResourceLocation("goodblock:textures/entities/latex/latex_luolong_dragon_shark.png");
     }
 }

@@ -32,7 +32,7 @@ public class LatexLuoLongDragonSharkEntity extends ChangedEntity {
     }
 
     public Color3 getTransfurColor(TransfurCause cause) {
-        return Color3.getColor("#ffda00");
+        return Color3.getColor("#292c33");
     }
 
     @Override
@@ -41,7 +41,7 @@ public class LatexLuoLongDragonSharkEntity extends ChangedEntity {
     }
 
     public LatexLuoLongDragonSharkEntity(PlayMessages.SpawnEntity packet, Level world) {
-        this(GoodblockModEntities.LATEXIQGOLDDRAGON.get(), world);
+        this(GoodblockModEntities.LUOLONG_DRAGON_SHARK.get(), world);
     }
 
     @Override

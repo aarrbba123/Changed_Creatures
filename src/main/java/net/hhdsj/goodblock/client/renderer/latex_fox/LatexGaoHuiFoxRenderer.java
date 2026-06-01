@@ -1,7 +1,7 @@
 
 package net.hhdsj.goodblock.client.renderer.latex_fox;
 
-import net.hhdsj.goodblock.client.renderer.models.latex_fox.ModelLatexGaoHuiFox;
+import net.hhdsj.goodblock.client.models.latex_fox.ModelLatexGaoHuiFox;
 import net.hhdsj.goodblock.entity.simple.LatexGaoHuiFoxEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.*;

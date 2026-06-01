@@ -9,7 +9,7 @@ import net.ltxprogrammer.changed.client.renderer.model.DarkLatexWolfPupModel;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorNoneModel;
 import net.ltxprogrammer.changed.entity.beast.DarkLatexWolfPup;
 import net.ltxprogrammer.changed.util.Color3;
-import net.hhdsj.goodblock.client.renderer.models.DarkfuLatexWolfMale;
+import net.hhdsj.goodblock.client.models.DarkfuLatexWolfMale;
 
 
 import net.ltxprogrammer.changed.Changed;
@@ -27,9 +27,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Pose;
 import org.jetbrains.annotations.NotNull;
 
-import net.hhdsj.goodblock.client.renderer.models.ModelInksuger;
+import net.hhdsj.goodblock.client.models.ModelInksuger;
 import net.hhdsj.goodblock.entity.InksugerEntity;
-import net.hhdsj.goodblock.client.renderer.models.ModelNoNameMob;
+import net.hhdsj.goodblock.client.models.ModelNoNameMob;
 
 public class InksugerRenderer extends AdvancedHumanoidRenderer<InksugerEntity, ModelInksuger, ArmorNoneModel<InksugerEntity>> {
 	public InksugerRenderer(EntityRendererProvider.Context context) {

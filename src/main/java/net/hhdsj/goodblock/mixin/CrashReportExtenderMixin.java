@@ -15,7 +15,6 @@ public class CrashReportExtenderMixin {
             builder.append("\n\n-- GoodBlock Mod --\n");
             builder.append("If you crash due to the Goodblock mod, please report it at:\n");
             builder.append("https://github.com/hhdsjgit/Good-blocks/issues\n");
-            builder.append("\n\n-- END --\n");
         } catch(Throwable ignored) {
 
         }

@@ -1,7 +1,8 @@
-
 package net.hhdsj.goodblock;
 
+import net.hhdsj.goodblock.event.CrystalRingHandler;
 import net.hhdsj.goodblock.init.*;
+import net.hhdsj.goodblock.network.SyncCrystalRingPacket;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -11,6 +12,7 @@ import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
@@ -60,9 +62,13 @@ public class GoodblockMod {
 
 		GoodblockModMobEffects.REGISTRY.register(bus);
 
-        GoodblockModAbilities.REGISTRY.register(bus);
+		GoodblockModAbilities.REGISTRY.register(bus);
 		GoodblockModMenus.REGISTRY.register(bus);
 		GoodblockModTransfurVariants.REGISTRY.register(bus);
+
+		CrystalRingHandler.registerCapabilities(bus);
+		SyncCrystalRingPacket.register();
+		MinecraftForge.EVENT_BUS.register(new CrystalRingHandler());
 	}
 
 	public static <T> void addNetworkMessage(Class<T> messageType, BiConsumer<T, FriendlyByteBuf> encoder, Function<FriendlyByteBuf, T> decoder, BiConsumer<T, Supplier<NetworkEvent.Context>> messageConsumer) {

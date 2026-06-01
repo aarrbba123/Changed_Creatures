@@ -76,6 +76,7 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<LatexHyazintheFoxEntity>> LATEX_HYAZINTHE_FOX;
     public static final RegistryObject<EntityType<LatexYueXiFoxFemaleEntity>> LATEX_YUE_XI_FOX_FEMALE;
     public static final RegistryObject<EntityType<LatexFloraFoxEntity>> LATEX_FLORA_FOX;
+    public static final RegistryObject<EntityType<LatexEtanKindEntity>> LATEX_ETAN_KIND;
 
     // 鲨鱼变体
     public static final RegistryObject<EntityType<LatexKcahraSharkEntity>> LATEX_KCAHRA_SHARK;
@@ -93,6 +94,7 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<LatexNeondimnessWolfEntity>> LATEXNEONDIMNESSWOLF;
     public static final RegistryObject<EntityType<LatexChengXiEntity>> LATEX_CHENG_XI;
     public static final RegistryObject<EntityType<LatexDawnWolfEntity>> LATEX_DAWN_WOLF;
+
 
     // 幼崽变体
     public static final RegistryObject<EntityType<BlackpupmaleEntity>> BLACKPUPMALE;
@@ -120,12 +122,21 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<LatexthreemonthwolfEntityProjectile>> LATEXTHREEMONTHWOLF_PROJECTILE;
     public static final RegistryObject<EntityType<BlueCrystalProjectile>> BLUECRYSTALPROJECTILE;
     public static final RegistryObject<EntityType<ThrownCrystalJavelinTrident>> THROWN_CRYSTAL_JAVELIN;
-
+    public static final RegistryObject<EntityType<CrystalArrow>> CRYSTAL_ARROW;
     //龙鲨变体
     public static final RegistryObject<EntityType<LatexLuoLongDragonSharkEntity>> LUOLONG_DRAGON_SHARK;
     //Cat Latex
     public static final RegistryObject<EntityType<LatexBlueveCatEntity>> LATEX_BLUEVE_CAT;
     static {
+        LATEX_ETAN_KIND = registerSpawning("latex_etan_kind", 0x3c6a7d, 0xe9e564,
+                EntityType.Builder.<LatexEtanKindEntity>of(LatexEtanKindEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .setCustomClientFactory(LatexEtanKindEntity::new)
+                        .sized(0.6f, 1.95f),
+                LatexEtanKindEntity::createLatexAttributes);
+
         LUOLONG_DRAGON_SHARK = registerSpawning("latex_luo_long_dragon_shark", 0x282b30, 0xe2506c,
                 EntityType.Builder.<LatexLuoLongDragonSharkEntity>of(LatexLuoLongDragonSharkEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
@@ -135,7 +146,7 @@ public class GoodblockModEntities {
                         .sized(0.6f, 1.95f),
                 LatexLuoLongDragonSharkEntity::createLatexAttributes);
 
-        LATEX_FLORA_FOX = registerSpawning("latex_flora_fox/female", 0xd72454, 0xfdb1ef,
+        LATEX_FLORA_FOX = registerSpawning("latex_flora_fox_female", 0xd72454, 0xfdb1ef,
                 EntityType.Builder.<LatexFloraFoxEntity>of(LatexFloraFoxEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -179,7 +190,7 @@ public class GoodblockModEntities {
                         .sized(0.6f, 2f),
                 LatexHyazintheFoxEntity::createLatexAttributes);
 
-        LATEX_ENKANG_DRAGON_SHARK = registerSpawning("latex_enkang_dragon_shark", 0xff9199, 0xffb2e8,
+        LATEX_ENKANG_DRAGON_SHARK = registerSpawning("latex_enkang_dragon_shark", 0x00b4ff, 0x0071a0,
                 EntityType.Builder.<LatexEnkangDragonSharkEntity>of(LatexEnkangDragonSharkEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -502,6 +513,13 @@ public class GoodblockModEntities {
                         .setTrackingRange(64)
                         .setUpdateInterval(1)
                         .setCustomClientFactory(BlueCrystalProjectile::new)
+                        .sized(0.5f, 0.5f));
+
+        CRYSTAL_ARROW = registerProjectile("projectile_crystal",
+                EntityType.Builder.<CrystalArrow>of(CrystalArrow::new, MobCategory.MISC)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(1)
                         .sized(0.5f, 0.5f));
 
         THROWN_CRYSTAL_JAVELIN = registerProjectile("thrown_crystal_javelin_trident",

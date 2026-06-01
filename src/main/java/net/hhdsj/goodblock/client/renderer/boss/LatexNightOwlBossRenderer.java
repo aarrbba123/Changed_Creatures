@@ -1,6 +1,6 @@
 package net.hhdsj.goodblock.client.renderer.boss;
 
-import net.hhdsj.goodblock.client.renderer.models.boss.ModelLatexNightOwlBoss;
+import net.hhdsj.goodblock.client.models.boss.ModelLatexNightOwlBoss;
 import net.hhdsj.goodblock.entity.boss.LatexNightOwlBossEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;

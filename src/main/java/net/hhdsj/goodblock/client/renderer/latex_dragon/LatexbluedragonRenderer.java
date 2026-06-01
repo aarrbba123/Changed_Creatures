@@ -13,7 +13,7 @@ import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexMaleWinge
 import net.ltxprogrammer.changed.util.Color3;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 
-import net.hhdsj.goodblock.client.renderer.models.latex_dragon.Modelbluedragon;
+import net.hhdsj.goodblock.client.models.latex_dragon.Modelbluedragon;
 import net.hhdsj.goodblock.entity.LatexbluedragonEntity;
 
 public class LatexbluedragonRenderer extends AdvancedHumanoidRenderer<LatexbluedragonEntity, Modelbluedragon> {

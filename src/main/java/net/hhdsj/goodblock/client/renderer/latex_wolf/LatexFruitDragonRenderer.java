@@ -1,6 +1,6 @@
 package net.hhdsj.goodblock.client.renderer.latex_wolf;
 
-import net.hhdsj.goodblock.client.renderer.models.latex_wolf.ModelLatexFruitDragonWolf;
+import net.hhdsj.goodblock.client.models.latex_wolf.ModelLatexFruitDragonWolf;
 
 import net.hhdsj.goodblock.entity.simple.LatexFruitDragonEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;

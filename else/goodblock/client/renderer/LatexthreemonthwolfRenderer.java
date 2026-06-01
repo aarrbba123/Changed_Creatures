@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.RenderType;
 
 import net.hhdsj.goodblock.procedures.LatexthreemonthwolfZhanDouShiTiTiaoJianProcedure;
 import net.hhdsj.goodblock.entity.LatexthreemonthwolfEntity;
-import net.hhdsj.goodblock.client.renderer.models.ModelLatexthreemonthwolf;
+import net.hhdsj.goodblock.client.models.ModelLatexthreemonthwolf;
 
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;
 import net.ltxprogrammer.changed.client.renderer.model.LatexSnowLeopardMaleModel;
@@ -24,7 +24,7 @@ import net.ltxprogrammer.changed.client.renderer.layers.LatexParticlesLayer;
 import net.ltxprogrammer.changed.client.renderer.model.DarkLatexWolfPupModel;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorNoneModel;
 import net.ltxprogrammer.changed.entity.beast.DarkLatexWolfPup;
-import net.hhdsj.goodblock.client.renderer.models.DarkfuLatexWolfMale;
+import net.hhdsj.goodblock.client.models.DarkfuLatexWolfMale;
 
 
 import net.ltxprogrammer.changed.client.renderer.layers.GasMaskLayer;

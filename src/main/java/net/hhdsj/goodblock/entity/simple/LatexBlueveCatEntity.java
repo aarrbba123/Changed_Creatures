@@ -19,6 +19,7 @@ public class LatexBlueveCatEntity extends AbstractKitsuneEntity {
         super.setAttributes(attributes);
         Objects.requireNonNull(attributes.getInstance(Attributes.MOVEMENT_SPEED)).setBaseValue(1.1);
         Objects.requireNonNull(attributes.getInstance(ForgeMod.SWIM_SPEED.get())).setBaseValue(1.1);
+        Objects.requireNonNull(attributes.getInstance(Attributes.MAX_HEALTH)).setBaseValue(35);
     }
 
     public LatexBlueveCatEntity(EntityType<? extends ChangedEntity> type, Level level) {

@@ -7,6 +7,7 @@ package net.hhdsj.goodblock.init;
 import net.hhdsj.goodblock.GoodblockMod;
 import net.hhdsj.goodblock.abilities.BetterHypnosisAbility;
 import net.hhdsj.goodblock.abilities.CreateBlueCrystalEntityAbility;
+import net.hhdsj.goodblock.abilities.ShootCrystalArrowAbility;
 import net.hhdsj.goodblock.abilities.TurnFeraLatexDarkPurpleAbility;
 import net.ltxprogrammer.changed.Changed;
 import net.ltxprogrammer.changed.ability.*;
@@ -22,6 +23,7 @@ public class GoodblockModAbilities{
     public static RegistryObject<SimpleCreateItemAbility> CREATE_DRAGON_FRUIT;
     public static RegistryObject<BetterHypnosisAbility> BERRER_HYPNOSIE;
     public static RegistryObject<CreateBlueCrystalEntityAbility> CREATEBLUECRYSTALENTITYABILITY;
+    public static RegistryObject<ShootCrystalArrowAbility> SHOOT_CRYSTAL_ARROW;
 
 
     static {
@@ -32,6 +34,8 @@ public class GoodblockModAbilities{
         TURN_FERA_LATEX_DARK_PURPLE = REGISTRY.register("turn_fera_latex_dark_purple", TurnFeraLatexDarkPurpleAbility::new);
         //创作火龙果
         CREATE_DRAGON_FRUIT = REGISTRY.register("create_dragon_fruit", () -> new SimpleCreateItemAbility(() -> new ItemStack(GoodblockModItems.DRAGONFRUIT.get()), 1.0f, 1.0f));
+        //水晶箭
+        SHOOT_CRYSTAL_ARROW = REGISTRY.register("shoot_crystal_arrow", ShootCrystalArrowAbility::new);
     }
 
     public static AbstractAbility<?> getAbility(ResourceLocation location) {

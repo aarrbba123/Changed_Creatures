@@ -1,4 +1,4 @@
-package net.hhdsj.goodblock.client.renderer.models;
+package net.hhdsj.goodblock.client.models;
 // Made with Blockbench 4.1.5
 // Exported for Minecraft version 1.17 with Mojang mappings
 // Paste this class into your mod and generate all required imports

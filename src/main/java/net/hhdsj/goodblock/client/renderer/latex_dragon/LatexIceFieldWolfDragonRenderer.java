@@ -7,7 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
 import net.hhdsj.goodblock.entity.LatexIceFieldWolfDragonEntity;
-import net.hhdsj.goodblock.client.renderer.models.latex_dragon.ModelIceFieldWolfDragon;
+import net.hhdsj.goodblock.client.models.latex_dragon.ModelIceFieldWolfDragon;
 
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexBigTailDragonModel;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;

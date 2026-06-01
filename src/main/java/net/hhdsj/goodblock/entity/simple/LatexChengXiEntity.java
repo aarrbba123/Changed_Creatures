@@ -41,8 +41,6 @@ public class LatexChengXiEntity extends ChangedEntity {
         Objects.requireNonNull(attributes.getInstance(ForgeMod.SWIM_SPEED.get())).setBaseValue(0.93);
     }
 
-
-
     @Override
     public TransfurMode getTransfurMode() {
         return TransfurMode.REPLICATION;
@@ -83,13 +81,6 @@ public class LatexChengXiEntity extends ChangedEntity {
     public MobType getMobType() {
         return MobType.UNDEFINED;
     }
-
-    /*
-    protected void dropCustomDeathLoot(DamageSource source, int looting, boolean recentlyHitIn) {
-        super.dropCustomDeathLoot(source, looting, recentlyHitIn);
-        //int count = this.random.nextInt(5) + 1;
-        //this.spawnAtLocation(new ItemStack(Items.GOLD_INGOT, count));
-    }*/
 
     public static void init() {
         SpawnPlacements.register(GoodblockModEntities.LATEX_CHENG_XI.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,

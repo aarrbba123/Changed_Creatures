@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
 import net.hhdsj.goodblock.entity.DarkfuLatexWolfMaleEntity;
-import net.hhdsj.goodblock.client.renderer.models.DarkfuLatexWolfMale;
+import net.hhdsj.goodblock.client.models.DarkfuLatexWolfMale;
 
 
 import net.ltxprogrammer.changed.Changed;

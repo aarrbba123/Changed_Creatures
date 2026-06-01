@@ -1,6 +1,6 @@
 package net.hhdsj.goodblock.item;
 
-import net.hhdsj.goodblock.client.renderer.models.armors.GoodBlockModelMaleWingedDragonArmor;
+import net.hhdsj.goodblock.client.models.armors.GoodBlockModelMaleWingedDragonArmor;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorModel;
 import net.ltxprogrammer.changed.entity.ChangedEntity;
 import net.minecraft.client.Minecraft;
@@ -30,8 +30,8 @@ public abstract class PainiteArmorItem extends ArmorItem {
         @Override public int getDurabilityForType(ArmorItem.@NotNull Type type) {
             return switch (type) {
                 case HELMET -> 13 * 45;
-                case CHESTPLATE -> 15 * 45;
-                case LEGGINGS -> 16 * 45;
+                case CHESTPLATE -> 16 * 45;
+                case LEGGINGS -> 15 * 45;
                 case BOOTS -> 11 * 45;
                 default -> 0;
             };
@@ -39,8 +39,8 @@ public abstract class PainiteArmorItem extends ArmorItem {
         @Override public int getDefenseForType(ArmorItem.@NotNull Type type) {
             return switch (type) {
                 case HELMET -> 3;
-                case CHESTPLATE -> 6;
-                case LEGGINGS -> 8;
+                case CHESTPLATE -> 8;
+                case LEGGINGS -> 6;
                 case BOOTS -> 3;
                 default -> 0;
             };

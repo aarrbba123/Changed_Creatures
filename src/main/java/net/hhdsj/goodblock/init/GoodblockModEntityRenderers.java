@@ -19,6 +19,7 @@ import net.hhdsj.goodblock.client.renderer.latex_shark.LatexQianGuiSharkRenderer
 import net.hhdsj.goodblock.client.renderer.latex_taur.LatexDarkPurpleDragonTaurRenderer;
 import net.hhdsj.goodblock.client.renderer.latex_wolf.*;
 import net.hhdsj.goodblock.client.renderer.projectile.BlueCrystalProjectileRenderer;
+import net.hhdsj.goodblock.client.renderer.projectile.CrystalArrowRenderer;
 import net.hhdsj.goodblock.client.renderer.projectile.LatexArrowRenderer;
 import net.hhdsj.goodblock.client.renderer.projectile.ThrownCrystalJavelinTridentRenderer;
 import net.minecraftforge.fml.common.Mod;
@@ -61,6 +62,8 @@ public class GoodblockModEntityRenderers {
 		event.registerEntityRenderer(GoodblockModEntities.LATEXYAOLINGDRAGON.get(),LatexYaoLingDragonRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_DIVINE_SWORD_KITSUNE.get(), LatexDivineSwordKitsuneRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.BLUECRYSTALPROJECTILE.get(), BlueCrystalProjectileRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.CRYSTAL_ARROW.get(), CrystalArrowRenderer::new);
+
 		event.registerEntityRenderer(GoodblockModEntities.THROWN_CRYSTAL_JAVELIN.get(), ThrownCrystalJavelinTridentRenderer::new);
 
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_YUE_XI_FOX_FEMALE.get(), LatexYueXiFoxFemaleRenderer::new);
@@ -72,5 +75,7 @@ public class GoodblockModEntityRenderers {
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_QIAN_GUI_SHARK.get(), LatexQianGuiSharkRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_FLORA_FOX.get(), LatexFloraFoxRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LUOLONG_DRAGON_SHARK.get(), LatexLuoLongDragonSharkRenderer::new);
+		//ModelLatexEtanKind
+		event.registerEntityRenderer(GoodblockModEntities.LATEX_ETAN_KIND.get(), LatexEtanKingRenderer::new);
 	}
 }

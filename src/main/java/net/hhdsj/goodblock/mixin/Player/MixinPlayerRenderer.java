@@ -3,7 +3,7 @@ package net.hhdsj.goodblock.mixin.Player;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import net.hhdsj.goodblock.client.renderer.models.TailModel;
+import net.hhdsj.goodblock.client.models.other.TailModel;
 import net.hhdsj.goodblock.init.GoodblockModModelLayers;
 import net.hhdsj.goodblock.network.GoodblockModVariables;
 import net.hhdsj.goodblock.util.PlayerDataGetHelper;
@@ -43,7 +43,7 @@ public abstract class MixinPlayerRenderer extends LivingEntityRenderer<AbstractC
 
     @Inject(
             method = "render*",
-            at = @At("RETURN")
+            at = @At(value = "TAIL")
     )
     private void onRenderTail(
             AbstractClientPlayer player,

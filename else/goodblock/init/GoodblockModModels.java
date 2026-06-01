@@ -9,10 +9,10 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.api.distmarker.Dist;
 
-import net.hhdsj.goodblock.client.renderer.models.ModelProtoTypeMob;
-import net.hhdsj.goodblock.client.renderer.models.ModelNoNameMob;
-import net.hhdsj.goodblock.client.renderer.models.ModelLatexPurpleFoxUnified;
-import net.hhdsj.goodblock.client.renderer.models.ModelDarkLatexYufengUnified;
+import net.hhdsj.goodblock.client.models.ModelProtoTypeMob;
+import net.hhdsj.goodblock.client.models.ModelNoNameMob;
+import net.hhdsj.goodblock.client.models.ModelLatexPurpleFoxUnified;
+import net.hhdsj.goodblock.client.models.ModelDarkLatexYufengUnified;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = {Dist.CLIENT})
 public class GoodblockModModels {

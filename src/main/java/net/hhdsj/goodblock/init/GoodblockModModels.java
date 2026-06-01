@@ -4,24 +4,24 @@
  */
 package net.hhdsj.goodblock.init;
 
-import net.hhdsj.goodblock.client.armor.ArmorLatexMaleWolfWingedDragonModel;
-import net.hhdsj.goodblock.client.renderer.models.TailModel;
-import net.hhdsj.goodblock.client.renderer.models.boss.ModelLatexIceFieldWolfDragonBoss;
-import net.hhdsj.goodblock.client.renderer.models.boss.ModelLatexNightOwl;
-import net.hhdsj.goodblock.client.renderer.models.boss.ModelLatexNightOwlBoss;
-import net.hhdsj.goodblock.client.renderer.models.cat.ModelLatexBlueveCat;
-import net.hhdsj.goodblock.client.renderer.models.latex_dragon.*;
-import net.hhdsj.goodblock.client.renderer.models.latex_fox.*;
-import net.hhdsj.goodblock.client.renderer.models.latex_pup.ModelInksuger;
-import net.hhdsj.goodblock.client.renderer.models.latex_pup.Modelblackpupmale;
-import net.hhdsj.goodblock.client.renderer.models.latex_pup.Modelwhitebluepup;
-import net.hhdsj.goodblock.client.renderer.models.latex_shark.ModelLatexEnkangDragonShark;
-import net.hhdsj.goodblock.client.renderer.models.latex_shark.ModelLatexKcahraShark;
-import net.hhdsj.goodblock.client.renderer.models.latex_shark.ModelLatexQianGuiShark;
-import net.hhdsj.goodblock.client.renderer.models.latex_taur.ModelLatexDarkPurpleDragonTaur;
-import net.hhdsj.goodblock.client.renderer.models.latex_wolf.*;
-import net.hhdsj.goodblock.client.renderer.models.other.CrystalJavelinModel;
-import net.hhdsj.goodblock.client.renderer.models.armors.GoodBlockModelMaleWingedDragonArmor;
+import net.hhdsj.goodblock.client.models.armors.ArmorLatexMaleWolfWingedDragonModel;
+import net.hhdsj.goodblock.client.models.other.TailModel;
+import net.hhdsj.goodblock.client.models.boss.ModelLatexIceFieldWolfDragonBoss;
+import net.hhdsj.goodblock.client.models.boss.ModelLatexNightOwl;
+import net.hhdsj.goodblock.client.models.boss.ModelLatexNightOwlBoss;
+import net.hhdsj.goodblock.client.models.cat.ModelLatexBlueveCat;
+import net.hhdsj.goodblock.client.models.latex_dragon.*;
+import net.hhdsj.goodblock.client.models.latex_fox.*;
+import net.hhdsj.goodblock.client.models.latex_pup.ModelInksuger;
+import net.hhdsj.goodblock.client.models.latex_pup.Modelblackpupmale;
+import net.hhdsj.goodblock.client.models.latex_pup.Modelwhitebluepup;
+import net.hhdsj.goodblock.client.models.latex_shark.ModelLatexEnkangDragonShark;
+import net.hhdsj.goodblock.client.models.latex_shark.ModelLatexKcahraShark;
+import net.hhdsj.goodblock.client.models.latex_shark.ModelLatexQianGuiShark;
+import net.hhdsj.goodblock.client.models.latex_taur.ModelLatexDarkPurpleDragonTaur;
+import net.hhdsj.goodblock.client.models.latex_wolf.*;
+import net.hhdsj.goodblock.client.models.other.CrystalJavelinModel;
+import net.hhdsj.goodblock.client.models.armors.GoodBlockModelMaleWingedDragonArmor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -71,6 +71,7 @@ public class GoodblockModModels {
 		event.registerLayerDefinition(ModelLatexFloraFox.LAYER_LOCATION, ModelLatexFloraFox::createBodyLayer);
 
 		event.registerLayerDefinition(ModelLatexLuoLongDragonShark.LAYER_LOCATION, ModelLatexLuoLongDragonShark::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexEtanKind.LAYER_LOCATION, ModelLatexEtanKind::createBodyLayer);
 
 		event.registerLayerDefinition(CrystalJavelinModel.LAYER_LOCATION, CrystalJavelinModel::createBodyLayer);
 

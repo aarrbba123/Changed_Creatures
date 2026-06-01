@@ -2,7 +2,7 @@
 package net.hhdsj.goodblock.client.renderer;
 
 import net.hhdsj.goodblock.entity.BlackpupmaleEntity;
-import net.hhdsj.goodblock.client.renderer.models.Modelblackpupmale;
+import net.hhdsj.goodblock.client.models.Modelblackpupmale;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.entity.MobRenderer;
@@ -13,7 +13,7 @@ import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;
 import net.ltxprogrammer.changed.client.renderer.model.DarkLatexWolfPupModel;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorNoneModel;
 import net.ltxprogrammer.changed.entity.beast.DarkLatexWolfPup;
-import net.hhdsj.goodblock.client.renderer.models.DarkfuLatexWolfMale;
+import net.hhdsj.goodblock.client.models.DarkfuLatexWolfMale;
 
 
 import net.ltxprogrammer.changed.Changed;
@@ -30,7 +30,7 @@ import net.ltxprogrammer.changed.client.renderer.layers.*;
 import net.minecraft.world.entity.Pose;
 import org.jetbrains.annotations.NotNull;
 
-import net.hhdsj.goodblock.client.renderer.models.ModelNoNameMob;
+import net.hhdsj.goodblock.client.models.ModelNoNameMob;
 
 
 public class BlackpupmaleRenderer extends AdvancedHumanoidRenderer<BlackpupmaleEntity, Modelblackpupmale, ArmorNoneModel<BlackpupmaleEntity>> {

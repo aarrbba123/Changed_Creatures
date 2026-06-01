@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.RenderType;
 
 import net.hhdsj.goodblock.entity.LatexkamonaHSguydragonwolfEntity;
-import net.hhdsj.goodblock.client.renderer.models.ModelLatexkamonaHSguydragonwolf;
+import net.hhdsj.goodblock.client.models.ModelLatexkamonaHSguydragonwolf;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 

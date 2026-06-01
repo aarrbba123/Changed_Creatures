@@ -4,7 +4,7 @@ package net.hhdsj.goodblock.client.renderer;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
-import net.hhdsj.goodblock.client.renderer.models.ModelDarkLatexYufengUnified;
+import net.hhdsj.goodblock.client.models.ModelDarkLatexYufengUnified;
 
 import net.hhdsj.goodblock.entity.BlackpupmaleEntity;
 
@@ -16,7 +16,7 @@ import net.ltxprogrammer.changed.client.renderer.layers.LatexParticlesLayer;
 import net.ltxprogrammer.changed.client.renderer.model.DarkLatexWolfPupModel;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorNoneModel;
 import net.ltxprogrammer.changed.entity.beast.DarkLatexWolfPup;
-import net.hhdsj.goodblock.client.renderer.models.DarkfuLatexWolfMale;
+import net.hhdsj.goodblock.client.models.DarkfuLatexWolfMale;
 
 
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;
@@ -32,9 +32,9 @@ import net.ltxprogrammer.changed.client.renderer.layers.*;
 import net.minecraft.world.entity.Pose;
 import org.jetbrains.annotations.NotNull;
 
-import net.hhdsj.goodblock.client.renderer.models.Modelwhitebluepup;
+import net.hhdsj.goodblock.client.models.Modelwhitebluepup;
 import net.hhdsj.goodblock.entity.WhitebluepupEntity;
-import net.hhdsj.goodblock.client.renderer.models.ModelNoNameMob;
+import net.hhdsj.goodblock.client.models.ModelNoNameMob;
 
 
 public class WhitebluepupRenderer extends AdvancedHumanoidRenderer<WhitebluepupEntity, Modelwhitebluepup, ArmorNoneModel<WhitebluepupEntity>> {

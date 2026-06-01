@@ -1,4 +1,4 @@
-package net.hhdsj.goodblock.client.renderer.models;
+package net.hhdsj.goodblock.client.models;
 
 
 import net.minecraft.world.entity.Entity;

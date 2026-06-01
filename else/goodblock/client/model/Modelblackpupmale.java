@@ -1,4 +1,4 @@
-package net.hhdsj.goodblock.client.renderer.models;
+package net.hhdsj.goodblock.client.models;
 
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.ltxprogrammer.changed.client.tfanimations.HelperModel;

@@ -5,7 +5,7 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
 import net.hhdsj.goodblock.entity.LatexiceDragonEntity;
-import net.hhdsj.goodblock.client.renderer.models.ModelLatexicedragon;
+import net.hhdsj.goodblock.client.models.ModelLatexicedragon;
 
 
 import net.ltxprogrammer.changed.Changed;

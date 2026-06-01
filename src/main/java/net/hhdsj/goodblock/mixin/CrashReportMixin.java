@@ -15,7 +15,6 @@ public class CrashReportMixin {
             stringBuilder.append("\n\n-- GoodBlock Mod --\n");
             stringBuilder.append("If you crash due to the Goodblock mod, please report it at:\n");
             stringBuilder.append("https://github.com/hhdsjgit/Good-blocks/issues\n");
-            stringBuilder.append("\n\n-- END --\n");
         }catch(Throwable ignored){
             //No do anything
         }

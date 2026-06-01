@@ -1,7 +1,7 @@
 package net.hhdsj.goodblock.client.renderer.latex_taur;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.hhdsj.goodblock.client.renderer.models.latex_taur.ModelLatexDarkPurpleDragonTaur;
+import net.hhdsj.goodblock.client.models.latex_taur.ModelLatexDarkPurpleDragonTaur;
 import net.hhdsj.goodblock.entity.LatexDarkPurpleDragonTaurEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.*;

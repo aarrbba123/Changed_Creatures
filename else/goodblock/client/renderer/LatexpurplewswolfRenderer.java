@@ -7,7 +7,7 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.RenderType;
 
 import net.hhdsj.goodblock.entity.LatexpurplewswolfEntity;
-import net.hhdsj.goodblock.client.renderer.models.ModelLatexpurplewswolf;
+import net.hhdsj.goodblock.client.models.ModelLatexpurplewswolf;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;
@@ -23,7 +23,7 @@ import net.ltxprogrammer.changed.client.renderer.layers.LatexParticlesLayer;
 import net.ltxprogrammer.changed.client.renderer.model.DarkLatexWolfPupModel;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorNoneModel;
 import net.ltxprogrammer.changed.entity.beast.DarkLatexWolfPup;
-import net.hhdsj.goodblock.client.renderer.models.DarkfuLatexWolfMale;
+import net.hhdsj.goodblock.client.models.DarkfuLatexWolfMale;
 
 
 import net.ltxprogrammer.changed.client.renderer.model.LatexPurpleFoxModel;

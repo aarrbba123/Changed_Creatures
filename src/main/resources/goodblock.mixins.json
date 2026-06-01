@@ -10,6 +10,7 @@
     "CrashReportMixin"
   ],
   "client": [
+    "Player.CrystalPlayerRendererMixin",
     "Player.HumanoidModelAccessor",
     "Player.MixinPlayerRenderer",
     "Player.PlayerModelAccessor"

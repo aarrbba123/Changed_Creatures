@@ -1,6 +1,6 @@
 package net.hhdsj.goodblock.client.renderer.latex_wolf;
 
-import net.hhdsj.goodblock.client.renderer.models.latex_wolf.ModelLatexChengXi;
+import net.hhdsj.goodblock.client.models.latex_wolf.ModelLatexChengXi;
 import net.hhdsj.goodblock.entity.simple.LatexChengXiEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;

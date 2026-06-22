@@ -44,7 +44,6 @@ public class CrystalPlayerRendererMixin {
         }
 
         ModelPart part = Minecraft.getInstance().getEntityModels().bakeLayer(goodblock$LAYER);
-        System.out.println("OK");
         CrystalModel model = new CrystalModel(part);
         long time = player.level().getGameTime();
         float pt = partialTicks;

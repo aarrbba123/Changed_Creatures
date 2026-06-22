@@ -57,6 +57,8 @@ public class GoodblockModVariables {
 	public static class PlayerVariables {
 		public double Player_die = 0.0;           // 死亡次数
 		public long Player_Infection_tick = 0;    // 感染刻数
+		public Float Crystal_Jelly_Infection_Progress = 0f;
+		public boolean Crystal_Jelly_Infection = false;
 		public boolean Player_Is_Infection = false;
 
 		// 同步到客户端
@@ -73,6 +75,8 @@ public class GoodblockModVariables {
 			nbt.putDouble("Player_die", Player_die);
 			nbt.putLong("Player_Infection_tick", Player_Infection_tick);
 			nbt.putBoolean("Player_Is_Infection", Player_Is_Infection);
+			nbt.putFloat("Crystal_Jelly_Infection_Progress", Crystal_Jelly_Infection_Progress);
+			nbt.putBoolean("Crystal_Jelly_Infection", Crystal_Jelly_Infection);
 			return nbt;
 		}
 
@@ -82,6 +86,8 @@ public class GoodblockModVariables {
 			Player_die = nbt.getDouble("Player_die");
 			Player_Infection_tick = nbt.getLong("Player_Infection_tick");
 			Player_Is_Infection = nbt.getBoolean("Player_Is_Infection");
+			Crystal_Jelly_Infection_Progress = nbt.getFloat("Crystal_Jelly_Infection_Progress");
+			Crystal_Jelly_Infection = nbt.getBoolean("Crystal_Jelly_Infection");
 		}
 	}
 

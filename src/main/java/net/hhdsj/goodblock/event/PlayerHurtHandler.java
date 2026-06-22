@@ -1,5 +1,9 @@
 package net.hhdsj.goodblock.event;
 
+import net.hhdsj.goodblock.init.GoodblockModEntities;
+import net.hhdsj.goodblock.init.GoodblockModTransfurVariants;
+import net.hhdsj.goodblock.network.GoodblockModVariables;
+import net.hhdsj.goodblock.util.PlayerDataGetHelper;
 import net.ltxprogrammer.changed.entity.variant.TransfurVariantInstance;
 import net.ltxprogrammer.changed.process.ProcessTransfur;
 import net.minecraft.resources.ResourceLocation;
@@ -35,7 +39,9 @@ public class PlayerHurtHandler {
 
     @SubscribeEvent
     public static void onPlayerDamage(LivingDamageEvent event) {
+
         if (!(event.getEntity() instanceof Player player)) return;
+
         if (!shouldBeFireImmune(player)) return;  // 不防火 → 跳过
 
         if (event.getSource().is(DamageTypeTags.IS_FIRE)) {

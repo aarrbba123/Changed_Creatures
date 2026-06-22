@@ -9,6 +9,8 @@ import net.hhdsj.goodblock.item.tool.LunarDawnAxeItem;
 import net.hhdsj.goodblock.item.tool.LunarDawnHoeItem;
 import net.hhdsj.goodblock.item.tool.LunarDawnManuScriptItem;
 import net.hhdsj.goodblock.item.tool.LunarDawnShovelItem;
+import net.ltxprogrammer.changed.init.ChangedFluids;
+import net.ltxprogrammer.changed.item.GasCanister;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.registries.RegistryObject;
@@ -69,6 +71,7 @@ public class GoodblockModItems {
 	public static RegistryObject<Item> IMPUREURANIUM;
 	public static RegistryObject<Item> IMPUREURANIUMINGOT;
 	public static RegistryObject<Item> BlueCrystaloreItem;
+	public static RegistryObject<Item> LatexCrystalJellyItem;
 
 	// 食物类
 	public static RegistryObject<Item> DRAGONFRUIT;
@@ -116,6 +119,8 @@ public class GoodblockModItems {
 	public static RegistryObject<Item> PAINITE_ARMOR_LEGGINGS;
 	public static RegistryObject<Item> PAINITE_ARMOR_BOOTS;
 
+
+	public static RegistryObject<Item> LATEX_CRYSTAL_JELLY_GAS_CANISTER;
 	// ==================== 静态代码块初始化 (Static Initialization) ====================
 
 	static {
@@ -154,18 +159,19 @@ public class GoodblockModItems {
 		IMPUREURANIUMINGOT = ITEMS.register("impureuraniumingot", ImpureuraniumingotItem::new);
 		BlueCrystaloreItem = ITEMS.register("blue_crystal", BlueCrystaloreItem::new);
 
-		DRAGONFRUIT = ITEMS.register("dragonfruit", DragonfruitItem::new);
+		DRAGONFRUIT = ITEMS.register("dragon_fruit", DragonfruitItem::new);
 
 		FLUTE = ITEMS.register("flute", FluteItem::new);
 
-		PALETREE = ITEMS.register("paletree", PaletreeItem::new);
+		PALETREE = ITEMS.register("pale_tree", PaletreeItem::new);
+		LatexCrystalJellyItem = ITEMS.register("latex_crystal_jelly", LatexCrystalJellyItem::new);
 
 		// -------------------- 武器工具初始化 --------------------
-		PAINITESWORD = ITEMS.register("painitesword", PainiteswordItem::new);
-		PAINITEAXE = ITEMS.register("painiteaxe", PainiteaxeItem::new);
-		PAINITEHOE = ITEMS.register("painitehoe", PainitehoeItem::new);
-		PAINITESHOVEL = ITEMS.register("painiteshovel", PainiteshovelItem::new);
-		PAINITEMANUSCRIPT = ITEMS.register("painitemanuscript", PainitemanuscriptItem::new);
+		PAINITESWORD = ITEMS.register("painite_sword", PainiteswordItem::new);
+		PAINITEAXE = ITEMS.register("painite_axe", PainiteaxeItem::new);
+		PAINITEHOE = ITEMS.register("painite_hoe", PainitehoeItem::new);
+		PAINITESHOVEL = ITEMS.register("painite_shovel", PainiteshovelItem::new);
+		PAINITEMANUSCRIPT = ITEMS.register("painite_manu_script", PainitemanuscriptItem::new);
 
 		LUNARDAWNEAXE = ITEMS.register("lunar_dawn_axe", LunarDawnAxeItem::new);
 		LUNARDAWNEHOE = ITEMS.register("lunar_dawn_hoe", LunarDawnHoeItem::new);

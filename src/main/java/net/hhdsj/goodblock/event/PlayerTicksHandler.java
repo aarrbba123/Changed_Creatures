@@ -4,6 +4,7 @@ import net.hhdsj.goodblock.init.GoodBlockModGameRules;
 import net.hhdsj.goodblock.init.GoodblockModParticleTypes;
 import net.hhdsj.goodblock.init.GoodblockModTransfurVariants;
 import net.hhdsj.goodblock.network.SyncCrystalRingPacket;
+import net.hhdsj.goodblock.util.ProgressTransfurExt;
 import net.hhdsj.goodblock.util.PlayerDataGetHelper;
 import net.ltxprogrammer.changed.entity.TransfurCause;
 import net.ltxprogrammer.changed.entity.TransfurContext;
@@ -11,11 +12,16 @@ import net.ltxprogrammer.changed.entity.variant.TransfurVariant;
 import net.ltxprogrammer.changed.entity.variant.TransfurVariantInstance;
 import net.ltxprogrammer.changed.init.ChangedRegistry;
 import net.ltxprogrammer.changed.process.ProcessTransfur;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.TickEvent;
@@ -27,9 +33,11 @@ import net.hhdsj.goodblock.network.GoodblockModVariables;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 @Mod.EventBusSubscriber
 public class PlayerTicksHandler {
+    private static final UUID CRYSTAL_SLOW_UUID = UUID.fromString("c8e5c5a4-8f3a-4e2a-9b1c-7d6e5f4a3b2c");
     private static boolean wasFlying = false;
     private static final Random RANDOM = new Random();
     private static final List<String> LIST_VARIANT = new ArrayList<>(List.of(
@@ -77,6 +85,7 @@ public class PlayerTicksHandler {
         Player_latex_changed(event,player,TransfurVariant);
         Player_crystal_draw(player,TransfurVariant);
         Player_Fire_Particle(player,event);
+        Player_Crystal_Jelly_Infection(player,event);
 
     }
 
@@ -210,6 +219,82 @@ public class PlayerTicksHandler {
                     );
                 }
             }
+        }
+    }
+
+    public static void Player_Crystal_Jelly_Infection(Player player, TickEvent.PlayerTickEvent event){
+        TransfurVariantInstance<?> variant = ProcessTransfur.getPlayerTransfurVariant(player);
+
+        // 定义一个固定的 UUID 用于识别这个减速效果
+
+
+        if (event.phase == TickEvent.Phase.END && !event.player.level().isClientSide()) {
+            GoodblockModVariables.PlayerVariables data = PlayerDataGetHelper.get(player);
+
+            if (variant != null) {
+                // 移除减速修饰符
+                removeCrystalSlowModifier(player);
+                data.Crystal_Jelly_Infection_Progress = 0f;
+                data.Crystal_Jelly_Infection = false;
+                return;
+            }
+
+            if (!data.Crystal_Jelly_Infection) {
+                // 确保没有残留的减速效果
+                removeCrystalSlowModifier(player);
+                return;
+            }
+
+            if (data.Crystal_Jelly_Infection_Progress >= 100) {
+                System.out.print(player);
+                ProgressTransfurExt.tf(player, 10f, "goodblock:form_latex_crystal_jelly_dragon", TransfurCause.FACE_HAZARD);
+                data.Crystal_Jelly_Infection_Progress = 100f;
+                removeCrystalSlowModifier(player);
+            } else {
+                // 计算减速数值（正值表示减少速度）
+                float progress = data.Crystal_Jelly_Infection_Progress;
+                float maxSlow = 0.08f;  // 最多减少0.08（从0.1降到0.02）
+                float slowAmount = (progress / 100f) * maxSlow;
+
+                // 应用修饰符（替换旧的）
+                applyCrystalSlowModifier(player, slowAmount);
+
+                data.Crystal_Jelly_Infection_Progress += 0.05f;
+                if (RANDOM.nextInt(100) < 2) {
+                    player.displayClientMessage(Component.literal("你感到身体混在一起了").withStyle((style -> {
+                        Style returnStyle = style.withColor(ChatFormatting.BLUE);
+                        returnStyle = returnStyle.withItalic(true);
+                        return returnStyle;
+                    })), true);
+                }
+            }
+            System.out.println(data.Crystal_Jelly_Infection_Progress);
+        }
+    }
+
+    // 应用减速修饰符
+    private static void applyCrystalSlowModifier(Player player, double amount) {
+        var attribute = player.getAttribute(Attributes.MOVEMENT_SPEED);
+        if (attribute == null) return;
+
+        // 移除旧的修饰符
+        attribute.removeModifier(CRYSTAL_SLOW_UUID);
+
+        // 添加新的修饰符（ADDITION 模式：基础值 - amount）
+        AttributeModifier modifier = new AttributeModifier(
+                CRYSTAL_SLOW_UUID,
+                "crystal_jelly_slow",
+                -amount,
+                AttributeModifier.Operation.ADDITION
+        );
+        attribute.addTransientModifier(modifier);
+    }
+
+    // 移除减速修饰符
+    private static void removeCrystalSlowModifier(Player player) {
+        var attribute = player.getAttribute(Attributes.MOVEMENT_SPEED);
+        if (attribute != null) {
+            attribute.removeModifier(CRYSTAL_SLOW_UUID);
         }
     }
 }

@@ -5,6 +5,7 @@ package net.hhdsj.goodblock.init;
 
 import net.hhdsj.goodblock.GoodblockMod;
 import net.ltxprogrammer.changed.init.ChangedItems;
+import net.minecraft.client.model.PufferfishSmallModel;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -19,6 +20,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class GoodblockModTabs {
@@ -61,7 +63,6 @@ public class GoodblockModTabs {
 			tabData.accept(GoodblockModBlocks.BLOCKBW_2.get().asItem());
 			tabData.accept(GoodblockModBlocks.BLUE_CRYSTALORE.get().asItem()); // 修复：添加到标签页
 			tabData.accept(GoodblockModBlocks.CATALYZER.get().asItem()); // 修复：添加到标签页
-
 			// 物品
 			tabData.accept(GoodblockModItems.SULPHUR.get());
 			tabData.accept(GoodblockModItems.NITRICACID.get());
@@ -82,6 +83,7 @@ public class GoodblockModTabs {
 			tabData.accept(GoodblockModItems.BlueCrystaloreItem.get());
 			tabData.accept(GoodblockModItems.PALETREE.get());
 			tabData.accept(GoodblockModItems.INKSANS_4.get());
+			tabData.accept(GoodblockModItems.LatexCrystalJellyItem.get());
 
 			// 盔甲
 			//tabData.accept(GoodblockModItems.ARMORA_1_ARMOR_HELMET.get());

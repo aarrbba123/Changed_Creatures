@@ -1,14 +1,15 @@
 package net.hhdsj.goodblock.entity.simple;
 
-import net.foxyas.changedaddon.init.ChangedAddonItems;
 import net.hhdsj.goodblock.init.GoodblockModEntities;
 import net.ltxprogrammer.changed.entity.ChangedEntity;
 import net.ltxprogrammer.changed.entity.TransfurCause;
 import net.ltxprogrammer.changed.entity.TransfurMode;
 import net.ltxprogrammer.changed.entity.beast.AbstractLatexWolf;
+import net.ltxprogrammer.changed.init.ChangedAttributes;
 import net.ltxprogrammer.changed.util.Color3;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeMod;
@@ -43,4 +44,15 @@ public class LatexEtanKindEntity extends AbstractLatexWolf {
         this(GoodblockModEntities.LATEX_ETAN_KIND.get(), world);
     }
 
+    public static AttributeSupplier.Builder createAttributes() {
+        AttributeSupplier.Builder builder = ChangedEntity.createLatexAttributes();
+        builder.add(ChangedAttributes.TRANSFUR_DAMAGE.get(), 3);
+        builder = builder.add(Attributes.JUMP_STRENGTH, 1.5);
+        builder = builder.add(ChangedAttributes.TRANSFUR_DAMAGE.get(), 3.0);
+        builder = builder.add(ChangedAttributes.SPRINT_SPEED.get(), 1.0);
+        builder = builder.add(ChangedAttributes.SNEAK_SPEED.get(), 1.0);
+        builder = builder.add(ChangedAttributes.AIR_CAPACITY.get(), 15.0);
+        builder = builder.add(ChangedAttributes.FALL_RESISTANCE.get(), 1.0);
+        return builder;
+    }
 }

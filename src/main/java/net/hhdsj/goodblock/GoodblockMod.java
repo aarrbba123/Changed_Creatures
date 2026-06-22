@@ -40,7 +40,8 @@ public class GoodblockMod {
 
 		GoodblockModFluidTypes.REGISTRY.register(bus);
 
-		GoodblockModFluids.REGISTRY.register(bus);
+		GoodblockModFluids.REGISTRY_TYPES.register(bus);
+		GoodblockModFluids.REGISTRY_FLUIDS.register(bus);
 
 		GoodblockModEnchantmentInit.ENCHANTMENTS.register(bus);
 
@@ -79,5 +80,7 @@ public class GoodblockMod {
 	public static ResourceLocation GoodBlockResourceLocation(String txt){
 		return new ResourceLocation(MODID, txt);
 	}
-
+	public static ResourceLocation ModResource(String Path){
+		return new ResourceLocation(MODID, Path);
+	}
 }

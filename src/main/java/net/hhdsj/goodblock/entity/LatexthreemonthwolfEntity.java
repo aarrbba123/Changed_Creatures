@@ -98,16 +98,6 @@ public class LatexthreemonthwolfEntity extends ChangedEntity implements RangedAt
 	}
 
 	@Override
-	public SoundEvent getHurtSound(@NotNull DamageSource ds) {
-		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.generic.hurt"));
-	}
-
-	@Override
-	public SoundEvent getDeathSound() {
-		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.generic.death"));
-	}
-
-	@Override
     public void performRangedAttack(@NotNull LivingEntity target, float flval) {
 		//Fix #10 issues
 		if (target instanceof Player player) {

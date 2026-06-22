@@ -6,8 +6,11 @@ package net.hhdsj.goodblock.init;
 import net.foxyas.changedaddon.init.ChangedAddonAbilities;
 import net.hhdsj.goodblock.entity.boss.LatexNightOwlEntity;
 import net.hhdsj.goodblock.entity.simple.*;
+import net.ltxprogrammer.changed.entity.beast.*;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.monster.*;
 //FORGE导入
+import net.minecraft.world.entity.npc.Villager;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -20,11 +23,48 @@ import net.ltxprogrammer.changed.entity.variant.*;
 
 import net.hhdsj.goodblock.entity.*;//推荐不要用*(来自hhdsj的话=))
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 @SuppressWarnings("unused")
 public class GoodblockModTransfurVariants {
     public static final DeferredRegister<TransfurVariant<?>> REGISTRY = ChangedRegistry.TRANSFUR_VARIANT.createDeferred("goodblock");
+	//LATEX_CRYSTAL_JELLY
+	public static final RegistryObject<TransfurVariant<LatexFrostScaleDragonTaurEntity>> LATEX_FROST_SCALE_DRAGON_TAUR =
+			REGISTRY.register("form_latex_frost_scale_dragon_taur", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEX_FROST_SCALE_DRAGON_TAUR)
+					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.scares(List.of(Creeper.class, Zoglin.class, ZombieVillager.class, EnderMan.class, Villager.class))
+					.build());
+
+	public static final RegistryObject<TransfurVariant<LatexCrystalJellyDragonEntity>> LATEX_CRYSTAL_JELLY =
+			REGISTRY.register("form_latex_crystal_jelly_dragon", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEX_CRYSTAL_JELLY)
+					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.build());
+
+	public static final RegistryObject<TransfurVariant<LatexDuskDawnDragonEntity>> LATEX_DUSK_DAWN_DRAGON =
+			REGISTRY.register("form_latex_dusk_dawn_dragon", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEX_DUSK_DAWN_DRAGON)
+                    .glide()
+					.transfurMode(TransfurMode.ABSORPTION)
+					.addAbility(ChangedAddonAbilities.CLAWS)
+					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.addAbility(ChangedAddonAbilities.CARRY)
+					.addAbility(ChangedAbilities.GRAB_ENTITY_ABILITY)
+					.addAbility(GoodblockModAbilities.DUSK_DAWN_CHANGED_ABILITY)
+					.build());
+
+	public static final RegistryObject<TransfurVariant<LatexDuskDawnDragonFemaleEntity>> LATEX_DUSK_DAWN_DRAGON_FEMALE =
+			REGISTRY.register("form_latex_dusk_dawn_dragon/female", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEX_DUSK_DAWN_DRAGON_FEMALE)
+                    .glide()
+					.transfurMode(TransfurMode.ABSORPTION)
+					.addAbility(ChangedAddonAbilities.CLAWS)
+					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.addAbility(ChangedAddonAbilities.CARRY)
+					.addAbility(ChangedAbilities.GRAB_ENTITY_ABILITY)
+					.addAbility(GoodblockModAbilities.DUSK_DAWN_CHANGED_ABILITY)
+					.build());
 
 	public static final RegistryObject<TransfurVariant<LatexEtanKindEntity>> LATEX_ETAN_KIND =
 			REGISTRY.register("form_latex_etan_kind", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEX_ETAN_KIND)
@@ -448,6 +488,42 @@ public class GoodblockModTransfurVariants {
         REGISTRY.register(bus);
     }
 
+	public static class Gendered {
+		private static final List<GenderedPair<?, ?>> PAIRS = new ArrayList<>();
+		public static final GenderedPair<LatexDuskDawnDragonEntity, LatexDuskDawnDragonFemaleEntity> LATEX_DUSK_DAWN_DRAGON;
+
+		public Gendered() {
+		}
+
+		public static <M extends ChangedEntity, F extends ChangedEntity> GenderedPair<M, F> registerPair(Supplier<? extends TransfurVariant<M>> maleVariant, Supplier<? extends TransfurVariant<F>> femaleVariant) {
+			GenderedPair<M, F> pair = new GenderedPair<>(maleVariant, femaleVariant);
+			PAIRS.add(pair);
+			return pair;
+		}
+
+		public static Stream<GenderedPair<?, ?>> getPairs() {
+			return PAIRS.stream();
+		}
+
+		public static Optional<Object> getOpposite(TransfurVariant<?> variant) {
+			return getPairs().mapMulti((pair, consumer) -> {
+				if (pair.getMaleVariant() == variant) {
+					consumer.accept(pair.getFemaleVariant());
+				} else if (pair.getFemaleVariant() == variant) {
+					consumer.accept(pair.getMaleVariant());
+				}
+
+			}).findAny();
+		}
+
+		public static boolean hasOpposite(TransfurVariant<?> variant) {
+			return getPairs().anyMatch((pair) -> pair.contains(variant));
+		}
+
+		static {
+			LATEX_DUSK_DAWN_DRAGON = registerPair(GoodblockModTransfurVariants.LATEX_DUSK_DAWN_DRAGON, GoodblockModTransfurVariants.LATEX_DUSK_DAWN_DRAGON_FEMALE);
+		}
+	}
 
 }
 

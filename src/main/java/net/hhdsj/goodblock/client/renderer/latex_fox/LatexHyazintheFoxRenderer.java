@@ -13,7 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 public class LatexHyazintheFoxRenderer extends
 		AdvancedHumanoidRenderer<LatexHyazintheFoxEntity, ModelLatexHyazintheFox> {
 	public LatexHyazintheFoxRenderer(EntityRendererProvider.Context context) {
-	
+		//渲染
 		super(context, new ModelLatexHyazintheFox(context.bakeLayer(ModelLatexHyazintheFox.LAYER_LOCATION)),
             ArmorLatexMaleWolfModel.MODEL_SET,
             0.5f);	

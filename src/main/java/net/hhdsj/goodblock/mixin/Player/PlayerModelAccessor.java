@@ -9,7 +9,6 @@ import org.spongepowered.asm.mixin.Shadow;
 @Mixin(PlayerModel.class)
 public abstract class PlayerModelAccessor implements HumanoidModelAccessor {
 
-    // PlayerModel 特有的字段（如果需要）
     @Final
     @Shadow
     public ModelPart jacket;

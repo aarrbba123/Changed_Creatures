@@ -3,7 +3,6 @@
  */
 package net.hhdsj.goodblock.init;
 
-import net.foxyas.changedaddon.init.ChangedAddonItems;
 import net.hhdsj.goodblock.entity.*;
 import net.hhdsj.goodblock.entity.boss.*;
 import net.hhdsj.goodblock.entity.simple.*;
@@ -94,7 +93,8 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<LatexNeondimnessWolfEntity>> LATEXNEONDIMNESSWOLF;
     public static final RegistryObject<EntityType<LatexChengXiEntity>> LATEX_CHENG_XI;
     public static final RegistryObject<EntityType<LatexDawnWolfEntity>> LATEX_DAWN_WOLF;
-
+    public static final RegistryObject<EntityType<LatexDuskDawnDragonEntity>> LATEX_DUSK_DAWN_DRAGON;
+    public static final RegistryObject<EntityType<LatexDuskDawnDragonFemaleEntity>> LATEX_DUSK_DAWN_DRAGON_FEMALE;
 
     // 幼崽变体
     public static final RegistryObject<EntityType<BlackpupmaleEntity>> BLACKPUPMALE;
@@ -106,10 +106,12 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<LatexyunxqicedragonEntity>> LATEXYUNXQICEDRAGON;
     public static final RegistryObject<EntityType<LatexbluedragonEntity>> LATEXBLUEDRAGON;
     public static final RegistryObject<EntityType<LatexYunQiIceDragonEntity>> LATEXYUNQIICEDRAGON;
+    public static final RegistryObject<EntityType<LatexFrostScaleDragonTaurEntity>> LATEX_FROST_SCALE_DRAGON_TAUR;
     public static final RegistryObject<EntityType<LatexDarkPurpleDragonTaurEntity>> LATEXDARKPURPLEDRAGONTAUR;
     public static final RegistryObject<EntityType<DarkPurpleLatexDragonEntity>> LATEXDARKPURPLEDRAGON;
     public static final RegistryObject<EntityType<LatexLuoHongEarlySpringFoxDragonEntity>> LATEXLUOHONGEARLYSPRINGFOXDRAGON;
     public static final RegistryObject<EntityType<LatexYaoLingDragonEntity>> LATEXYAOLINGDRAGON;
+    public static final RegistryObject<EntityType<LatexCrystalJellyDragonEntity>> LATEX_CRYSTAL_JELLY;
 
     // BOSS变体
     public static final RegistryObject<EntityType<LatexIceFieldWolfDragonBossEntity>> LATEX_ICE_FIELD_WOLF_DRAGON_BOSS;
@@ -123,11 +125,56 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<BlueCrystalProjectile>> BLUECRYSTALPROJECTILE;
     public static final RegistryObject<EntityType<ThrownCrystalJavelinTrident>> THROWN_CRYSTAL_JAVELIN;
     public static final RegistryObject<EntityType<CrystalArrow>> CRYSTAL_ARROW;
+    public static final RegistryObject<EntityType<LatexFishEntity>> LATEX_FISH;
     //龙鲨变体
     public static final RegistryObject<EntityType<LatexLuoLongDragonSharkEntity>> LUOLONG_DRAGON_SHARK;
     //Cat Latex
     public static final RegistryObject<EntityType<LatexBlueveCatEntity>> LATEX_BLUEVE_CAT;
     static {
+        // 在 static 块中
+        LATEX_FISH = registerSpawning("latex_fish", 0x00CED1, 0x48D1CC,
+                EntityType.Builder.<LatexFishEntity>of(LatexFishEntity::new, MobCategory.WATER_AMBIENT)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .setCustomClientFactory(LatexFishEntity::new)
+                        .sized(0.6f, 0.4f),
+                LatexFishEntity::createAttributes
+        );
+
+        LATEX_FROST_SCALE_DRAGON_TAUR = registerSpawning("latex_frost_scale_dragon_taur", 0x232323, 0x00ffff,
+                EntityType.Builder.<LatexFrostScaleDragonTaurEntity>of(LatexFrostScaleDragonTaurEntity::new, MobCategory.MONSTER)
+                        .clientTrackingRange(10)
+                        .sized(1.6f, 2.5f),
+                LatexFrostScaleDragonTaurEntity::createLatexAttributes);
+
+        LATEX_CRYSTAL_JELLY = registerSpawning("latex_crystal_jelly_dragon", 0x1c408f, 0x42d3ff,
+                EntityType.Builder.<LatexCrystalJellyDragonEntity>of(LatexCrystalJellyDragonEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .setCustomClientFactory(LatexCrystalJellyDragonEntity::new)
+                        .sized(0.6f, 1.92f),
+                LatexCrystalJellyDragonEntity::createLatexAttributes);
+        
+        LATEX_DUSK_DAWN_DRAGON_FEMALE = registerSpawning("latex_dusk_dawn_wolf/female", 0x000000, 0xffffff,
+                EntityType.Builder.<LatexDuskDawnDragonFemaleEntity>of(LatexDuskDawnDragonFemaleEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .setCustomClientFactory(LatexDuskDawnDragonFemaleEntity::new)
+                        .sized(0.6f, 1.92f),
+                LatexDuskDawnDragonFemaleEntity::createLatexAttributes);
+
+        LATEX_DUSK_DAWN_DRAGON = registerSpawning("latex_dusk_dawn_wolf", 0x000000, 0xffffff,
+                EntityType.Builder.<LatexDuskDawnDragonEntity>of(LatexDuskDawnDragonEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .setCustomClientFactory(LatexDuskDawnDragonEntity::new)
+                        .sized(0.6f, 1.92f),
+                LatexDuskDawnDragonEntity::createLatexAttributes);
+
         LATEX_ETAN_KIND = registerSpawning("latex_etan_kind", 0x3c6a7d, 0xe9e564,
                 EntityType.Builder.<LatexEtanKindEntity>of(LatexEtanKindEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
@@ -135,7 +182,7 @@ public class GoodblockModEntities {
                         .setUpdateInterval(3)
                         .setCustomClientFactory(LatexEtanKindEntity::new)
                         .sized(0.6f, 1.95f),
-                LatexEtanKindEntity::createLatexAttributes);
+                LatexEtanKindEntity::createAttributes);
 
         LUOLONG_DRAGON_SHARK = registerSpawning("latex_luo_long_dragon_shark", 0x282b30, 0xe2506c,
                 EntityType.Builder.<LatexLuoLongDragonSharkEntity>of(LatexLuoLongDragonSharkEntity::new, MobCategory.MONSTER)
@@ -551,8 +598,11 @@ public class GoodblockModEntities {
         ATTR_FUNC_REGISTRY.add(new Pair<>(entityType::get, attributes));
 
         // 创建刷怪蛋 - 移除 .tab()
-        RegistryObject<ForgeSpawnEggItem> spawnEggItem = ITEMS.register(name + "_spawn_egg",
+        String result = createSpawnEggPath(name);
+
+        RegistryObject<ForgeSpawnEggItem> spawnEggItem = ITEMS.register(result,
                 () -> new ForgeSpawnEggItem(entityType, eggBack, eggHighlight, new Item.Properties()));
+
         SPAWN_EGGS.put(entityType, spawnEggItem);
 
         INIT_FUNC_REGISTRY.add(() -> {
@@ -586,11 +636,9 @@ public class GoodblockModEntities {
                 try {
                     if (egg != null && egg.isPresent()) {
                         tabData.accept(egg.get());
-                    } else {
-                        System.out.println("警告: 刷怪蛋不存在 - " + egg);
                     }
                 } catch (Exception e) {
-                    System.err.println("添加刷怪蛋到创造栏时出错: " + e.getMessage());
+                    //No do anythings
                 }
             });
         }
@@ -614,8 +662,12 @@ public class GoodblockModEntities {
         ATTR_FUNC_REGISTRY.add(new Pair<>(entityType::get, attributes));
 
         // 创建刷怪蛋
-        RegistryObject<ForgeSpawnEggItem> spawnEggItem = ITEMS.register(name + "_spawn_egg",
-                () -> new ForgeSpawnEggItem(entityType, eggBack, eggHighlight, new Item.Properties()));
+        String result = createSpawnEggPath(name);
+        RegistryObject<ForgeSpawnEggItem> spawnEggItem = ITEMS.register(
+                result,
+                () -> new ForgeSpawnEggItem(entityType, eggBack, eggHighlight, new Item.Properties())
+        );
+
         SPAWN_EGGS.put(entityType, spawnEggItem);
 
         INIT_FUNC_REGISTRY.add(() -> {
@@ -677,5 +729,12 @@ public class GoodblockModEntities {
         ATTR_FUNC_REGISTRY.forEach((pair) ->
                 event.put(pair.getFirst().get(), pair.getSecond().get().build())
         );
+    }
+
+    public static String createSpawnEggPath(String entityPath) {
+        if (entityPath.contains("/")) {
+            return entityPath.replace("/", "_spawn_egg/");
+        }
+        return entityPath + "_spawn_egg";
     }
 }

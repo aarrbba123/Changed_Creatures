@@ -41,7 +41,7 @@ public class LatexDuskDawnDragonRenderer extends AdvancedHumanoidRenderer<LatexD
 	public @NotNull ResourceLocation getTextureLocation(LatexDuskDawnDragonEntity entity) {
 		Level level = entity.level();
 		boolean isDaytime = (level.getDayTime() >= 1000 && level.getDayTime() <= 13000);
-		if (entity.can_changed_color) {
+		if (!entity.can_changed_color) {
 			if (Objects.equals(entity.eyes_color, "#FFFFFF")){
 				return WhiteTexture;
 			}else{

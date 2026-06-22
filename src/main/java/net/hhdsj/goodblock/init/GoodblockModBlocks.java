@@ -1,5 +1,13 @@
 package net.hhdsj.goodblock.init;
 
+import net.hhdsj.goodblock.fluid.gas.LatexCrystalJellyGas;
+import net.ltxprogrammer.changed.block.FluidCanisterBlock;
+import net.ltxprogrammer.changed.block.GasFluidBlock;
+import net.ltxprogrammer.changed.init.ChangedFluids;
+import net.ltxprogrammer.changed.init.ChangedItems;
+import net.ltxprogrammer.changed.item.GasCanister;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.DeferredRegister;
@@ -22,7 +30,6 @@ import net.hhdsj.goodblock.block.pale_blocks.Pale_woodFenceBlock;
 import net.hhdsj.goodblock.block.pale_blocks.Pale_woodButtonBlock;
 import net.hhdsj.goodblock.block.NitreblockBlock;
 import net.hhdsj.goodblock.block.IronhotBlock;
-import net.hhdsj.goodblock.block.FluidhottestBlock;
 import net.hhdsj.goodblock.block.CatalyzerBlock;
 import net.hhdsj.goodblock.block.BlueblockBlock;
 import net.hhdsj.goodblock.block.BlueCrystaloreBlock;
@@ -30,6 +37,10 @@ import net.hhdsj.goodblock.block.Blockbw2Block;
 import net.hhdsj.goodblock.block.Blockbw1Block;
 import net.hhdsj.goodblock.block.BlackblockBlock;
 import net.hhdsj.goodblock.GoodblockMod;
+
+import javax.annotation.Nullable;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 public class GoodblockModBlocks {
 	public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, GoodblockMod.MODID);
@@ -55,6 +66,23 @@ public class GoodblockModBlocks {
 	public static final RegistryObject<Block> BLOCKBW_2 = REGISTRY.register("blockbw_2", Blockbw2Block::new);
 	public static final RegistryObject<Block> BLUE_CRYSTALORE = REGISTRY.register("blue_crystalore", BlueCrystaloreBlock::new);
 	public static final RegistryObject<Block> CATALYZER = REGISTRY.register("catalyzer", CatalyzerBlock::new);
-	public static final RegistryObject<Block> FLUIDHOTTEST = REGISTRY.register("fluidhottest", FluidhottestBlock::new);
+	public static final RegistryObject<GasFluidBlock> LATEX_CRYSTAL_JELLY_GAS = REGISTRY.register("latex_crystal_jelly_gas", () -> new GasFluidBlock(GoodblockModFluids.LATEX_CRYSTAL_JELLY_GAS));
 
+	public static final RegistryObject<FluidCanisterBlock> LATEX_CRYSTAL_JELLY_GAS_CANISTER = register("latex_crystal_jelly_gas_canister", () -> new FluidCanisterBlock(GoodblockModFluids.LATEX_CRYSTAL_JELLY_GAS),(canister) -> new GasCanister(canister, GoodblockModFluids.LATEX_CRYSTAL_JELLY_GAS));;
+
+	private static <T extends Block> RegistryObject<T> registerNoItem(String name, Supplier<T> block) {
+		return REGISTRY.register(name, block);
+	}
+
+	private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> blockConstructor) {
+		return register(name, blockConstructor, block -> new BlockItem(block, new Item.Properties()));
+	}
+
+	private static <T extends Block, I extends Item> RegistryObject<T> register(String name, Supplier<T> blockConstructor,
+	                                                                            @Nullable Function<T, I> item) {
+		RegistryObject<T> block = REGISTRY.register(name, blockConstructor);
+		if (item != null)
+			GoodblockModItems.ITEMS.register(name, () -> item.apply(block.get()));
+		return block;
+	}
 }

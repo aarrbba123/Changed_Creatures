@@ -2,6 +2,7 @@
 package net.hhdsj.goodblock.entity;
 
 import net.ltxprogrammer.changed.entity.latex.LatexType;
+import net.minecraft.client.renderer.entity.EnderDragonRenderer;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.network.PlayMessages;
@@ -91,4 +92,5 @@ public class BlackpupmaleEntity extends ChangedEntity {
 
 	public static void init() {
 	}
+
 }

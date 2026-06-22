@@ -4,6 +4,7 @@
  */
 package net.hhdsj.goodblock.init;
 
+import net.hhdsj.goodblock.client.renderer.LatexFishRenderer;
 import net.hhdsj.goodblock.client.renderer.boss.LatexNightOwlBossRenderer;
 import net.hhdsj.goodblock.client.renderer.boss.LatexNightOwlRenderer;
 import net.hhdsj.goodblock.client.renderer.boss.LatexIceFieldWolfDragonBossRenderer;
@@ -17,6 +18,7 @@ import net.hhdsj.goodblock.client.renderer.latex_shark.LatexEnkangDragonSharkRen
 import net.hhdsj.goodblock.client.renderer.latex_shark.LatexKcahraSharkRenderer;
 import net.hhdsj.goodblock.client.renderer.latex_shark.LatexQianGuiSharkRenderer;
 import net.hhdsj.goodblock.client.renderer.latex_taur.LatexDarkPurpleDragonTaurRenderer;
+import net.hhdsj.goodblock.client.renderer.latex_taur.LatexFrostScaleDragonTaurRenderer;
 import net.hhdsj.goodblock.client.renderer.latex_wolf.*;
 import net.hhdsj.goodblock.client.renderer.projectile.BlueCrystalProjectileRenderer;
 import net.hhdsj.goodblock.client.renderer.projectile.CrystalArrowRenderer;
@@ -75,6 +77,11 @@ public class GoodblockModEntityRenderers {
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_QIAN_GUI_SHARK.get(), LatexQianGuiSharkRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_FLORA_FOX.get(), LatexFloraFoxRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LUOLONG_DRAGON_SHARK.get(), LatexLuoLongDragonSharkRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.LATEX_DUSK_DAWN_DRAGON.get(), LatexDuskDawnDragonRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.LATEX_DUSK_DAWN_DRAGON_FEMALE.get(), LatexDuskDawnDragonFemaleRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.LATEX_CRYSTAL_JELLY.get(), LatexCrystalJellyDragonRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.LATEX_FROST_SCALE_DRAGON_TAUR.get(), LatexFrostScaleDragonTaurRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.LATEX_FISH.get(), LatexFishRenderer::new);
 		//ModelLatexEtanKind
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_ETAN_KIND.get(), LatexEtanKingRenderer::new);
 	}

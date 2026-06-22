@@ -1,7 +1,7 @@
 
 package net.hhdsj.goodblock.item;
 
-import net.hhdsj.goodblock.procedures.api.ProgressTransfurExt;
+import net.hhdsj.goodblock.util.ProgressTransfurExt;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.Rarity;

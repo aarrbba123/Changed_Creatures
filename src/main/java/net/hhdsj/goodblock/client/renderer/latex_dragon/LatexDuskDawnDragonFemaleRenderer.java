@@ -7,6 +7,7 @@ import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;
 import net.ltxprogrammer.changed.client.renderer.layers.GasMaskLayer;
 import net.ltxprogrammer.changed.client.renderer.layers.LatexParticlesLayer;
 import net.ltxprogrammer.changed.client.renderer.layers.TransfurCapeLayer;
+import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexFemaleWingedDragonModel;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexMaleWingedDragonModel;
 import net.ltxprogrammer.changed.util.Color3;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -24,7 +25,7 @@ public class LatexDuskDawnDragonFemaleRenderer extends AdvancedHumanoidRenderer<
 
 	public LatexDuskDawnDragonFemaleRenderer(EntityRendererProvider.Context context) {
 		super(context, new ModelLatexDuskDawnDragonFemale(context.bakeLayer(ModelLatexDuskDawnDragonFemale.LAYER_LOCATION)),
-				ArmorLatexMaleWingedDragonModel.MODEL_SET,
+				ArmorLatexFemaleWingedDragonModel.MODEL_SET,
 				0.5f);
 		this.addLayer(new LatexParticlesLayer<>(this, getModel()));
 		this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()));
@@ -43,7 +44,7 @@ public class LatexDuskDawnDragonFemaleRenderer extends AdvancedHumanoidRenderer<
 	public @NotNull ResourceLocation getTextureLocation(LatexDuskDawnDragonFemaleEntity entity) {
 		Level level = entity.level();
 		boolean isDaytime = (level.getDayTime() >= 1000 && level.getDayTime() <= 13000);
-		if (entity.can_changed_color) {
+		if (!entity.can_changed_color) {
 			if (Objects.equals(entity.eyes_color, "#FFFFFF")){
 				return WhiteTexture;
 			}else{

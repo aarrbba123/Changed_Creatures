@@ -4,7 +4,9 @@
  */
 package net.hhdsj.goodblock.init;
 
+import net.hhdsj.goodblock.client.models.LatexFishSmallModel;
 import net.hhdsj.goodblock.client.models.armors.ArmorLatexMaleWolfWingedDragonModel;
+import net.hhdsj.goodblock.client.models.latex_taur.ModelLatexFrostScaleDragonTaur;
 import net.hhdsj.goodblock.client.models.other.TailModel;
 import net.hhdsj.goodblock.client.models.boss.ModelLatexIceFieldWolfDragonBoss;
 import net.hhdsj.goodblock.client.models.boss.ModelLatexNightOwl;
@@ -22,10 +24,18 @@ import net.hhdsj.goodblock.client.models.latex_taur.ModelLatexDarkPurpleDragonTa
 import net.hhdsj.goodblock.client.models.latex_wolf.*;
 import net.hhdsj.goodblock.client.models.other.CrystalJavelinModel;
 import net.hhdsj.goodblock.client.models.armors.GoodBlockModelMaleWingedDragonArmor;
+import net.hhdsj.goodblock.world.inventory.CrystalJellyInfectionOverlay;
+import net.ltxprogrammer.changed.client.renderer.model.AdvancedHumanoidModel;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraftforge.client.ForgeHooksClient;
+import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.api.distmarker.Dist;
+
+import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = {Dist.CLIENT})
 public class GoodblockModModels {
@@ -69,6 +79,11 @@ public class GoodblockModModels {
 		event.registerLayerDefinition(ModelLatexDawnWolf.LAYER_LOCATION, ModelLatexDawnWolf::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexBlueveCat.LAYER_LOCATION, ModelLatexBlueveCat::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexFloraFox.LAYER_LOCATION, ModelLatexFloraFox::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexDuskDawnDragon.LAYER_LOCATION, ModelLatexDuskDawnDragon::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexDuskDawnDragonFemale.LAYER_LOCATION, ModelLatexDuskDawnDragonFemale::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexCrystalJellyDragon.LAYER_LOCATION, ModelLatexCrystalJellyDragon::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexFrostScaleDragonTaur.LAYER_LOCATION, ModelLatexFrostScaleDragonTaur::createBodyLayer);
+		event.registerLayerDefinition(LatexFishSmallModel.LAYER_LOCATION, LatexFishSmallModel::createBodyLayer);
 
 		event.registerLayerDefinition(ModelLatexLuoLongDragonShark.LAYER_LOCATION, ModelLatexLuoLongDragonShark::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexEtanKind.LAYER_LOCATION, ModelLatexEtanKind::createBodyLayer);
@@ -80,5 +95,8 @@ public class GoodblockModModels {
 
 		event.registerLayerDefinition(GoodblockModModelLayers.TAIL_LAYER, TailModel::createBodyLayer);
 
+
 	}
+
+
 }

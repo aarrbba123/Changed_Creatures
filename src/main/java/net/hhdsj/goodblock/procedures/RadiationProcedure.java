@@ -1,11 +1,9 @@
 package net.hhdsj.goodblock.procedures;
 
 import net.foxyas.changedaddon.init.ChangedAddonItems;
-import net.hhdsj.goodblock.procedures.api.ProgressTransfurExt;
+import net.hhdsj.goodblock.util.ProgressTransfurExt;
 import net.ltxprogrammer.changed.entity.TransfurCause;
 import net.ltxprogrammer.changed.entity.variant.TransfurVariantInstance;
-import net.ltxprogrammer.changed.init.ChangedAccessorySlots;
-import net.ltxprogrammer.changed.init.ChangedItems;
 import net.ltxprogrammer.changed.process.ProcessTransfur;
 import net.ltxprogrammer.changed.util.ItemUtil;
 import net.minecraft.ChatFormatting;
@@ -13,10 +11,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.damagesource.DamageSource;

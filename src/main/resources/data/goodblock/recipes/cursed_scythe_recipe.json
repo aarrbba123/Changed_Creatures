@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABC",
+    "DEF",
+    "GHI"
+  ],
+  "key": {
+    "A": { "item": "minecraft:netherite_ingot" },
+    "B": { "item": "minecraft:crying_obsidian" },
+    "C": { "item": "minecraft:nether_star" },
+    "D": { "item": "minecraft:blaze_powder" },
+    "E": { "item": "minecraft:blaze_powder" },
+    "F": { "item": "changed_addon:the_decimator" },
+    "G": { "item": "minecraft:blaze_powder" },
+    "H": { "item": "minecraft:blaze_powder" },
+    "I": { "item": "minecraft:blaze_powder" }
+  },
+  "result": {
+    "id": "goodblock:cursed_scythe",
+    "count": 1
+  }
+}

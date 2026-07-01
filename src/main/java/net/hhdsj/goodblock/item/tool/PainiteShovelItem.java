@@ -1,36 +1,34 @@
 
-package net.hhdsj.goodblock.item;
+package net.hhdsj.goodblock.item.tool;
 
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
 
-import net.hhdsj.goodblock.init.GoodblockModTabs;
-
-public class PainitemanuscriptItem extends PickaxeItem {
-	public PainitemanuscriptItem() {
+public class PainiteShovelItem extends ShovelItem {
+	public PainiteShovelItem() {
 		super(new Tier() {
 			public int getUses() {
-				return 4532;
+				return 4320;
 			}
 
 			public float getSpeed() {
-				return 12f;
+				return 13f;
 			}
 
 			public float getAttackDamageBonus() {
-				return 2f;
+				return -1f;
 			}
 
 			public int getLevel() {
-				return 8;
+				return 2;
 			}
 
 			public int getEnchantmentValue() {
-				return 10;
+				return 20;
 			}
 
 			public Ingredient getRepairIngredient() {

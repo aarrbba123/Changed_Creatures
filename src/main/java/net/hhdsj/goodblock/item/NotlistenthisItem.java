@@ -16,7 +16,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class NotlistenthisItem extends RecordItem {
 	public NotlistenthisItem() {
-		super(0, () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("goodblock:no_stop")), new Item.Properties().stacksTo(1).rarity(Rarity.RARE),100);
+		super(0, GoodblockModSounds.ANIT_FURRY_MUSIC.get(), new Item.Properties().stacksTo(1).rarity(Rarity.RARE),100);
 	}
 
 	@Override

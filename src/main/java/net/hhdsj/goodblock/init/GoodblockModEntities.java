@@ -88,7 +88,6 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<LatexthreemonthwolfEntity>> LATEXTHREEMONTHWOLF;
     public static final RegistryObject<EntityType<LatexPurplecoocwolfEntity>> LATEXPRTPLECOOCWOLF;
     public static final RegistryObject<EntityType<LatexIceFieldWolfDragonEntity>> LATEX_ICE_FIELD_WOLF_DRAGON;
-    public static final RegistryObject<EntityType<LatexDragonFruitWolfEntity>> LATEXDRAGONFRUITWOLF;
     public static final RegistryObject<EntityType<LatexFruitDragonEntity>> LATEXFRUITDRAGONWOLF;
     public static final RegistryObject<EntityType<LatexNeondimnessWolfEntity>> LATEXNEONDIMNESSWOLF;
     public static final RegistryObject<EntityType<LatexChengXiEntity>> LATEX_CHENG_XI;
@@ -157,7 +156,7 @@ public class GoodblockModEntities {
                         .sized(0.6f, 1.92f),
                 LatexCrystalJellyDragonEntity::createLatexAttributes);
         
-        LATEX_DUSK_DAWN_DRAGON_FEMALE = registerSpawning("latex_dusk_dawn_wolf/female", 0x000000, 0xffffff,
+        LATEX_DUSK_DAWN_DRAGON_FEMALE = registerSpawning("latex_dusk_dawn_wolf_female", 0x000000, 0xffffff,
                 EntityType.Builder.<LatexDuskDawnDragonFemaleEntity>of(LatexDuskDawnDragonFemaleEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -201,6 +200,7 @@ public class GoodblockModEntities {
                         .setCustomClientFactory(LatexFloraFoxEntity::new)
                         .sized(0.6f, 1.95f),
                 LatexFloraFoxEntity::createLatexAttributes);
+
         LATEX_YUE_XI_FOX_FEMALE = registerSpawning("latex_yue_xi_fox_female", 0xff9f0d, 0xffee86,
                 EntityType.Builder.<LatexYueXiFoxFemaleEntity>of(LatexYueXiFoxFemaleEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
@@ -375,15 +375,6 @@ public class GoodblockModEntities {
                         .setCustomClientFactory(LatexDivineSwordKitsuneEntity::new)
                         .sized(0.7f, 1.93f),
                 LatexDivineSwordKitsuneEntity::createLatexAttributes);
-
-        LATEXDRAGONFRUITWOLF = registerSpawning("latex_dragon_fruit_wolf", 0xFF6B8B, 0xFF1493,
-                EntityType.Builder.<LatexDragonFruitWolfEntity>of(LatexDragonFruitWolfEntity::new, MobCategory.MONSTER)
-                        .setShouldReceiveVelocityUpdates(true)
-                        .setTrackingRange(64)
-                        .setUpdateInterval(3)
-                        .setCustomClientFactory(LatexDragonFruitWolfEntity::new)
-                        .sized(0.7f, 1.93f),
-                LatexDragonFruitWolfEntity::createLatexAttributes);
 
         // 幼崽变体
         BLACKPUPMALE = registerSpawning("blackpupmale", 0x000000, 0x333333,
@@ -733,7 +724,7 @@ public class GoodblockModEntities {
 
     public static String createSpawnEggPath(String entityPath) {
         if (entityPath.contains("/")) {
-            return entityPath.replace("/", "_spawn_egg/");
+            return entityPath.replace("/", "_spawn_egg_");
         }
         return entityPath + "_spawn_egg";
     }

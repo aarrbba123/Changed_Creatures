@@ -1,7 +1,8 @@
 {
   "replace": false,
   "entities": [
-    "goodblock:latex_dark_purple_dragon_taur"
+    "goodblock:latex_dark_purple_dragon_taur",
+    "goodblock:latex_frost_scale_dragon_taur"
   ],
   "slots": [
     "changed:body",

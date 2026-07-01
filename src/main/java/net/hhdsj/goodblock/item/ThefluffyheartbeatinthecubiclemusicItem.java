@@ -14,7 +14,7 @@ public class ThefluffyheartbeatinthecubiclemusicItem extends RecordItem {
 	public ThefluffyheartbeatinthecubiclemusicItem() {
 		// 方法1：使用RegistryObject（推荐）
 		super(1,
-				GoodblockModSounds.THE_FLUFFY_HEARTBEAT_IN_THE_CUBICLE,
+				GoodblockModSounds.THE_FLUFFY_HEARTBEAT_IN_THE_CUBICLE.get(),
 				new Item.Properties()
 						.stacksTo(1)
 						.rarity(Rarity.RARE),

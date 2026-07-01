@@ -1,28 +1,26 @@
 
-package net.hhdsj.goodblock.item;
+package net.hhdsj.goodblock.item.tool;
 
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.AxeItem;
 
-import net.hhdsj.goodblock.init.GoodblockModTabs;
-
-public class PainiteaxeItem extends AxeItem {
-	public PainiteaxeItem() {
+public class PainiteSwordItem extends SwordItem {
+	public PainiteSwordItem() {
 		super(new Tier() {
 			public int getUses() {
-				return 4320;
+				return 4325;
 			}
 
 			public float getSpeed() {
-				return 12f;
+				return 4f;
 			}
 
 			public float getAttackDamageBonus() {
-				return 6f;
+				return 13f;
 			}
 
 			public int getLevel() {
@@ -30,12 +28,14 @@ public class PainiteaxeItem extends AxeItem {
 			}
 
 			public int getEnchantmentValue() {
-				return 20;
+				return 2;
 			}
 
 			public Ingredient getRepairIngredient() {
 				return Ingredient.of(new ItemStack(Items.NETHERITE_INGOT));
 			}
-		}, 1, -3f, new Item.Properties().fireResistant());
+		}, 3, -2.7f, new Item.Properties().fireResistant());
+
+
 	}
 }

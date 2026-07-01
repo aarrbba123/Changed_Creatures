@@ -12,6 +12,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class Flutemusica1recordsItem extends RecordItem {
 	public Flutemusica1recordsItem() {
-		super(0, () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("goodblock:flutemusica_1records")), new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 100);
+		super(0, () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("goodblock:flutemusica_1records")), new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 2000);
 	}
 }

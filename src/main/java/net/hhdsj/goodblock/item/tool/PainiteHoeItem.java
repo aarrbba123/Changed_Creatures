@@ -1,17 +1,15 @@
 
-package net.hhdsj.goodblock.item;
+package net.hhdsj.goodblock.item.tool;
 
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.HoeItem;
 
-import net.hhdsj.goodblock.init.GoodblockModTabs;
-
-public class PainiteshovelItem extends ShovelItem {
-	public PainiteshovelItem() {
+public class PainiteHoeItem extends HoeItem {
+	public PainiteHoeItem() {
 		super(new Tier() {
 			public int getUses() {
 				return 4320;
@@ -22,11 +20,11 @@ public class PainiteshovelItem extends ShovelItem {
 			}
 
 			public float getAttackDamageBonus() {
-				return -1f;
+				return 3f;
 			}
 
 			public int getLevel() {
-				return 2;
+				return 0;
 			}
 
 			public int getEnchantmentValue() {
@@ -36,6 +34,6 @@ public class PainiteshovelItem extends ShovelItem {
 			public Ingredient getRepairIngredient() {
 				return Ingredient.of(new ItemStack(Items.NETHERITE_INGOT));
 			}
-		}, 1, -3f, new Item.Properties().fireResistant());
+		}, 0, -3f, new Item.Properties().fireResistant());
 	}
 }

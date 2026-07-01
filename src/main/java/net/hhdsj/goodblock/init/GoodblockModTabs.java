@@ -27,10 +27,10 @@ public class GoodblockModTabs {
 	public static final DeferredRegister<CreativeModeTab> REGISTRY = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, GoodblockMod.MODID);
 
 	// 世界方块标签页
-	public static final RegistryObject<CreativeModeTab> WORLDBLOCK = REGISTRY.register("worldblock",
+	public static final RegistryObject<CreativeModeTab> WORLDBLOCK = REGISTRY.register("goodblock_block",
 			() -> CreativeModeTab.builder()
 					.title(Component.translatable("item_group.goodblock.worldblock"))
-					.icon(() -> new ItemStack(Items.KNOWLEDGE_BOOK))
+					.icon(() -> new ItemStack(GoodblockModItems.LATEX_DEEP_CRYSTAL_DRAGON_DOLL.get()))
 					.build());
 
 	// 实体标签页
@@ -63,6 +63,7 @@ public class GoodblockModTabs {
 			tabData.accept(GoodblockModBlocks.BLOCKBW_2.get().asItem());
 			tabData.accept(GoodblockModBlocks.BLUE_CRYSTALORE.get().asItem()); // 修复：添加到标签页
 			tabData.accept(GoodblockModBlocks.CATALYZER.get().asItem()); // 修复：添加到标签页
+			tabData.accept(GoodblockModBlocks.LATEX_DEEP_CRYSTAL_DRAGON_DOLL.get().asItem());
 			// 物品
 			tabData.accept(GoodblockModItems.SULPHUR.get());
 			tabData.accept(GoodblockModItems.NITRICACID.get());
@@ -84,12 +85,8 @@ public class GoodblockModTabs {
 			tabData.accept(GoodblockModItems.PALETREE.get());
 			tabData.accept(GoodblockModItems.INKSANS_4.get());
 			tabData.accept(GoodblockModItems.LatexCrystalJellyItem.get());
+			//tabData.accept(GoodblockModItems.LATEX_CRYSTAL_JELLY_GAS_CANISTER.get());
 
-			// 盔甲
-			//tabData.accept(GoodblockModItems.ARMORA_1_ARMOR_HELMET.get());
-			//tabData.accept(GoodblockModItems.ARMORA_1_ARMOR_CHESTPLATE.get());
-			//tabData.accept(GoodblockModItems.ARMORA_1_ARMOR_LEGGINGS.get());
-			//tabData.accept(GoodblockModItems.ARMORA_1_ARMOR_BOOTS.get());
 			tabData.accept(GoodblockModItems.PAINITE_ARMOR_HELMET.get());
 			tabData.accept(GoodblockModItems.PAINITE_ARMOR_CHESTPLATE.get());
 			tabData.accept(GoodblockModItems.PAINITE_ARMOR_LEGGINGS.get());

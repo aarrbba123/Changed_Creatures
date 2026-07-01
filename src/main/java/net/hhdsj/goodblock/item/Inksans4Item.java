@@ -1,5 +1,6 @@
 package net.hhdsj.goodblock.item;
 
+import net.hhdsj.goodblock.init.GoodblockModSounds;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -11,8 +12,8 @@ import net.minecraft.resources.ResourceLocation;
 public class Inksans4Item extends RecordItem {
 	public Inksans4Item() {
 		super(13,  // 红石比较器输出信号
-				() -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("goodblock:ink_sans")),
+				GoodblockModSounds.INK_SANS.get(),
 				new Item.Properties().stacksTo(1).rarity(Rarity.RARE),
-				100);  // 时长（秒）
+				10000);  // 时长（秒）
 	}
 }

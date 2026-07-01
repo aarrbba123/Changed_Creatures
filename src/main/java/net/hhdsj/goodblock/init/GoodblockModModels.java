@@ -53,7 +53,6 @@ public class GoodblockModModels {
 		event.registerLayerDefinition(ModelLatexpurplewswolf.LAYER_LOCATION, ModelLatexpurplewswolf::createBodyLayer);
 		event.registerLayerDefinition(Modellatexyunxqhotdragon.LAYER_LOCATION, Modellatexyunxqhotdragon::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexthreemonthwolf.LAYER_LOCATION, ModelLatexthreemonthwolf::createBodyLayer);
-		event.registerLayerDefinition(ModelLatexDragonFruitWolf.LAYER_LOCATION, ModelLatexDragonFruitWolf::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexYunQiIceDragon.LAYER_LOCATION, ModelLatexYunQiIceDragon::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexiceredDragonUnified_bw.LAYER_LOCATION, ModelLatexiceredDragonUnified_bw::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexRadiationFox.LAYER_LOCATION, ModelLatexRadiationFox::createBodyLayer);

@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "goodblock:paletree",
+          "name": "goodblock:pale_tree",
           "weight": 1,
           "functions": [
             {

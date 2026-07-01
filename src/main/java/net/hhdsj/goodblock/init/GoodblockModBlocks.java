@@ -1,5 +1,6 @@
 package net.hhdsj.goodblock.init;
 
+import net.hhdsj.goodblock.block.*;
 import net.hhdsj.goodblock.fluid.gas.LatexCrystalJellyGas;
 import net.ltxprogrammer.changed.block.FluidCanisterBlock;
 import net.ltxprogrammer.changed.block.GasFluidBlock;
@@ -14,9 +15,6 @@ import net.minecraftforge.registries.DeferredRegister;
 
 import net.minecraft.world.level.block.Block;
 
-import net.hhdsj.goodblock.block.UraniummineralBlock;
-import net.hhdsj.goodblock.block.UraniumblockBlock;
-import net.hhdsj.goodblock.block.SulphurblockBlock;
 import net.hhdsj.goodblock.block.pale_blocks.Paletreespa1Block;
 import net.hhdsj.goodblock.block.pale_blocks.Pale_woodWoodBlock;
 import net.hhdsj.goodblock.block.pale_blocks.Pale_woodStairsBlock;
@@ -28,14 +26,6 @@ import net.hhdsj.goodblock.block.pale_blocks.Pale_woodLeavesBlock;
 import net.hhdsj.goodblock.block.pale_blocks.Pale_woodFenceGateBlock;
 import net.hhdsj.goodblock.block.pale_blocks.Pale_woodFenceBlock;
 import net.hhdsj.goodblock.block.pale_blocks.Pale_woodButtonBlock;
-import net.hhdsj.goodblock.block.NitreblockBlock;
-import net.hhdsj.goodblock.block.IronhotBlock;
-import net.hhdsj.goodblock.block.CatalyzerBlock;
-import net.hhdsj.goodblock.block.BlueblockBlock;
-import net.hhdsj.goodblock.block.BlueCrystaloreBlock;
-import net.hhdsj.goodblock.block.Blockbw2Block;
-import net.hhdsj.goodblock.block.Blockbw1Block;
-import net.hhdsj.goodblock.block.BlackblockBlock;
 import net.hhdsj.goodblock.GoodblockMod;
 
 import javax.annotation.Nullable;
@@ -44,6 +34,8 @@ import java.util.function.Supplier;
 
 public class GoodblockModBlocks {
 	public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, GoodblockMod.MODID);
+
+	public static final RegistryObject<Block> LATEX_DEEP_CRYSTAL_DRAGON_DOLL = REGISTRY.register("latex_deep_crystal_dragon_doll", LatexDeepCrystalDragonDollBlock::new);
 	public static final RegistryObject<Block> SULPHURBLOCK = REGISTRY.register("sulphurblock", SulphurblockBlock::new);
 	public static final RegistryObject<Block> NITREBLOCK = REGISTRY.register("nitreblock", NitreblockBlock::new);
 	public static final RegistryObject<Block> URANIUMMINERAL = REGISTRY.register("uraniummineral", UraniummineralBlock::new);

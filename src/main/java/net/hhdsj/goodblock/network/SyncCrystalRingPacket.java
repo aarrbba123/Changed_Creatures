@@ -48,7 +48,6 @@ public class SyncCrystalRingPacket {
             if (e instanceof Player p)
                 p.getCapability(CrystalRingHandler.CAPABILITY).ifPresent(c -> c.setActive(pkt.active));
         });
-        System.out.println("PACK OK");
         ctx.get().setPacketHandled(true);
     }
 

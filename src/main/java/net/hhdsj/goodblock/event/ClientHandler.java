@@ -1,4 +1,4 @@
-package net.hhdsj.goodblock.client;
+package net.hhdsj.goodblock.event;
 
 import net.hhdsj.goodblock.GoodblockMod;
 import net.hhdsj.goodblock.client.models.other.CrystalModel;

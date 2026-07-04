@@ -12,9 +12,9 @@ public class CrashReportExtenderMixin {
     @Inject(method = "addCrashReportHeader", at = @At("HEAD"), remap = false)
     private static void CrashReportExtender(StringBuilder builder, CrashReport crashReport, CallbackInfo ci) {
         try {
-            builder.append("\n\n-- GoodBlock Mod --\n");
-            builder.append("If you crash due to the Goodblock mod, please report it at:\n");
-            builder.append("https://github.com/hhdsjgit/Good-blocks/issues\n");
+            //builder.append("\n\n-- GoodBlock Mod --\n");
+            //builder.append("If you crash due to the Goodblock mod, please report it at:\n");
+            //builder.append("https://github.com/hhdsjgit/Good-blocks/issues\n");
         } catch(Throwable ignored) {
 
         }

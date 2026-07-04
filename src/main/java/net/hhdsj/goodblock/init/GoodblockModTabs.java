@@ -75,16 +75,17 @@ public class GoodblockModTabs {
 			tabData.accept(GoodblockModItems.PAINITEHOE.get());
 			tabData.accept(GoodblockModItems.PAINITESHOVEL.get());
 			tabData.accept(GoodblockModItems.CURSED_SCYTHE.get());
-			tabData.accept(GoodblockModItems.THEFLUFFYHEARTBEATINTHECUBICLEMUSIC.get());
-			tabData.accept(GoodblockModItems.FLUTEMUSICA_1RECORDS.get());
-			tabData.accept(GoodblockModItems.NOTLISTENTHIS.get());
+			//tabData.accept(GoodblockModItems.THEFLUFFYHEARTBEATINTHECUBICLEMUSIC.get());
+			//tabData.accept(GoodblockModItems.FLUTEMUSICA_1RECORDS.get());
+			//tabData.accept(GoodblockModItems.NOTLISTENTHIS.get());
 			tabData.accept(GoodblockModItems.FLUTE.get());
-			tabData.accept(GoodblockModItems.ANITFRRYMUSIC.get());
+			//tabData.accept(GoodblockModItems.ANITFRRYMUSIC.get());
 			tabData.accept(GoodblockModItems.DRAGONFRUIT.get());
 			tabData.accept(GoodblockModItems.BlueCrystaloreItem.get());
 			tabData.accept(GoodblockModItems.PALETREE.get());
-			tabData.accept(GoodblockModItems.INKSANS_4.get());
+			//tabData.accept(GoodblockModItems.INKSANS_4.get());
 			tabData.accept(GoodblockModItems.LatexCrystalJellyItem.get());
+			tabData.accept(GoodblockModItems.LATEX_LAVA_CRYSTAL.get());
 			//tabData.accept(GoodblockModItems.LATEX_CRYSTAL_JELLY_GAS_CANISTER.get());
 
 			tabData.accept(GoodblockModItems.PAINITE_ARMOR_HELMET.get());

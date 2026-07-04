@@ -43,7 +43,6 @@ public class GreenFlameParticle extends TextureSheetParticle {
             return;
         }
 
-        // 生命周期后期逐渐缩小
         if (this.age >= SHRINK_START_AGE) {
             float progress = (float)(this.age - SHRINK_START_AGE) / (this.lifetime - SHRINK_START_AGE);
             this.quadSize = START_SCALE - (START_SCALE - END_SCALE) * progress;

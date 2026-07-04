@@ -1,5 +1,5 @@
 {
-  "parent": "goodblock:block/blue_crystalore",
+  "parent": "goodblock:block/blue_crystal_ore",
   "display": {
     "thirdperson": {
       "rotation": [

@@ -28,7 +28,7 @@ public class GuihotpaOverlay {
 			Minecraft mc = Minecraft.getInstance();
 			Player entity = mc.player;
 
-			if (entity != null && SetLatexHotPraProcedure.execute(entity)) {
+			if (SetLatexHotPraProcedure.execute(entity)) {
 				int w = mc.getWindow().getGuiScaledWidth();
 				int h = mc.getWindow().getGuiScaledHeight();
 

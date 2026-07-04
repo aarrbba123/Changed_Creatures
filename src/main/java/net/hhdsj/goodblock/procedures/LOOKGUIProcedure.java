@@ -52,9 +52,9 @@ public class LOOKGUIProcedure {
 				AdvancementProgress progress = serverPlayer.getAdvancements().getOrStartProgress(useModAdvancement);
 				if (!progress.isDone()) {
                     Player player = (Player) entity;
-                    ItemStack inkSansItem = new ItemStack(GoodblockModItems.INKSANS_4.get());
-                    inkSansItem.setCount(1);
-                    ItemHandlerHelper.giveItemToPlayer(player, inkSansItem);
+                    //ItemStack inkSansItem = new ItemStack(GoodblockModItems.INKSANS_4.get());
+                    //inkSansItem.setCount(1);
+                    //ItemHandlerHelper.giveItemToPlayer(player, inkSansItem);
                 }
 			}
 		}

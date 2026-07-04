@@ -6,6 +6,7 @@ import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffect;
 
 import net.hhdsj.goodblock.procedures.LatexHotParChangedProcedure;
+import org.jetbrains.annotations.NotNull;
 
 public class LatexhotparMobEffect extends MobEffect {
 	public LatexhotparMobEffect() {
@@ -13,12 +14,12 @@ public class LatexhotparMobEffect extends MobEffect {
 	}
 
 	@Override
-	public String getDescriptionId() {
+	public @NotNull String getDescriptionId() {
 		return "effect.goodblock.latexhotpar";
 	}
 
 	@Override
-	public void applyEffectTick(LivingEntity entity, int amplifier) {
+	public void applyEffectTick(@NotNull LivingEntity entity, int amplifier) {
 		LatexHotParChangedProcedure.execute(entity);
 	}
 

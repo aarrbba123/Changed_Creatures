@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "goodblock:item/latex_lava_crystal_item"
+  }
+}

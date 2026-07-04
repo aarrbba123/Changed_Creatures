@@ -3,7 +3,6 @@ package net.hhdsj.goodblock.event;
 import net.hhdsj.goodblock.GoodblockMod;
 import net.hhdsj.goodblock.capability.CrystalRing;
 import net.hhdsj.goodblock.capability.CrystalRingProvider;
-import net.hhdsj.goodblock.client.ClientHandler;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;

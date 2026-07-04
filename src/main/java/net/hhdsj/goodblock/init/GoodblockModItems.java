@@ -67,6 +67,7 @@ public class GoodblockModItems {
 	public static RegistryObject<Item> IMPUREURANIUMINGOT;
 	public static RegistryObject<Item> BlueCrystaloreItem;
 	public static RegistryObject<Item> LatexCrystalJellyItem;
+    public static RegistryObject<Item> LATEX_LAVA_CRYSTAL;
 
 	// 食物类
 	public static RegistryObject<Item> DRAGONFRUIT;
@@ -94,11 +95,11 @@ public class GoodblockModItems {
 	public static RegistryObject<Item> CRYSTAL_JAVELIN;
 	// ==================== 唱片声明 (Music Discs Declaration) ====================
 
-	public static RegistryObject<MusicRecordItem> INKSANS_4;
-	public static RegistryObject<MusicRecordItem> THEFLUFFYHEARTBEATINTHECUBICLEMUSIC;
-	public static RegistryObject<MusicRecordItem> FLUTEMUSICA_1RECORDS;
-	public static RegistryObject<MusicRecordItem> NOTLISTENTHIS;
-	public static RegistryObject<MusicRecordItem> ANITFRRYMUSIC;
+	//public static RegistryObject<MusicRecordItem> INKSANS_4;
+	//public static RegistryObject<MusicRecordItem> THEFLUFFYHEARTBEATINTHECUBICLEMUSIC;
+	//public static RegistryObject<MusicRecordItem> FLUTEMUSICA_1RECORDS;
+	//public static RegistryObject<MusicRecordItem> NOTLISTENTHIS;
+	//public static RegistryObject<MusicRecordItem> ANITFRRYMUSIC;
 
 	// ==================== 盔甲声明 (Armors Declaration) ====================
 
@@ -161,6 +162,7 @@ public class GoodblockModItems {
 
 		PALETREE = ITEMS.register("pale_tree", PaletreeItem::new);
 		LatexCrystalJellyItem = ITEMS.register("latex_crystal_jelly", LatexCrystalJellyItem::new);
+        LATEX_LAVA_CRYSTAL = ITEMS.register("latex_lava_crystal", LatexLavaCrystalItem::new);
 
 		// -------------------- 武器工具初始化 --------------------
 		PAINITESWORD = ITEMS.register("painite_sword", PainiteSwordItem::new);
@@ -195,12 +197,13 @@ public class GoodblockModItems {
 		PAINITE_ARMOR_BOOTS = ITEMS.register("painite_armor_boots", PainiteArmorItem.Boots::new);
 
 		// -------------------- 唱片初始化 -------------------- //
-
+        /*
 		INKSANS_4 = registerRecord("inksans_4", GoodblockModSounds.INK_SANS);
 		THEFLUFFYHEARTBEATINTHECUBICLEMUSIC = registerRecord("thefluffyheartbeatinthecubiclemusic", GoodblockModSounds.INK_SANS);
 		FLUTEMUSICA_1RECORDS = registerRecord("flutemusica_1records", GoodblockModSounds.THE_FLUFFY_HEARTBEAT_IN_THE_CUBICLE);
 		NOTLISTENTHIS = registerRecord("notlistenthis", GoodblockModSounds.ANIT_FURRY_MUSIC);
 		ANITFRRYMUSIC = registerRecord("anitfrrymusic", GoodblockModSounds.ANIT_FURRY_MUSIC);
+		*/
 	}
 
 	// ==================== 辅助方法 (Helper Methods) ====================

@@ -26,10 +26,10 @@ public class CrystalJellyInfectionOverlay {
 
         GoodblockModVariables.PlayerVariables data = PlayerDataGetHelper.get(player);
 
-        if (!data.Crystal_Jelly_Infection) return;
+        //if (!data.Crystal_Jelly_Infection) return;
 
         float infectionProgress = data.Crystal_Jelly_Infection_Progress;
-        if (infectionProgress <= 0f) return;
+        //if (infectionProgress <= 0f) return;
 
         // 获取屏幕尺寸
         int screenWidth = event.getScreen().width;

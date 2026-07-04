@@ -22,6 +22,7 @@ public class FrostScaleDragonTaurWingInitAnimator<T extends ChangedEntity, M ext
 
     @Override
     public void setupAnim(@NotNull T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+        float time = core.ageLerp/2;
         // 从第1帧提取的旋转值（角度转换为弧度）
         // leftWingRoot: (-33.3651°, -31.9176°, 30.1077°)
         // rightWingRoot: (-33.3651°, 31.9176°, -30.1077°)
@@ -32,16 +33,16 @@ public class FrostScaleDragonTaurWingInitAnimator<T extends ChangedEntity, M ext
         // leftWingBone1 和 rightWingBone1 保持默认 (0°, 0°, 0°)
 
         // 角度转弧度: 角度 * π / 180
-        float wingRootXAgeLerp = Mth.lerp(core.ageLerp, -0.5823f, 0.0f); // -33.3651°
-        float leftWingRootYAgeLerp = Mth.lerp(core.ageLerp, -0.5571f, 0.0f); // -31.9176°
-        float leftWingRootZAgeLerp = Mth.lerp(core.ageLerp, 0.5255f, 0.0f); // 30.1077°
-        float rightWingRootYAgeLerp = Mth.lerp(core.ageLerp, 0.5571f, 0.0f); // 31.9176°
-        float rightWingRootZAgeLerp = Mth.lerp(core.ageLerp, -0.5255f, 0.0f); // -30.1077°
+        float wingRootXAgeLerp = Mth.lerp(time, -0.5823f, -0.5823f); // -33.3651°
+        float leftWingRootYAgeLerp = Mth.lerp(time, -0.5571f, -0.5571f); // -31.9176°
+        float leftWingRootZAgeLerp = Mth.lerp(time, 0.5255f, 0.5255f); // 30.1077°
+        float rightWingRootYAgeLerp = Mth.lerp(time, 0.5571f, 0.5571f); // 31.9176°
+        float rightWingRootZAgeLerp = Mth.lerp(time, -0.5255f, -0.5255f); // -30.1077°
 
-        float leftSecondaryZAgeLerp = Mth.lerp(core.ageLerp, 0.3491f, 0.0f); // 20°
-        float rightSecondaryZAgeLerp = Mth.lerp(core.ageLerp, -0.3491f, 0.0f); // -20°
-        float leftTertiaryZAgeLerp = Mth.lerp(core.ageLerp, 0.4363f, 0.0f); // 25°
-        float rightTertiaryZAgeLerp = Mth.lerp(core.ageLerp, -0.4363f, 0.0f); // -25°
+        float leftSecondaryZAgeLerp = Mth.lerp(time, 0.3491f, 0.3491f); // 20°
+        float rightSecondaryZAgeLerp = Mth.lerp(time, -0.3491f, -0.3491f); // -20°
+        float leftTertiaryZAgeLerp = Mth.lerp(time, 0.4363f, 0.4363f); // 25°
+        float rightTertiaryZAgeLerp = Mth.lerp(time, -0.4363f, -0.4363f); // -25°
 
         // === 翼根 (第0级/root) ===
         leftWingRoot.xRot = wingRootXAgeLerp;

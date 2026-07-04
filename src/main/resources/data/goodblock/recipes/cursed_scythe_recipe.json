@@ -17,7 +17,7 @@
     "I": { "item": "minecraft:blaze_powder" }
   },
   "result": {
-    "id": "goodblock:cursed_scythe",
+    "item": "goodblock:cursed_scythe",
     "count": 1
   }
 }

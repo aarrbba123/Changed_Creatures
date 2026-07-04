@@ -18,7 +18,7 @@
               "add": false
             },
             {
-              "function": "minecraft:looting_enchant",
+              "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
                 "min": 0.0,
@@ -26,7 +26,7 @@
               }
             }
           ],
-          "name": "minecraft:blaze_powder"
+          "name": "goodblock:latex_lava_crystal"
         }
       ]
     },

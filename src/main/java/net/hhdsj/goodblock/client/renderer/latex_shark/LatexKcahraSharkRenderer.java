@@ -8,7 +8,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexMaleSharkModel;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 
-import net.hhdsj.goodblock.entity.LatexKcahraSharkEntity;
+import net.hhdsj.goodblock.entity.simple.LatexKcahraSharkEntity;
 import net.hhdsj.goodblock.client.models.latex_shark.ModelLatexKcahraShark;
 
 //public class LatexKcahraSharkRenderer extends MobRenderer<LatexKcahraSharkEntity, ModelLatexKcahraShark> {

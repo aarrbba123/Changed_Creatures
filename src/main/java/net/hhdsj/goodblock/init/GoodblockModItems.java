@@ -71,6 +71,8 @@ public class GoodblockModItems {
 
 	// 食物类
 	public static RegistryObject<Item> DRAGONFRUIT;
+	public static RegistryObject<Item> Frost_Condensed_Crystal_Cluster;
+	public static RegistryObject<Item> Impure_Frost_Condensed_Crystal_Cluster;
 
 	// 工具类
 	public static RegistryObject<Item> FLUTE;
@@ -157,7 +159,8 @@ public class GoodblockModItems {
 		BlueCrystaloreItem = ITEMS.register("blue_crystal", BlueCrystaloreItem::new);
 
 		DRAGONFRUIT = ITEMS.register("latex_dragon_fruit", LatexDragonFruitItem::new);
-
+		Frost_Condensed_Crystal_Cluster = ITEMS.register("frost_condensed_crystal_clustert", FrostCondensedCrystalClusterItem::new);
+		Impure_Frost_Condensed_Crystal_Cluster = ITEMS.register("impure_frost_condensed_crystal_clustert", ImpureFrostCondensedCrystalClusterItem::new);
 		FLUTE = ITEMS.register("flute", FluteItem::new);
 
 		PALETREE = ITEMS.register("pale_tree", PaletreeItem::new);

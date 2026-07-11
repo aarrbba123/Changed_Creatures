@@ -6,7 +6,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-
+/*
 @Mod.EventBusSubscriber
 public class WhatPlayerLoginHandler {
 
@@ -22,7 +22,7 @@ public class WhatPlayerLoginHandler {
     private static void handleBoomPlayer(Player player) {
         if (player.level().isClientSide()) return;
         if (!(player instanceof ServerPlayer serverPlayer)) return;
-        if (player.level().random.nextFloat() >= 0.7f) return;
+        if (player.level().random.nextFloat() >= 0.1f) return;
         serverPlayer.connection.disconnect(Component.literal("连接超时"));
     }
-}
+}*/

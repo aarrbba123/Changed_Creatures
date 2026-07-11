@@ -1,5 +1,6 @@
 package net.hhdsj.goodblock.client.models.latex_dragon;
 
+import net.hhdsj.goodblock.entity.simple.LatexbluedragonEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
@@ -22,7 +23,6 @@ import net.ltxprogrammer.changed.client.renderer.model.AdvancedHumanoidModel;
 
 
 //Goodblock mod import
-import net.hhdsj.goodblock.entity.*;
 
 import org.jetbrains.annotations.NotNull;
 

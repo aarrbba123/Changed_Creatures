@@ -6,8 +6,6 @@ package net.hhdsj.goodblock.init;
 import net.foxyas.changedaddon.init.ChangedAddonAbilities;
 import net.hhdsj.goodblock.entity.boss.LatexNightOwlEntity;
 import net.hhdsj.goodblock.entity.simple.*;
-import net.ltxprogrammer.changed.entity.beast.*;
-import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.monster.*;
 //FORGE导入
 import net.minecraft.world.entity.npc.Villager;
@@ -20,8 +18,6 @@ import net.ltxprogrammer.changed.init.*;
 import net.ltxprogrammer.changed.entity.variant.*;
 
 //import net.foxyas.changedaddon.init.ChangedAddonAbilities;
-
-import net.hhdsj.goodblock.entity.*;//推荐不要用*(来自hhdsj的话=))
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +38,16 @@ public class GoodblockModTransfurVariants {
 	public static final RegistryObject<TransfurVariant<LatexCrystalJellyDragonEntity>> LATEX_CRYSTAL_JELLY =
 			REGISTRY.register("form_latex_crystal_jelly_dragon", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEX_CRYSTAL_JELLY)
 					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.build());
+
+	public static final RegistryObject<TransfurVariant<LatexEmberscalesMagmaDragonMaleEntity>> LATEX_EMBERSCALES_MAGMA_DRAGON_MALE =
+			REGISTRY.register("form_latex_emberscales_magma_dragon_male", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEX_EMBERSCALES_MAGMA_DRAGON_MALE)
+					.glide()
+					.transfurMode(TransfurMode.ABSORPTION)
+					.addAbility(ChangedAddonAbilities.CLAWS)
+					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.addAbility(ChangedAddonAbilities.CARRY)
+					.addAbility(ChangedAbilities.GRAB_ENTITY_ABILITY)
 					.build());
 
 	public static final RegistryObject<TransfurVariant<LatexDuskDawnDragonEntity>> LATEX_DUSK_DAWN_DRAGON =
@@ -129,7 +135,7 @@ public class GoodblockModTransfurVariants {
 				.holdItemsInMouth()
 				//.reducedFall()
 				.build());
-	
+	/*
 	public static final RegistryObject<TransfurVariant<LatexIceFieldWolfDragonEntity>> LATEX_KAMONA_HSGUY_DRAGON_WOLF = 
 			REGISTRY.register("form_latex_ice_field_wolf_dragon", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEX_ICE_FIELD_WOLF_DRAGON)
 				.addAbility(ChangedAddonAbilities.DODGE)
@@ -139,7 +145,7 @@ public class GoodblockModTransfurVariants {
 				.transfurMode(TransfurMode.ABSORPTION)
 				.replicating()
 				.build());
-
+	*/
 	public static final RegistryObject<TransfurVariant<BlackpupmaleEntity>> BLACKPUPMALE = 
 			REGISTRY.register("form_black_pup", () -> TransfurVariant.Builder.of(GoodblockModEntities.BLACKPUPMALE)
 				//.stepSize(0.7f)

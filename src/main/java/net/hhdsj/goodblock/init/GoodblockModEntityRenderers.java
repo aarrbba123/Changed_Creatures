@@ -4,10 +4,8 @@
  */
 package net.hhdsj.goodblock.init;
 
-import net.hhdsj.goodblock.client.renderer.LatexFishRenderer;
 import net.hhdsj.goodblock.client.renderer.boss.LatexNightOwlBossRenderer;
 import net.hhdsj.goodblock.client.renderer.boss.LatexNightOwlRenderer;
-import net.hhdsj.goodblock.client.renderer.boss.LatexIceFieldWolfDragonBossRenderer;
 import net.hhdsj.goodblock.client.renderer.cat.LatexBlueveCatRenderer;
 import net.hhdsj.goodblock.client.renderer.latex_dragon.*;
 import net.hhdsj.goodblock.client.renderer.latex_fox.*;
@@ -45,7 +43,7 @@ public class GoodblockModEntityRenderers {
 		event.registerEntityRenderer(GoodblockModEntities.LATEXYUNXQHOTDRAGON.get(), LatexyunxqhotdragonRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEXYUNXQICEDRAGON.get(), LatexyunxqicedragonRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEXBLUEDRAGON.get(), LatexbluedragonRenderer::new);
-		event.registerEntityRenderer(GoodblockModEntities.LATEX_ICE_FIELD_WOLF_DRAGON.get(), LatexIceFieldWolfDragonRenderer::new);
+		//event.registerEntityRenderer(GoodblockModEntities.LATEX_ICE_FIELD_WOLF_DRAGON.get(), LatexIceFieldWolfDragonRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEXPRTPLECOOCWOLF.get(), LatexPurpleCoocWolfRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEXTHREEMONTHWOLF_PROJECTILE.get(), LatexArrowRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEXYUNQIICEDRAGON.get(), LatexYunQiIceDragonRenderer::new);
@@ -55,7 +53,7 @@ public class GoodblockModEntityRenderers {
 		event.registerEntityRenderer(GoodblockModEntities.LATEXIQGOLDDRAGON.get(), LatexIqGoldDragonRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEXDARKPURPLEDRAGONTAUR.get(), LatexDarkPurpleDragonTaurRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEXDARKPURPLEDRAGON.get(), LatexDarkPurpleDragonRenderer::new);
-		event.registerEntityRenderer(GoodblockModEntities.LATEX_ICE_FIELD_WOLF_DRAGON_BOSS.get(), LatexIceFieldWolfDragonBossRenderer::new);
+		//event.registerEntityRenderer(GoodblockModEntities.LATEX_ICE_FIELD_WOLF_DRAGON_BOSS.get(), LatexIceFieldWolfDragonBossRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEXLUOHONGEARLYSPRINGFOXDRAGON.get(), LatexLuoHongEarlySpringFoxDragonRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEXFRUITDRAGONWOLF.get(), LatexFruitDragonRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEXNEONDIMNESSWOLF.get(), LatexNeondimnessWolfRenderer::new);
@@ -80,7 +78,7 @@ public class GoodblockModEntityRenderers {
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_DUSK_DAWN_DRAGON_FEMALE.get(), LatexDuskDawnDragonFemaleRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_CRYSTAL_JELLY.get(), LatexCrystalJellyDragonRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_FROST_SCALE_DRAGON_TAUR.get(), LatexFrostScaleDragonTaurRenderer::new);
-		event.registerEntityRenderer(GoodblockModEntities.LATEX_FISH.get(), LatexFishRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.LATEX_EMBERSCALES_MAGMA_DRAGON_MALE.get(), LatexEmberscalesMagmaDragonMaleRenderer::new);
 		//ModelLatexEtanKind
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_ETAN_KIND.get(), LatexEtanKingRenderer::new);
 	}

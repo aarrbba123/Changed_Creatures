@@ -4,7 +4,7 @@ package net.hhdsj.goodblock.client.renderer.latex_pup;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
-import net.hhdsj.goodblock.entity.BlackpupmaleEntity;
+import net.hhdsj.goodblock.entity.simple.BlackpupmaleEntity;
 import net.hhdsj.goodblock.client.models.latex_pup.Modelblackpupmale;
 
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;

@@ -1,5 +1,6 @@
 package net.hhdsj.goodblock.client.models.latex_wolf;
 
+import net.hhdsj.goodblock.entity.simple.DarkfuLatexWolfMaleEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
@@ -22,8 +23,6 @@ import net.ltxprogrammer.changed.client.renderer.model.AdvancedHumanoidModel;
 
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
-
-import net.hhdsj.goodblock.entity.*;
 
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;

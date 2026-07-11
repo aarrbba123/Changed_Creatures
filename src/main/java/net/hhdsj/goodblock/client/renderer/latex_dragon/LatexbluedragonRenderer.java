@@ -14,7 +14,7 @@ import net.ltxprogrammer.changed.util.Color3;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 
 import net.hhdsj.goodblock.client.models.latex_dragon.Modelbluedragon;
-import net.hhdsj.goodblock.entity.LatexbluedragonEntity;
+import net.hhdsj.goodblock.entity.simple.LatexbluedragonEntity;
 
 public class LatexbluedragonRenderer extends AdvancedHumanoidRenderer<LatexbluedragonEntity, Modelbluedragon> {
 	public LatexbluedragonRenderer(EntityRendererProvider.Context context) {

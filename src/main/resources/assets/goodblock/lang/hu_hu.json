@@ -68,6 +68,7 @@
   "effect.goodblock.latexhotpar": "Narancs latex",
   "effect.goodblock.radiation": "Sugárzás",
   "effect.goodblock.slowinfection": "Lassú fertőzés",
+  "effect.goodblock.frost": "Frost",
   "effect.goodblock.radiation.tf": "Tompa fájdalmat érzel a fejedben...",
   "entity.goodblock.blackpupmale": "Fekete kcahra farkaskölyök",
   "entity.goodblock.boss_heath.night_owl": "Éjjeli bagoly",
@@ -233,6 +234,8 @@
   "item.goodblock.painite_sword": "Painit kard",
   "item.goodblock.pale_tree": "Sápadtfa-csemete",
   "item.goodblock.sulphur": "Kén",
+  "item.goodblock.frost_condensed_crystal_cluster": "Frost-Condensed Crystal Cluster",
+  "item.goodblock.impure_frost_condensed_crystal_cluster": "Impure Frost-Condensed Crystal Cluster",
   "item.goodblock.the_fluffy_heartbeatinthe_cubiclemusic": "A bolyhos szívverés a fülkében zene",
   "item.goodblock.the_fluffy_heartbeatinthe_cubiclemusic.desc": "A bolyhos szívverés a fülkében",
   "item.goodblock.thefluffyheartbeatinthecubiclemusic": "A bolyhos szívverés a fülkében zene",
@@ -259,5 +262,7 @@
   "item.goodblock.cursed_scythe": "Átkozott kasza",
   "item.goodblock.cursed_scythe.description_0": "§l§u Cirkónia huj exkluzív fegyvere\n",
   "item.goodblock.cursed_scythe.description_1": "§m§9 Hatalmas sebzést okoz, de nagy árat követel. Óvatosan használd.\n",
-  "item.goodblock.cursed_scythe.description_2": "§m§6 Lopakodás közben jobb klikkelj 8 életpont feláldozásához egy kis területre kiterjedő erős csapásért." 
+  "item.goodblock.cursed_scythe.description_2": "§m§6 Lopakodás közben jobb klikkelj 8 életpont feláldozásához egy kis területre kiterjedő erős csapásért.",
+  "advancements.goodblock.frost_condensed_crystal_cluster.title": "§9 Frost Crystal?",
+  "advancements.goodblock.frost_condensed_crystal_cluster.descr": "§9 Obtain a Frost Condensed Crystal Cluster"
 }

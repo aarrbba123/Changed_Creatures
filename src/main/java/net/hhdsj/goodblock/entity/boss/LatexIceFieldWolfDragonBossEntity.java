@@ -64,6 +64,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
+/*
+
 public class LatexIceFieldWolfDragonBossEntity extends ChangedEntity{
 
     private int obsidianBreakCooldown = 0;
@@ -604,4 +606,4 @@ public class LatexIceFieldWolfDragonBossEntity extends ChangedEntity{
                     2.0f, 0.8f);
         }
     }
-}
+} */

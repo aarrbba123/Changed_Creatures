@@ -14,7 +14,7 @@ import net.ltxprogrammer.changed.util.Color3;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 
 import net.hhdsj.goodblock.client.models.latex_pup.ModelInksuger;
-import net.hhdsj.goodblock.entity.InksugerEntity;
+import net.hhdsj.goodblock.entity.simple.InksugerEntity;
 
 public class InksugerRenderer extends AdvancedHumanoidRenderer<InksugerEntity, ModelInksuger> {
 	public InksugerRenderer(EntityRendererProvider.Context context) {

@@ -1,9 +1,8 @@
 package net.hhdsj.goodblock.client.renderer.projectile;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import net.hhdsj.goodblock.entity.ThrownCrystalJavelinTrident;
+import net.hhdsj.goodblock.entity.simple.ThrownCrystalJavelinTrident;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

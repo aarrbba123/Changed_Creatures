@@ -1,6 +1,6 @@
 package net.hhdsj.goodblock.event;
 
-import net.hhdsj.goodblock.entity.LatexthreemonthwolfEntityProjectile;
+import net.hhdsj.goodblock.entity.simple.LatexthreemonthwolfEntityProjectile;
 import net.ltxprogrammer.changed.entity.variant.TransfurVariantInstance;
 import net.ltxprogrammer.changed.process.ProcessTransfur;
 import net.minecraft.world.entity.player.Player;

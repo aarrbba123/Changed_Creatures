@@ -149,7 +149,7 @@ public class PlayerTicksHandler {
             }
 
             if (data.Player_Infection_tick % 100 == 0) {
-                System.out.println("Now Player_Infection_tick : " + data.Player_Infection_tick);
+                //System.out.println("Now Player_Infection_tick : " + data.Player_Infection_tick);
             }
         }
     }
@@ -268,7 +268,7 @@ public class PlayerTicksHandler {
                     })), true);
                 }
             }
-            System.out.println(data.Crystal_Jelly_Infection_Progress);
+            //System.out.println(data.Crystal_Jelly_Infection_Progress);
         }
     }
 

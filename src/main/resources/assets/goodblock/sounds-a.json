@@ -1,0 +1,12 @@
+{
+  "music.ink_sans": {
+    "category": "record",
+    "subtitle": "subtitles.goodblock.ink_sans",
+    "sounds": [
+      {
+        "name": "goodblock:ink_sans",
+        "stream": true
+      }
+    ]
+  }
+}

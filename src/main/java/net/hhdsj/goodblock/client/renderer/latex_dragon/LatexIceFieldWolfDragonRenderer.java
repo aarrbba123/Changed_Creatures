@@ -1,6 +1,6 @@
 
 package net.hhdsj.goodblock.client.renderer.latex_dragon;
-
+/*
 import net.ltxprogrammer.changed.client.renderer.layers.*;
 import net.ltxprogrammer.changed.util.Color3;
 import net.minecraft.resources.ResourceLocation;
@@ -31,4 +31,4 @@ public class LatexIceFieldWolfDragonRenderer extends AdvancedHumanoidRenderer<La
 	public ResourceLocation getTextureLocation(LatexIceFieldWolfDragonEntity entity) {
 		return new ResourceLocation("goodblock:textures/entities/latex/latex_kamona_hsguy_dragonwolf_png1.png");
 	}
-}
+}*/

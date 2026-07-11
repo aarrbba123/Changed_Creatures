@@ -26,7 +26,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "goodblock:latex_crystal_jelly",
+              "name": "goodblock:blue_crystal",
               "functions": [
                 {
                   "function": "minecraft:set_count",
@@ -41,6 +41,19 @@
                   "formula": "minecraft:uniform_bonus_count",
                   "parameters": {
                     "bonusMultiplier": 1
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "goodblock:impure_frost_condensed_crystal_clustert",
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "min": 0,
+                    "max": 1
                   }
                 }
               ]

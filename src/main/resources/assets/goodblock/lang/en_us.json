@@ -1,4 +1,6 @@
 {
+  "advancements.goodblock.frost_condensed_crystal_cluster.title": "§9 Frost Crystal?",
+  "advancements.goodblock.frost_condensed_crystal_cluster.descr": "§9 Obtain a Frost Condensed Crystal Cluster",
   "advancements.advpainita_1.descr": "What's the use?",
   "advancements.advpainita_1.title": "Ultimate Dedication",
   "advancements.gha_1.descr": "Obtain a Copper Ingot",
@@ -68,6 +70,7 @@
   "effect.goodblock.latexhotpar": "orange_latex",
   "effect.goodblock.radiation": "Radiation",
   "effect.goodblock.slowinfection": "Slow Infection",
+  "effect.goodblock.frost": "Frost",
   "effect.goodblock.radiation.tf": "You feel a dull ache in your head...",
   "entity.goodblock.blackpupmale": "Black kcahra pup",
   "entity.goodblock.boss_heath.night_owl": "Night owl",
@@ -233,6 +236,8 @@
   "item.goodblock.painite_sword": "Painite Sword",
   "item.goodblock.pale_tree": "Pale Tree Sapling",
   "item.goodblock.sulphur": "Sulfur",
+  "item.goodblock.frost_condensed_crystal_cluster": "Frost-Condensed Crystal Cluster",
+  "item.goodblock.impure_frost_condensed_crystal_cluster": "Impure Frost-Condensed Crystal Cluster",
   "item.goodblock.the_fluffy_heartbeatinthe_cubiclemusic": "The Fluffy Heartbeat in the Cubicle Music",
   "item.goodblock.the_fluffy_heartbeatinthe_cubiclemusic.desc": "The Fluffy Heartbeat in the Cubicle",
   "item.goodblock.thefluffyheartbeatinthecubiclemusic": "The Fluffy Heartbeat in the Cubicle Music",

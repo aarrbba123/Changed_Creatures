@@ -3,11 +3,9 @@
  */
 package net.hhdsj.goodblock.init;
 
-import net.hhdsj.goodblock.entity.*;
 import net.hhdsj.goodblock.entity.boss.*;
 import net.hhdsj.goodblock.entity.simple.*;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.registries.RegistryObject;
@@ -87,7 +85,7 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<LatexpurplewswolfEntity>> LATEXPURPLEWSWOLF;
     public static final RegistryObject<EntityType<LatexthreemonthwolfEntity>> LATEXTHREEMONTHWOLF;
     public static final RegistryObject<EntityType<LatexPurplecoocwolfEntity>> LATEXPRTPLECOOCWOLF;
-    public static final RegistryObject<EntityType<LatexIceFieldWolfDragonEntity>> LATEX_ICE_FIELD_WOLF_DRAGON;
+    //public static final RegistryObject<EntityType<LatexIceFieldWolfDragonEntity>> LATEX_ICE_FIELD_WOLF_DRAGON;
     public static final RegistryObject<EntityType<LatexFruitDragonEntity>> LATEXFRUITDRAGONWOLF;
     public static final RegistryObject<EntityType<LatexNeondimnessWolfEntity>> LATEXNEONDIMNESSWOLF;
     public static final RegistryObject<EntityType<LatexChengXiEntity>> LATEX_CHENG_XI;
@@ -111,9 +109,12 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<LatexLuoHongEarlySpringFoxDragonEntity>> LATEXLUOHONGEARLYSPRINGFOXDRAGON;
     public static final RegistryObject<EntityType<LatexYaoLingDragonEntity>> LATEXYAOLINGDRAGON;
     public static final RegistryObject<EntityType<LatexCrystalJellyDragonEntity>> LATEX_CRYSTAL_JELLY;
+    public static final RegistryObject<EntityType<LatexEmberscalesMagmaDragonMaleEntity>> LATEX_EMBERSCALES_MAGMA_DRAGON_MALE;
+
+
 
     // BOSS变体
-    public static final RegistryObject<EntityType<LatexIceFieldWolfDragonBossEntity>> LATEX_ICE_FIELD_WOLF_DRAGON_BOSS;
+    //public static final RegistryObject<EntityType<LatexIceFieldWolfDragonBossEntity>> LATEX_ICE_FIELD_WOLF_DRAGON_BOSS;
     public static final RegistryObject<EntityType<LatexNightOwlBossEntity>> LATEXNIGHTOWLDRAGONBOSS;
     public static final RegistryObject<EntityType<LatexNightOwlEntity>> LATEXNIGHTOWLDRAGON;
     public static final RegistryObject<EntityType<LatexIqGoldDragonEntity>> LATEXIQGOLDDRAGON;
@@ -124,22 +125,20 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<BlueCrystalProjectile>> BLUECRYSTALPROJECTILE;
     public static final RegistryObject<EntityType<ThrownCrystalJavelinTrident>> THROWN_CRYSTAL_JAVELIN;
     public static final RegistryObject<EntityType<CrystalArrow>> CRYSTAL_ARROW;
-    public static final RegistryObject<EntityType<LatexFishEntity>> LATEX_FISH;
     //龙鲨变体
     public static final RegistryObject<EntityType<LatexLuoLongDragonSharkEntity>> LUOLONG_DRAGON_SHARK;
     //Cat Latex
     public static final RegistryObject<EntityType<LatexBlueveCatEntity>> LATEX_BLUEVE_CAT;
     static {
         // 在 static 块中
-        LATEX_FISH = registerSpawning("latex_fish", 0x00CED1, 0x48D1CC,
-                EntityType.Builder.<LatexFishEntity>of(LatexFishEntity::new, MobCategory.WATER_AMBIENT)
+        LATEX_EMBERSCALES_MAGMA_DRAGON_MALE = registerSpawning("latex_emberscales_magma_dragon_male", 0x8d0d01, 0xfa2303,
+                EntityType.Builder.<LatexEmberscalesMagmaDragonMaleEntity>of(LatexEmberscalesMagmaDragonMaleEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
                         .setUpdateInterval(3)
-                        .setCustomClientFactory(LatexFishEntity::new)
-                        .sized(0.6f, 0.4f),
-                LatexFishEntity::createAttributes
-        );
+                        .setCustomClientFactory(LatexEmberscalesMagmaDragonMaleEntity::new)
+                        .sized(0.6f, 1.92f),
+                LatexEmberscalesMagmaDragonMaleEntity::createLatexAttributes);
 
         LATEX_FROST_SCALE_DRAGON_TAUR = registerSpawning("latex_frost_scale_dragon_taur", 0x232323, 0x00ffff,
                 EntityType.Builder.<LatexFrostScaleDragonTaurEntity>of(LatexFrostScaleDragonTaurEntity::new, MobCategory.MONSTER)
@@ -357,7 +356,7 @@ public class GoodblockModEntities {
                         .setCustomClientFactory(LatexPurplecoocwolfEntity::new)
                         .sized(0.6f, 1.8f),
                 LatexPurplecoocwolfEntity::createLatexAttributes);
-
+        /*
         LATEX_ICE_FIELD_WOLF_DRAGON = registerSpawning("latex_ice_field_wolf_dragon", 0x87CEEB, 0x4682B4,
                 EntityType.Builder.<LatexIceFieldWolfDragonEntity>of(LatexIceFieldWolfDragonEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
@@ -366,7 +365,7 @@ public class GoodblockModEntities {
                         .setCustomClientFactory(LatexIceFieldWolfDragonEntity::new)
                         .sized(0.7f, 1.93f),
                 LatexIceFieldWolfDragonEntity::createLatexAttributes);
-
+        */
         LATEX_DIVINE_SWORD_KITSUNE = registerSpawning("latex_divine_sword_kitsune", 0xFD1C0A, 0xFFFFFF,
                 EntityType.Builder.<LatexDivineSwordKitsuneEntity>of(LatexDivineSwordKitsuneEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
@@ -477,7 +476,7 @@ public class GoodblockModEntities {
                         .sized(0.48f, 1.52f),
                 LatexLuoHongEarlySpringFoxDragonEntity::createLatexAttributes);
 
-        // BOSS变体 - 可以自定义属性构建器
+        /*
         LATEX_ICE_FIELD_WOLF_DRAGON_BOSS = registerSpawning("latex_ice_field_wolf_dragon_boss", 0x4682B4, 0x5F9EA0,
                 EntityType.Builder.<LatexIceFieldWolfDragonBossEntity>of(LatexIceFieldWolfDragonBossEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
@@ -485,8 +484,8 @@ public class GoodblockModEntities {
                         .setUpdateInterval(3)
                         .fireImmune()
                         .setCustomClientFactory(LatexIceFieldWolfDragonBossEntity::new)
-                        .sized(1.0f, 2.5f),  // Boss更大
-                () -> {  // 自定义Boss属性
+                        .sized(1.0f, 2.5f),
+                () -> {
                     AttributeSupplier.Builder builder = ChangedEntity.createLatexAttributes();
                     builder.add(Attributes.MAX_HEALTH, 500);
                     builder.add(Attributes.ARMOR, 35);
@@ -494,6 +493,7 @@ public class GoodblockModEntities {
                     builder.add(Attributes.KNOCKBACK_RESISTANCE, 1.0);
                     return builder;
                 });
+        */
 
         LATEXNIGHTOWLDRAGONBOSS = registerSpawning("latex_night_owl_dragon_boss", 0x2C3E50, 0x34495E,
                 EntityType.Builder.<LatexNightOwlBossEntity>of(LatexNightOwlBossEntity::new, MobCategory.MONSTER)

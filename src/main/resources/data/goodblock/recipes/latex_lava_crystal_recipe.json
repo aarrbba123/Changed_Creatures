@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BA ",
+    "CB ",
+    "   "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:lava_bucket"
+    },
+    "B": {
+      "item": "changed:latex_base"
+    },
+    "C": {
+      "item": "minecraft:amethyst_shard"
+    }
+  },
+  "result": {
+    "item": "goodblock:latex_lava_crystal",
+    "count": 1,
+    "components": {
+      "minecraft:remainder": {
+        "item": "minecraft:bucket"
+      }
+    }
+  }
+}

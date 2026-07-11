@@ -4,7 +4,7 @@ package net.hhdsj.goodblock.client.renderer.latex_dragon;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
-import net.hhdsj.goodblock.entity.LatexyunxqicedragonEntity;
+import net.hhdsj.goodblock.entity.simple.LatexyunxqicedragonEntity;
 import net.hhdsj.goodblock.client.models.latex_dragon.ModelLatexiceredDragonUnified_bw;
 
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;

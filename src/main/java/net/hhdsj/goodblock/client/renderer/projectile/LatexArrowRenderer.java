@@ -1,6 +1,6 @@
 package net.hhdsj.goodblock.client.renderer.projectile;
 
-import net.hhdsj.goodblock.entity.LatexthreemonthwolfEntityProjectile;
+import net.hhdsj.goodblock.entity.simple.LatexthreemonthwolfEntityProjectile;
 import net.minecraft.client.renderer.entity.ArrowRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;

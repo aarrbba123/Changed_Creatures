@@ -2,7 +2,7 @@ package net.hhdsj.goodblock.client.renderer.latex_taur;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.hhdsj.goodblock.client.models.latex_taur.ModelLatexDarkPurpleDragonTaur;
-import net.hhdsj.goodblock.entity.LatexDarkPurpleDragonTaurEntity;
+import net.hhdsj.goodblock.entity.simple.LatexDarkPurpleDragonTaurEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.*;
 import net.ltxprogrammer.changed.client.renderer.model.armor.*;
@@ -17,7 +17,7 @@ public class LatexDarkPurpleDragonTaurRenderer extends AdvancedHumanoidRenderer<
         super(context, new ModelLatexDarkPurpleDragonTaur(context.bakeLayer(ModelLatexDarkPurpleDragonTaur.LAYER_LOCATION)),
                 ArmorModelPicker.centaur(context.getModelSet(), ArmorLatexMaleTaurUpperModel.MODEL_SET, ArmorLatexCentaurLowerModel.MODEL_SET_WITH_TORSO), 0.7f);
         this.addLayer(new LatexParticlesLayer<>(this, getModel()));
-        this.addLayer(new EmissiveBodyLayer<>(this, new ResourceLocation("goodblock", "textures/entities/latex/latex_taur/dark_purple_latex_dragon_taur_light.png")));
+        this.addLayer(new EmissiveBodyLayer<>(this, new ResourceLocation("goodblock:textures/entities/latex/latex_taur/dark_purple_latex_dragon_taur_light.png")));
         this.addLayer(new CustomEyesLayer<>(this, context.getModelSet(), CustomEyesLayer::scleraColor,
                 CustomEyesLayer.fixedColorGlowing(Color3.parseHex("#ca00ff")), CustomEyesLayer.fixedColorGlowing(Color3.parseHex("#ca00ff")),
                 CustomEyesLayer::noRender, CustomEyesLayer::noRender));

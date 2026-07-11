@@ -1,6 +1,6 @@
 package net.hhdsj.goodblock.abilities;
 
-import net.hhdsj.goodblock.entity.BlueCrystalProjectile;
+import net.hhdsj.goodblock.entity.simple.BlueCrystalProjectile;
 import net.ltxprogrammer.changed.ability.IAbstractChangedEntity;
 import net.ltxprogrammer.changed.ability.SimpleAbility;
 import net.minecraft.server.level.ServerLevel;

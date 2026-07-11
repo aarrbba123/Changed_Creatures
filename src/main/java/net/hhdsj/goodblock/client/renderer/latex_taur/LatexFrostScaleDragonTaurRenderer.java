@@ -2,7 +2,7 @@ package net.hhdsj.goodblock.client.renderer.latex_taur;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.hhdsj.goodblock.client.models.latex_taur.ModelLatexFrostScaleDragonTaur;
-import net.hhdsj.goodblock.entity.LatexFrostScaleDragonTaurEntity;
+import net.hhdsj.goodblock.entity.simple.LatexFrostScaleDragonTaurEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.*;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexCentaurLowerModel;
@@ -35,7 +35,7 @@ public class LatexFrostScaleDragonTaurRenderer extends AdvancedHumanoidRenderer<
     }
 
     @Override
-    protected void scale(LatexFrostScaleDragonTaurEntity entity, PoseStack poseStack, float partialTickTime) {
+    protected void scale(@NotNull LatexFrostScaleDragonTaurEntity entity, PoseStack poseStack, float partialTickTime) {
         float scaleFactor = 1.35F;
         poseStack.scale(scaleFactor, scaleFactor, scaleFactor);
         super.scale(entity, poseStack, partialTickTime);

@@ -2,7 +2,7 @@ package net.hhdsj.goodblock.item;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import net.hhdsj.goodblock.entity.ThrownCrystalJavelinTrident;
+import net.hhdsj.goodblock.entity.simple.ThrownCrystalJavelinTrident;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;

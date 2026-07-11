@@ -24,7 +24,6 @@ public class PlayerHurtHandler {
             "goodblock:form_latex_yunxq_hot_dragon",
             "goodblock:form_latex_iq_gold_dragon",
             "goodblock:form_latex_yao_ling_dragon",
-            "goodblock:form_latex_ice_field_wolf_dragon",
             "goodblock:form_latex_night_owl_dragon"
 
     ));

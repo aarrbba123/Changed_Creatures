@@ -2,6 +2,7 @@ package net.hhdsj.goodblock.client.models.latex_pup;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.hhdsj.goodblock.entity.simple.WhitebluepupEntity;
 import net.ltxprogrammer.changed.client.renderer.animate.AnimatorPresets;
 import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -10,7 +11,6 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.HumanoidArm;
 import org.jetbrains.annotations.NotNull;
-import net.hhdsj.goodblock.entity.*;
 
 import java.util.List;
 

@@ -4,6 +4,7 @@
  */
 package net.hhdsj.goodblock.init;
 
+import net.hhdsj.goodblock.potion.FrostMobEffect;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.DeferredRegister;
@@ -20,4 +21,5 @@ public class GoodblockModMobEffects {
 	public static final RegistryObject<MobEffect> RADIATION = REGISTRY.register("radiation", RadiationMobEffect::new);
 	public static final RegistryObject<MobEffect> LATEXHOTPAR = REGISTRY.register("latexhotpar", LatexhotparMobEffect::new);
 	public static final RegistryObject<MobEffect> SLOWINFECTION = REGISTRY.register("slowinfection", SlowinfectionMobEffect::new);
+	public static final RegistryObject<MobEffect> Frost_Effect = REGISTRY.register("frost", FrostMobEffect::new);
 }

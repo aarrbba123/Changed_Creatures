@@ -3,7 +3,7 @@ package net.hhdsj.goodblock.client.models.latex_taur;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.hhdsj.goodblock.client.renderer.animate.GoodBlockAnimatorPresets;
-import net.hhdsj.goodblock.entity.LatexDarkPurpleDragonTaurEntity;
+import net.hhdsj.goodblock.entity.simple.LatexDarkPurpleDragonTaurEntity;
 import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
 import net.ltxprogrammer.changed.client.renderer.model.LowerTorsoedModel;
 import net.ltxprogrammer.changed.client.renderer.model.AdvancedHumanoidModel;

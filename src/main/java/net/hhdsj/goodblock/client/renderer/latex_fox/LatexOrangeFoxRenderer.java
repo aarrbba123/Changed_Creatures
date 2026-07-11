@@ -14,7 +14,7 @@ import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 
 
 
-import net.hhdsj.goodblock.entity.LatexOrangeFoxEntity;
+import net.hhdsj.goodblock.entity.simple.LatexOrangeFoxEntity;
 import net.hhdsj.goodblock.client.models.latex_fox.ModelLatexOrangeFox;
 
 public class LatexOrangeFoxRenderer extends AdvancedHumanoidRenderer<LatexOrangeFoxEntity, ModelLatexOrangeFox>  {//public class LatexOrangeFoxRenderer extends AdvancedHumanoidRenderer<LatexOrangeFoxEntity, ModelLatexOrangeFox, ArmorLatexMaleWolfModel<LatexOrangeFoxEntity>> { //extends MobRenderer<LatexOrangeFoxEntity, ModelLatexOrangeFox<LatexOrangeFoxEntity>> {

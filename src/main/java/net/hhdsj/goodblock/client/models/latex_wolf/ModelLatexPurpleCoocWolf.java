@@ -2,7 +2,7 @@ package net.hhdsj.goodblock.client.models.latex_wolf;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.hhdsj.goodblock.entity.LatexPurplecoocwolfEntity;
+import net.hhdsj.goodblock.entity.simple.LatexPurplecoocwolfEntity;
 import net.ltxprogrammer.changed.client.renderer.animate.AnimatorPresets;
 import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
 import net.ltxprogrammer.changed.client.renderer.model.AdvancedHumanoidModel;

@@ -1,7 +1,7 @@
 package net.hhdsj.goodblock.client.renderer.latex_dragon;
 
 import net.hhdsj.goodblock.client.models.latex_dragon.ModelDarkPurpleLatexDragon;
-import net.hhdsj.goodblock.entity.DarkPurpleLatexDragonEntity;
+import net.hhdsj.goodblock.entity.simple.DarkPurpleLatexDragonEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.*;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexMaleWingedDragonModel;

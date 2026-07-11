@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABC",
+    "BAC"
+  ],
+  "key": {
+    "A": { "item": "minecraft:amethyst_shard" },
+    "B": { "tag" : "minecraft:ice" },
+    "C": { "item" : "changed:latex_base" }
+  },
+  "result": {
+    "item": "goodblock:latex_crystal_jelly",
+    "count": 3
+  }
+}

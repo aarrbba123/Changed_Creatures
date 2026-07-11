@@ -4,7 +4,7 @@ package net.hhdsj.goodblock.client.renderer.latex_wolf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
-import net.hhdsj.goodblock.entity.DarkfuLatexWolfMaleEntity;
+import net.hhdsj.goodblock.entity.simple.DarkfuLatexWolfMaleEntity;
 import net.hhdsj.goodblock.client.models.latex_wolf.DarkfuLatexWolfMale;
 
 

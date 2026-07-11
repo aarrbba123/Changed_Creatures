@@ -1,5 +1,5 @@
 package net.hhdsj.goodblock.client.renderer.boss;
-
+/*
 import net.hhdsj.goodblock.client.models.boss.ModelLatexIceFieldWolfDragonBoss;
 import net.hhdsj.goodblock.entity.boss.LatexIceFieldWolfDragonBossEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
@@ -38,24 +38,6 @@ public class LatexIceFieldWolfDragonBossRenderer extends AdvancedHumanoidRendere
         return new ResourceLocation("goodblock:textures/entities/latex/latex_kamona_hsguy_dragonwolf_png1.png");
     }
 
-    /*
-    @Override
-    public void render(@NotNull LatexIceFieldWolfDragonBossEntity entity, float entityYaw, float partialTicks,
-                       @NotNull PoseStack poseStack, @NotNull MultiBufferSource bufferSource, int packedLight) {
-
-        // 在渲染前设置雾颜色（仅客户端）
-        RenderSystem.setShaderFogColor(0.8f, 0.2f, 0.2f); // 红色雾
-        RenderSystem.setShaderFogStart(-8.0f);
-        RenderSystem.setShaderFogEnd(24.0f);
-
-
-        // 调用父类的render方法（注意参数顺序和数量）
-        super.render(entity, entityYaw, partialTicks, poseStack, bufferSource, packedLight);
-
-        // 渲染后重置为默认颜色
-        RenderSystem.setShaderFogColor(1.0f, 1.0f, 1.0f);
-    }*/
-
     @Override
     protected boolean isShaking(@NotNull LatexIceFieldWolfDragonBossEntity _ent) {
         if (_ent.getHealth() < _ent.getMaxHealth() * 0.3)
@@ -64,3 +46,4 @@ public class LatexIceFieldWolfDragonBossRenderer extends AdvancedHumanoidRendere
             return false;
     }
 }
+*/

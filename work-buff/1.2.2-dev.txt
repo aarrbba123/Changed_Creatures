@@ -1,0 +1,39 @@
+Goodblock 1.2.2-dev
+更新内容:
+加入了Frost-Condensed Crystal Cluster
+加入了Impure Frost-Condensed Crystal Cluster
+加入了CrystalJavelinTrident
+加入了LatexLavaCrystal
+加入变体/实体 LatexCrystalJellyDragon
+加入变体/实体 LatexDuskDawnDragon
+加入变体/实体 LatexFrostScaleDragonTaur
+加入变体/实体 LatexEmberscalesMagmaDragonMale
+添加药水效果Frost及其贴图
+加入了一些实体生成.
+
+更改:
+删除了所有唱片及其音频文件(Re Make)
+变动工具id及其物品id!
+变动实体id
+变动各种api的位置,例如PlayerDataGetHelper,从event移动到util
+添加ProgressTransfurExt工具
+修改战利品表,使其更加合理
+变动实体到entity/simple
+删除测试盔甲
+删除了测试log输出
+
+修复:
+修复了因为在服务器使用客户端类导致无法在服务器运行的bug
+修复了唱片无法播放的bug(直接删除了)
+修复了一些配方无法加载的bug
+修复了一些关于PaleTree的问题
+修复了方块显示异常的问题
+修复了LatexFrostScaleDragonTaur的模型错位问题
+修复了LatexFrostScaleDragonTaur的鞍贴图错误问题
+修了了Blue Crystal的贴图错误问题
+修复了变体能力显示为黑紫块的问题
+修复了斧头无法合成的问题
+修复了不兼容脚本声MOD的问题
+
+警告:
+此次更新会导致物品/方块/实体 消失!!!!

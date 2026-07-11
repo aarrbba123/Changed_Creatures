@@ -1,0 +1,17 @@
+Frost-Condensed Crystal Cluster 霜凝水晶
+ -模型文件Frost-Condensed Crystal Cluster.bbmodel
+ -贴图:frost_condensed_crystal_cluster.png
+ -动画:frost_condensed_crystal_cluster.png.mcmeta
+
+Impure Frost-Condensed Crystal Cluster 掺杂的霜凝水晶
+ -模型文件:Impure Frost-Condensed Crystal Cluster.bbmodel
+ -贴图:impure_frost_condensed_crystal_cluster.png
+ -动画:impure_frost_condensed_crystal_cluster.png.mcmeta
+
+Frost_Effect 霜凝效果
+ -模型文件:frost_mob_effect.bbmodel
+ -贴图:frost_mob_effect.png
+
+Blue Crystal 蓝水晶
+ -模型文件:blue_crystal.bbmodel
+ -贴图:blue_crystal.png

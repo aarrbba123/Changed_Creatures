@@ -1,5 +1,5 @@
 {
-  "parent": "goodblock:block/uraniumblock",
+  "parent": "goodblock:block/uranium_block",
   "display": {
     "thirdperson": {
       "rotation": [

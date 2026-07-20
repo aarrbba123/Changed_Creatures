@@ -6,7 +6,7 @@
   ],
   "key": {
     "A": { "item": "minecraft:amethyst_shard" },
-    "B": { "tag" : "minecraft:ice" },
+    "B": { "item" : "minecraft:ice" },
     "C": { "item" : "changed:latex_base" }
   },
   "result": {

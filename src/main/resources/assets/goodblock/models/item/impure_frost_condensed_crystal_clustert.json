@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "goodblock:item/impure_frost_condensed_crystal_cluster"
+    "layer0": "goodblock:item/impure_frost_condensed_crystal_clustert"
   }
 }

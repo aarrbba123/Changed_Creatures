@@ -1,5 +1,6 @@
 package net.hhdsj.goodblock.client.models.latex_wolf;
 
+import net.hhdsj.goodblock.GoodblockMod;
 import net.hhdsj.goodblock.entity.simple.LatexChengXiEntity;
 import net.ltxprogrammer.changed.client.renderer.model.AdvancedHumanoidModel;
 import net.minecraft.resources.ResourceLocation;
@@ -26,7 +27,8 @@ import java.util.List;
 
 public class ModelLatexChengXi extends AdvancedHumanoidModel<LatexChengXiEntity> {
 
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("chengxi", "latex_cheng_xi"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION =
+            GoodblockMod.GoodBlockModelResourceLocation("latex_cheng_xi");
     public final ModelPart RightLeg;
     public final ModelPart LeftLeg;
     public final ModelPart Head;

@@ -48,7 +48,7 @@ public class GoodblockModTabs {
 			// 方块
 			tabData.accept(GoodblockModBlocks.SULPHURBLOCK.get().asItem());
 			tabData.accept(GoodblockModBlocks.NITREBLOCK.get().asItem());
-			tabData.accept(GoodblockModBlocks.URANIUMMINERAL.get().asItem());
+			tabData.accept(GoodblockModBlocks.URANIUM_ORE.get().asItem());
 			tabData.accept(GoodblockModBlocks.PALE_WOOD_PLANKS.get().asItem());
 			tabData.accept(GoodblockModBlocks.PALE_WOOD_LEAVES.get().asItem());
 			tabData.accept(GoodblockModBlocks.PALE_WOOD_LOG.get().asItem());

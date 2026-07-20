@@ -1,5 +1,5 @@
 {
-  "parent": "goodblock:block/uraniummineral",
+  "parent": "goodblock:block/nitre_block",
   "display": {
     "thirdperson": {
       "rotation": [

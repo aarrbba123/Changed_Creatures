@@ -2,6 +2,7 @@ package net.hhdsj.goodblock.client.models.latex_wolf;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.hhdsj.goodblock.GoodblockMod;
 import net.hhdsj.goodblock.entity.simple.LatexNeondimnessWolfEntity;
 import net.ltxprogrammer.changed.client.renderer.animate.AnimatorPresets;
 import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
@@ -17,7 +18,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public class ModelNeondimnessWolf extends AdvancedHumanoidModel<LatexNeondimnessWolfEntity> {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "latex_neondimness_wolf"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION =
+            GoodblockMod.GoodBlockModelResourceLocation("latex_neondimness_wolf");
 
     public final ModelPart RightLeg;
     public final ModelPart LeftLeg;

@@ -1,5 +1,6 @@
 package net.hhdsj.goodblock.client.models.latex_wolf;
 
+import net.hhdsj.goodblock.GoodblockMod;
 import net.hhdsj.goodblock.entity.simple.DarkfuLatexWolfMaleEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.model.geom.builders.PartDefinition;
@@ -28,8 +29,9 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class DarkfuLatexWolfMale extends AdvancedHumanoidModel<DarkfuLatexWolfMaleEntity>{
-public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "darkfulatexwolfmaleunified"), "main");
+public class ModelDarkfuLatexWolfMale extends AdvancedHumanoidModel<DarkfuLatexWolfMaleEntity>{
+public static final ModelLayerLocation LAYER_LOCATION =
+		GoodblockMod.GoodBlockModelResourceLocation("dark_fu_latex_wolf_male");
 
 public final ModelPart RightLeg;
 public final ModelPart LeftLeg;
@@ -38,10 +40,10 @@ public final ModelPart Torso;
 public final ModelPart RightArm;
 public final ModelPart LeftArm;
 public final ModelPart Tail;
-public final HumanoidAnimator <DarkfuLatexWolfMaleEntity, DarkfuLatexWolfMale> animator;
+public final HumanoidAnimator <DarkfuLatexWolfMaleEntity, ModelDarkfuLatexWolfMale> animator;
 
 
-public DarkfuLatexWolfMale(ModelPart root) {
+public ModelDarkfuLatexWolfMale(ModelPart root) {
 		super(root);
 		this.RightLeg = root.getChild("RightLeg");
 		this.LeftLeg = root.getChild("LeftLeg");
@@ -157,7 +159,7 @@ public DarkfuLatexWolfMale(ModelPart root) {
 	}
 
 	@Override
-    public HumanoidAnimator<DarkfuLatexWolfMaleEntity, DarkfuLatexWolfMale> getAnimator(DarkfuLatexWolfMaleEntity entity) {
+    public HumanoidAnimator<DarkfuLatexWolfMaleEntity, ModelDarkfuLatexWolfMale> getAnimator(DarkfuLatexWolfMaleEntity entity) {
         return this.animator;
 	}
 	

@@ -45,8 +45,8 @@ public class ModelLatexFrostScaleDragonTaur extends AdvancedHumanoidModel<LatexF
         this.Saddle = LowerTorso.getChild("Saddle");
         this.RightArm = root.getChild("RightArm");
         this.LeftArm = root.getChild("LeftArm");
-        this.RightWing = Torso.getChild("RightWing");
-        this.LeftWing = Torso.getChild("LeftWing");
+        this.RightWing = LowerTorso.getChild("RightWing");
+        this.LeftWing = LowerTorso.getChild("LeftWing");
 
         this.FrontRightLeg = LowerTorso.getChild("RightLeg");
         this.FrontLeftLeg = LowerTorso.getChild("LeftLeg");

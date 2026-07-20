@@ -129,7 +129,19 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<LatexLuoLongDragonSharkEntity>> LUOLONG_DRAGON_SHARK;
     //Cat Latex
     public static final RegistryObject<EntityType<LatexBlueveCatEntity>> LATEX_BLUEVE_CAT;
+
+    public static final RegistryObject<EntityType<ProtogenNyxarixEntity>> PROTOGEN_NYXARIX;
+    
     static {
+        PROTOGEN_NYXARIX = registerSpawning("protogen_nyxarix", 0x050505, 0x00ffff,
+                EntityType.Builder.<ProtogenNyxarixEntity>of(ProtogenNyxarixEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .setCustomClientFactory(ProtogenNyxarixEntity::new)
+                        .sized(0.6f, 1.92f),
+                ProtogenNyxarixEntity::createLatexAttributes);
+
         // 在 static 块中
         LATEX_EMBERSCALES_MAGMA_DRAGON_MALE = registerSpawning("latex_emberscales_magma_dragon_male", 0x8d0d01, 0xfa2303,
                 EntityType.Builder.<LatexEmberscalesMagmaDragonMaleEntity>of(LatexEmberscalesMagmaDragonMaleEntity::new, MobCategory.MONSTER)

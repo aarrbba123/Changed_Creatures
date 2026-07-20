@@ -1,5 +1,5 @@
 {
-  "parent": "goodblock:block/sulphurblock",
+  "parent": "goodblock:block/sulphur_block",
   "display": {
     "thirdperson": {
       "rotation": [

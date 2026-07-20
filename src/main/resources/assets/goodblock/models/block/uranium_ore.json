@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "goodblock:block/uranium_ore",
+    "up": "goodblock:block/uranium_ore",
+    "north": "goodblock:block/uranium_ore",
+    "east": "goodblock:block/uranium_ore",
+    "south": "goodblock:block/uranium_ore",
+    "west": "goodblock:block/uranium_ore",
+    "particle": "goodblock:block/uranium_ore"
+  }
+}

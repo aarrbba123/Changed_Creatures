@@ -6,7 +6,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-/*
+
 @Mod.EventBusSubscriber
 public class WhatPlayerLoginHandler {
 
@@ -25,4 +25,4 @@ public class WhatPlayerLoginHandler {
         if (player.level().random.nextFloat() >= 0.1f) return;
         serverPlayer.connection.disconnect(Component.literal("连接超时"));
     }
-}*/
+}

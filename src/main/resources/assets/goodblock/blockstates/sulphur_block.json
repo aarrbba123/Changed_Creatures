@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "goodblock:block/sulphur_block",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "goodblock:block/sulphur_block"
+    },
+    "axis=z": {
+      "model": "goodblock:block/sulphur_block",
+      "x": 90
+    }
+  }
+}

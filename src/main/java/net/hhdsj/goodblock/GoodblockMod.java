@@ -3,6 +3,7 @@ package net.hhdsj.goodblock;
 import net.hhdsj.goodblock.event.CrystalRingHandler;
 import net.hhdsj.goodblock.init.*;
 import net.hhdsj.goodblock.network.SyncCrystalRingPacket;
+import net.minecraft.client.model.geom.ModelLayerLocation;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -79,6 +80,9 @@ public class GoodblockMod {
 
 	public static ResourceLocation GoodBlockResourceLocation(String txt){
 		return new ResourceLocation(MODID, txt);
+	}
+	public static ModelLayerLocation GoodBlockModelResourceLocation(String txt){
+        return new ModelLayerLocation(new ResourceLocation(MODID, txt),"main");
 	}
 	public static ResourceLocation ModResource(String Path){
 		return new ResourceLocation(MODID, Path);

@@ -2,6 +2,7 @@ package net.hhdsj.goodblock.client.models.latex_wolf;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.hhdsj.goodblock.GoodblockMod;
 import net.hhdsj.goodblock.entity.simple.LatexFruitDragonEntity;
 import net.ltxprogrammer.changed.client.renderer.animate.AnimatorPresets;
 import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
@@ -20,7 +21,8 @@ import java.util.List;
 
 @OnlyIn(Dist.CLIENT)
 public class ModelLatexFruitDragonWolf extends AdvancedHumanoidModel<LatexFruitDragonEntity>{
-public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "latex_fruit_dragon_wolf"), "main");
+public static final ModelLayerLocation LAYER_LOCATION =
+		GoodblockMod.GoodBlockModelResourceLocation("latex_fruit_dragon_wolf");
 
 public final ModelPart RightLeg;
 public final ModelPart LeftLeg;

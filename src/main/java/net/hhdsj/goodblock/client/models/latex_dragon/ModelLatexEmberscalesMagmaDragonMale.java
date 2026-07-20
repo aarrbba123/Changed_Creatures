@@ -60,15 +60,20 @@ public class ModelLatexEmberscalesMagmaDragonMale extends AdvancedHumanoidModel<
 
 		var leftWingRoot = LeftWing.getChild("leftWingRoot");
 		var rightWingRoot = RightWing.getChild("rightWingRoot");
+		var leftFirstise = leftWingRoot.getChild("leftFirstise");
+		var rightFirsties = rightWingRoot.getChild("rightFirsties");
 
 		animator = HumanoidAnimator.of(this).hipOffset(-1.5f)
 				.addPreset(AnimatorPresets.wingedDragonLike(
 						Head, Torso, LeftArm, RightArm,
 						Tail, List.of(tailPrimary, tailSecondary, tailTertiary),
-						LeftLeg, leftLowerLeg, leftFoot, leftFoot.getChild("LeftPad"), RightLeg, rightLowerLeg, rightFoot, rightFoot.getChild("RightPad"),
-
-						leftWingRoot, leftWingRoot.getChild("leftSecondaries"), leftWingRoot.getChild("leftSecondaries").getChild("leftTertiaries"),
-						rightWingRoot, rightWingRoot.getChild("rightSecondaries"), rightWingRoot.getChild("rightSecondaries").getChild("rightTertiaries")));
+						LeftLeg, leftLowerLeg, leftFoot, leftFoot.getChild("LeftPad"),
+						RightLeg, rightLowerLeg, rightFoot, rightFoot.getChild("RightPad"),
+						leftWingRoot, leftFirstise.getChild("leftSecondaries"),
+						leftFirstise.getChild("leftSecondaries").getChild("leftTertiaries"),
+						rightWingRoot, rightFirsties.getChild("rightSecondaries"),
+						rightFirsties.getChild("rightSecondaries").getChild("rightTertiaries")
+				));
 	}
 	@SuppressWarnings("unused")
 	public static LayerDefinition createBodyLayer() {

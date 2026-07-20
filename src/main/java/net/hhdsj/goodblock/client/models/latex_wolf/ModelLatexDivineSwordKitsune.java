@@ -3,6 +3,7 @@ package net.hhdsj.goodblock.client.models.latex_wolf;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.foxyas.changedaddon.client.model.animations.ChangedAddonAnimationsPresets;
+import net.hhdsj.goodblock.GoodblockMod;
 import net.hhdsj.goodblock.entity.simple.LatexDivineSwordKitsuneEntity;
 import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
 import net.ltxprogrammer.changed.client.renderer.model.AdvancedHumanoidModel;
@@ -21,7 +22,8 @@ import java.util.List;
 @SuppressWarnings("FieldCanBeLocal")
 public class ModelLatexDivineSwordKitsune extends AdvancedHumanoidModel<LatexDivineSwordKitsuneEntity>{
 
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "latex_divine_sword_kitsune"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION =
+            GoodblockMod.GoodBlockModelResourceLocation("latex_divine_sword_kitsune");
 
     private final ModelPart Hair;
     private final ModelPart Head;

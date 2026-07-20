@@ -34,7 +34,7 @@ public class GoodblockModItems {
 	public static RegistryObject<Item> BLACKBLOCK;
 
 	// 矿石
-	public static RegistryObject<Item> URANIUMMINERAL;
+	public static RegistryObject<Item> URANIUM_ORE;
 	public static RegistryObject<Item> BLUE_CRYSTALORE;
 
 	// pale_wood 系列方块
@@ -130,7 +130,7 @@ public class GoodblockModItems {
 		BLUEBLOCK = block(GoodblockModBlocks.BLUEBLOCK);
 		BLACKBLOCK = block(GoodblockModBlocks.BLACKBLOCK);
 
-		URANIUMMINERAL = block(GoodblockModBlocks.URANIUMMINERAL);
+		URANIUM_ORE = block(GoodblockModBlocks.URANIUM_ORE);
 		BLUE_CRYSTALORE = block(GoodblockModBlocks.BLUE_CRYSTALORE);
 
 		PALE_WOOD_PLANKS = block(GoodblockModBlocks.PALE_WOOD_PLANKS);

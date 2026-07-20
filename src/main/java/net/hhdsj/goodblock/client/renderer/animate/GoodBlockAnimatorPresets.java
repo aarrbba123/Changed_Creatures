@@ -6,6 +6,7 @@ import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
 import net.ltxprogrammer.changed.client.renderer.animate.arm.ArmBobAnimator;
 import net.ltxprogrammer.changed.client.renderer.animate.arm.ArmRideAnimator;
 import net.ltxprogrammer.changed.client.renderer.animate.arm.ArmSwimAnimator;
+import net.ltxprogrammer.changed.client.renderer.animate.arm.DoubleArmBobAnimator;
 import net.ltxprogrammer.changed.client.renderer.animate.bipedal.DragonBipedalCreativeFlyAnimator;
 import net.ltxprogrammer.changed.client.renderer.animate.camera.DragonCameraCreativeFlyAnimator;
 import net.ltxprogrammer.changed.client.renderer.animate.tail.DragonTailCreativeFlyAnimator;
@@ -104,6 +105,60 @@ public class GoodBlockAnimatorPresets extends AnimatorPresets {
 
         };
     }
+
+    public static <T extends ChangedEntity, M extends AdvancedHumanoidModel<T>> Consumer<HumanoidAnimator<T, M>>
+    ProtogenNyxarixLike(ModelPart head, ModelPart leftEar, ModelPart rightEar, ModelPart torso,
+                        ModelPart upperLeftArm, ModelPart upperRightArm, ModelPart lowerLeftArm,
+                        ModelPart lowerRightArm, ModelPart tail1, List<ModelPart> tailJoints1,
+                        ModelPart tail2, List<ModelPart> tailJoints2,ModelPart tail3, List<ModelPart> tailJoints3,
+                        List<ModelPart> upperLeftTentacle, List<ModelPart> upperRightTentacle,
+                        List<ModelPart> lowerLeftTentacle, List<ModelPart> lowerRightTentacle,
+                        ModelPart leftLeg, ModelPart leftLegLower, ModelPart leftFoot,
+                        ModelPart leftPad, ModelPart rightLeg, ModelPart rightLegLower,
+                        ModelPart rightFoot, ModelPart rightPad) {
+        return (animator) ->
+                animator
+                .addPreset(wolfBipedal(leftLeg, leftLegLower, leftFoot, leftPad, rightLeg, rightLegLower, rightFoot, rightPad))
+                .addPreset(doubleArmUpperBody(head, torso, upperLeftArm, upperRightArm, lowerLeftArm, lowerRightArm))
+                .addPreset(catTail(tail1, tailJoints1))
+                .addPreset(catTail(tail2, tailJoints2))
+                .addPreset(catTail(tail3, tailJoints3))
+                .addPreset(catEars(leftEar, rightEar))
+                .addPreset(squidDogTentacles(upperLeftTentacle, upperRightTentacle, lowerLeftTentacle, lowerRightTentacle))
+                .addAnimator(new WolfHeadInitAnimator<>(head))
+                .addAnimator(new ArmSwimAnimator<>(upperLeftArm, upperRightArm))
+                .addAnimator(new DoubleArmBobAnimator<>(upperLeftArm, upperRightArm, lowerLeftArm, lowerRightArm))
+                .addAnimator(new ArmRideAnimator<>(upperLeftArm, upperRightArm));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public static <T extends ChangedEntity, M extends AdvancedHumanoidModel<T>> Consumer<HumanoidAnimator<T, M>> FrostScaleTaurDragonWinged
             (ModelPart leftWingRoot, ModelPart leftWingBone1, ModelPart leftWingBone2,ModelPart leftWingBone3,

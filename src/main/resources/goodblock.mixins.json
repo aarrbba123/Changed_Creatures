@@ -10,6 +10,8 @@
     "CrashReportMixin"
   ],
   "client": [
+    "client.gui.GuiMixin",
+    "client.gui.InventoryScreenMixin",
     "Player.CrystalPlayerRendererMixin",
     "Player.HumanoidModelAccessor",
     "Player.MixinParticlePlayerRenderer",

@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "goodblock:sulphurblock",
-    "goodblock:nitreblock",
+    "goodblock:sulphur_block",
+    "goodblock:nitre_block",
     "goodblock:blue_crystal_ore",
-    "goodblock:uraniummineral",
+    "goodblock:uranium_ore",
     "goodblock:blueblock",
     "goodblock:ironhot",
     "goodblock:blackblock",

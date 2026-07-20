@@ -4,6 +4,7 @@
  */
 package net.hhdsj.goodblock.init;
 
+import net.hhdsj.goodblock.client.models.ModelProtogenNyxarix;
 import net.hhdsj.goodblock.client.models.armors.ArmorLatexMaleWolfWingedDragonModel;
 import net.hhdsj.goodblock.client.models.latex_taur.ModelLatexFrostScaleDragonTaur;
 import net.hhdsj.goodblock.client.models.other.TailModel;
@@ -35,7 +36,7 @@ public class GoodblockModModels {
 		event.registerLayerDefinition(Modelbluedragon.LAYER_LOCATION, Modelbluedragon::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexKcahraShark.LAYER_LOCATION, ModelLatexKcahraShark::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexicedragon.LAYER_LOCATION, ModelLatexicedragon::createBodyLayer);
-		event.registerLayerDefinition(DarkfuLatexWolfMale.LAYER_LOCATION, DarkfuLatexWolfMale::createBodyLayer);
+		event.registerLayerDefinition(ModelDarkfuLatexWolfMale.LAYER_LOCATION, ModelDarkfuLatexWolfMale::createBodyLayer);
 		event.registerLayerDefinition(ModelInksuger.LAYER_LOCATION, ModelInksuger::createBodyLayer);
 		//event.registerLayerDefinition(ModelIceFieldWolfDragon.LAYER_LOCATION, ModelIceFieldWolfDragon::createBodyLayer);
 		event.registerLayerDefinition(Modelwhitebluepup.LAYER_LOCATION, Modelwhitebluepup::createBodyLayer);
@@ -74,6 +75,7 @@ public class GoodblockModModels {
 		event.registerLayerDefinition(ModelLatexFrostScaleDragonTaur.LAYER_LOCATION, ModelLatexFrostScaleDragonTaur::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexEmberscalesMagmaDragonMale.LAYER_LOCATION, ModelLatexEmberscalesMagmaDragonMale::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexLuoLongDragonShark.LAYER_LOCATION, ModelLatexLuoLongDragonShark::createBodyLayer);
+		event.registerLayerDefinition(ModelProtogenNyxarix.LAYER_LOCATION, ModelProtogenNyxarix::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexEtanKind.LAYER_LOCATION, ModelLatexEtanKind::createBodyLayer);
 
 		event.registerLayerDefinition(CrystalJavelinModel.LAYER_LOCATION, CrystalJavelinModel::createBodyLayer);

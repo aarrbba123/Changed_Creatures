@@ -2,15 +2,15 @@
   "type": "minecraft:ore",
   "config": {
     "size": 9,
-    "discard_chance_on_air_exposure": 0.0,
+    "discard_chance_on_air_exposure": 0.6,
     "targets": [
       {
         "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:stone"
+          "predicate_type": "minecraft:tag_match",
+          "tag": "minecraft:stone"
         },
         "state": {
-          "Name": "goodblock:sulphurblock"
+          "Name": "goodblock:sulphur_block"
         }
       }
     ]

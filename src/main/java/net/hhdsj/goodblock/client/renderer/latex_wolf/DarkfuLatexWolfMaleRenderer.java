@@ -5,7 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
 import net.hhdsj.goodblock.entity.simple.DarkfuLatexWolfMaleEntity;
-import net.hhdsj.goodblock.client.models.latex_wolf.DarkfuLatexWolfMale;
+import net.hhdsj.goodblock.client.models.latex_wolf.ModelDarkfuLatexWolfMale;
 
 
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;
@@ -16,10 +16,10 @@ import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexMaleWolfM
 import net.ltxprogrammer.changed.util.Color3;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 
-public class DarkfuLatexWolfMaleRenderer extends AdvancedHumanoidRenderer<DarkfuLatexWolfMaleEntity ,DarkfuLatexWolfMale>{
+public class DarkfuLatexWolfMaleRenderer extends AdvancedHumanoidRenderer<DarkfuLatexWolfMaleEntity , ModelDarkfuLatexWolfMale>{
 	public DarkfuLatexWolfMaleRenderer(EntityRendererProvider.Context context) {
 	  //super(context, new LatexBeifengModel(context.bakeLayer(LatexBeifengModel.LAYER_LOCATION)), ArmorLatexMaleDragonModel.MODEL_SET, 0.5f);
-		super(context, new DarkfuLatexWolfMale(context.bakeLayer(DarkfuLatexWolfMale.LAYER_LOCATION)),
+		super(context, new ModelDarkfuLatexWolfMale(context.bakeLayer(ModelDarkfuLatexWolfMale.LAYER_LOCATION)),
 		//	ArmorLatexMaleWolfModel::new, 
             ArmorLatexMaleWolfModel.MODEL_SET, 
             0.5f);	

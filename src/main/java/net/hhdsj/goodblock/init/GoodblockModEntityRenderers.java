@@ -4,6 +4,7 @@
  */
 package net.hhdsj.goodblock.init;
 
+import net.hhdsj.goodblock.client.renderer.ProtogenNyxarixRenderer;
 import net.hhdsj.goodblock.client.renderer.boss.LatexNightOwlBossRenderer;
 import net.hhdsj.goodblock.client.renderer.boss.LatexNightOwlRenderer;
 import net.hhdsj.goodblock.client.renderer.cat.LatexBlueveCatRenderer;
@@ -81,5 +82,6 @@ public class GoodblockModEntityRenderers {
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_EMBERSCALES_MAGMA_DRAGON_MALE.get(), LatexEmberscalesMagmaDragonMaleRenderer::new);
 		//ModelLatexEtanKind
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_ETAN_KIND.get(), LatexEtanKingRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.PROTOGEN_NYXARIX.get(), ProtogenNyxarixRenderer::new);
 	}
 }

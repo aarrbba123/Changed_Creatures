@@ -36,14 +36,14 @@ public class GoodblockModBlocks {
 	public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, GoodblockMod.MODID);
 
 	public static final RegistryObject<Block> LATEX_DEEP_CRYSTAL_DRAGON_DOLL = REGISTRY.register("latex_deep_crystal_dragon_doll", LatexDeepCrystalDragonDollBlock::new);
-	public static final RegistryObject<Block> SULPHURBLOCK = REGISTRY.register("sulphurblock", SulphurblockBlock::new);
-	public static final RegistryObject<Block> NITREBLOCK = REGISTRY.register("nitreblock", NitreblockBlock::new);
-	public static final RegistryObject<Block> URANIUMMINERAL = REGISTRY.register("uraniummineral", UraniummineralBlock::new);
+	public static final RegistryObject<Block> SULPHURBLOCK = REGISTRY.register("sulphur_block", SulphurblockBlock::new);
+	public static final RegistryObject<Block> NITREBLOCK = REGISTRY.register("nitre_block", NitreblockBlock::new);
+	public static final RegistryObject<Block> URANIUM_ORE = REGISTRY.register("uranium_ore", UraniummineralBlock::new);
 	public static final RegistryObject<Block> PALE_WOOD_PLANKS = REGISTRY.register("pale_wood_planks", Pale_woodPlanksBlock::new);
 	public static final RegistryObject<Block> PALE_WOOD_LEAVES = REGISTRY.register("pale_wood_leaves", Pale_woodLeavesBlock::new);
 	public static final RegistryObject<Block> PALE_WOOD_LOG = REGISTRY.register("pale_wood_log", Pale_woodLogBlock::new);
 	public static final RegistryObject<Block> PALE_WOOD_WOOD = REGISTRY.register("pale_wood_wood", Pale_woodWoodBlock::new);
-	public static final RegistryObject<Block> URANIUMBLOCK = REGISTRY.register("uraniumblock", UraniumblockBlock::new);
+	public static final RegistryObject<Block> URANIUMBLOCK = REGISTRY.register("uranium_block", UraniumblockBlock::new);
 	public static final RegistryObject<Block> BLUEBLOCK = REGISTRY.register("blueblock", BlueblockBlock::new);
 	public static final RegistryObject<Block> IRONHOT = REGISTRY.register("ironhot", IronhotBlock::new);
 	public static final RegistryObject<Block> PALE_WOOD_STAIRS = REGISTRY.register("pale_wood_stairs", Pale_woodStairsBlock::new);

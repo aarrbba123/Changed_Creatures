@@ -16,7 +16,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
@@ -30,7 +29,7 @@ import net.ltxprogrammer.changed.client.renderer.model.AdvancedHumanoidModel;
 //Goodblock mod import
 
 
-public class Modelwhitebluepup extends AdvancedHumanoidModel<WhitebluepupEntity>{
+public class ModelWhiteBluePup extends AdvancedHumanoidModel<WhitebluepupEntity>{
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this models's constructor
     public static final ModelLayerLocation LAYER_LOCATION =
             GoodblockMod.GoodBlockModelResourceLocation("whitebluepupunified");
@@ -47,9 +46,9 @@ public class Modelwhitebluepup extends AdvancedHumanoidModel<WhitebluepupEntity>
     private final ModelPart LeftFrontLeg;
     private final ModelPart Body;
 
-    private final HumanoidAnimator<WhitebluepupEntity, Modelwhitebluepup> animator;
+    private final HumanoidAnimator<WhitebluepupEntity, ModelWhiteBluePup> animator;
 
-    public Modelwhitebluepup(ModelPart root) {
+    public ModelWhiteBluePup(ModelPart root) {
         super(root);
         this.RightLeg = root.getChild("RightLeg");
 		this.LeftLeg = root.getChild("LeftLeg");
@@ -287,7 +286,7 @@ public class Modelwhitebluepup extends AdvancedHumanoidModel<WhitebluepupEntity>
     }
 
     @Override
-    public HumanoidAnimator<WhitebluepupEntity, Modelwhitebluepup> getAnimator(WhitebluepupEntity entity) {
+    public HumanoidAnimator<WhitebluepupEntity, ModelWhiteBluePup> getAnimator(WhitebluepupEntity entity) {
         return animator;
     }
 }

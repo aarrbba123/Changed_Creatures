@@ -2,7 +2,6 @@ package net.hhdsj.goodblock.client.models.latex_wolf;
 
 import net.hhdsj.goodblock.GoodblockMod;
 import net.hhdsj.goodblock.entity.simple.LatexpurplewswolfEntity;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
@@ -32,7 +31,7 @@ import java.util.List;
 // Made with Blockbench 4.11.2
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
-public class ModelLatexpurplewswolf extends AdvancedHumanoidModel<LatexpurplewswolfEntity>{
+public class ModelLatexPurpleWsWolf extends AdvancedHumanoidModel<LatexpurplewswolfEntity>{
 	// This layer location should be baked with EntityRendererProvider.Context in
 	// the entity renderer and passed into this models's constructor
 	public static final ModelLayerLocation LAYER_LOCATION =
@@ -44,9 +43,9 @@ public class ModelLatexpurplewswolf extends AdvancedHumanoidModel<Latexpurplewsw
 	public final ModelPart RightArm;
 	public final ModelPart LeftArm;
 	public final ModelPart Tail;
-	public final HumanoidAnimator<LatexpurplewswolfEntity, ModelLatexpurplewswolf> animator;
+	public final HumanoidAnimator<LatexpurplewswolfEntity, ModelLatexPurpleWsWolf> animator;
 
-	public ModelLatexpurplewswolf(ModelPart root) {
+	public ModelLatexPurpleWsWolf(ModelPart root) {
 		super(root);
 		this.RightLeg = root.getChild("RightLeg");
 		this.LeftLeg = root.getChild("LeftLeg");
@@ -242,7 +241,7 @@ public class ModelLatexpurplewswolf extends AdvancedHumanoidModel<Latexpurplewsw
     }
 
 	 @Override
-    public HumanoidAnimator<LatexpurplewswolfEntity, ModelLatexpurplewswolf> getAnimator(LatexpurplewswolfEntity entity) {
+    public HumanoidAnimator<LatexpurplewswolfEntity, ModelLatexPurpleWsWolf> getAnimator(LatexpurplewswolfEntity entity) {
         return this.animator;
     }
 

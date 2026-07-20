@@ -16,7 +16,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
@@ -30,10 +29,10 @@ import net.ltxprogrammer.changed.client.renderer.model.AdvancedHumanoidModel;
 //Goodblock mod import
 
 
-public class Modelblackpupmale extends AdvancedHumanoidModel<BlackpupmaleEntity>{
+public class ModelBlackPupMale extends AdvancedHumanoidModel<BlackpupmaleEntity>{
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this models's constructor
     public static final ModelLayerLocation LAYER_LOCATION =
-            GoodblockMod.GoodBlockModelResourceLocation("blackpupunified");
+            GoodblockMod.GoodBlockModelResourceLocation("black_pup_unified");
     public final ModelPart RightLeg;
 	public final ModelPart LeftLeg;
 	public final ModelPart Head;
@@ -47,9 +46,9 @@ public class Modelblackpupmale extends AdvancedHumanoidModel<BlackpupmaleEntity>
     private final ModelPart LeftFrontLeg;
     private final ModelPart Body;
 
-    private final HumanoidAnimator<BlackpupmaleEntity, Modelblackpupmale> animator;
+    private final HumanoidAnimator<BlackpupmaleEntity, ModelBlackPupMale> animator;
 
-    public Modelblackpupmale(ModelPart root) {
+    public ModelBlackPupMale(ModelPart root) {
         super(root);
         this.RightLeg = root.getChild("RightLeg");
 		this.LeftLeg = root.getChild("LeftLeg");
@@ -279,7 +278,7 @@ public class Modelblackpupmale extends AdvancedHumanoidModel<BlackpupmaleEntity>
     }
 
     @Override
-    public HumanoidAnimator<BlackpupmaleEntity, Modelblackpupmale> getAnimator(BlackpupmaleEntity entity) {
+    public HumanoidAnimator<BlackpupmaleEntity, ModelBlackPupMale> getAnimator(BlackpupmaleEntity entity) {
         return animator;
     }
 }

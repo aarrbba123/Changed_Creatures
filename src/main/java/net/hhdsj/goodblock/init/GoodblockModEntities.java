@@ -92,6 +92,7 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<LatexDawnWolfEntity>> LATEX_DAWN_WOLF;
     public static final RegistryObject<EntityType<LatexDuskDawnDragonEntity>> LATEX_DUSK_DAWN_DRAGON;
     public static final RegistryObject<EntityType<LatexDuskDawnDragonFemaleEntity>> LATEX_DUSK_DAWN_DRAGON_FEMALE;
+    public static final RegistryObject<EntityType<LatexSteppenWolfEntity>> LATEX_STEPPEN_WOLF;
 
     // 幼崽变体
     public static final RegistryObject<EntityType<BlackpupmaleEntity>> BLACKPUPMALE;
@@ -133,6 +134,14 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<ProtogenNyxarixEntity>> PROTOGEN_NYXARIX;
     
     static {
+        LATEX_STEPPEN_WOLF = registerSpawning("latex_steppen_wolf", 0x303030, 0xffffff,
+                EntityType.Builder.<LatexSteppenWolfEntity>of(LatexSteppenWolfEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .sized(0.6f, 1.92f),
+                LatexSteppenWolfEntity::createLatexAttributes);
+        
         PROTOGEN_NYXARIX = registerSpawning("protogen_nyxarix", 0x050505, 0x00ffff,
                 EntityType.Builder.<ProtogenNyxarixEntity>of(ProtogenNyxarixEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)

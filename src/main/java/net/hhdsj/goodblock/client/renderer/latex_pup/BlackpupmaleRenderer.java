@@ -5,7 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
 import net.hhdsj.goodblock.entity.simple.BlackpupmaleEntity;
-import net.hhdsj.goodblock.client.models.latex_pup.Modelblackpupmale;
+import net.hhdsj.goodblock.client.models.latex_pup.ModelBlackPupMale;
 
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;
 import net.ltxprogrammer.changed.client.renderer.layers.LatexParticlesLayer;
@@ -15,9 +15,9 @@ import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.minecraft.world.entity.Pose;
 
 
-public class BlackpupmaleRenderer extends AdvancedHumanoidRenderer<BlackpupmaleEntity, Modelblackpupmale> {
+public class BlackpupmaleRenderer extends AdvancedHumanoidRenderer<BlackpupmaleEntity, ModelBlackPupMale> {
 	public BlackpupmaleRenderer (EntityRendererProvider.Context context) {
-		super(context, new Modelblackpupmale(context.bakeLayer(Modelblackpupmale.LAYER_LOCATION)),
+		super(context, new ModelBlackPupMale(context.bakeLayer(ModelBlackPupMale.LAYER_LOCATION)),
 				//ArmorNoneModel::new, 
 				ArmorNoneModel.MODEL_SET, 
 				0.4F);

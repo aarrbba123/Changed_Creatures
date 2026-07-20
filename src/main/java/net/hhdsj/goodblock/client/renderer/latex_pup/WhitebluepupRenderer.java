@@ -4,7 +4,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
 import net.hhdsj.goodblock.entity.simple.WhitebluepupEntity;
-import net.hhdsj.goodblock.client.models.latex_pup.Modelwhitebluepup;
+import net.hhdsj.goodblock.client.models.latex_pup.ModelWhiteBluePup;
 
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;
 import net.ltxprogrammer.changed.client.renderer.layers.LatexParticlesLayer;
@@ -12,9 +12,9 @@ import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorNoneModel;
 import net.ltxprogrammer.changed.util.Color3;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 
-public class WhitebluepupRenderer extends AdvancedHumanoidRenderer<WhitebluepupEntity, Modelwhitebluepup> {
+public class WhitebluepupRenderer extends AdvancedHumanoidRenderer<WhitebluepupEntity, ModelWhiteBluePup> {
 	public WhitebluepupRenderer (EntityRendererProvider.Context context) {
-		super(context, new Modelwhitebluepup(context.bakeLayer(Modelwhitebluepup.LAYER_LOCATION)),
+		super(context, new ModelWhiteBluePup(context.bakeLayer(ModelWhiteBluePup.LAYER_LOCATION)),
 				ArmorNoneModel.MODEL_SET, 
 				0.4F);
 		this.addLayer(new LatexParticlesLayer<>(this, this.model));

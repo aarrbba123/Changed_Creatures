@@ -5,7 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
 import net.hhdsj.goodblock.entity.simple.LatexthreemonthwolfEntity;
-import net.hhdsj.goodblock.client.models.latex_wolf.ModelLatexthreemonthwolf;
+import net.hhdsj.goodblock.client.models.latex_wolf.ModelLatexThreeMonthWolf;
 
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;
 import net.ltxprogrammer.changed.client.renderer.layers.GasMaskLayer;
@@ -17,10 +17,10 @@ import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexMaleCatMo
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 
 
-public class LatexthreemonthwolfRenderer extends AdvancedHumanoidRenderer<LatexthreemonthwolfEntity, ModelLatexthreemonthwolf> {
+public class LatexthreemonthwolfRenderer extends AdvancedHumanoidRenderer<LatexthreemonthwolfEntity, ModelLatexThreeMonthWolf> {
 
 	public LatexthreemonthwolfRenderer(EntityRendererProvider.Context context) {
-		super(context, new ModelLatexthreemonthwolf(context.bakeLayer(ModelLatexthreemonthwolf.LAYER_LOCATION)), 
+		super(context, new ModelLatexThreeMonthWolf(context.bakeLayer(ModelLatexThreeMonthWolf.LAYER_LOCATION)),
 		ArmorLatexMaleCatModel.MODEL_SET, 0.5f);
         this.addLayer(new LatexParticlesLayer<>(this, getModel()));
         this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()));

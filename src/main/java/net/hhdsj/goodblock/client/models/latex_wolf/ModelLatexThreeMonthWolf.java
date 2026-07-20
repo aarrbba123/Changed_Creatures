@@ -2,7 +2,6 @@ package net.hhdsj.goodblock.client.models.latex_wolf;
 
 import net.hhdsj.goodblock.GoodblockMod;
 import net.hhdsj.goodblock.entity.simple.LatexthreemonthwolfEntity;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
@@ -32,7 +31,7 @@ import java.util.List;
 // Made with Blockbench 4.11.2
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
-public class ModelLatexthreemonthwolf extends AdvancedHumanoidModel<LatexthreemonthwolfEntity>{
+public class ModelLatexThreeMonthWolf extends AdvancedHumanoidModel<LatexthreemonthwolfEntity>{
 	// This layer location should be baked with EntityRendererProvider.Context in
 	// the entity renderer and passed into this models's constructor
 	public static final ModelLayerLocation LAYER_LOCATION =
@@ -44,9 +43,9 @@ public class ModelLatexthreemonthwolf extends AdvancedHumanoidModel<Latexthreemo
 	public final ModelPart RightArm;
 	public final ModelPart LeftArm;
 	public final ModelPart Tail;
-	public final HumanoidAnimator<LatexthreemonthwolfEntity, ModelLatexthreemonthwolf> animator;
+	public final HumanoidAnimator<LatexthreemonthwolfEntity, ModelLatexThreeMonthWolf> animator;
 
-	public ModelLatexthreemonthwolf(ModelPart root) {
+	public ModelLatexThreeMonthWolf(ModelPart root) {
 		super(root);
 		this.RightLeg = root.getChild("RightLeg");
 		this.LeftLeg = root.getChild("LeftLeg");
@@ -242,7 +241,7 @@ public class ModelLatexthreemonthwolf extends AdvancedHumanoidModel<Latexthreemo
     }
 
 	 @Override
-    public HumanoidAnimator<LatexthreemonthwolfEntity, ModelLatexthreemonthwolf> getAnimator(LatexthreemonthwolfEntity entity) {
+    public HumanoidAnimator<LatexthreemonthwolfEntity, ModelLatexThreeMonthWolf> getAnimator(LatexthreemonthwolfEntity entity) {
         return this.animator;
     }
 

@@ -1,5 +1,6 @@
 package net.hhdsj.goodblock.client.models.latex_dragon;
 
+import net.hhdsj.goodblock.GoodblockMod;
 import net.hhdsj.goodblock.entity.simple.LatexLuoLongDragonSharkEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.model.geom.builders.PartDefinition;
@@ -33,7 +34,8 @@ import java.util.List;
 public class ModelLatexLuoLongDragonShark extends AdvancedHumanoidModel<LatexLuoLongDragonSharkEntity> {//implements AdvancedHumanoidModelInterface<LatexLuoLongDragonSharkEntity, ModelLatexLuoLongDragonShark> {//<T extends Entity> extends EntityModel<T> {
     // This layer location should be baked with EntityRendererProvider.Context in
     // the entity renderer and passed into this models's constructor
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "latex_luolong_dragon_shark"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION =
+            GoodblockMod.GoodBlockModelResourceLocation("latex_luolong_dragon_shark");
     public final ModelPart RightLeg;
     public final ModelPart LeftLeg;
     public final ModelPart Head;

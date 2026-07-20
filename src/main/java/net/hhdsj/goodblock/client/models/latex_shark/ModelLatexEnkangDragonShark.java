@@ -2,6 +2,7 @@ package net.hhdsj.goodblock.client.models.latex_shark;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.hhdsj.goodblock.GoodblockMod;
 import net.hhdsj.goodblock.entity.simple.LatexEnkangDragonSharkEntity;
 import net.ltxprogrammer.changed.client.CameraExtender;
 import net.ltxprogrammer.changed.client.renderer.animate.AnimatorPresets;
@@ -23,7 +24,8 @@ import java.util.List;
 // Paste this class into your mod and generate all required imports
 public class ModelLatexEnkangDragonShark extends AdvancedHumanoidModel<LatexEnkangDragonSharkEntity> {// This layer location should be baked with EntityRendererProvider.Context in
     // the entity renderer and passed into this models's constructor
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "latex_enkang_dragon_shark"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION =
+            GoodblockMod.GoodBlockModelResourceLocation("latex_enkang_dragon_shark");
     public final ModelPart RightLeg;
     public final ModelPart LeftLeg;
     public final ModelPart Head;

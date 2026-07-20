@@ -1,5 +1,6 @@
 package net.hhdsj.goodblock.client.models.armors;
 
+import net.hhdsj.goodblock.GoodblockMod;
 import net.ltxprogrammer.changed.client.renderer.animate.AnimatorPresets;
 import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorModel;
@@ -25,7 +26,8 @@ import net.minecraft.world.item.ItemStack;
 import java.util.List;
 
 public class GoodBlockModelMaleWingedDragonArmor<T extends ChangedEntity> extends LatexHumanoidArmorModel<T, GoodBlockModelMaleWingedDragonArmor<T>> {
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "model_unified_male_winged_dragon_armor"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION =
+			GoodblockMod.GoodBlockModelResourceLocation("model_unified_male_winged_dragon_armor");
 	/*public static final ArmorModelSet<ChangedEntity, GoodBlockModelMaleWingedDragonArmor<ChangedEntity>> MODEL_SET =
 			ArmorModelSet.of(Changed.modResource("armor_latex_male_winged_dragon_armor"),
 					GoodBlockModelMaleWingedDragonArmor::createBodyLayer,

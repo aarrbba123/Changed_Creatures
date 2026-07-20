@@ -2,6 +2,7 @@ package net.hhdsj.goodblock.client.models.other;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.hhdsj.goodblock.GoodblockMod;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -12,7 +13,7 @@ import net.minecraft.world.entity.Entity;
 
 public class CrystalJavelinModel<T extends Entity> extends EntityModel<T> {
     public static final ModelLayerLocation LAYER_LOCATION =
-            new ModelLayerLocation(new ResourceLocation("goodblock", "crystal_javelin"), "main");
+            GoodblockMod.GoodBlockModelResourceLocation("crystal_javelin");
     private final ModelPart bb_main;
 
     public CrystalJavelinModel(ModelPart root) {

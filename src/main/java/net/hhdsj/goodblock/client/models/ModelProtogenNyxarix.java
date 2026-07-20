@@ -2,6 +2,7 @@ package net.hhdsj.goodblock.client.models;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.hhdsj.goodblock.GoodblockMod;
 import net.hhdsj.goodblock.client.renderer.animate.GoodBlockAnimatorPresets;
 import net.hhdsj.goodblock.entity.simple.ProtogenNyxarixEntity;
 import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
@@ -22,7 +23,8 @@ import java.util.List;
 
 @OnlyIn(Dist.CLIENT)
 public class ModelProtogenNyxarix extends AdvancedHumanoidModel<ProtogenNyxarixEntity> implements DoubleArmedModel<ProtogenNyxarixEntity> {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "protogen_nyxarix"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION =
+            GoodblockMod.GoodBlockModelResourceLocation("protogen_nyxarix");
 
     public final ModelPart RightLeg;
     public final ModelPart LeftLeg;

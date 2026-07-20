@@ -1,5 +1,6 @@
 package net.hhdsj.goodblock.client.models.latex_dragon;
 
+import net.hhdsj.goodblock.GoodblockMod;
 import net.hhdsj.goodblock.entity.simple.LatexyunxqicedragonEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.model.geom.builders.PartDefinition;
@@ -34,7 +35,8 @@ import java.util.List;
 public class ModelLatexiceredDragonUnified_bw extends AdvancedHumanoidModel<LatexyunxqicedragonEntity>{//<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in
 	// the entity renderer and passed into this models's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "latexyunqiicebluedragonunified-bigwind"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION =
+			GoodblockMod.GoodBlockModelResourceLocation("latex_yun_qi_ice_blue_dragon_bigwind");
 	public final ModelPart RightLeg;
 	public final ModelPart LeftLeg;
 	public final ModelPart Head;

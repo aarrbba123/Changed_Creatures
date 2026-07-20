@@ -2,6 +2,7 @@ package net.hhdsj.goodblock.client.models.latex_dragon;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.hhdsj.goodblock.GoodblockMod;
 import net.hhdsj.goodblock.entity.simple.LatexDuskDawnDragonFemaleEntity;
 import net.ltxprogrammer.changed.client.renderer.animate.AnimatorPresets;
 import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
@@ -19,7 +20,8 @@ import java.util.List;
 public class ModelLatexDuskDawnDragonFemale extends AdvancedHumanoidModel<LatexDuskDawnDragonFemaleEntity>{
 	// This layer location should be baked with EntityRendererProvider.Context in
 	// the entity renderer and passed into this models's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "latex_dusk_dawn_dragon/female"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION =
+			GoodblockMod.GoodBlockModelResourceLocation("latex_dusk_dawn_dragon/female");
 	public final ModelPart RightLeg;
 	public final ModelPart LeftLeg;
 	public final ModelPart Head;

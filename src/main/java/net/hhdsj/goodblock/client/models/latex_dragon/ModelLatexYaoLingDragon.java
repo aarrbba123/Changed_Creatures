@@ -22,7 +22,8 @@ import java.util.List;
 public class ModelLatexYaoLingDragon extends AdvancedHumanoidModel<LatexYaoLingDragonEntity>{
 	// This layer location should be baked with EntityRendererProvider.Context in
 	// the entity renderer and passed into this models's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(GoodblockMod.GoodBlockResourceLocation("model_latex_yao_ling_dragon"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION =
+			GoodblockMod.GoodBlockModelResourceLocation("latex_yao_ling_dragon");
 	public final ModelPart RightLeg;
 	public final ModelPart LeftLeg;
 	public final ModelPart Head;

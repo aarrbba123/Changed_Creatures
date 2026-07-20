@@ -2,6 +2,7 @@ package net.hhdsj.goodblock.client.models.cat;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.hhdsj.goodblock.GoodblockMod;
 import net.hhdsj.goodblock.entity.simple.LatexBlueveCatEntity;
 import net.ltxprogrammer.changed.client.renderer.animate.AnimatorPresets;
 import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
@@ -20,7 +21,8 @@ import java.util.List;
 
 @OnlyIn(Dist.CLIENT)
 public class ModelLatexBlueveCat extends AdvancedHumanoidModel<LatexBlueveCatEntity> {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "latex_blueve_cat"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION =
+            GoodblockMod.GoodBlockModelResourceLocation("latex_blueve_cat");
 
     public final ModelPart RightLeg;
     public final ModelPart LeftLeg;

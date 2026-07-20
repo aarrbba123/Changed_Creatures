@@ -1,5 +1,6 @@
 package net.hhdsj.goodblock.client.models.latex_dragon;
 
+import net.hhdsj.goodblock.GoodblockMod;
 import net.hhdsj.goodblock.client.renderer.animate.GoodBlockAnimatorPresets;
 import net.hhdsj.goodblock.entity.simple.LatexLuoHongEarlySpringFoxDragonEntity;
 import net.minecraft.resources.ResourceLocation;
@@ -32,7 +33,8 @@ import java.util.List;
 public class ModelLuoHongEarlySpringFoxDragon extends AdvancedHumanoidModel<LatexLuoHongEarlySpringFoxDragonEntity>{//<T extends Entity> extends EntityModel<T> {
     // This layer location should be baked with EntityRendererProvider.Context in
     // the entity renderer and passed into this models's constructor
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "latex_luo_hong_early_spring_fox_dragon"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION =
+			GoodblockMod.GoodBlockModelResourceLocation("latex_luo_hong_early_spring_fox_dragon");
     public final ModelPart RightLeg;
     public final ModelPart LeftLeg;
     public final ModelPart Head;

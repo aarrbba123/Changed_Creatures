@@ -5,13 +5,14 @@ license="MIT License"
 [[mods]]
 modId="goodblock"
 displayName="Changed:goodblock-1.20.1"
-version="1.2.3-Beta"
+version="1.2.3"
 credits="§bModel help:\n逸云,洛虹·早春,ChengXi程曦,Zirconia Hui(锆晖)\n§rDev help: 缘来007"
 displayURL="https://github.com/hhdsjgit/Good-blocks"
 logoFile="logo.png"
 authors="§4Goodtimes2"
 description='''
 Some of the content additions to Changed addon plus and Changed :<
+And Changed is my favourite mod so I make a lot of things to Changed(-mc) mod
 '''
 
 [[dependencies.goodblock]]

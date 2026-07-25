@@ -33,7 +33,7 @@ import java.util.List;
 public class ModelLatexicedragon extends AdvancedHumanoidModel<LatexiceDragonEntity>{
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this models's constructor
     public static final ModelLayerLocation LAYER_LOCATION =
-            GoodblockMod.GoodBlockModelResourceLocation("goodblock", "latexfruitdragonunified");
+            GoodblockMod.GoodBlockModelResourceLocation("latex_fruit_dragon");
     private final ModelPart LeftLeg;
     public final ModelPart RightLeg;
     private final ModelPart RightArm;

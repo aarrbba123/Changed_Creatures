@@ -87,7 +87,7 @@ public class GoodblockModModels {
 
 		event.registerLayerDefinition(GoodblockModModelLayers.TAIL_LAYER, TailModel::createBodyLayer);
 
-
+		event.registerLayerDefinition(ModelLatexPeanutButterWolf.LAYER_LOCATION, ModelLatexPeanutButterWolf::createBodyLayer);
 	}
 
 

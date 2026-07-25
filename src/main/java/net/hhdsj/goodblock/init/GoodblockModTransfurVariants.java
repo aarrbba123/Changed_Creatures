@@ -28,6 +28,20 @@ import java.util.stream.Stream;
 @SuppressWarnings("unused")
 public class GoodblockModTransfurVariants {
     public static final DeferredRegister<TransfurVariant<?>> REGISTRY = ChangedRegistry.TRANSFUR_VARIANT.createDeferred("goodblock");
+	//LATEX_PEAUNT_BUTTER_WOLF
+	public static final RegistryObject<TransfurVariant<LatexPeanutButterWolfEntity>> LATEX_PEAUNT_BUTTER_WOLF =
+			REGISTRY.register("form_latex_peaunt_butter_wolf", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEX_PEAUNT_BUTTER_WOLF)
+					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.scares(List.of(Creeper.class, Villager.class))
+					.build());
+
+	//LATEX_STEPPEN_WOLF
+	public static final RegistryObject<TransfurVariant<LatexSteppenWolfEntity>> LATEX_STEPPEN_WOLF =
+			REGISTRY.register("form_latex_steppen_wolf", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEX_STEPPEN_WOLF)
+					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.scares(List.of(Creeper.class, Zoglin.class, ZombieVillager.class, EnderMan.class))
+					.build());
+
 	//PROTOGEN_NYXARIX
 	public static final RegistryObject<TransfurVariant<ProtogenNyxarixEntity>> PROTOGEN_NYXARIX =
 			REGISTRY.register("form_protogen_nyxarix", () -> TransfurVariant.Builder.of(GoodblockModEntities.PROTOGEN_NYXARIX)

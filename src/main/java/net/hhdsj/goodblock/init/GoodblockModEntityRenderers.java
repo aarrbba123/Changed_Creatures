@@ -84,5 +84,6 @@ public class GoodblockModEntityRenderers {
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_ETAN_KIND.get(), LatexEtanKingRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.PROTOGEN_NYXARIX.get(), ProtogenNyxarixRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_STEPPEN_WOLF.get(), LatexSteppenWolfRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.LATEX_PEAUNT_BUTTER_WOLF.get(), LatexPeanutButterWolfRenderer::new);
 	}
 }

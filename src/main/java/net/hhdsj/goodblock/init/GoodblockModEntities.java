@@ -93,6 +93,7 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<LatexDuskDawnDragonEntity>> LATEX_DUSK_DAWN_DRAGON;
     public static final RegistryObject<EntityType<LatexDuskDawnDragonFemaleEntity>> LATEX_DUSK_DAWN_DRAGON_FEMALE;
     public static final RegistryObject<EntityType<LatexSteppenWolfEntity>> LATEX_STEPPEN_WOLF;
+    public static final RegistryObject<EntityType<LatexPeanutButterWolfEntity>> LATEX_PEAUNT_BUTTER_WOLF;
 
     // 幼崽变体
     public static final RegistryObject<EntityType<BlackpupmaleEntity>> BLACKPUPMALE;
@@ -134,6 +135,14 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<ProtogenNyxarixEntity>> PROTOGEN_NYXARIX;
     
     static {
+        LATEX_PEAUNT_BUTTER_WOLF = registerSpawning("latex_peaunt_butter_wolf", 0x303030, 0xffffff,
+                EntityType.Builder.<LatexPeanutButterWolfEntity>of(LatexPeanutButterWolfEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .sized(0.6f, 1.92f),
+                LatexPeanutButterWolfEntity::createLatexAttributes);
+
         LATEX_STEPPEN_WOLF = registerSpawning("latex_steppen_wolf", 0x303030, 0xffffff,
                 EntityType.Builder.<LatexSteppenWolfEntity>of(LatexSteppenWolfEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
@@ -164,7 +173,7 @@ public class GoodblockModEntities {
         LATEX_FROST_SCALE_DRAGON_TAUR = registerSpawning("latex_frost_scale_dragon_taur", 0x232323, 0x00ffff,
                 EntityType.Builder.<LatexFrostScaleDragonTaurEntity>of(LatexFrostScaleDragonTaurEntity::new, MobCategory.MONSTER)
                         .clientTrackingRange(10)
-                        .sized(1.6f, 2.5f),
+                        .sized(1.4f, 2.5f),
                 LatexFrostScaleDragonTaurEntity::createLatexAttributes);
 
         LATEX_CRYSTAL_JELLY = registerSpawning("latex_crystal_jelly_dragon", 0x1c408f, 0x42d3ff,

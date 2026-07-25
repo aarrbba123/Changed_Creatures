@@ -31,7 +31,10 @@
     "goodblock:latex_blueve_cat",
     "goodblock:latex_crystal_jelly_dragon",
     "goodblock:latex_dusk_dawn_wolf_female",
-    "goodblock:latex_dusk_dawn_wolf"
+    "goodblock:latex_dusk_dawn_wolf",
+    "goodblock:latex_steppen_wolf",
+    "goodblock:latex_peaunt_butter_wolf",
+    "goodblock:latex_emberscales_magma_dragon_male"
 
   ],
   "slots": [

@@ -27,7 +27,7 @@ public class ModelLatexCrystalJellyDragon extends AdvancedHumanoidModel<LatexCry
 	// This layer location should be baked with EntityRendererProvider.Context in
 	// the entity renderer and passed into this models's constructor
 	public static final ModelLayerLocation LAYER_LOCATION =
-			GoodblockMod.GoodBlockModelResourceLocation("latexdeepcrystaldragon"));
+			GoodblockMod.GoodBlockModelResourceLocation("latex_deep_crystal_dragon");
 	public final ModelPart RightLeg;
 	public final ModelPart LeftLeg;
 	public final ModelPart Head;

@@ -22,7 +22,7 @@ import java.util.List;
 public class ModelLatexFrostScaleDragonTaur extends AdvancedHumanoidModel<LatexFrostScaleDragonTaurEntity> implements LowerTorsoedModel {
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this models's constructor
     public static final ModelLayerLocation LAYER_LOCATION =
-            GoodblockMod.GoodBlockModelResourceLocation("goodblock:latex_frost_scale_dragon_taur");
+            GoodblockMod.GoodBlockModelResourceLocation("latex_frost_scale_dragon_taur");
     private final ModelPart FrontRightLeg;
     private final ModelPart FrontLeftLeg;
     private final ModelPart BackRightLeg;

@@ -1,6 +1,7 @@
 package net.hhdsj.goodblock.abilities;
 
 import net.ltxprogrammer.changed.ability.IAbstractChangedEntity;
+import net.ltxprogrammer.changed.entity.variant.TransfurVariant;
 import net.ltxprogrammer.changed.process.ProcessTransfur;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -8,7 +9,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 
-public class LatexConfusedAbility extends BetterHypnosisAbility{
+public class LatexConfusedAbility extends BetterHypnosisAbility {
+    TransfurVariant<?> selfVariant = null;
+    private static final double RANGE = 7.0;
+    private static final float TRANSFUR_INCREMENT = 0.02f;
+
     @Override
     public void tick(IAbstractChangedEntity entity) {
         LivingEntity self = entity.getEntity();
@@ -16,16 +21,46 @@ public class LatexConfusedAbility extends BetterHypnosisAbility{
 
         ACTIVE_USERS.put(self, level.getGameTime());
 
-        for (Entity entityiterator : level.getEntities((Entity) entity, new AABB((self.xo - 7), (self.yo - 7), (self.zo - 7), (self.xo + 7), (self.yo + 7), (self.zo + 7)))) {
+        if (self instanceof Player player) {
+            var variantInstance = ProcessTransfur.getPlayerTransfurVariant(player);
+            if (variantInstance != null) {
+                selfVariant = variantInstance.getParent();
+            }
+        }
+
+        if (selfVariant == null) {
+            super.tick(entity);
+            return;
+        }
+
+        AABB aabb = new AABB(
+                self.getX() - RANGE,
+                self.getY() - RANGE,
+                self.getZ() - RANGE,
+                self.getX() + RANGE,
+                self.getY() + RANGE,
+                self.getZ() + RANGE
+        );
+
+        for (Entity entityiterator : level.getEntities(self, aabb)) {
             if (entityiterator instanceof Player player) {
-                if (!(ProcessTransfur.getPlayerTransfurProgress(player) > 0f)) {
-                    return;
-                }
-                if (ProcessTransfur.getPlayerTransfurVariant(player) == null) {
-                    ProcessTransfur.setPlayerTransfurProgress(player, ProcessTransfur.getPlayerTransfurProgress(player) + 0.02f);
+                // 跳过已转化
+                if (ProcessTransfur.getPlayerTransfurProgress(player) > 0f) continue;
+
+                var playerVariantInstance = ProcessTransfur.getPlayerTransfurVariant(player);
+                TransfurVariant<?> playerVariant = playerVariantInstance != null ? playerVariantInstance.getParent() : null;
+
+                if (playerVariant == null) {
+                    ProcessTransfur.setPlayerTransfurVariant(player, selfVariant);
+                    ProcessTransfur.setPlayerTransfurProgress(player, TRANSFUR_INCREMENT);
+                } else {
+                    float currentProgress = ProcessTransfur.getPlayerTransfurProgress(player);
+                    float newProgress = Math.min(currentProgress + TRANSFUR_INCREMENT, 1.0f);
+                    ProcessTransfur.setPlayerTransfurProgress(player, newProgress);
                 }
             }
         }
+
         super.tick(entity);
     }
 }

@@ -154,7 +154,7 @@ public class GoodblockModItems {
 		BLOCKBW_2 = block(GoodblockModBlocks.BLOCKBW_2);
 
 		// -------------------- 普通物品初始化 --------------------
-		Latex_Night_Owl_Goo_Item = ITEMS.register("latex_night_owl_goo_item", LatexNghtOwlGooItem::new);
+		Latex_Night_Owl_Goo_Item = ITEMS.register("latex_night_owl_goo", LatexNghtOwlGooItem::new);
 		SULPHUR = ITEMS.register("sulphur", SulphurItem::new);
 		NITRICACID = ITEMS.register("nitricacid", NitricacidItem::new);
 		IMPUREURANIUM = ITEMS.register("impureuranium", ImpureuraniumItem::new);

@@ -135,7 +135,7 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<ProtogenNyxarixEntity>> PROTOGEN_NYXARIX;
     
     static {
-        LATEX_PEAUNT_BUTTER_WOLF = registerSpawning("latex_peaunt_butter_wolf", 0x303030, 0xffffff,
+        LATEX_PEAUNT_BUTTER_WOLF = registerSpawning("latex_peaunt_butter_wolf", 0xFDCD6E, 0xFEF19B,
                 EntityType.Builder.<LatexPeanutButterWolfEntity>of(LatexPeanutButterWolfEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)

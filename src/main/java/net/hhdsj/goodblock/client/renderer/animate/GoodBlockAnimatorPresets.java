@@ -81,6 +81,29 @@ public class GoodBlockAnimatorPresets extends AnimatorPresets {
     }
 
     public static <T extends ChangedEntity, M extends AdvancedHumanoidModel<T>> @NotNull Consumer<HumanoidAnimator<T, M>>
+    WingedWolfDragonArmor(ModelPart head, ModelPart torso, ModelPart leftArm, ModelPart rightArm,
+                          ModelPart leftLeg, ModelPart leftLegLower,
+                         ModelPart leftFoot, ModelPart leftPad, ModelPart rightLeg, ModelPart rightLegLower,
+                         ModelPart rightFoot, ModelPart rightPad, ModelPart leftWingRoot, ModelPart leftWingBone1,
+                         ModelPart leftWingBone2, ModelPart rightWingRoot, ModelPart rightWingBone1, ModelPart rightWingBone2) {
+        return (animator) -> {
+            animator.addPreset(dragonBipedal(leftLeg, leftLegLower, leftFoot, leftPad,
+                            rightLeg, rightLegLower, rightFoot, rightPad))
+                    .addPreset(dragonWingedUpperBody(head, torso, leftArm, rightArm))
+                    .addPreset(dragonWinged(leftWingRoot, leftWingBone1, leftWingBone2,
+                            rightWingRoot, rightWingBone1, rightWingBone2))
+                    .addAnimator(new DragonBipedalCreativeFlyAnimator<>(leftLeg, leftLegLower, leftFoot, leftPad,
+                            rightLeg, rightLegLower, rightFoot, rightPad))
+                    .addAnimator(new DragonHeadCreativeFlyAnimator<>(head))
+                    .addAnimator(new DragonHeadInitAnimator<>(head))
+                    .addAnimator(new ArmSwimAnimator<>(leftArm, rightArm))
+                    .addAnimator(new ArmBobAnimator<>(leftArm, rightArm))
+                    .addAnimator(new ArmRideAnimator<>(leftArm, rightArm))
+                    .addCameraAnimator(new DragonCameraCreativeFlyAnimator<>());
+        };
+    }
+
+    public static <T extends ChangedEntity, M extends AdvancedHumanoidModel<T>> @NotNull Consumer<HumanoidAnimator<T, M>>
     FrostScaleDragonTaurLike(ModelPart head, ModelPart leftEar, ModelPart rightEar, ModelPart torso, ModelPart leftArm, ModelPart rightArm,
                    ModelPart lowerTorso, ModelPart frontLeftLeg, ModelPart frontLeftLegLower, ModelPart frontLeftFoot,
                    ModelPart frontRightLeg, ModelPart frontRightLegLower, ModelPart frontRightFoot, ModelPart backLeftLeg,

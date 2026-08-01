@@ -2,6 +2,9 @@ package net.hhdsj.goodblock.client.models.armors;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.hhdsj.goodblock.GoodblockMod;
+import net.hhdsj.goodblock.client.renderer.animate.GoodBlockAnimatorPresets;
+import net.hhdsj.goodblock.init.GoodblockModItems;
 import net.ltxprogrammer.changed.Changed;
 import net.ltxprogrammer.changed.client.renderer.animate.AnimatorPresets;
 import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
@@ -28,7 +31,7 @@ import static net.ltxprogrammer.changed.client.renderer.model.armor.LatexHumanoi
 public class ArmorLatexMaleWolfWingedDragonModel<T extends ChangedEntity> extends LatexHumanoidArmorModel<T, ArmorLatexMaleWolfWingedDragonModel<T>> {
 
     public static final ArmorModelSet<ChangedEntity, ArmorLatexMaleWolfWingedDragonModel<ChangedEntity>> MODEL_SET =
-            ArmorModelSet.of(Changed.modResource("armor_latex_winged_dragon_male_test_unified"),
+            ArmorModelSet.of(GoodblockMod.GoodBlockResourceLocation("armor_latex_winged_dragon_wolf_male"),
                     ArmorLatexMaleWolfWingedDragonModel::createArmorLayer,
                     ArmorLatexMaleWolfWingedDragonModel::new);
 
@@ -38,7 +41,7 @@ public class ArmorLatexMaleWolfWingedDragonModel<T extends ChangedEntity> extend
     private final ModelPart RightLeg;
     private final ModelPart LeftArm;
     private final ModelPart RightArm;
-    private final ModelPart Tail;
+    //private final ModelPart Tail;
     private final ModelPart RightWing;
     private final ModelPart LeftWing;
     private final HumanoidAnimator<T, ArmorLatexMaleWolfWingedDragonModel<T>> animator;
@@ -51,13 +54,12 @@ public class ArmorLatexMaleWolfWingedDragonModel<T extends ChangedEntity> extend
         this.RightLeg = modelPart.getChild("RightLeg");
         this.LeftArm = modelPart.getChild("LeftArm");
         this.RightArm = modelPart.getChild("RightArm");
-        this.Tail = this.Torso.getChild("Tail");
-        this.Tail.visible = false;  // 隐藏尾巴，不渲染
+        //this.Tail = this.Torso.getChild("Tail");
         this.RightWing = this.Torso.getChild("RightWing");
         this.LeftWing = this.Torso.getChild("LeftWing");
 
-        ModelPart tailPrimary = this.Tail.getChild("TailPrimary");
-        ModelPart tailSecondary = tailPrimary.getChild("TailSecondary");
+        //ModelPart tailPrimary = this.Tail.getChild("TailPrimary");
+        //ModelPart tailSecondary = tailPrimary.getChild("TailSecondary");
         ModelPart leftLowerLeg = this.LeftLeg.getChild("LeftLowerLeg");
         ModelPart leftFoot = leftLowerLeg.getChild("LeftFoot");
         ModelPart rightLowerLeg = this.RightLeg.getChild("RightLowerLeg");
@@ -67,9 +69,8 @@ public class ArmorLatexMaleWolfWingedDragonModel<T extends ChangedEntity> extend
 
         this.animator = HumanoidAnimator.of(this)
                 .hipOffset(-1.5F)
-                .addPreset(AnimatorPresets.wingedDragonLike(
+                .addPreset(GoodBlockAnimatorPresets.WingedWolfDragonArmor(
                         this.Head, this.Torso, this.LeftArm, this.RightArm,
-                        this.Tail, List.of(tailPrimary, tailSecondary),
                         this.LeftLeg, leftLowerLeg, leftFoot, leftFoot.getChild("LeftPad"),
                         this.RightLeg, rightLowerLeg, rightFoot, rightFoot.getChild("RightPad"),
                         leftWingRoot, leftWingRoot.getChild("leftSecondaries"),
@@ -140,6 +141,7 @@ public class ArmorLatexMaleWolfWingedDragonModel<T extends ChangedEntity> extend
                 PartPose.offsetAndRotation(-0.3F, 0.0F, 0.0F, 0.0F, 0.0F, -0.9599F));
 
         // Tail
+        /*
         PartDefinition Tail = Torso.addOrReplaceChild("Tail",
                 CubeListBuilder.create(),
                 PartPose.offset(0.0F, 11.0F, 0.0F));
@@ -163,7 +165,7 @@ public class ArmorLatexMaleWolfWingedDragonModel<T extends ChangedEntity> extend
                         .texOffs(0, 20)
                         .addBox(-1.5F, -1.5F, -3.0F, 3.0F, 3.0F, 6.0F, new CubeDeformation(-0.1F)),
                 PartPose.offsetAndRotation(0.0F, 1.2072F, 2.7389F, 2.7489F, 0.0F, 0.0F));
-
+        */
         // Head
         partdefinition.addOrReplaceChild("Head",
                 CubeListBuilder.create()
@@ -189,11 +191,10 @@ public class ArmorLatexMaleWolfWingedDragonModel<T extends ChangedEntity> extend
         return LayerDefinition.create(meshdefinition, 64, 32);
     }
 
-    @Override
     public void prepareVisibility(EquipmentSlot armorSlot, ItemStack item) {
         super.prepareVisibility(armorSlot, item);
         if (armorSlot == EquipmentSlot.LEGS) {
-            prepareUnifiedLegsForArmor(item, this.LeftLeg, this.RightLeg, this.Tail);
+            prepareUnifiedLegsForArmor(item, this.LeftLeg, this.RightLeg);
         }
     }
 

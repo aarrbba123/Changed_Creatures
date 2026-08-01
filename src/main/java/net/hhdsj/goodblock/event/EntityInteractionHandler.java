@@ -2,6 +2,7 @@ package net.hhdsj.goodblock.event;
 
 import net.hhdsj.goodblock.GoodblockMod;
 import net.hhdsj.goodblock.init.GoodblockModEntities;
+import net.hhdsj.goodblock.init.GoodblockModItems;
 import net.ltxprogrammer.changed.init.ChangedEntities;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
@@ -40,6 +41,9 @@ public class EntityInteractionHandler {
         }
         if (item.is(Items.REDSTONE) && target_type == ChangedEntities.LATEX_GOLDEN_DRAGON.get()) {
             AddFreshEntity(player,target,item,GoodblockModEntities.LATEX_YUE_XI_FOX_FEMALE.get());
+        }
+        if (item.is(GoodblockModItems.Latex_Night_Owl_Goo_Item.get()) && target_type == EntityType.VILLAGER) {
+            AddFreshEntity(player,target,item,GoodblockModEntities.LATEXNIGHTOWLDRAGONBOSS.get());
         }
     }
 

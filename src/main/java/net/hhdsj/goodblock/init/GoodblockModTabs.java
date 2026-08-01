@@ -26,14 +26,12 @@ import net.minecraftforge.registries.RegistryObject;
 public class GoodblockModTabs {
 	public static final DeferredRegister<CreativeModeTab> REGISTRY = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, GoodblockMod.MODID);
 
-	// 世界方块标签页
 	public static final RegistryObject<CreativeModeTab> WORLDBLOCK = REGISTRY.register("goodblock_block",
 			() -> CreativeModeTab.builder()
 					.title(Component.translatable("item_group.goodblock.worldblock"))
 					.icon(() -> new ItemStack(GoodblockModItems.LATEX_DEEP_CRYSTAL_DRAGON_DOLL.get()))
 					.build());
 
-	// 实体标签页
 	public static final RegistryObject<CreativeModeTab> GOODBLOCK_ENTITY = REGISTRY.register("goodblock_entity",
 			() -> CreativeModeTab.builder()
 					.title(Component.translatable("item_group.goodblock.goodblock_entity"))
@@ -43,7 +41,6 @@ public class GoodblockModTabs {
 	// 所有物品通过事件添加到对应的标签页
 	@SubscribeEvent
 	public static void buildTabContentsVanilla(BuildCreativeModeTabContentsEvent tabData) {
-		// 1. 添加到自定义标签页：WORLDBLOCK
 		if (tabData.getTabKey() == WORLDBLOCK.getKey()) {
 			// 方块
 			tabData.accept(GoodblockModBlocks.SULPHURBLOCK.get().asItem());
@@ -78,13 +75,17 @@ public class GoodblockModTabs {
 			//tabData.accept(GoodblockModItems.THEFLUFFYHEARTBEATINTHECUBICLEMUSIC.get());
 			//tabData.accept(GoodblockModItems.FLUTEMUSICA_1RECORDS.get());
 			//tabData.accept(GoodblockModItems.NOTLISTENTHIS.get());
-			tabData.accept(GoodblockModItems.FLUTE.get());
+			//tabData.accept(GoodblockModItems.FLUTE.get());
 			//tabData.accept(GoodblockModItems.ANITFRRYMUSIC.get());
+			tabData.accept(GoodblockModItems.Impure_Frost_Condensed_Crystal_Cluster.get());
+			tabData.accept(GoodblockModItems.Frost_Condensed_Crystal_Cluster.get());
+			tabData.accept(GoodblockModItems.Latex_Night_Owl_Goo_Item.get());
 			tabData.accept(GoodblockModItems.DRAGONFRUIT.get());
 			tabData.accept(GoodblockModItems.BlueCrystaloreItem.get());
 			tabData.accept(GoodblockModItems.PALETREE.get());
 			//tabData.accept(GoodblockModItems.INKSANS_4.get());
 			tabData.accept(GoodblockModItems.LatexCrystalJellyItem.get());
+
 			tabData.accept(GoodblockModItems.LATEX_LAVA_CRYSTAL.get());
 			//tabData.accept(GoodblockModItems.LATEX_CRYSTAL_JELLY_GAS_CANISTER.get());
 

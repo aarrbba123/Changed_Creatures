@@ -4,6 +4,7 @@
  */
 package net.hhdsj.goodblock.init;
 
+import net.hhdsj.goodblock.Enchantments.LatexAttackEnchantments;
 import net.hhdsj.goodblock.Enchantments.ThreeMonthArrowEnchantments;
 import net.hhdsj.goodblock.GoodblockMod;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -13,6 +14,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class GoodblockModEnchantmentInit {
     public static final DeferredRegister<Enchantment> ENCHANTMENTS = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS,  GoodblockMod.MODID);
-
+    //LatexAttackEnchantments
     public static final RegistryObject<ThreeMonthArrowEnchantments> ThreeMonthArrow = ENCHANTMENTS.register("three_month_latex", ThreeMonthArrowEnchantments::new);
+    public static final RegistryObject<LatexAttackEnchantments> LatexAttack = ENCHANTMENTS.register("latex_attack", LatexAttackEnchantments::new);
 }

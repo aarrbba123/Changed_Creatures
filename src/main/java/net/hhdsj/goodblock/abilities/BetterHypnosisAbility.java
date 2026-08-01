@@ -18,7 +18,7 @@ import java.util.WeakHashMap;
 import java.util.Map;
 
 public class BetterHypnosisAbility extends HypnosisAbility {
-    private static final Map<LivingEntity, Long> ACTIVE_USERS = new WeakHashMap<>();
+    static final Map<LivingEntity, Long> ACTIVE_USERS = new WeakHashMap<>();
     private static final double DAMAGE_BLOCK_RANGE = 15.0D;
     private static final boolean BLOCK_PLAYER_DAMAGE = true;
     private static final boolean BLOCK_PROJECTILE_DAMAGE = true;

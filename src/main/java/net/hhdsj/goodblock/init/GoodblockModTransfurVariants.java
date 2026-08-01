@@ -46,6 +46,8 @@ public class GoodblockModTransfurVariants {
 	public static final RegistryObject<TransfurVariant<ProtogenNyxarixEntity>> PROTOGEN_NYXARIX =
 			REGISTRY.register("form_protogen_nyxarix", () -> TransfurVariant.Builder.of(GoodblockModEntities.PROTOGEN_NYXARIX)
 					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.addAbility(GoodblockModAbilities.BERRER_HYPNOSIE)
+					.addAbility(GoodblockModAbilities.LATEX_CONFUSED_ABILITY)
 					.scares(List.of(Creeper.class, Zoglin.class, ZombieVillager.class, EnderMan.class))
 					.build());
 
@@ -53,6 +55,7 @@ public class GoodblockModTransfurVariants {
 	public static final RegistryObject<TransfurVariant<LatexFrostScaleDragonTaurEntity>> LATEX_FROST_SCALE_DRAGON_TAUR =
 			REGISTRY.register("form_latex_frost_scale_dragon_taur", () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEX_FROST_SCALE_DRAGON_TAUR)
 					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.addAbility(GoodblockModAbilities.LATEX_CONFUSED_ABILITY)
 					.scares(List.of(Creeper.class, Zoglin.class, ZombieVillager.class, EnderMan.class, Villager.class))
 					.build());
 
@@ -66,6 +69,7 @@ public class GoodblockModTransfurVariants {
 					.glide()
 					.transfurMode(TransfurMode.ABSORPTION)
 					.addAbility(ChangedAddonAbilities.CLAWS)
+					.addAbility(GoodblockModAbilities.LATEX_CONFUSED_ABILITY)
 					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
 					.addAbility(ChangedAddonAbilities.CARRY)
 					.addAbility(ChangedAbilities.GRAB_ENTITY_ABILITY)
@@ -276,6 +280,7 @@ public class GoodblockModTransfurVariants {
 					.scares(List.of(Creeper.class))
 					.glide()
 					.transfurMode(TransfurMode.ABSORPTION)
+					.addAbility(GoodblockModAbilities.LATEX_CONFUSED_ABILITY)
 					.replicating()
 					.nightVision()
 					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)

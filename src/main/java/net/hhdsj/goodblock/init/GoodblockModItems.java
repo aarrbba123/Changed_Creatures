@@ -76,6 +76,7 @@ public class GoodblockModItems {
 
 	// 工具类
 	public static RegistryObject<Item> FLUTE;
+	public static RegistryObject<Item> Latex_Night_Owl_Goo_Item;
 
 	// 植物/生成类
 	public static RegistryObject<Item> PALETREE;
@@ -123,6 +124,7 @@ public class GoodblockModItems {
 
 	static {
 		// -------------------- 方块物品初始化 --------------------
+
 		LATEX_DEEP_CRYSTAL_DRAGON_DOLL = block(GoodblockModBlocks.LATEX_DEEP_CRYSTAL_DRAGON_DOLL);
 		SULPHURBLOCK = block(GoodblockModBlocks.SULPHURBLOCK);
 		NITREBLOCK = block(GoodblockModBlocks.NITREBLOCK);
@@ -152,6 +154,7 @@ public class GoodblockModItems {
 		BLOCKBW_2 = block(GoodblockModBlocks.BLOCKBW_2);
 
 		// -------------------- 普通物品初始化 --------------------
+		Latex_Night_Owl_Goo_Item = ITEMS.register("latex_night_owl_goo_item", LatexNghtOwlGooItem::new);
 		SULPHUR = ITEMS.register("sulphur", SulphurItem::new);
 		NITRICACID = ITEMS.register("nitricacid", NitricacidItem::new);
 		IMPUREURANIUM = ITEMS.register("impureuranium", ImpureuraniumItem::new);

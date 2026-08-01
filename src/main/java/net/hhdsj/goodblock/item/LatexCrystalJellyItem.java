@@ -17,13 +17,12 @@ public class LatexCrystalJellyItem extends AbstractCamItem {
 		super(new Properties().stacksTo(64).rarity(Rarity.RARE));
 	}
 
-	// 文本
 	@Override
 	public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, world, list, flag);
-		list.add(Component.literal("一种流淌的胶液的水晶").withStyle(ChatFormatting.BLUE));
-		list.add(Component.literal("散发着未知诱人的力量").withStyle(ChatFormatting.BLUE));
-		list.add(Component.literal("人类触碰不宜触碰").withStyle(ChatFormatting.RED));
+		list.add(Component.translatable("item.goodblock.latex_crystal_jelly.desc1").withStyle(ChatFormatting.BLUE));
+		list.add(Component.translatable("item.goodblock.latex_crystal_jelly.desc2").withStyle(ChatFormatting.BLUE));
+		list.add(Component.translatable("item.goodblock.latex_crystal_jelly.desc3").withStyle(ChatFormatting.RED));
 	}
 
 

@@ -20,4 +20,5 @@ public class GoodblockModMobEffects {
 	public static final RegistryObject<MobEffect> SLOWINFECTION = REGISTRY.register("slowinfection", SlowinfectionMobEffect::new);
 	public static final RegistryObject<MobEffect> Frost_Effect = REGISTRY.register("frost", FrostMobEffect::new);
 	public static final RegistryObject<MobEffect> Latex_Paralysis = REGISTRY.register("latex_paralysis", LatexEntityParalysisMobEffect::new);
+	public static final RegistryObject<MobEffect> LAVA_BURN = REGISTRY.register("lava_burn", LavaBurnEffect::new);
 }

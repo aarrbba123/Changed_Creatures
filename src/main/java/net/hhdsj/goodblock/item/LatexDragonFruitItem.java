@@ -35,7 +35,7 @@ public class LatexDragonFruitItem extends Item {
 	@Override
 	public void appendHoverText(@NotNull ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, world, list, flag);
-		list.add(Component.literal("流淌的胶液的食物").withStyle(ChatFormatting.BLUE));
-		list.add(Component.literal("人类不宜食用").withStyle(ChatFormatting.RED));
+		list.add(Component.translatable("item.goodblock.latex_dragon_fruit.desc1").withStyle(ChatFormatting.BLUE));
+		list.add(Component.translatable("item.goodblock.latex_dragon_fruit.desc2").withStyle(ChatFormatting.RED));
 	}
 }

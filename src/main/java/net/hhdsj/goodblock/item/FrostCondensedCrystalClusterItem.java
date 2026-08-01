@@ -34,7 +34,7 @@ public class FrostCondensedCrystalClusterItem extends Item {
     @Override
     public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
         super.appendHoverText(itemstack, world, list, flag);
-        list.add(Component.literal("一种的水晶").withStyle(ChatFormatting.BLUE));
+        list.add(Component.translatable("item.goodblock.impure_frost_condensed_crystal_cluster.desc").withStyle(ChatFormatting.BLUE));
     }
 
     @Override

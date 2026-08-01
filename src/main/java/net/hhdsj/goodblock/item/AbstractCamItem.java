@@ -49,7 +49,7 @@ public class AbstractCamItem extends Item {
         }
     }
 
-    // 物品实体更新（掉落在地上时）
+    // 物品实体更新
     @Override
     public boolean onEntityItemUpdate(ItemStack stack, ItemEntity entity) {
         Level level = entity.level();
@@ -80,10 +80,8 @@ public class AbstractCamItem extends Item {
         data.Crystal_Jelly_Infection = true;
     }
 
-    /**
-     * 吸引范围内的生物看向掉落的物品
-     * 使用 HypnosisAbility 中的 CameraUtil.tugEntityLookDirection
-     */
+
+     // 吸引范围内的生物看向掉落的物品
     private void attractEntitiesToLookAtItem(Level level, ItemEntity itemEntity) {
 
 
@@ -105,7 +103,6 @@ public class AbstractCamItem extends Item {
                     return;
                 }
                 Vec3 direction = itemEntity.position().subtract(player.position()).normalize();
-                // 使用 Vec3 版本的方法
                 CameraUtil.tugEntityLookDirection(player, direction, LOOK_STRENGTH);
             } catch (Exception ignored) {}
         });

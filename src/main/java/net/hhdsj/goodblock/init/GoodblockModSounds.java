@@ -19,9 +19,7 @@ public class GoodblockModSounds {
 	public static final RegistryObject<SoundEvent> FLUTEMUSICA_1RECORDS = register("music.flutemusica_1records");
 	public static final RegistryObject<SoundEvent> SRENING_OGG1 = register("music.srening_ogg1");
 
-	/**
-	 * 统一的注册方法，自动拼接 modid
-	 */
+
 	private static RegistryObject<SoundEvent> register(String id) {
 		return REGISTRY.register(id, () -> SoundEvent.createVariableRangeEvent(
 				new ResourceLocation(GoodblockMod.MODID, id)

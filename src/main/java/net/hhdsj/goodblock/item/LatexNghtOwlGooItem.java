@@ -22,6 +22,6 @@ public class LatexNghtOwlGooItem extends Item {
     @Override
     public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
         super.appendHoverText(itemstack, world, list, flag);
-        list.add(Component.literal("使用方法:放到村民身上").withStyle(ChatFormatting.RED));
+        list.add(Component.translatable("item.goodblock.latex_night_owl_goo.desc1").withStyle(ChatFormatting.RED));
     }
 }

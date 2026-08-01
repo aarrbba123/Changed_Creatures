@@ -11,7 +11,6 @@ import net.minecraftforge.registries.RegistryManager;
 
 public class GoodblockModTags {
 
-    // 获取 TransfurVariant 的注册表名称
     public static final ResourceLocation TRANSFUR_VARIANT_REGISTRY_NAME =
             new ResourceLocation("changed", "transfur_variant");
 

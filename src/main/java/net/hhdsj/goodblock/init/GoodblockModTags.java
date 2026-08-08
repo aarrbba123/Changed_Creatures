@@ -5,28 +5,27 @@ import net.ltxprogrammer.changed.entity.variant.TransfurVariant;
 import net.ltxprogrammer.changed.init.ChangedRegistry;
 import net.minecraft.tags.TagKey;
 
-import java.util.function.Supplier;
+public final class GoodblockModTags {
 
-public class GoodblockModTags {
-    // 使用 Supplier 延迟初始化
-    public static final Supplier<TagKey<TransfurVariant<?>>> SLOW_INFECTION_VARIANTS =
-            () -> tfCreate("slow_infection_variants");
+    private static class TagsHolder {
+        private static final TagKey<TransfurVariant<?>> SLOW_INFECTION =
+                createTag("slow_infection_variants");
+        private static final TagKey<TransfurVariant<?>> ANTI_FIRE_LATEX =
+                createTag("anti_fire_latex");
 
-    public static final Supplier<TagKey<TransfurVariant<?>>> LATEX_ANTI_FIRE =
-            () -> tfCreate("anti_fire_latex");
+        private static TagKey<TransfurVariant<?>> createTag(String name) {
+            return TagKey.create(
+                    ChangedRegistry.TRANSFUR_VARIANT.get().getRegistryKey(),
+                    GoodblockMod.ModResource(name)
+            );
+        }
+    }
 
     public static TagKey<TransfurVariant<?>> slowInfectionVariants() {
-        return SLOW_INFECTION_VARIANTS.get();
+        return TagsHolder.SLOW_INFECTION;
     }
 
     public static TagKey<TransfurVariant<?>> antiFireLatex() {
-        return LATEX_ANTI_FIRE.get();
-    }
-
-    private static TagKey<TransfurVariant<?>> tfCreate(String pName) {
-        return TagKey.create(
-                ChangedRegistry.TRANSFUR_VARIANT.get().getRegistryKey(),
-                GoodblockMod.ModResource(pName)
-        );
+        return TagsHolder.ANTI_FIRE_LATEX;
     }
 }

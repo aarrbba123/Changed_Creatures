@@ -65,7 +65,7 @@ public class FINDGUIButtonMessage {
 		if (!world.hasChunkAt(new BlockPos(x, y, z)))
 			return;
 		if (buttonID == 0) {;
-			System.out.println(GoodblockModTags.slowInfectionVariants().location().getPath());
+			System.out.println(GoodblockModTags.slowInfectionVariants().location());
 			GoodblockModVariables.PlayerVariables data = PlayerDataGetHelper.get(entity);
 			data.Player_Is_Infection = !data.Player_Is_Infection;
 			//DIEProcedure.execute(world,entity);

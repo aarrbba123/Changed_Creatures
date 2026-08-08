@@ -77,7 +77,7 @@ public class BetterHypnosisAbility extends HypnosisAbility {
     }
 
     public void hurt_entity_effect(LivingEntity entity) {
-        entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 420, 1));
+        entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 6000, 1));
         entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 420, 2));
     }
 }

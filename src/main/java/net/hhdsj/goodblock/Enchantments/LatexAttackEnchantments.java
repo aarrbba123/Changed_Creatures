@@ -17,7 +17,7 @@ public class LatexAttackEnchantments extends Enchantment {
     public void doPostAttack(@NotNull LivingEntity attacker, @NotNull Entity target, int level) {
 
         if (target instanceof Player player) {
-            if (ProcessTransfur.isPlayerTransfurred(player)) {
+            if (!ProcessTransfur.isPlayerTransfurred(player)) {
                 float currentProgress = ProcessTransfur.getPlayerTransfurProgress(player);
                 if (currentProgress < 1.0f) {
                     ProcessTransfur.setPlayerTransfurProgress(player, Math.min(1.0f, currentProgress + 0.1f * level));

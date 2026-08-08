@@ -9,6 +9,7 @@ import net.ltxprogrammer.changed.util.Color3;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeMod;
 
@@ -27,13 +28,14 @@ public class AbstractProtogenWater extends AbstractAquaticEntity implements Gend
     @SuppressWarnings("DataFlowIssue")
     protected void setAttributes(AttributeMap attributes) {
         super.setAttributes(attributes);
-        attributes.getInstance(Attributes.MOVEMENT_SPEED).setBaseValue(1.2);
-        attributes.getInstance(ForgeMod.SWIM_SPEED.get()).setBaseValue(1.1);
+        attributes.getInstance(Attributes.ARMOR).setBaseValue(6);
+        attributes.getInstance(Attributes.MOVEMENT_SPEED).setBaseValue(1.05);
+        attributes.getInstance(ForgeMod.SWIM_SPEED.get()).setBaseValue(1.5);
         attributes.getInstance(Attributes.MAX_HEALTH).setBaseValue(50.0);
     }
 
     public Color3 getTransfurColor(TransfurCause cause) {
-        return Color3.getColor("#050505");
+        return Color3.getColor("#FFFFFF");
     }
 
     @Override

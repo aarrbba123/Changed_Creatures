@@ -61,11 +61,11 @@ public class PlayerDeathHandler {
 
             // 直接获取所有注册的变体，然后筛选
             var allVariants = registry.getValues().stream()
-                    .filter(variant -> variant.is(GoodblockModTags.SLOW_INFECTION_VARIANTS.get()))
+                    .filter(variant -> variant.is(GoodblockModTags.slowInfectionVariants()))
                     .toList();
 
             if (allVariants.isEmpty()) {
-                GoodblockMod.LOGGER.warn("Tag {} is empty", GoodblockModTags.SLOW_INFECTION_VARIANTS);
+                GoodblockMod.LOGGER.warn("Tag {} is empty", GoodblockModTags.slowInfectionVariants());
                 return null;
             }
 

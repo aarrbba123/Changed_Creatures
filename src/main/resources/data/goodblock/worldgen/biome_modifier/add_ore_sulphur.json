@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
   "biomes": "#minecraft:is_overworld",
-  "features": "goodblock:ore_sulphur_spawn",
+  "features": "goodblock:placed_ore_nitre_spawn",
   "step": "underground_ores"
 }

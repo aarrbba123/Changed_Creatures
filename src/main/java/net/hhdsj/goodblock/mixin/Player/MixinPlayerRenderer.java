@@ -71,6 +71,7 @@ public abstract class MixinPlayerRenderer extends LivingEntityRenderer<AbstractC
             return;
         }
 
+
         TailModel tailModel = good_blocks$tailModelCache.computeIfAbsent(
                 player.getUUID(),
                 uuid -> {
@@ -180,7 +181,7 @@ public abstract class MixinPlayerRenderer extends LivingEntityRenderer<AbstractC
         VertexConsumer vertexConsumer = buffer.getBuffer(
                 RenderType.entityCutoutNoCull(tailModel.getTexture())
         );
-        tailModel.renderToBuffer(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        //tailModel.renderToBuffer(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
 
         poseStack.popPose();
     }

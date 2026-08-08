@@ -6,6 +6,7 @@ package net.hhdsj.goodblock.init;
 
 import net.hhdsj.goodblock.client.models.ModelProtogenNyxarix;
 import net.hhdsj.goodblock.client.models.armors.ArmorLatexMaleWolfWingedDragonModel;
+import net.hhdsj.goodblock.client.models.armors.ArmorProtogenNyxarixWaterSquidDogModel;
 import net.hhdsj.goodblock.client.models.latex_taur.ModelLatexFrostScaleDragonTaur;
 import net.hhdsj.goodblock.client.models.other.TailModel;
 import net.hhdsj.goodblock.client.models.boss.ModelLatexNightOwl;
@@ -84,6 +85,7 @@ public class GoodblockModModels {
 
 		event.registerLayerDefinition(GoodBlockModelMaleWingedDragonArmor.LAYER_LOCATION, GoodBlockModelMaleWingedDragonArmor::createBodyLayer);
 		ArmorLatexMaleWolfWingedDragonModel.MODEL_SET.registerDefinitions(event::registerLayerDefinition);
+		ArmorProtogenNyxarixWaterSquidDogModel.MODEL_SET.registerDefinitions(event::registerLayerDefinition);
 
 		event.registerLayerDefinition(GoodblockModModelLayers.TAIL_LAYER, TailModel::createBodyLayer);
 

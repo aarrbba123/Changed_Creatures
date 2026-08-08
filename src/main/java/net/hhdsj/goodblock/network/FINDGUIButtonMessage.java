@@ -1,6 +1,7 @@
 
 package net.hhdsj.goodblock.network;
 
+import net.hhdsj.goodblock.init.GoodblockModTags;
 import net.hhdsj.goodblock.util.PlayerDataGetHelper;
 import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -64,6 +65,7 @@ public class FINDGUIButtonMessage {
 		if (!world.hasChunkAt(new BlockPos(x, y, z)))
 			return;
 		if (buttonID == 0) {;
+			System.out.println(GoodblockModTags.slowInfectionVariants().location().getPath());
 			GoodblockModVariables.PlayerVariables data = PlayerDataGetHelper.get(entity);
 			data.Player_Is_Infection = !data.Player_Is_Infection;
 			//DIEProcedure.execute(world,entity);

@@ -232,7 +232,6 @@ public class PlayerTicksHandler {
             GoodblockModVariables.PlayerVariables data = PlayerDataGetHelper.get(player);
 
             if (variant != null) {
-                // 移除减速修饰符
                 removeCrystalSlowModifier(player);
                 data.Crystal_Jelly_Infection_Progress = 0f;
                 data.Crystal_Jelly_Infection = false;
@@ -240,7 +239,6 @@ public class PlayerTicksHandler {
             }
 
             if (!data.Crystal_Jelly_Infection) {
-                // 确保没有残留的减速效果
                 removeCrystalSlowModifier(player);
                 return;
             }
@@ -253,10 +251,9 @@ public class PlayerTicksHandler {
             } else {
                 // 计算减速数值（正值表示减少速度）
                 float progress = data.Crystal_Jelly_Infection_Progress;
-                float maxSlow = 0.08f;  // 最多减少0.08（从0.1降到0.02）
+                float maxSlow = 0.15f;
                 float slowAmount = (progress / 100f) * maxSlow;
 
-                // 应用修饰符（替换旧的）
                 applyCrystalSlowModifier(player, slowAmount);
 
                 data.Crystal_Jelly_Infection_Progress += 0.05f;

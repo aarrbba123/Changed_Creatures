@@ -50,11 +50,11 @@ public abstract class InventoryScreenMixin extends EffectRenderingInventoryScree
     private static final float DARK_BLUE = 5.0F / 255.0F;
 
     @Unique
-    private static final float CYAN_RED = 0.0F;
+    private static final float CYAN_RED = 0.9F;
     @Unique
-    private static final float CYAN_GREEN = 1.0F;
+    private static final float CYAN_GREEN = 0.9F;
     @Unique
-    private static final float CYAN_BLUE = 1.0F;
+    private static final float CYAN_BLUE = 0.95F;
 
     public InventoryScreenMixin(InventoryMenu menu, Inventory inv, Component title) {
         super(menu, inv, title);
@@ -84,10 +84,10 @@ public abstract class InventoryScreenMixin extends EffectRenderingInventoryScree
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderTexture(0, GOODBLOCK_INVENTORY);
 
-        graphics.setColor(DARK_RED, DARK_GREEN, DARK_BLUE, 0.5F);
+        graphics.setColor(DARK_RED, DARK_GREEN, DARK_BLUE, 0.3F);
         graphics.blit(GOODBLOCK_INVENTORY, i, j, 256, 0, this.imageWidth, this.imageHeight, 768, 256);
 
-        graphics.setColor(CYAN_RED, CYAN_GREEN, CYAN_BLUE, 0.5F);
+        graphics.setColor(CYAN_RED, CYAN_GREEN, CYAN_BLUE, 0.3F);
         graphics.blit(GOODBLOCK_INVENTORY, i, j, 0, 0, this.imageWidth, this.imageHeight, 768, 256);
 
         graphics.setColor(1.0F, 1.0F, 1.0F, 1.0F);

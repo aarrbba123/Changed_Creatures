@@ -26,7 +26,7 @@ public class LatexDragonFruitItem extends Item {
 			.alwaysEat()
 			.effect(() -> new MobEffectInstance(
 					GoodblockModMobEffects.SLOWINFECTION.get(),
-					500,
+					3200,
 					0
 			), 0.3f)
 			.build()));

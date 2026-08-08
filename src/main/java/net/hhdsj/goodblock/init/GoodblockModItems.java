@@ -6,6 +6,8 @@ package net.hhdsj.goodblock.init;
 
 import net.hhdsj.goodblock.item.*;
 import net.hhdsj.goodblock.item.tool.*;
+import net.ltxprogrammer.changed.block.FluidCanisterBlock;
+import net.ltxprogrammer.changed.init.ChangedItems;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.registries.RegistryObject;
@@ -18,6 +20,8 @@ import net.minecraft.world.item.BlockItem;
 
 import net.hhdsj.goodblock.GoodblockMod;
 
+import javax.annotation.Nullable;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class GoodblockModItems {
@@ -26,6 +30,7 @@ public class GoodblockModItems {
 
 	// ==================== 方块物品声明 (Block Items Declaration) ====================
 	public static RegistryObject<Item> LATEX_DEEP_CRYSTAL_DRAGON_DOLL;
+	public static RegistryObject<Item> CRYO_SUBJECT_CHAMBER;
 	// 矿物块
 	public static RegistryObject<Item> SULPHURBLOCK;
 	public static RegistryObject<Item> NITREBLOCK;
@@ -118,13 +123,11 @@ public class GoodblockModItems {
 	public static RegistryObject<Item> PAINITE_ARMOR_LEGGINGS;
 	public static RegistryObject<Item> PAINITE_ARMOR_BOOTS;
 
-
-	public static RegistryObject<Item> LATEX_CRYSTAL_JELLY_GAS_CANISTER;
 	// ==================== 静态代码块初始化 (Static Initialization) ====================
 
 	static {
 		// -------------------- 方块物品初始化 --------------------
-
+		CRYO_SUBJECT_CHAMBER = block(GoodblockModBlocks.CRYO_SUBJECT_CHAMBER);
 		LATEX_DEEP_CRYSTAL_DRAGON_DOLL = block(GoodblockModBlocks.LATEX_DEEP_CRYSTAL_DRAGON_DOLL);
 		SULPHURBLOCK = block(GoodblockModBlocks.SULPHURBLOCK);
 		NITREBLOCK = block(GoodblockModBlocks.NITREBLOCK);
@@ -241,6 +244,11 @@ public class GoodblockModItems {
 	 * @return 方块物品注册对象
 	 */
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
-		return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
-	}
+        if (block.getId() != null) {
+            return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
+        }
+        return null;
+    }
+
+
 }

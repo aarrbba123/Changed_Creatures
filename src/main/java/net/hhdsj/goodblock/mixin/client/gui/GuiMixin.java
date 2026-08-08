@@ -25,6 +25,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
@@ -61,6 +62,10 @@ public abstract class GuiMixin {
             new ResourceLocation("goodblock", "textures/gui/protogen_inventory.png");
 
     @Unique
+    private static final ResourceLocation CUSTOM_WIDGETS_TEXTURE =
+            new ResourceLocation("goodblock", "textures/gui/protogen_widgets.png");
+
+    @Unique
     private static final float DARK_RED = 5.0F / 255.0F;
     @Unique
     private static final float DARK_GREEN = 5.0F / 255.0F;
@@ -69,7 +74,7 @@ public abstract class GuiMixin {
 
     // 发光色 #00ffff
     @Unique
-    private static final float CYAN_RED = 0.0F;
+    private static final float CYAN_RED = 1.0F;
     @Unique
     private static final float CYAN_GREEN = 1.0F;
     @Unique
@@ -109,13 +114,13 @@ public abstract class GuiMixin {
         }
 
         graphics.setColor(DARK_RED, DARK_GREEN, DARK_BLUE, 1.0F);
-        graphics.blit(GUI_ICONS_LOCATION, x, y, u, v, width, height);
+        graphics.blit(CUSTOM_HEART_TEXTURE, x, y, u, v, width, height);
 
         graphics.setColor(CYAN_RED, CYAN_GREEN, CYAN_BLUE, 0.3F);
-        graphics.blit(GUI_ICONS_LOCATION, x - 1, y - 1, u, v, width, height);
+        graphics.blit(CUSTOM_HEART_TEXTURE, x - 1, y - 1, u, v, width, height);
 
         graphics.setColor(CYAN_RED, CYAN_GREEN, CYAN_BLUE, 0.9F);
-        graphics.blit(GUI_ICONS_LOCATION, x, y, u, v, width, height);
+        graphics.blit(CUSTOM_HEART_TEXTURE, x, y, u, v, width, height);
 
         graphics.setColor(1.0F, 1.0F, 1.0F, 1.0F);
     }
@@ -228,8 +233,24 @@ public abstract class GuiMixin {
     private void onHotbarBlit(float partialTicks, GuiGraphics graphics, CallbackInfo ci) {
         Player player = this.minecraft.player;
         if (goodblock$shouldApplyCustomGui(player)) {
-            graphics.setColor(CYAN_RED, CYAN_GREEN, CYAN_BLUE, 0.8F);
+            graphics.setColor(CYAN_RED, CYAN_GREEN, CYAN_BLUE, 0.7F);
         }
+    }
+
+    @ModifyArg(
+            method = "renderHotbar",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/client/gui/GuiGraphics;blit(Lnet/minecraft/resources/ResourceLocation;IIIIII)V"
+            ),
+            index = 0
+    )
+    private ResourceLocation redirectHotbarTexture(ResourceLocation original) {
+        Player player = this.minecraft.player;
+        if (goodblock$shouldApplyCustomGui(player) && original == WIDGETS_LOCATION) {
+            return CUSTOM_WIDGETS_TEXTURE;
+        }
+        return original;
     }
 
     @Inject(

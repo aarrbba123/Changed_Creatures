@@ -22,8 +22,8 @@ public class LatexLavaCrystalItem extends Item {
                 .nutrition(4)
                 .saturationMod(2f)
                 .alwaysEat()
-                .effect(() -> new MobEffectInstance(GoodblockModMobEffects.SLOWINFECTION.get(), 200, 0), 1.0f)
-                .effect(() -> new MobEffectInstance(GoodblockModMobEffects.LAVA_BURN.get(), 200, 0), 1.0f)
+                .effect(() -> new MobEffectInstance(GoodblockModMobEffects.SLOWINFECTION.get(), 6200, 0), 1.0f)
+                .effect(() -> new MobEffectInstance(GoodblockModMobEffects.LAVA_BURN.get(), 500, 0), 1.0f)
                 .build()
         ));
     }

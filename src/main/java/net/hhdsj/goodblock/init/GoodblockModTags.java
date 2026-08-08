@@ -1,32 +1,32 @@
 package net.hhdsj.goodblock.init;
 
+import net.hhdsj.goodblock.GoodblockMod;
 import net.ltxprogrammer.changed.entity.variant.TransfurVariant;
 import net.ltxprogrammer.changed.init.ChangedRegistry;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
-import net.minecraftforge.registries.IForgeRegistry;
-import net.minecraftforge.registries.RegistryManager;
+
+import java.util.function.Supplier;
 
 public class GoodblockModTags {
+    // 使用 Supplier 延迟初始化
+    public static final Supplier<TagKey<TransfurVariant<?>>> SLOW_INFECTION_VARIANTS =
+            () -> tfCreate("slow_infection_variants");
 
-    public static final ResourceLocation TRANSFUR_VARIANT_REGISTRY_NAME =
-            new ResourceLocation("changed", "transfur_variant");
+    public static final Supplier<TagKey<TransfurVariant<?>>> LATEX_ANTI_FIRE =
+            () -> tfCreate("anti_fire_latex");
 
-    public static final TagKey<TransfurVariant<?>> SLOW_INFECTION_VARIANTS =
-            TagKey.create(
-                    ChangedRegistry.TRANSFUR_VARIANT.get().getRegistryKey(),
-                    new ResourceLocation("goodblock", "slow_infection_variants")
-            );
+    public static TagKey<TransfurVariant<?>> slowInfectionVariants() {
+        return SLOW_INFECTION_VARIANTS.get();
+    }
 
-    public static final TagKey<TransfurVariant<?>> ANTI_FIRE = TagKey.create(
-            ChangedRegistry.TRANSFUR_VARIANT.get().getRegistryKey(),
-            new ResourceLocation("goodblock", "anti_fire_latex")
-    );
+    public static TagKey<TransfurVariant<?>> antiFireLatex() {
+        return LATEX_ANTI_FIRE.get();
+    }
 
-    // 辅助方法：获取 Forge 注册表
-    public static IForgeRegistry<TransfurVariant<?>> getTransfurVariantRegistry() {
-        return RegistryManager.ACTIVE.getRegistry(TRANSFUR_VARIANT_REGISTRY_NAME);
+    private static TagKey<TransfurVariant<?>> tfCreate(String pName) {
+        return TagKey.create(
+                ChangedRegistry.TRANSFUR_VARIANT.get().getRegistryKey(),
+                GoodblockMod.ModResource(pName)
+        );
     }
 }

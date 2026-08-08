@@ -60,6 +60,8 @@ public class GoodblockModTabs {
 			tabData.accept(GoodblockModBlocks.BLOCKBW_2.get().asItem());
 			tabData.accept(GoodblockModBlocks.BLUE_CRYSTALORE.get().asItem()); // 修复：添加到标签页
 			tabData.accept(GoodblockModBlocks.CATALYZER.get().asItem()); // 修复：添加到标签页
+			tabData.accept(GoodblockModBlocks.LATEX_CRYSTAL_JELLY_GAS_CANISTER.get().asItem());
+			tabData.accept(GoodblockModBlocks.CRYO_SUBJECT_CHAMBER.get().asItem());
 			tabData.accept(GoodblockModBlocks.LATEX_DEEP_CRYSTAL_DRAGON_DOLL.get().asItem());
 			// 物品
 			tabData.accept(GoodblockModItems.SULPHUR.get());

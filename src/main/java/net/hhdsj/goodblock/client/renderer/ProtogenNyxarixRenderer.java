@@ -2,12 +2,10 @@ package net.hhdsj.goodblock.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.hhdsj.goodblock.client.models.ModelProtogenNyxarix;
+import net.hhdsj.goodblock.client.models.armors.ArmorProtogenNyxarixWaterSquidDogModel;
 import net.hhdsj.goodblock.entity.simple.ProtogenNyxarixEntity;
-import net.ltxprogrammer.changed.Changed;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.*;
-import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexMaleSquidDogModel;
-import net.ltxprogrammer.changed.util.Color3;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 
@@ -16,7 +14,7 @@ public class ProtogenNyxarixRenderer extends AdvancedHumanoidRenderer<ProtogenNy
     public static final ResourceLocation DEFAULT_LIGHT_SKIN_LOCATION = new ResourceLocation("goodblock:textures/entities/latex/protogen_nyxarix_light.png");
 
     public ProtogenNyxarixRenderer(EntityRendererProvider.Context context) {
-        super(context, new ModelProtogenNyxarix(context.bakeLayer(ModelProtogenNyxarix.LAYER_LOCATION)), ArmorLatexMaleSquidDogModel.MODEL_SET, 0.65f);
+        super(context, new ModelProtogenNyxarix(context.bakeLayer(ModelProtogenNyxarix.LAYER_LOCATION)), ArmorProtogenNyxarixWaterSquidDogModel.MODEL_SET, 0.65f);
         this.addLayer(new DoubleItemInHandLayer<>(this, context.getItemInHandRenderer()));
         this.addLayer(new EmissiveBodyLayer<>(this, DEFAULT_LIGHT_SKIN_LOCATION));
         this.addLayer(new LatexParticlesLayer<>(this, getModel()));

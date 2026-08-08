@@ -4,6 +4,7 @@
  */
 package net.hhdsj.goodblock.init;
 
+import net.hhdsj.goodblock.block.CryoSubjectChamberRenderer;
 import net.hhdsj.goodblock.client.renderer.ProtogenNyxarixRenderer;
 import net.hhdsj.goodblock.client.renderer.boss.LatexNightOwlBossRenderer;
 import net.hhdsj.goodblock.client.renderer.boss.LatexNightOwlRenderer;
@@ -85,5 +86,10 @@ public class GoodblockModEntityRenderers {
 		event.registerEntityRenderer(GoodblockModEntities.PROTOGEN_NYXARIX.get(), ProtogenNyxarixRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_STEPPEN_WOLF.get(), LatexSteppenWolfRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_PEAUNT_BUTTER_WOLF.get(), LatexPeanutButterWolfRenderer::new);
+
+	}
+	@SubscribeEvent
+	public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+		event.registerBlockEntityRenderer(GoodblockModBlocks.CRYO_SUBJECT_CHAMBER_BE.get(), CryoSubjectChamberRenderer::new);
 	}
 }

@@ -20,11 +20,10 @@ public class GoodBlockModBiomes {
     public static final DeferredRegister<Biome> BIOMES =
             DeferredRegister.create(ForgeRegistries.BIOMES, GoodblockMod.MODID);
     /*
-    // 注册热沼泽生物群系
     public static final ResourceKey<Biome> LATEX_HOT_SWAMP_KEY =
             ResourceKey.create(Registries.BIOME, new ResourceLocation(GoodblockMod.MODID, "latex_hot_swamp"));
 
-    // 注册到Mod事件总线
+
     public static final RegistryObject<Biome> LATEXHOTSWAMPBIOME =
             BIOMES.register("latex_hot_swamp", () -> {
 

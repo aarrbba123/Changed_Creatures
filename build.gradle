@@ -35,7 +35,6 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
 
-            // Mixin 配置
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
@@ -52,9 +51,29 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
 
-            // Mixin 配置
             property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg'"
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+
+            mods {
+                goodblock {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        data {
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'false'
+            property 'mixin.env.disableRefMap', 'true'
+            property 'mixin.debug.export', 'false'
+            // 数据生成参数
+            args '--mod', 'goodblock'
+            args '--all'
+            args '--output', file('src/generated/resources/')
+            args '--existing', file('src/main/resources/')
 
             mods {
                 goodblock {
@@ -70,7 +89,6 @@ repositories {
     maven {
         url = 'https://repo.spongepowered.org/repository/maven-public/'
     }
-
     maven {
         url = 'https://www.cursemaven.com'
     }
@@ -79,14 +97,12 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.20.1-47.2.0'
 
-    // Mixin 依赖
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
     implementation files('/lib/ChangedAddon-m1.20.1-2.8.0-all-patches.jar')
     implementation files('/lib/Changed-m1.20.1-v0.15.5-all.jar')
 }
 
-// Mixin 配置
 mixin {
     add sourceSets.main, 'goodblock.refmap.json'
     config 'goodblock.mixins.json'
@@ -119,4 +135,9 @@ sourceSets {
             srcDirs = ['src/main/resources']
         }
     }
+}
+
+// 确保 generated 目录被包含在资源中
+sourceSets.main.resources {
+    srcDir 'src/generated/resources'
 }

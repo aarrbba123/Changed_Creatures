@@ -1,14 +1,12 @@
 package net.hhdsj.goodblock.init;
 
 import net.hhdsj.goodblock.block.*;
-import net.hhdsj.goodblock.fluid.gas.LatexCrystalJellyGas;
 import net.ltxprogrammer.changed.block.FluidCanisterBlock;
 import net.ltxprogrammer.changed.block.GasFluidBlock;
-import net.ltxprogrammer.changed.init.ChangedFluids;
-import net.ltxprogrammer.changed.init.ChangedItems;
 import net.ltxprogrammer.changed.item.GasCanister;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.DeferredRegister;
@@ -34,7 +32,7 @@ import java.util.function.Supplier;
 
 public class GoodblockModBlocks {
 	public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, GoodblockMod.MODID);
-
+	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, GoodblockMod.MODID);
 	public static final RegistryObject<Block> LATEX_DEEP_CRYSTAL_DRAGON_DOLL = REGISTRY.register("latex_deep_crystal_dragon_doll", LatexDeepCrystalDragonDollBlock::new);
 	public static final RegistryObject<Block> SULPHURBLOCK = REGISTRY.register("sulphur_block", SulphurblockBlock::new);
 	public static final RegistryObject<Block> NITREBLOCK = REGISTRY.register("nitre_block", NitreblockBlock::new);
@@ -58,6 +56,14 @@ public class GoodblockModBlocks {
 	public static final RegistryObject<Block> BLOCKBW_2 = REGISTRY.register("blockbw_2", Blockbw2Block::new);
 	public static final RegistryObject<Block> BLUE_CRYSTALORE = REGISTRY.register("blue_crystal_ore", BlueCrystaloreBlock::new);
 	public static final RegistryObject<Block> CATALYZER = REGISTRY.register("catalyzer", CatalyzerBlock::new);
+	public static final RegistryObject<Block> CRYO_SUBJECT_CHAMBER = REGISTRY.register("cryo_subject_chamber", CryoSubjectChamberBlock::new);
+	public static final RegistryObject<BlockEntityType<CryoSubjectChamberBlockEntity>> CRYO_SUBJECT_CHAMBER_BE =
+			BLOCK_ENTITIES.register("cryo_subject_chamber",
+					() -> BlockEntityType.Builder.of(
+							CryoSubjectChamberBlockEntity::new,
+							CRYO_SUBJECT_CHAMBER.get()
+					).build(null)
+			);
 	public static final RegistryObject<GasFluidBlock> LATEX_CRYSTAL_JELLY_GAS = REGISTRY.register("latex_crystal_jelly_gas", () -> new GasFluidBlock(GoodblockModFluids.LATEX_CRYSTAL_JELLY_GAS));
 
 	public static final RegistryObject<FluidCanisterBlock> LATEX_CRYSTAL_JELLY_GAS_CANISTER = register("latex_crystal_jelly_gas_canister", () -> new FluidCanisterBlock(GoodblockModFluids.LATEX_CRYSTAL_JELLY_GAS),(canister) -> new GasCanister(canister, GoodblockModFluids.LATEX_CRYSTAL_JELLY_GAS));;

@@ -130,10 +130,9 @@ public class GoodBlockAnimatorPresets extends AnimatorPresets {
     }
 
     public static <T extends ChangedEntity, M extends AdvancedHumanoidModel<T>> Consumer<HumanoidAnimator<T, M>>
-    ProtogenNyxarixLike(ModelPart head, ModelPart leftEar, ModelPart rightEar, ModelPart torso,
+    ProtogenNyxarixWaterLike(ModelPart head, ModelPart leftEar, ModelPart rightEar, ModelPart torso,
                         ModelPart upperLeftArm, ModelPart upperRightArm, ModelPart lowerLeftArm,
-                        ModelPart lowerRightArm, ModelPart tail1, List<ModelPart> tailJoints1,
-                        ModelPart tail2, List<ModelPart> tailJoints2,ModelPart tail3, List<ModelPart> tailJoints3,
+                        ModelPart lowerRightArm, ModelPart tail, List<ModelPart> tailJoints,
                         List<ModelPart> upperLeftTentacle, List<ModelPart> upperRightTentacle,
                         List<ModelPart> lowerLeftTentacle, List<ModelPart> lowerRightTentacle,
                         ModelPart leftLeg, ModelPart leftLegLower, ModelPart leftFoot,
@@ -143,10 +142,8 @@ public class GoodBlockAnimatorPresets extends AnimatorPresets {
                 animator
                 .addPreset(wolfBipedal(leftLeg, leftLegLower, leftFoot, leftPad, rightLeg, rightLegLower, rightFoot, rightPad))
                 .addPreset(doubleArmUpperBody(head, torso, upperLeftArm, upperRightArm, lowerLeftArm, lowerRightArm))
-                .addPreset(catTail(tail1, tailJoints1))
-                .addPreset(catTail(tail2, tailJoints2))
-                .addPreset(catTail(tail3, tailJoints3))
-                .addPreset(catEars(leftEar, rightEar))
+                .addPreset(sharkTail(tail,tailJoints))
+                .addPreset(wolfEars(leftEar, rightEar))
                 .addPreset(squidDogTentacles(upperLeftTentacle, upperRightTentacle, lowerLeftTentacle, lowerRightTentacle))
                 .addAnimator(new WolfHeadInitAnimator<>(head))
                 .addAnimator(new ArmSwimAnimator<>(upperLeftArm, upperRightArm))

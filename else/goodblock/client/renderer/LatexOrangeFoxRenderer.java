@@ -45,6 +45,6 @@ public class LatexOrangeFoxRenderer extends AdvancedHumanoidRenderer<LatexOrange
 
 	@Override
 	public ResourceLocation getTextureLocation(LatexOrangeFoxEntity entity) {
-		return new ResourceLocation("goodblock:textures/entities/latex_orange_fox.png");
+		return new ResourceLocation("changed_creatures:textures/entities/latex_orange_fox.png");
 	}
 }

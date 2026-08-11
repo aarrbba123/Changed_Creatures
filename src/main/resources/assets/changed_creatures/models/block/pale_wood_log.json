@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "changed_creatures:block/pale_wood_log_top",
+    "up": "changed_creatures:block/pale_wood_log_top",
+    "north": "changed_creatures:block/pale_wood_log_side",
+    "east": "changed_creatures:block/pale_wood_log_side",
+    "south": "changed_creatures:block/pale_wood_log_side",
+    "west": "changed_creatures:block/pale_wood_log_side",
+    "particle": "changed_creatures:block/pale_wood_log_top"
+  }
+}

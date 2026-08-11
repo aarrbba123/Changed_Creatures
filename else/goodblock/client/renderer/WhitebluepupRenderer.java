@@ -54,6 +54,6 @@ public class WhitebluepupRenderer extends AdvancedHumanoidRenderer<WhitebluepupE
 
 	@Override
 	public ResourceLocation getTextureLocation(WhitebluepupEntity entity) {
-		return new ResourceLocation("goodblock:textures/entities/wihteblue_latex_wolf_pup.png");
+		return new ResourceLocation("changed_creatures:textures/entities/wihteblue_latex_wolf_pup.png");
 	}
 }

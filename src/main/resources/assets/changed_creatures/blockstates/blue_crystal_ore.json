@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "changed_creatures:block/blue_crystal_ore"
+    }
+  }
+}

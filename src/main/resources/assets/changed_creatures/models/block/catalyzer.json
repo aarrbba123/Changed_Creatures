@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "changed_creatures:block/purple_black",
+    "up": "changed_creatures:block/purple_black",
+    "north": "changed_creatures:block/purple_black",
+    "east": "changed_creatures:block/purple_black",
+    "south": "changed_creatures:block/purple_black",
+    "west": "changed_creatures:block/purple_black",
+    "particle": "changed_creatures:block/purple_black"
+  }
+}

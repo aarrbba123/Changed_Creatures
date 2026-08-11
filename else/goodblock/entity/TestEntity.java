@@ -1,12 +1,13 @@
 package net.hhdsj.goodblock.entity;
 
-// net/hhdsj/goodblock/entity/TestEntity.java
+// net/hhdsj/changed_creatures/entity/TestEntity.java
 import net.ltxprogrammer.changed.entity.ChangedEntity;
 import net.ltxprogrammer.changed.entity.TransfurMode;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 import net.ltxprogrammer.changed.util.Color3;
-//1.20.1 ADD
+
+//1.20.1 ADD
 import net.minecraft.world.entity.SpawnPlacements;
 //
 public class TestEntity extends ChangedEntity {
@@ -23,6 +24,7 @@ public class TestEntity extends ChangedEntity {
     @Override
     public Color3 getDripColor() {
         return Color3.getColor("#FFFFFF"); // 使用适合的颜色
-    }*/
+    }
+*/
 
 }

@@ -1,0 +1,32 @@
+package net.hhdsj.changed_creatures.entity.simple;
+
+import net.hhdsj.changed_creatures.init.ChangedCreatureModEntities;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraftforge.network.NetworkHooks;
+
+public class CrystalArrow extends AbstractArrow {
+    public CrystalArrow(EntityType<? extends AbstractArrow> type, Level level) {
+        super(type, level);
+    }
+
+    public CrystalArrow(Level level, LivingEntity shooter) {
+        super(ChangedCreatureModEntities.CRYSTAL_ARROW.get(), shooter, level);
+    }
+
+
+    @Override
+    protected ItemStack getPickupItem() {
+        return null;
+    }
+
+    @Override
+    public Packet<ClientGamePacketListener> getAddEntityPacket() {
+        return NetworkHooks.getEntitySpawningPacket(this);
+    }
+}

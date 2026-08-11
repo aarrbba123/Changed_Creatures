@@ -24,7 +24,7 @@ public class TESTGBKFluidType extends FluidType {
 	@Override
 	public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
 		consumer.accept(new IClientFluidTypeExtensions() {
-			private static final ResourceLocation STILL_TEXTURE = new ResourceLocation("goodblock:block/black_block"), FLOWING_TEXTURE = new ResourceLocation("goodblock:block/black_block");
+			private static final ResourceLocation STILL_TEXTURE = new ResourceLocation("changed_creatures:block/black_block"), FLOWING_TEXTURE = new ResourceLocation("changed_creatures:block/black_block");
 
 			@Override
 			public ResourceLocation getStillTexture() {

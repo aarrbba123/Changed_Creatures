@@ -4,6 +4,17 @@ This mod is an add-on for Changed and its add-ons.
 It adds various entities, blocks, items, and many other interesting things to the game. However, this mod is no longer being made with MCreator, so the MCreator-generated code and some messy parts need to be cleaned up and rewritten. If you could help me write some code and submit pull requests, I would be very happy and grateful!
 ---
 
+## World Warning
+
+- Due to the mod ID change in version 1.3, please use the Remap IDs mod and configure it by creating a `changed_creatures.json` file in the `config/remapids/remaps/` directory with the following content:
+
+```json
+{
+    "remaps": {
+        "goodblock": "changed_creatures"
+    }
+}
+
 ## Terms of Use
 
 ### 1. Model Resources
@@ -32,38 +43,3 @@ This mod is provided "as is". The author assumes no responsibility for any damag
 ## Contact
 
 For questions or permission requests, please contact the author.
-
-# Good Block - Minecraft 1.20.1 Forge 模组
-
-本模组是《Changed》及其附加模组的衍生模组。
-
----
-
-## 使用条款
-
-### 1. 模型资源
-- 严禁二次分发（包括修改版本）
-- 允许个人使用
-- 允许服务器使用
-- 严禁商业用途
-
-### 2. 实体材质
-- 版权归原作者所有
-- 使用此类材质前，必须征得原作者的授权许可
-
-### 3. 模组的编译与再分发
-- 允许编译本模组
-- 允许将编译后的完整模组进行再分发
-- 严禁单独提取并分发模组中的模型/材质
-
----
-
-## 免责声明
-
-本模组按“现状”提供。作者不对因使用本模组所导致的任何损害或损失承担责任。
-
----
-
-## 联系方式
-
-如有疑问或需申请授权，请联系作者。

@@ -21,7 +21,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 public class Modelcustom_model<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in
 	// the entity renderer and passed into this models's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "modelcustom_model"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("changed_creatures", "modelcustom_model"), "main");
 	public final ModelPart RightLeg;
 	public final ModelPart LeftLeg;
 	public final ModelPart Head;

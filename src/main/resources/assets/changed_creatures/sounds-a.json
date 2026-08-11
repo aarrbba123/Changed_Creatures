@@ -1,0 +1,12 @@
+{
+  "music.ink_sans": {
+    "category": "record",
+    "subtitle": "subtitles.changed_creatures.ink_sans",
+    "sounds": [
+      {
+        "name": "changed_creatures:ink_sans",
+        "stream": true
+      }
+    ]
+  }
+}

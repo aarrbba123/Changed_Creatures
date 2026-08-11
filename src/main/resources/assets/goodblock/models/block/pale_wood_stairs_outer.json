@@ -1,8 +1,0 @@
-{
-  "parent": "block/outer_stairs",
-  "textures": {
-    "bottom": "goodblock:block/pale_wood_planks",
-    "top": "goodblock:block/pale_wood_planks",
-    "side": "goodblock:block/pale_wood_planks"
-  }
-}

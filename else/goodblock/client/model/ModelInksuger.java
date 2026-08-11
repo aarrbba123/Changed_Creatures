@@ -44,7 +44,7 @@ import net.hhdsj.goodblock.entity.*;
 
 public class ModelInksuger extends AdvancedHumanoidModel<InksugerEntity> implements AdvancedHumanoidModelInterface<InksugerEntity, ModelInksuger> {
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this models's constructor
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "whitepupunified"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("changed_creatures", "whitepupunified"), "main");
     public final ModelPart RightLeg;
 	public final ModelPart LeftLeg;
 	public final ModelPart Head;

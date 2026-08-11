@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "changed_creatures:painite_armor_helmet",
+    "changed_creatures:painite_armor_chestplate",
+    "changed_creatures:painite_armor_leggings",
+    "changed_creatures:painite_armor_boots"
+  ]
+}

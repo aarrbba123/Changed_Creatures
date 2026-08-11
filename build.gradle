@@ -16,8 +16,8 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
 version = '1.0'
-group = 'net.hhdsj.goodblock'
-archivesBaseName = 'goodblock'
+group = 'net.hhdsj.changed_creatures'
+archivesBaseName = 'changed_creatures'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
@@ -39,7 +39,7 @@ minecraft {
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             mods {
-                goodblock {
+                changed_creatures {
                     source sourceSets.main
                 }
             }
@@ -55,7 +55,7 @@ minecraft {
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             mods {
-                goodblock {
+                changed_creatures {
                     source sourceSets.main
                 }
             }
@@ -70,13 +70,13 @@ minecraft {
             property 'mixin.env.disableRefMap', 'true'
             property 'mixin.debug.export', 'false'
             // 数据生成参数
-            args '--mod', 'goodblock'
+            args '--mod', 'changed_creatures'
             args '--all'
             args '--output', file('src/generated/resources/')
             args '--existing', file('src/main/resources/')
 
             mods {
-                goodblock {
+                changed_creatures {
                     source sourceSets.main
                 }
             }
@@ -104,8 +104,8 @@ dependencies {
 }
 
 mixin {
-    add sourceSets.main, 'goodblock.refmap.json'
-    config 'goodblock.mixins.json'
+    add sourceSets.main, 'changed_creatures.refmap.json'
+    config 'changed_creatures.mixins.json'
 
     debug.verbose = true
     debug.export = true
@@ -114,13 +114,13 @@ mixin {
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "goodblock",
+                "Specification-Title"     : "changed_creatures",
                 "Specification-Vendor"    : "hhdsj",
                 "Specification-Version"   : "1",
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
                 "Implementation-Vendor"   : "hhdsj",
-                "MixinConfigs"            : "goodblock.mixins.json"
+                "MixinConfigs"            : "changed_creatures.mixins.json"
         ])
     }
 }

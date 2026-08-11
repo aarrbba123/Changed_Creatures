@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "changed_creatures:block/block_bw_1",
+    "up": "changed_creatures:block/block_bw_1",
+    "north": "changed_creatures:block/block_bw_1",
+    "east": "changed_creatures:block/block_bw_1",
+    "south": "changed_creatures:block/block_bw_1",
+    "west": "changed_creatures:block/block_bw_1",
+    "particle": "changed_creatures:block/block_bw_1"
+  }
+}

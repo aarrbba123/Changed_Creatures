@@ -1,7 +1,0 @@
-{
-  "parent": "goodblock:custom/thrown_crystal_javelin_trident",
-  "textures": {
-    "0": "goodblock:item/thrown_crystal_javelin_trident",
-    "particle": "goodblock:item/thrown_crystal_javelin_trident"
-  }
-}

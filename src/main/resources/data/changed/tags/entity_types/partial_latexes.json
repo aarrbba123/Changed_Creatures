@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "goodblock:whitebluepup",
-    "goodblock:blackpupmale",
-    "goodblock:inksuger"
+    "changed_creatures:whitebluepup",
+    "changed_creatures:blackpupmale",
+    "changed_creatures:inksuger"
   ]
 }

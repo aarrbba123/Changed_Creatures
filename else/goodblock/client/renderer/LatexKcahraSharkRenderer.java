@@ -35,6 +35,6 @@ public class LatexKcahraSharkRenderer extends AdvancedHumanoidRenderer<LatexKcah
 
 	@Override
 	public ResourceLocation getTextureLocation(LatexKcahraSharkEntity entity) {
-		return new ResourceLocation("goodblock:textures/entities/latex_texture.png");
+		return new ResourceLocation("changed_creatures:textures/entities/latex_texture.png");
 	}
 }

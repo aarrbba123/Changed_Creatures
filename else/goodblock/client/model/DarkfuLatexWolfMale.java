@@ -37,7 +37,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 //extends AdvancedHumanoidModel<LatexHuman> implements AdvancedHumanoidModelInterface<LatexHuman, LatexHumanModel> 
                                        //AdvancedHumanoidModel<DarkLatexWolfMale> implements AdvancedHumanoidModelInterface<DarkLatexWolfMale, DarkLatexWolfMaleModel>
 public class DarkfuLatexWolfMale extends AdvancedHumanoidModel<DarkfuLatexWolfMaleEntity> implements AdvancedHumanoidModelInterface<DarkfuLatexWolfMaleEntity, DarkfuLatexWolfMale> {
-public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "darkfulatexwolfmaleunified"), "main");
+public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("changed_creatures", "darkfulatexwolfmaleunified"), "main");
 
 public final ModelPart RightLeg;
 public final ModelPart LeftLeg;

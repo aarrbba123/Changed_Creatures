@@ -37,10 +37,10 @@ import java.util.Collection;
 import java.util.ArrayList;
 import java.util.AbstractMap;
 
-@Mod("goodblock")
+@Mod("changed_creatures")
 public class GoodblockMod {
 	public static final Logger LOGGER = LogManager.getLogger(GoodblockMod.class);
-	public static final String MODID = "goodblock";
+	public static final String MODID = "changed_creatures";
 
 	public GoodblockMod() {
 		// Start of user code block mod constructor

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "changed_creatures:form_latex_yunxq_hot_dragon",
+    "changed_creatures:form_latex_iq_gold_dragon",
+    "changed_creatures:form_latex_yao_ling_dragon",
+    "changed_creatures:form_latex_ice_field_wolf_dragon",
+    "changed_creatures:form_latex_night_owl_dragon"
+  ]
+}

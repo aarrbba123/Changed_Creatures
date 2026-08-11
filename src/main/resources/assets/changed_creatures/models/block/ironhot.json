@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "changed_creatures:block/iron_hot",
+    "up": "changed_creatures:block/iron_hot",
+    "north": "changed_creatures:block/iron_hot",
+    "east": "changed_creatures:block/iron_hot",
+    "south": "changed_creatures:block/iron_hot",
+    "west": "changed_creatures:block/iron_hot",
+    "particle": "changed_creatures:block/iron_hot"
+  },
+  "render_type": "translucent"
+}

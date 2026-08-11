@@ -1,0 +1,13 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "changed_creatures:block/black_block",
+    "up": "changed_creatures:block/black_block",
+    "north": "changed_creatures:block/black_block",
+    "east": "changed_creatures:block/black_block",
+    "south": "changed_creatures:block/black_block",
+    "west": "changed_creatures:block/black_block",
+    "particle": "changed_creatures:block/black_block"
+  },
+  "render_type": "translucent"
+}

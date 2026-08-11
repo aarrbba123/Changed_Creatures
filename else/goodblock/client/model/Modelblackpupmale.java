@@ -45,7 +45,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class Modelblackpupmale extends AdvancedHumanoidModel<BlackpupmaleEntity> implements AdvancedHumanoidModelInterface<BlackpupmaleEntity, Modelblackpupmale> {
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this models's constructor
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "blackpupunified"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("changed_creatures", "blackpupunified"), "main");
     public final ModelPart RightLeg;
 	public final ModelPart LeftLeg;
 	public final ModelPart Head;

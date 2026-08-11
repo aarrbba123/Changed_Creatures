@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "changed_creatures:block/pale_wood_slab"
+    },
+    "type=top": {
+      "model": "changed_creatures:block/pale_wood_slab_top"
+    },
+    "type=double": {
+      "model": "changed_creatures:block/pale_wood_slab_full"
+    }
+  }
+}

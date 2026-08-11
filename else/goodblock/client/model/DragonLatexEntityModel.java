@@ -9,7 +9,7 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.ltxprogrammer.changed.Changed;
 import net.ltxprogrammer.changed.client.renderer.animate.AnimatorPresets;
 import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
-import net.hhdsj.goodblock.entity.beast.DragonLatexEntity;
+import net.hhdsj.changed_creatures.entity.beast.DragonLatexEntity;
 import net.minecraft.client.models.geom.ModelLayerLocation;
 import net.minecraft.client.models.geom.ModelPart;
 import net.minecraft.client.models.geom.PartPose;

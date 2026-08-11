@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "changed_creatures:block/ord_sapphire",
+    "up": "changed_creatures:block/ord_sapphire",
+    "north": "changed_creatures:block/ord_sapphire",
+    "east": "changed_creatures:block/ord_sapphire",
+    "south": "changed_creatures:block/ord_sapphire",
+    "west": "changed_creatures:block/ord_sapphire",
+    "particle": "changed_creatures:block/ord_sapphire"
+  }
+}

@@ -45,7 +45,7 @@ import java.util.List;
 
 public class Modelwhitebluepup extends AdvancedHumanoidModel<WhitebluepupEntity> implements AdvancedHumanoidModelInterface<WhitebluepupEntity, Modelwhitebluepup> {
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this models's constructor
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "whitebluepupunified"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("changed_creatures", "whitebluepupunified"), "main");
     public final ModelPart RightLeg;
 	public final ModelPart LeftLeg;
 	public final ModelPart Head;

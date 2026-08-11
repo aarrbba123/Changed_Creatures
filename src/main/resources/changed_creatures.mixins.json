@@ -1,0 +1,28 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.hhdsj.changed_creatures.mixin",
+  "refmap": "changed_creatures.refmap.json",
+  "plugin": "net.hhdsj.changed_creatures.mixin.MixinPlugin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "CrashReportMixin",
+    "Player.PlayerHurtMixin"
+  ],
+  "client": [
+    "client.gui.GuiMixin",
+    "client.gui.InventoryScreenMixin",
+    "Player.CrystalPlayerRendererMixin",
+    "Player.HumanoidModelAccessor",
+    "Player.MixinParticlePlayerRenderer",
+    "Player.MixinPlayerRenderer"
+  ],
+  "server": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

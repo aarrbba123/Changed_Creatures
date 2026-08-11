@@ -1,0 +1,7 @@
+{
+  "parent": "block/fence_side",
+  "textures": {
+    "texture": "changed_creatures:block/pale_wood_planks",
+    "particle": "changed_creatures:block/pale_wood_planks"
+  }
+}

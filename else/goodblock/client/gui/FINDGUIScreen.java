@@ -35,7 +35,7 @@ public class FINDGUIScreen extends AbstractContainerScreen<FINDGUIMenu> {
 		this.imageHeight = 166;
 	}
 
-	private static final ResourceLocation texture = new ResourceLocation("goodblock:textures/screens/findgui.png");
+	private static final ResourceLocation texture = new ResourceLocation("changed_creatures:textures/screens/findgui.png");
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -69,14 +69,14 @@ public class FINDGUIScreen extends AbstractContainerScreen<FINDGUIMenu> {
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.goodblock.findgui.label_goodblock_06_beta"), 5, 5, -16724992, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.goodblock.findgui.label_make_hhdsj2"), 5, 18, -16777012, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.changed_creatures.findgui.label_goodblock_06_beta"), 5, 5, -16724992, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.changed_creatures.findgui.label_make_hhdsj2"), 5, 18, -16777012, false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		button_dian_wo = Button.builder(Component.translatable("gui.goodblock.findgui.button_dian_wo"), e -> {
+		button_dian_wo = Button.builder(Component.translatable("gui.changed_creatures.findgui.button_dian_wo"), e -> {
 			if (true) {
 				GoodblockMod.PACKET_HANDLER.sendToServer(new FINDGUIButtonMessage(0, x, y, z));
 				FINDGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);

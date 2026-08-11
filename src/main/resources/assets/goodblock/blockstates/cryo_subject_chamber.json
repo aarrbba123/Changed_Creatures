@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "goodblock:block/cryo_subject_chamber", "y": 0, "uvlock": true },
-    "facing=east": { "model": "goodblock:block/cryo_subject_chamber", "y": 90, "uvlock": true },
-    "facing=south": { "model": "goodblock:block/cryo_subject_chamber", "y": 180, "uvlock": true },
-    "facing=west": { "model": "goodblock:block/cryo_subject_chamber", "y": 270, "uvlock": true }
-  }
-}

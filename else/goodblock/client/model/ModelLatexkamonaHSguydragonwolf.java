@@ -38,7 +38,7 @@ import java.util.List;
 
 public class ModelLatexkamonaHSguydragonwolf extends AdvancedHumanoidModel<LatexkamonaHSguydragonwolfEntity> implements AdvancedHumanoidModelInterface<LatexkamonaHSguydragonwolfEntity, ModelLatexkamonaHSguydragonwolf> {
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this models's constructor
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "latexnewfoxunified"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("changed_creatures", "latexnewfoxunified"), "main");
     private final ModelPart LeftLeg;
     public final ModelPart RightLeg;
     private final ModelPart RightArm;

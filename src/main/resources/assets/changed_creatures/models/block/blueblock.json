@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "changed_creatures:block/tie_wan",
+    "up": "changed_creatures:block/tie_wan",
+    "north": "changed_creatures:block/tie_wan",
+    "east": "changed_creatures:block/tie_wan",
+    "south": "changed_creatures:block/tie_wan",
+    "west": "changed_creatures:block/tie_wan",
+    "particle": "changed_creatures:block/tie_wan"
+  }
+}

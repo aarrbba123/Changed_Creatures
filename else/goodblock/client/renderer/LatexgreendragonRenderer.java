@@ -36,6 +36,6 @@ public class LatexgreendragonRenderer extends AdvancedHumanoidRenderer<Latexgree
 
 	@Override
 	public ResourceLocation getTextureLocation(LatexgreendragonEntity entity) {
-		return new ResourceLocation("goodblock:textures/entities/latex_bluegreen_texture_new1.png");
+		return new ResourceLocation("changed_creatures:textures/entities/latex_bluegreen_texture_new1.png");
 	}
 }

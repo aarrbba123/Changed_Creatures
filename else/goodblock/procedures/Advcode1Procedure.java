@@ -38,7 +38,7 @@ public class Advcode1Procedure {
 		if ((world.getBlockState(BlockPos.containing(x, y, z))) == Blocks.TNT.defaultBlockState()) {
 			if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == Items.FLINT_AND_STEEL) {
 				if (entity instanceof ServerPlayer _player) {
-					Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation("goodblock:gha_7"));
+					Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation("changed_creatures:gha_7"));
 					AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
 					if (!_ap.isDone()) {
 						for (String criteria : _ap.getRemainingCriteria())

@@ -47,6 +47,6 @@ public class InksugerRenderer extends AdvancedHumanoidRenderer<InksugerEntity, M
 
 	@Override
 	public ResourceLocation getTextureLocation(InksugerEntity entity) {
-		return new ResourceLocation("goodblock:textures/entities/ink_suger_pup.png");
+		return new ResourceLocation("changed_creatures:textures/entities/ink_suger_pup.png");
 	}
 }

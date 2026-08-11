@@ -1,0 +1,7 @@
+{
+  "parent": "changed_creatures:custom/thrown_crystal_javelin_trident",
+  "textures": {
+    "0": "changed_creatures:item/thrown_crystal_javelin_trident",
+    "particle": "changed_creatures:item/thrown_crystal_javelin_trident"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "changed_creatures:block/pale_tree"
+  },
+  "render_type": "cutout"
+}

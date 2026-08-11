@@ -1,9 +1,0 @@
-{
-  "parent": "goodblock:custom/cryo_subject_chamber",
-  "textures": {
-    "all": "goodblock:block/cryo_subject_chamber",
-    "particle": "goodblock:block/cryo_subject_chamber",
-    "0": "goodblock:block/cryo_subject_chamber"
-  },
-  "render_type": "translucent"
-}

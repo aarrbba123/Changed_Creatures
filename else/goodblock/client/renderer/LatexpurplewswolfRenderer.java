@@ -48,13 +48,13 @@ public class LatexpurplewswolfRenderer extends AdvancedHumanoidRenderer<Latexpur
 		this.addLayer(new EyesLayer<LatexpurplewswolfEntity, ModelLatexpurplewswolf>(this) {
 			@Override
 			public RenderType renderType() {
-				return RenderType.eyes(new ResourceLocation("goodblock:textures/entities/latex_kamona_hsguy_dragonwolf_png_light.png"));
+				return RenderType.eyes(new ResourceLocation("changed_creatures:textures/entities/latex_kamona_hsguy_dragonwolf_png_light.png"));
 			}
 		});
 	}
 
 	@Override
 	public ResourceLocation getTextureLocation(LatexpurplewswolfEntity entity) {
-		return new ResourceLocation("goodblock:textures/entities/latex_purple_ws_wolf1.png");
+		return new ResourceLocation("changed_creatures:textures/entities/latex_purple_ws_wolf1.png");
 	}
 }

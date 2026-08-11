@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "changed_creatures:block/catalyzer"
+    },
+    "facing=east": {
+      "model": "changed_creatures:block/catalyzer",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "changed_creatures:block/catalyzer",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "changed_creatures:block/catalyzer",
+      "y": 270
+    }
+  }
+}

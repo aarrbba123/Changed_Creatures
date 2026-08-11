@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab",
+  "textures": {
+    "bottom": "changed_creatures:block/pale_wood_planks",
+    "top": "changed_creatures:block/pale_wood_planks",
+    "side": "changed_creatures:block/pale_wood_planks"
+  }
+}

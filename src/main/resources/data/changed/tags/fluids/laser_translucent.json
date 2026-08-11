@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "goodblock:latex_crystal_jelly_gas",
-    "goodblock:latex_crystal_jelly_gas_flowing"
+    "changed_creatures:latex_crystal_jelly_gas",
+    "changed_creatures:latex_crystal_jelly_gas_flowing"
   ]
 }

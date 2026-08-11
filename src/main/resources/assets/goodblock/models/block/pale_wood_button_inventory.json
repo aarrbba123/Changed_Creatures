@@ -1,6 +1,0 @@
-{
-  "parent": "block/button_inventory",
-  "textures": {
-    "texture": "goodblock:block/pale_wood_planks"
-  }
-}

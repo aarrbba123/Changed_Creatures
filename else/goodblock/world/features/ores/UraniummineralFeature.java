@@ -35,7 +35,8 @@ import net.hhdsj.goodblock.init.GoodblockModBlocks;
 import java.util.Set;
 import java.util.Random;
 import java.util.List;
-/*
+
+/*
 public class UraniummineralFeature extends OreFeature {
 	public static UraniummineralFeature FEATURE = null;
 	public static Holder<ConfiguredFeature<OreConfiguration, ?>> CONFIGURED_FEATURE = null;
@@ -43,8 +44,8 @@ public class UraniummineralFeature extends OreFeature {
 
 	public static Feature<?> feature() {
 		FEATURE = new UraniummineralFeature();
-		CONFIGURED_FEATURE = FeatureUtils.register("goodblock:uraniummineral", FEATURE, new OreConfiguration(UraniummineralFeatureRuleTest.INSTANCE, GoodblockModBlocks.URANIUMMINERAL.get().defaultBlockState(), 3));
-		PLACED_FEATURE = PlacementUtils.register("goodblock:uraniummineral", CONFIGURED_FEATURE,
+		CONFIGURED_FEATURE = FeatureUtils.register("changed_creatures:uraniummineral", FEATURE, new OreConfiguration(UraniummineralFeatureRuleTest.INSTANCE, GoodblockModBlocks.URANIUMMINERAL.get().defaultBlockState(), 3));
+		PLACED_FEATURE = PlacementUtils.register("changed_creatures:uraniummineral", CONFIGURED_FEATURE,
 				List.of(CountPlacement.of(2), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(-57), VerticalAnchor.absolute(-12)), BiomeFilter.biome()));
 		return FEATURE;
 	}
@@ -75,7 +76,7 @@ public class UraniummineralFeature extends OreFeature {
 
 		@SubscribeEvent
 		public static void init(FMLCommonSetupEvent event) {
-			Registry.register(Registry.RULE_TEST, new ResourceLocation("goodblock:uraniummineral_match"), CUSTOM_MATCH);
+			Registry.register(Registry.RULE_TEST, new ResourceLocation("changed_creatures:uraniummineral_match"), CUSTOM_MATCH);
 		}
 
 		private List<Block> base_blocks = null;
@@ -91,4 +92,5 @@ public class UraniummineralFeature extends OreFeature {
 			return CUSTOM_MATCH;
 		}
 	}
-}*/
+}
+*/

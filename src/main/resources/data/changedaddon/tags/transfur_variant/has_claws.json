@@ -1,16 +1,16 @@
 {
   "values": [
-    "goodblock:latex_yao_ling_dragon",
-    "goodblock:latex_divine_sword_kitsune",
-    "goodblock:latex_gao_hui_fox",
-    "goodblock:latex_hyazinthe_fox",
-    "goodblock:latex_yue_xi_fox_female",
-    "goodblock:latex_enkang_dragon_shark",
-    "goodblock:latex_qian_gui_shark",
-    "goodblock:latex_fruit_dragon_wolf",
-    "goodblock:latex_dawn_wolf",
-    "goodblock:latex_blueve_cat",
-    "goodblock:latex_etan_kind",
-    "goodblock:latex_emberscales_magma_dragon_male"
+    "changed_creatures:latex_yao_ling_dragon",
+    "changed_creatures:latex_divine_sword_kitsune",
+    "changed_creatures:latex_gao_hui_fox",
+    "changed_creatures:latex_hyazinthe_fox",
+    "changed_creatures:latex_yue_xi_fox_female",
+    "changed_creatures:latex_enkang_dragon_shark",
+    "changed_creatures:latex_qian_gui_shark",
+    "changed_creatures:latex_fruit_dragon_wolf",
+    "changed_creatures:latex_dawn_wolf",
+    "changed_creatures:latex_blueve_cat",
+    "changed_creatures:latex_etan_kind",
+    "changed_creatures:latex_emberscales_magma_dragon_male"
   ]
 }

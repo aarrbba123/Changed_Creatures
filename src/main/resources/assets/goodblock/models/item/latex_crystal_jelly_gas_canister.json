@@ -1,8 +1,0 @@
-{
-  "parent": "changed:custom/gas_canister",
-  "textures": {
-    "all": "goodblock:block/latex_crystal_jelly_gas_canister",
-    "particle": "goodblock:block/latex_crystal_jelly_gas_canister",
-    "0": "goodblock:block/latex_crystal_jelly_gas_canister"
-  }
-}

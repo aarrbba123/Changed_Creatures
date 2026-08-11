@@ -1,7 +1,0 @@
-{
-  "parent": "block/fence_post",
-  "textures": {
-    "texture": "goodblock:block/pale_wood_planks",
-    "particle": "goodblock:block/pale_wood_planks"
-  }
-}

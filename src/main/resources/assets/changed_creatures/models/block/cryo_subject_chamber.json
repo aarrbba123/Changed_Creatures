@@ -1,0 +1,9 @@
+{
+  "parent": "changed_creatures:custom/cryo_subject_chamber",
+  "textures": {
+    "all": "changed_creatures:block/cryo_subject_chamber",
+    "particle": "changed_creatures:block/cryo_subject_chamber",
+    "0": "changed_creatures:block/cryo_subject_chamber"
+  },
+  "render_type": "translucent"
+}

@@ -1,13 +1,13 @@
 {
   "replace": false,
   "values": [
-    "goodblock:sulphur_block",
-    "goodblock:nitre_block",
-    "goodblock:blue_crystal_ore",
-    "goodblock:uranium_ore",
-    "goodblock:blueblock",
-    "goodblock:ironhot",
-    "goodblock:blackblock",
-    "goodblock:catalyzer"
+    "changed_creatures:sulphur_block",
+    "changed_creatures:nitre_block",
+    "changed_creatures:blue_crystal_ore",
+    "changed_creatures:uranium_ore",
+    "changed_creatures:blueblock",
+    "changed_creatures:ironhot",
+    "changed_creatures:blackblock",
+    "changed_creatures:catalyzer"
   ]
 }

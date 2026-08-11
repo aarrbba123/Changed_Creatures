@@ -35,7 +35,8 @@ import net.hhdsj.goodblock.init.GoodblockModBlocks;
 import java.util.Set;
 import java.util.Random;
 import java.util.List;
-/*
+
+/*
 public class SulphurblockFeature extends OreFeature {
 	public static SulphurblockFeature FEATURE = null;
 	public static Holder<ConfiguredFeature<OreConfiguration, ?>> CONFIGURED_FEATURE = null;
@@ -43,8 +44,8 @@ public class SulphurblockFeature extends OreFeature {
 
 	public static Feature<?> feature() {
 		FEATURE = new SulphurblockFeature();
-		CONFIGURED_FEATURE = FeatureUtils.register("goodblock:sulphurblock", FEATURE, new OreConfiguration(SulphurblockFeatureRuleTest.INSTANCE, GoodblockModBlocks.SULPHURBLOCK.get().defaultBlockState(), 6));
-		PLACED_FEATURE = PlacementUtils.register("goodblock:sulphurblock", CONFIGURED_FEATURE,
+		CONFIGURED_FEATURE = FeatureUtils.register("changed_creatures:sulphurblock", FEATURE, new OreConfiguration(SulphurblockFeatureRuleTest.INSTANCE, GoodblockModBlocks.SULPHURBLOCK.get().defaultBlockState(), 6));
+		PLACED_FEATURE = PlacementUtils.register("changed_creatures:sulphurblock", CONFIGURED_FEATURE,
 				List.of(CountPlacement.of(10), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(64)), BiomeFilter.biome()));
 		return FEATURE;
 	}
@@ -75,7 +76,7 @@ public class SulphurblockFeature extends OreFeature {
 
 		@SubscribeEvent
 		public static void init(FMLCommonSetupEvent event) {
-			Registry.register(Registry.RULE_TEST, new ResourceLocation("goodblock:sulphurblock_match"), CUSTOM_MATCH);
+			Registry.register(Registry.RULE_TEST, new ResourceLocation("changed_creatures:sulphurblock_match"), CUSTOM_MATCH);
 		}
 
 		private List<Block> base_blocks = null;
@@ -91,4 +92,5 @@ public class SulphurblockFeature extends OreFeature {
 			return CUSTOM_MATCH;
 		}
 	}
-}*/
+}
+*/

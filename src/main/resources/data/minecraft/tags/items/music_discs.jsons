@@ -1,11 +1,11 @@
 {
   "replace": false,
   "values": [
-    "goodblock:flutemusica_1records",
-    "goodblock:thefluffyheartbeatinthecubiclemusic",
-    "goodblock:inksans_4",
-    "goodblock:anitfrrymusic",
-    "goodblock:flute",
-    "goodblock:notlistenthis"
+    "changed_creatures:flutemusica_1records",
+    "changed_creatures:thefluffyheartbeatinthecubiclemusic",
+    "changed_creatures:inksans_4",
+    "changed_creatures:anitfrrymusic",
+    "changed_creatures:flute",
+    "changed_creatures:notlistenthis"
   ]
 }

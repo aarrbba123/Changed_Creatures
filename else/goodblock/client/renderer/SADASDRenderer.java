@@ -18,6 +18,6 @@ public class SADASDRenderer extends HumanoidMobRenderer<SADASDEntity, HumanoidMo
 
 	@Override
 	public ResourceLocation getTextureLocation(SADASDEntity entity) {
-		return new ResourceLocation("goodblock:textures/entities/dark_latex_wolf_male.png");
+		return new ResourceLocation("changed_creatures:textures/entities/dark_latex_wolf_male.png");
 	}
 }

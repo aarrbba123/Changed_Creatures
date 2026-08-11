@@ -1,0 +1,21 @@
+{
+  "parent": "changed_creatures:custom/painite_sword_model",
+  "textures": {
+    "0": "changed_creatures:item/painite_sword_v2_model",
+    "particle": "changed_creatures:item/painite_sword_v2"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        174,
+        88,
+        -180
+      ],
+      "translation": [
+        0,
+        1.25,
+        1
+      ]
+    }
+  }
+}

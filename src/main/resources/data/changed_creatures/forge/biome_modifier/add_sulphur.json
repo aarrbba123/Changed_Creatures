@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": "changed_creatures:placed_ore_sulphur_spawn",
+  "step": "underground_ores"
+}

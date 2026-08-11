@@ -13,7 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class AnitfrrymusicItem extends RecordItem {
 	public AnitfrrymusicItem() {
-		super(15, () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("goodblock:anit_furry_music")), new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 100);
+		super(15, () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("changed_creatures:anit_furry_music")), new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 100);
 	}
 
 	@Override

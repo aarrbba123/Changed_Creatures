@@ -69,7 +69,8 @@ import net.hhdsj.goodblock.GoodblockMod;
 import net.hhdsj.goodblock.entity.*;
 import net.hhdsj.goodblock.registers.GoodblockEntities;
 
-import net.ltxprogrammer.changed.Changed;
+
+import net.ltxprogrammer.changed.Changed;
 import net.ltxprogrammer.changed.entity.ChangedEntity;
 import net.ltxprogrammer.changed.entity.TransfurMode;
 import net.ltxprogrammer.changed.entity.VisionType;
@@ -88,10 +89,11 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 public class GoodblockModTransfurVariants {
-    public static final DeferredRegister<TransfurVariant<?>> REGISTRY = ChangedRegistry.TRANSFUR_VARIANT.createDeferred("goodblock");
+    public static final DeferredRegister<TransfurVariant<?>> REGISTRY = ChangedRegistry.TRANSFUR_VARIANT.createDeferred("changed_creatures");
 
     
-	/* Test latex
+
+	/* Test latex
     public static final RegistryObject<TransfurVariant<LatexfoxEntity>> LATEXFOX = REGISTRY.register("from_latex_fox",
     () -> TransfurVariant.Builder.of(GoodblockModEntities.LATEXFOX)
 	    .stepSize(0.7f)

@@ -15,6 +15,6 @@ public class LatexfoxRenderer extends MobRenderer<LatexfoxEntity, ModelLatexPurp
 
 	@Override
 	public ResourceLocation getTextureLocation(LatexfoxEntity entity) {
-		return new ResourceLocation("goodblock:textures/entities/latex_purple_fox.png");
+		return new ResourceLocation("changed_creatures:textures/entities/latex_purple_fox.png");
 	}
 }

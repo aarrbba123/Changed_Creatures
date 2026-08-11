@@ -36,6 +36,6 @@ public class LatexiceDragonRenderer extends AdvancedHumanoidRenderer<LatexiceDra
 
 	@Override
 	public ResourceLocation getTextureLocation(LatexiceDragonEntity entity) {
-		return new ResourceLocation("goodblock:textures/entities/latex_ice_dragon.png");
+		return new ResourceLocation("changed_creatures:textures/entities/latex_ice_dragon.png");
 	}
 }

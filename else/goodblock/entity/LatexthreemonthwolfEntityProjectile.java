@@ -65,7 +65,7 @@ import net.minecraft.network.protocol.Packet;
 //@OnlyIn(value = Dist.CLIENT, _interface = ItemSupplier.class)
 public class LatexthreemonthwolfEntityProjectile extends Arrow {
     
-    private ResourceLocation formVariant = new ResourceLocation("goodblock", "from_latex_purplews_wolf");
+    private ResourceLocation formVariant = new ResourceLocation("changed_creatures", "from_latex_purplews_wolf");
     
     public LatexthreemonthwolfEntityProjectile(PlayMessages.SpawnEntity packet, Level world) {
         super(GoodblockEntities.LATEXTHREEMONTHWOLF_PROJECTILE.get(), world);

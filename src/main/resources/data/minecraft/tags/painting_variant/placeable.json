@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "goodblock:home",
-    "goodblock:cityold",
-    "goodblock:paintinksuger"
+    "changed_creatures:home",
+    "changed_creatures:cityold",
+    "changed_creatures:paintinksuger"
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "changed_creatures:block/uranium_ore",
+    "up": "changed_creatures:block/uranium_ore",
+    "north": "changed_creatures:block/uranium_ore",
+    "east": "changed_creatures:block/uranium_ore",
+    "south": "changed_creatures:block/uranium_ore",
+    "west": "changed_creatures:block/uranium_ore",
+    "particle": "changed_creatures:block/uranium_ore"
+  }
+}

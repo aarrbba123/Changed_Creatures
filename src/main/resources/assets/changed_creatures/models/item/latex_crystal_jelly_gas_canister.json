@@ -1,0 +1,8 @@
+{
+  "parent": "changed:custom/gas_canister",
+  "textures": {
+    "all": "changed_creatures:block/latex_crystal_jelly_gas_canister",
+    "particle": "changed_creatures:block/latex_crystal_jelly_gas_canister",
+    "0": "changed_creatures:block/latex_crystal_jelly_gas_canister"
+  }
+}

@@ -64,7 +64,7 @@ public abstract class Armora1ArmorItem extends ArmorItem {
 
 		@Override
 		public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-			return "goodblock:textures/models/armor/armora1_layer_1.png";
+			return "changed_creatures:textures/models/armor/armora1_layer_1.png";
 		}
 	}
 
@@ -75,7 +75,7 @@ public abstract class Armora1ArmorItem extends ArmorItem {
 
 		@Override
 		public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-			return "goodblock:textures/models/armor/armora1_layer_1.png";
+			return "changed_creatures:textures/models/armor/armora1_layer_1.png";
 		}
 	}
 
@@ -86,7 +86,7 @@ public abstract class Armora1ArmorItem extends ArmorItem {
 
 		@Override
 		public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-			return "goodblock:textures/models/armor/armora1_layer_2.png";
+			return "changed_creatures:textures/models/armor/armora1_layer_2.png";
 		}
 	}
 
@@ -97,7 +97,7 @@ public abstract class Armora1ArmorItem extends ArmorItem {
 
 		@Override
 		public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-			return "goodblock:textures/models/armor/armora1_layer_1.png";
+			return "changed_creatures:textures/models/armor/armora1_layer_1.png";
 		}
 	}
 }

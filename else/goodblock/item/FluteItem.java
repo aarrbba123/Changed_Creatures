@@ -13,7 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class FluteItem extends RecordItem {
 	public FluteItem() {
-		super(0, () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("goodblock:gnusmas_gm_soundfont_2.00")), new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 100);
+		super(0, () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("changed_creatures:gnusmas_gm_soundfont_2.00")), new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 100);
 	}
 
 	@Override

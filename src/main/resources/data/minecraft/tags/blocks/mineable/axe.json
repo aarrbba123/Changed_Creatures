@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "goodblock:pale_wood_planks",
-    "goodblock:pale_wood_log",
-    "goodblock:pale_wood_wood"
+    "changed_creatures:pale_wood_planks",
+    "changed_creatures:pale_wood_log",
+    "changed_creatures:pale_wood_wood"
   ]
 }

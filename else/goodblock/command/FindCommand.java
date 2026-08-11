@@ -18,7 +18,7 @@ import net.hhdsj.goodblock.procedures.LOOKGUIProcedure;
 public class FindCommand {
 	@SubscribeEvent
 	public static void registerCommand(RegisterCommandsEvent event) {
-		event.getDispatcher().register(Commands.literal("goodblock")
+		event.getDispatcher().register(Commands.literal("changed_creatures")
 
 				.executes(arguments -> {
 					Level world = arguments.getSource().getUnsidedLevel();

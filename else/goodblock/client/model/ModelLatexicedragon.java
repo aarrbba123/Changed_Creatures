@@ -37,7 +37,7 @@ import java.util.List;
 
 public class ModelLatexicedragon extends AdvancedHumanoidModel<LatexiceDragonEntity> implements AdvancedHumanoidModelInterface<LatexiceDragonEntity, ModelLatexicedragon> {
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this models's constructor
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "latexicedragonunified"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("changed_creatures", "latexicedragonunified"), "main");
     private final ModelPart LeftLeg;
     public final ModelPart RightLeg;
     private final ModelPart RightArm;

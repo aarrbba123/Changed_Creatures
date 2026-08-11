@@ -1,0 +1,7 @@
+{
+  "parent": "changed_creatures:custom/latex_crystal_jelly_dragon_doll",
+  "textures": {
+    "particle": "changed_creatures:block/latex_crystal_jelly_dragon_doll",
+    "0": "changed_creatures:block/latex_crystal_jelly_dragon_doll"
+  }
+}

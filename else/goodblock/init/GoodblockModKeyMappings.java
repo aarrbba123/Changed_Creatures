@@ -20,7 +20,7 @@ import net.hhdsj.goodblock.GoodblockMod;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = {Dist.CLIENT})
 public class GoodblockModKeyMappings {
-	public static final KeyMapping KEYA = new KeyMapping("key.goodblock.keya", GLFW.GLFW_KEY_P, "key.categories.ui") {
+	public static final KeyMapping KEYA = new KeyMapping("key.changed_creatures.keya", GLFW.GLFW_KEY_P, "key.categories.ui") {
 		private boolean isDownOld = false;
 
 		@Override

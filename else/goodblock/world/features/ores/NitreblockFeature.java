@@ -35,7 +35,8 @@ import net.hhdsj.goodblock.init.GoodblockModBlocks;
 import java.util.Set;
 import java.util.Random;
 import java.util.List;
-/*
+
+/*
 public class NitreblockFeature extends OreFeature {
 	public static NitreblockFeature FEATURE = null;
 	public static Holder<ConfiguredFeature<OreConfiguration, ?>> CONFIGURED_FEATURE = null;
@@ -43,8 +44,8 @@ public class NitreblockFeature extends OreFeature {
 
 	public static Feature<?> feature() {
 		FEATURE = new NitreblockFeature();
-		CONFIGURED_FEATURE = FeatureUtils.register("goodblock:nitreblock", FEATURE, new OreConfiguration(NitreblockFeatureRuleTest.INSTANCE, GoodblockModBlocks.NITREBLOCK.get().defaultBlockState(), 6));
-		PLACED_FEATURE = PlacementUtils.register("goodblock:nitreblock", CONFIGURED_FEATURE,
+		CONFIGURED_FEATURE = FeatureUtils.register("changed_creatures:nitreblock", FEATURE, new OreConfiguration(NitreblockFeatureRuleTest.INSTANCE, GoodblockModBlocks.NITREBLOCK.get().defaultBlockState(), 6));
+		PLACED_FEATURE = PlacementUtils.register("changed_creatures:nitreblock", CONFIGURED_FEATURE,
 				List.of(CountPlacement.of(12), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(100)), BiomeFilter.biome()));
 		return FEATURE;
 	}
@@ -75,7 +76,7 @@ public class NitreblockFeature extends OreFeature {
 
 		@SubscribeEvent
 		public static void init(FMLCommonSetupEvent event) {
-			Registry.register(Registry.RULE_TEST, new ResourceLocation("goodblock:nitreblock_match"), CUSTOM_MATCH);
+			Registry.register(Registry.RULE_TEST, new ResourceLocation("changed_creatures:nitreblock_match"), CUSTOM_MATCH);
 		}
 
 		private List<Block> base_blocks = null;

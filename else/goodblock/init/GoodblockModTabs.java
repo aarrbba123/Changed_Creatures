@@ -23,7 +23,7 @@ import net.hhdsj.goodblock.GoodblockMod;
 public class GoodblockModTabs {
 	public static final DeferredRegister<CreativeModeTab> REGISTRY = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, GoodblockMod.MODID);
 	public static final RegistryObject<CreativeModeTab> WORLDBLOCK = REGISTRY.register("worldblock",
-			() -> CreativeModeTab.builder().title(Component.translatable("item_group.goodblock.worldblock")).icon(() -> new ItemStack(Items.KNOWLEDGE_BOOK)).displayItems((parameters, tabData) -> {
+			() -> CreativeModeTab.builder().title(Component.translatable("item_group.changed_creatures.worldblock")).icon(() -> new ItemStack(Items.KNOWLEDGE_BOOK)).displayItems((parameters, tabData) -> {
 				tabData.accept(GoodblockModBlocks.SULPHURBLOCK.get().asItem());
 				tabData.accept(GoodblockModBlocks.NITREBLOCK.get().asItem());
 				tabData.accept(GoodblockModBlocks.URANIUMMINERAL.get().asItem());
@@ -67,7 +67,7 @@ public class GoodblockModTabs {
 
 					.build());
 	public static final RegistryObject<CreativeModeTab> GOODBLOCK_ENTITY = REGISTRY.register("goodblock_entity",
-			() -> CreativeModeTab.builder().title(Component.translatable("item_group.goodblock.goodblock_entity")).icon(() -> new ItemStack(GoodblockModBlocks.BLOCKBW_1.get())).displayItems((parameters, tabData) -> {
+			() -> CreativeModeTab.builder().title(Component.translatable("item_group.changed_creatures.goodblock_entity")).icon(() -> new ItemStack(GoodblockModBlocks.BLOCKBW_1.get())).displayItems((parameters, tabData) -> {
 				tabData.accept(GoodblockModItems.BLACKPUPMALE_SPAWN_EGG.get());
 				tabData.accept(GoodblockModItems.WHITEBLUEPUP_SPAWN_EGG.get());
 				tabData.accept(GoodblockModItems.LATEXPURPLEWSWOLF_SPAWN_EGG.get());

@@ -41,7 +41,7 @@ import java.util.List;
 public class ModelLatexpurplewswolf extends AdvancedHumanoidModel<LatexpurplewswolfEntity> implements AdvancedHumanoidModelInterface<LatexpurplewswolfEntity, ModelLatexpurplewswolf> {//<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in
 	// the entity renderer and passed into this models's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("goodblock", "latex_orange_fox"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("changed_creatures", "latex_orange_fox"), "main");
 	public final ModelPart RightLeg;
 	public final ModelPart LeftLeg;
 	public final ModelPart Head;

@@ -1,8 +1,0 @@
-{
-  "parent": "goodblock:custom/latex_crystal_jelly_dragon_doll",
-  "textures": {
-    "all": "goodblock:block/latex_crystal_jelly_dragon_doll",
-    "particle": "goodblock:block/latex_crystal_jelly_dragon_doll",
-    "0": "goodblock:block/latex_crystal_jelly_dragon_doll"
-  }
-}

@@ -34,7 +34,7 @@ public abstract class PainiteArmorItem extends ArmorItem {
 
 			@Override
 			public SoundEvent getEquipSound() {
-				return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("goodblock:item.armor.equip_netherite"));
+				return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("changed_creatures:item.armor.equip_netherite"));
 			}
 
 			@Override
@@ -66,7 +66,7 @@ public abstract class PainiteArmorItem extends ArmorItem {
 
 		@Override
 		public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-			return "goodblock:textures/models/armor/painite__layer_1.png";
+			return "changed_creatures:textures/models/armor/painite__layer_1.png";
 		}
 	}
 
@@ -77,7 +77,7 @@ public abstract class PainiteArmorItem extends ArmorItem {
 
 		@Override
 		public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-			return "goodblock:textures/models/armor/painite__layer_1.png";
+			return "changed_creatures:textures/models/armor/painite__layer_1.png";
 		}
 	}
 
@@ -88,7 +88,7 @@ public abstract class PainiteArmorItem extends ArmorItem {
 
 		@Override
 		public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-			return "goodblock:textures/models/armor/painite__layer_2.png";
+			return "changed_creatures:textures/models/armor/painite__layer_2.png";
 		}
 	}
 
@@ -99,7 +99,7 @@ public abstract class PainiteArmorItem extends ArmorItem {
 
 		@Override
 		public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-			return "goodblock:textures/models/armor/painite__layer_1.png";
+			return "changed_creatures:textures/models/armor/painite__layer_1.png";
 		}
 	}
 }

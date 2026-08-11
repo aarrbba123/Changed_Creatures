@@ -1,6 +1,7 @@
 # Good Block - Minecraft 1.20.1 Forge Mod
 
-This mod is a Changed and Chnaged-addon addon mod.
+This mod is an add-on for Changed and its add-ons. 
+It adds various entities, blocks, items, and many other interesting things to the game. However, this mod is no longer being made with MCreator, so the MCreator-generated code and some messy parts need to be cleaned up and rewritten. If you could help me write some code and submit pull requests, I would be very happy and grateful!
 ---
 
 ## Terms of Use
@@ -46,7 +47,7 @@ For questions or permission requests, please contact the author.
 - 允许服务器使用
 - 严禁商业用途
 
-### 2. 胶乳材质
+### 2. 实体材质
 - 版权归原作者所有
 - 使用此类材质前，必须征得原作者的授权许可
 

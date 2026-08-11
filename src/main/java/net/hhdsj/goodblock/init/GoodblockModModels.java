@@ -8,6 +8,7 @@ import net.hhdsj.goodblock.client.models.ModelProtogenNyxarix;
 import net.hhdsj.goodblock.client.models.armors.ArmorLatexMaleWolfWingedDragonModel;
 import net.hhdsj.goodblock.client.models.armors.ArmorProtogenNyxarixWaterSquidDogModel;
 import net.hhdsj.goodblock.client.models.latex_taur.ModelLatexFrostScaleDragonTaur;
+import net.hhdsj.goodblock.client.models.latex_wolf_dragon.ModelLatexXuanJinWolfDragon;
 import net.hhdsj.goodblock.client.models.other.TailModel;
 import net.hhdsj.goodblock.client.models.boss.ModelLatexNightOwl;
 import net.hhdsj.goodblock.client.models.boss.ModelLatexNightOwlBoss;
@@ -24,6 +25,7 @@ import net.hhdsj.goodblock.client.models.latex_taur.ModelLatexDarkPurpleDragonTa
 import net.hhdsj.goodblock.client.models.latex_wolf.*;
 import net.hhdsj.goodblock.client.models.other.CrystalJavelinModel;
 import net.hhdsj.goodblock.client.models.armors.GoodBlockModelMaleWingedDragonArmor;
+import net.ltxprogrammer.changed.client.renderer.model.AdvancedHumanoidModel;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -79,6 +81,7 @@ public class GoodblockModModels {
 		event.registerLayerDefinition(ModelProtogenNyxarix.LAYER_LOCATION, ModelProtogenNyxarix::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexEtanKind.LAYER_LOCATION, ModelLatexEtanKind::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexSteppenWolf.LAYER_LOCATION, ModelLatexSteppenWolf::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexXuanJinWolfDragon.LAYER_LOCATION, ModelLatexXuanJinWolfDragon::createBodyLayer);
 
 
 		event.registerLayerDefinition(CrystalJavelinModel.LAYER_LOCATION, CrystalJavelinModel::createBodyLayer);
@@ -91,6 +94,5 @@ public class GoodblockModModels {
 
 		event.registerLayerDefinition(ModelLatexPeanutButterWolf.LAYER_LOCATION, ModelLatexPeanutButterWolf::createBodyLayer);
 	}
-
 
 }

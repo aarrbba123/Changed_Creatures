@@ -133,8 +133,18 @@ public class GoodblockModEntities {
     public static final RegistryObject<EntityType<LatexBlueveCatEntity>> LATEX_BLUEVE_CAT;
 
     public static final RegistryObject<EntityType<ProtogenNyxarixEntity>> PROTOGEN_NYXARIX;
-    
+
+    //龙狼变体
+    public static final RegistryObject<EntityType<LatexXuanJinWolfDragonEntity>> LATEX_XUAN_JIN_WOLF_DRAGON;
+
     static {
+        LATEX_XUAN_JIN_WOLF_DRAGON = registerSpawning("latex_xuan_jin_wolf_dragon", 0x1c2126, 0xe6ab00,
+                EntityType.Builder.<LatexXuanJinWolfDragonEntity>of(LatexXuanJinWolfDragonEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .sized(0.6f, 1.92f),
+                LatexXuanJinWolfDragonEntity::createLatexAttributes);
         LATEX_PEAUNT_BUTTER_WOLF = registerSpawning("latex_peaunt_butter_wolf", 0xFDCD6E, 0xFEF19B,
                 EntityType.Builder.<LatexPeanutButterWolfEntity>of(LatexPeanutButterWolfEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)

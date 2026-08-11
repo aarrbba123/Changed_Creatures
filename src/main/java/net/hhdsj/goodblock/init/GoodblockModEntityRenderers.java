@@ -20,6 +20,7 @@ import net.hhdsj.goodblock.client.renderer.latex_shark.LatexQianGuiSharkRenderer
 import net.hhdsj.goodblock.client.renderer.latex_taur.LatexDarkPurpleDragonTaurRenderer;
 import net.hhdsj.goodblock.client.renderer.latex_taur.LatexFrostScaleDragonTaurRenderer;
 import net.hhdsj.goodblock.client.renderer.latex_wolf.*;
+import net.hhdsj.goodblock.client.renderer.latex_wolf_dragon.LatexXuanJinWolfDragonRenderer;
 import net.hhdsj.goodblock.client.renderer.projectile.BlueCrystalProjectileRenderer;
 import net.hhdsj.goodblock.client.renderer.projectile.CrystalArrowRenderer;
 import net.hhdsj.goodblock.client.renderer.projectile.LatexArrowRenderer;
@@ -86,6 +87,7 @@ public class GoodblockModEntityRenderers {
 		event.registerEntityRenderer(GoodblockModEntities.PROTOGEN_NYXARIX.get(), ProtogenNyxarixRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_STEPPEN_WOLF.get(), LatexSteppenWolfRenderer::new);
 		event.registerEntityRenderer(GoodblockModEntities.LATEX_PEAUNT_BUTTER_WOLF.get(), LatexPeanutButterWolfRenderer::new);
+		event.registerEntityRenderer(GoodblockModEntities.LATEX_XUAN_JIN_WOLF_DRAGON.get(), LatexXuanJinWolfDragonRenderer::new);
 
 	}
 	@SubscribeEvent

@@ -1,0 +1,13 @@
+{
+  "loader": "forge:item_layers",
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "changed_creature:item/latex_filled_all_mug_base",
+    "layer1": "changed_creature:item/latex_filled_all_mug_overlay"
+  },
+  "forge_data": {
+    "1": {
+      "color": "0xFFFFFFFF"
+    }
+  }
+}

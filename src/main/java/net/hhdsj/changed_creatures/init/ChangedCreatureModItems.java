@@ -7,6 +7,7 @@ package net.hhdsj.changed_creatures.init;
 import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.item.*;
 import net.hhdsj.changed_creatures.item.tool.*;
+import net.ltxprogrammer.changed.item.FilledMug;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.registries.RegistryObject;
@@ -73,6 +74,7 @@ public class ChangedCreatureModItems {
 	public static RegistryObject<Item> DRAGONFRUIT;
 	public static RegistryObject<Item> Frost_Condensed_Crystal_Cluster;
 	public static RegistryObject<Item> Impure_Frost_Condensed_Crystal_Cluster;
+	public static RegistryObject<Item> LATEX_FILLED_ALL_MUG_ITEM;
 
 	// 工具类
 	public static RegistryObject<Item> FLUTE;
@@ -121,6 +123,7 @@ public class ChangedCreatureModItems {
 	// ==================== 静态代码块初始化 (Static Initialization) ====================
 
 	static {
+		LATEX_FILLED_ALL_MUG_ITEM = register("latex_filled_all_mug", () -> new FilledMug((new Item.Properties()).stacksTo(16)));
 		// -------------------- 方块物品初始化 --------------------
 		CRYO_SUBJECT_CHAMBER = block(ChangedCreatureModBlocks.CRYO_SUBJECT_CHAMBER);
 		LATEX_DEEP_CRYSTAL_DRAGON_DOLL = block(ChangedCreatureModBlocks.LATEX_DEEP_CRYSTAL_DRAGON_DOLL);

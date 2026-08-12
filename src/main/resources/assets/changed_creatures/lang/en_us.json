@@ -231,7 +231,7 @@
   "item.changed_creatures.latex_night_owl_goo.desc1": "A flowing gelatinous fluid. Seems like it could be applied to something living.",
   "item.changed_creatures.latex_orange_fox_spawn_egg": "Orange Latex Fox Spawn Egg",
   "item.changed_creatures.latex_orange_fox_spawn_egg.desc": "Orange Latex Fox",
-  "item.changed_creatures.latex_peaunt_butter_wolf": "Latex Peaunt Butter Wolf Spawn Egg",
+  "item.changed_creatures.latex_peaunt_butter_wolf_spawn_egg": "Latex Peaunt Butter Wolf Spawn Egg",
   "item.changed_creatures.latex_purple_cooc_wolf_spawn_egg": "Purple Cooc Latex Wolf Spawn Egg",
   "item.changed_creatures.latex_purple_cooc_wolf_spawn_egg.desc": "Purple Cooc Latex Wolf",
   "item.changed_creatures.latex_qian_gui_shark_spawn_egg": "Qian Gui Shark Spawn Egg",
@@ -296,5 +296,6 @@
   "item.changed_creatures.latex_mug.show1": "§cThat target is not a latex creature.",
   "item.changed_creatures.latex_mug.show2": "§aExtracted variant: §e%s",
   "item.changed_creatures.latex_mug.show3": "Empty",
-  "item.changed_creatures.latex_mug.show4": "§7Content: §b%s"
+  "item.changed_creatures.latex_mug.show4": "§7Content: §b%s",
+  "item.changed_creatures.latex_crystal_jelly_gas_canister": "Latex Crystal Jelly Gas Canister"
 }

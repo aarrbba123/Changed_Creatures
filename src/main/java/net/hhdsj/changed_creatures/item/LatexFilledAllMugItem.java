@@ -1,65 +1,97 @@
 package net.hhdsj.changed_creatures.item;
 
-import com.mojang.datafixers.util.Pair;
-import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModItems;
-import net.ltxprogrammer.changed.entity.ChangedEntity;
 import net.ltxprogrammer.changed.entity.TransfurCause;
 import net.ltxprogrammer.changed.entity.TransfurContext;
-import net.ltxprogrammer.changed.entity.latex.LatexType;
 import net.ltxprogrammer.changed.entity.variant.TransfurVariant;
 import net.ltxprogrammer.changed.entity.variant.TransfurVariantInstance;
+import net.ltxprogrammer.changed.init.ChangedBlocks;
 import net.ltxprogrammer.changed.init.ChangedRegistry;
 import net.ltxprogrammer.changed.init.ChangedTransfurVariants;
 import net.ltxprogrammer.changed.item.FilledMug;
 import net.ltxprogrammer.changed.process.ProcessTransfur;
-import net.ltxprogrammer.changed.util.Color3;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.stats.Stats;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.RegisterColorHandlersEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.function.Supplier;
 
-@Mod.EventBusSubscriber(modid = ChangedCreature.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class LatexFilledAllMugItem extends FilledMug {
 
     private static final String NBT_FORM_VARIANT = "form_variant";
-    private static final String NBT_OVERLAY_COLOR = "overlay_color";
-    private static final String DEFAULT_VARIANT = "changed:white_wolf_male";
-    private static final int DEFAULT_COLOR = 0xFFFFFFFF;
 
-    public LatexFilledAllMugItem(Supplier<? extends LatexType> latexType, Properties properties) {
+
+    public LatexFilledAllMugItem(Properties properties) {
         super(properties);
     }
+    @Override
+    public int getMaxStackSize(ItemStack stack) {
+        return hasVariant(stack) ? 1 : 16;
+    }
 
+    @Override
+    public @NotNull ItemStack finishUsingItem(@NotNull ItemStack stack, @NotNull Level level, @NotNull LivingEntity user) {
+        if (stack.isEdible()) {
+            user.eat(level, stack);
+        } else {
+            stack.shrink(1);
+        }
+
+        if (user instanceof ServerPlayer serverplayer) {
+            CriteriaTriggers.CONSUME_ITEM.trigger(serverplayer, stack);
+            serverplayer.awardStat(Stats.ITEM_USED.get(this));
+        }
+
+        if (!level.isClientSide) {
+            this.onDrink(stack, level, user);
+        }
+
+        ItemStack mugStack = new ItemStack(ChangedBlocks.MUG.get());
+       // CompoundTag tag = mugStack.getOrCreateTag();
+        //tag.putString(NBT_FORM_VARIANT, "");
+        //System.out.print("Debug:Get drink ok");
+        //System.out.print(tag.getString(NBT_FORM_VARIANT));
+        if (stack.isEmpty()) {
+            return mugStack;
+        } else {
+            if (user instanceof Player player && !player.getAbilities().instabuild) {
+                if (!player.getInventory().add(mugStack)) {
+                    player.drop(mugStack, false);
+                }
+            }
+            return stack;
+        }
+    }
     @Override
     public void appendHoverText(@NotNull ItemStack itemstack, @Nullable Level world,
                                 @NotNull List<Component> list, @NotNull TooltipFlag flag) {
         super.appendHoverText(itemstack, world, list, flag);
 
         String variantId = getVariantIdFromStack(itemstack);
-        if (variantId != null && !variantId.isEmpty()) {
-            list.add(Component.literal("§7内容物: §b" + variantId));
-            int color = getOverlayColorFromStack(itemstack);
-            if (color != DEFAULT_COLOR) {
-                list.add(Component.literal("§7颜色: §f#" + String.format("%08X", color)));
-            }
+        if (variantId != null) {
+            list.add(
+                    Component.translatable("item.changed_creatures.latex_mug.show4",variantId)
+                    //Component.literal("§7内容物: §b" + variantId)
+            );
         } else {
-            list.add(Component.literal("§7无内容物"));
+            list.add(
+                    Component.translatable("item.changed_creatures.latex_mug.show3")
+                    //Component.literal("§7内容物: §8空")
+            );
         }
     }
 
@@ -73,7 +105,7 @@ public class LatexFilledAllMugItem extends FilledMug {
 
         var variant = ChangedRegistry.TRANSFUR_VARIANT.get().getValue(variantLocation);
         if (variant != null) {
-            ProcessTransfur.progressTransfur(user, 10f, variant,
+            ProcessTransfur.progressTransfur(user, 20f, variant,
                     TransfurContext.hazard(TransfurCause.FACE_HAZARD));
         }
     }
@@ -83,82 +115,9 @@ public class LatexFilledAllMugItem extends FilledMug {
         ItemStack stack = super.getDefaultInstance();
         CompoundTag tag = stack.getOrCreateTag();
         if (!tag.contains(NBT_FORM_VARIANT)) {
-            tag.putString(NBT_FORM_VARIANT, DEFAULT_VARIANT);
-        }
-        if (!tag.contains(NBT_OVERLAY_COLOR)) {
-            tag.putInt(NBT_OVERLAY_COLOR, DEFAULT_COLOR);
+            tag.putString(NBT_FORM_VARIANT, "");
         }
         return stack;
-    }
-
-    @Override
-    public @NotNull InteractionResult interactLivingEntity(ItemStack stack, Player player,
-                                                           LivingEntity interactionTarget,
-                                                           net.minecraft.world.InteractionHand hand) {
-        Level level = player.level();
-
-        if (level.isClientSide) {
-            return InteractionResult.PASS;
-        }
-
-        CompoundTag tag = stack.getTag();
-        if (tag != null && tag.contains(NBT_FORM_VARIANT)) {
-            return InteractionResult.PASS;
-        }
-
-        String targetVariantId = getVariantIdFromEntity(interactionTarget);
-
-        if (targetVariantId != null && !targetVariantId.isEmpty()) {
-            CompoundTag newTag = stack.getOrCreateTag();
-            newTag.putString(NBT_FORM_VARIANT, targetVariantId);
-
-            //获取并保存颜色
-            Integer color = getVariantColor(targetVariantId);
-            if (color != null) {
-                newTag.putInt(NBT_OVERLAY_COLOR, color);
-            }
-
-            return InteractionResult.SUCCESS;
-        }
-
-        return InteractionResult.PASS;
-    }
-
-    private String getVariantIdFromEntity(LivingEntity entity) {
-        if (entity instanceof Player targetPlayer) {
-            TransfurVariantInstance<?> variantInstance = ProcessTransfur.getPlayerTransfurVariant(targetPlayer);
-            if (variantInstance != null) {
-                ResourceLocation formId = variantInstance.getFormId();
-                if (formId != null) {
-                    return formId.toString();
-                }
-            }
-        }
-
-        if (entity instanceof ChangedEntity changedEntity) {
-            TransfurVariant<?> selfVariant = changedEntity.getSelfVariant();
-            if (selfVariant != null) {
-                ResourceLocation formId = selfVariant.getFormId();
-                if (formId != null) {
-                    return formId.toString();
-                }
-            }
-        }
-
-        try {
-            java.util.Optional<TransfurVariant<?>> variantOpt = ProcessTransfur.getEntityVariant(entity);
-            if (variantOpt.isPresent()) {
-                TransfurVariant<?> variant = variantOpt.get();
-                ResourceLocation key = ChangedRegistry.TRANSFUR_VARIANT.get().getKey(variant);
-                if (key != null) {
-                    return key.toString();
-                }
-            }
-        } catch (Exception ignored) {
-
-        }
-
-        return null;
     }
 
     private String getVariantIdFromStack(ItemStack stack) {
@@ -169,46 +128,92 @@ public class LatexFilledAllMugItem extends FilledMug {
                 return value;
             }
         }
-        return DEFAULT_VARIANT;
+        return null;
     }
 
-    public static int getOverlayColorFromStack(ItemStack stack) {
-        CompoundTag tag = stack.getTag();
-        if (tag != null && tag.contains(NBT_OVERLAY_COLOR)) {
-            return tag.getInt(NBT_OVERLAY_COLOR);
+    @Override
+    public @NotNull InteractionResult interactLivingEntity(@NotNull ItemStack stack,
+                                                           @NotNull Player player,
+                                                           @NotNull LivingEntity target,
+                                                           @NotNull InteractionHand hand) {
+        if (getVariantIdFromStack(stack) != null) {
+            return InteractionResult.PASS;
         }
-        return DEFAULT_COLOR;
+
+        if (player.level().isClientSide) {
+            return InteractionResult.SUCCESS;
+        }
+
+        // 服务端逻辑
+        String variantId = extractVariantFromEntity(target);
+
+        if (variantId != null) {
+            ItemStack filledMug = new ItemStack(ChangedCreatureModItems.LATEX_FILLED_ALL_MUG_ITEM.get());
+            CompoundTag tag = filledMug.getOrCreateTag();
+            tag.putString(NBT_FORM_VARIANT, variantId);
+
+            // 消耗1个手中的空杯子
+            stack.shrink(1);
+
+            // 给玩家满杯子
+            if (!player.getInventory().add(filledMug)) {
+                player.drop(filledMug, false);
+            }
+
+            player.displayClientMessage(
+                    Component.translatable("item.changed_creatures.latex_mug.show2",variantId), true
+                    //Component.literal("§a舀取胶液: §e" + variantId), true
+            );
+            System.out.print("添加入 : true\n");
+        } else {
+            player.displayClientMessage(
+                    Component.translatable("item.changed_creatures.latex_mug.show1"), true
+                    //Component.literal("§c你舀取的对象不是胶液"), true
+            );
+        }
+        System.out.print("Debug Get ok : " + variantId + "\n");
+        return InteractionResult.SUCCESS;
     }
 
-    public Integer getVariantColor(String variantId) {
-        ResourceLocation variantLocation = ResourceLocation.tryParse(variantId);
-        if (variantLocation == null) return null;
+    @Nullable
+    private String extractVariantFromEntity(LivingEntity entity) {
+        TransfurVariant<?> variant = TransfurVariant.getEntityVariant(entity);
+        if (variant != null) {
+            return variant.getFormId().toString();
+        }
 
-        TransfurVariant<?> variant = ChangedRegistry.TRANSFUR_VARIANT.get().getValue(variantLocation);
-        if (variant == null) return null;
-
-        Pair<Color3, Color3> colors = variant.getColors();
-        if (colors != null && colors.getFirst() != null) {
-            return colors.getFirst().toInt();
+        if (entity instanceof Player player) {
+            TransfurVariantInstance<?> instance = ProcessTransfur.getPlayerTransfurVariant(player);
+            if (instance != null) {
+                TransfurVariant<?> parentVariant = instance.getParent();
+                return parentVariant.getFormId().toString();
+            }
         }
 
         return null;
     }
 
-    @SubscribeEvent
-    public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
-        event.register((stack, tintIndex) -> {
-            if (tintIndex == 1) {
-                CompoundTag tag = stack.getTag();
-                if (tag != null && tag.contains(NBT_FORM_VARIANT)) {
-                    String variantId = tag.getString(NBT_FORM_VARIANT);
-                    if (!variantId.isEmpty()) {
-                        return getOverlayColorFromStack(stack);
-                    }
-                }
-                return 0x00000000; //不渲染
+    private boolean hasVariant(ItemStack stack) {
+        return getVariantIdFromStack(stack) != null;
+    }
+
+    // ========== 重写 use：空杯子禁止饮用 ==========
+    @Override
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, @NotNull Player player,
+                                                           @NotNull InteractionHand hand) {
+        ItemStack stack = player.getItemInHand(hand);
+        System.out.print("Get latex : "+hasVariant(stack) + "\n");
+        if (!hasVariant(stack)) {
+            if (!level.isClientSide) {
+
+                player.displayClientMessage(
+                        Component.translatable("item.changed_creatures.latex_mug.show0"), true
+                        //Component.literal("§c杯子是空的"), true
+                );
             }
-            return 0xFFFFFFFF;
-        }, ChangedCreatureModItems.LATEX_FILLED_ALL_MUG_ITEM.get());
+            return InteractionResultHolder.fail(stack);
+        }
+
+        return super.use(level, player, hand);
     }
 }

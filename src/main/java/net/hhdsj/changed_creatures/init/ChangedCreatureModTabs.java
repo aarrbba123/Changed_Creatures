@@ -5,8 +5,12 @@ package net.hhdsj.changed_creatures.init;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
 import net.ltxprogrammer.changed.init.ChangedItems;
+import net.ltxprogrammer.changed.init.ChangedRegistry;
+import net.ltxprogrammer.changed.init.ChangedTags;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 
 import net.minecraft.world.item.ItemStack;
@@ -16,6 +20,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.util.Comparator;
 
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -32,6 +38,12 @@ public class ChangedCreatureModTabs {
 			() -> CreativeModeTab.builder()
 					.title(Component.translatable("item_group.changed_creatures.changed_creatures_entity"))
 					.icon(() -> new ItemStack(ChangedItems.DARK_LATEX_MASK.get()))
+					.build());
+
+	public static final RegistryObject<CreativeModeTab> LATEX_ITEM = REGISTRY.register("changed_creatures_latex_item",
+			() -> CreativeModeTab.builder()
+					.title(Component.translatable("item_group.changed_creatures.changed_creatures_latex_item"))
+					.icon(() -> new ItemStack(ChangedCreatureModItems.LATEX_FILLED_ALL_MUG_ITEM.get()))
 					.build());
 
 	// 所有物品通过事件添加到对应的标签页
@@ -70,6 +82,7 @@ public class ChangedCreatureModTabs {
 			tabData.accept(ChangedCreatureModItems.PAINITEHOE.get());
 			tabData.accept(ChangedCreatureModItems.PAINITESHOVEL.get());
 			tabData.accept(ChangedCreatureModItems.CURSED_SCYTHE.get());
+
 			//tabData.accept(ChangedCreatureModItems.THEFLUFFYHEARTBEATINTHECUBICLEMUSIC.get());
 			//tabData.accept(ChangedCreatureModItems.FLUTEMUSICA_1RECORDS.get());
 			//tabData.accept(ChangedCreatureModItems.NOTLISTENTHIS.get());
@@ -99,6 +112,26 @@ public class ChangedCreatureModTabs {
 		// 自定义标签页：GOODBLOCK_ENTITY
 		else if (tabData.getTabKey() == GOODBLOCK_ENTITY.getKey()) {
 
+		}
+		else if (tabData.getTabKey() == LATEX_ITEM.getKey()) {
+			tabData.accept(ChangedCreatureModItems.LATEX_FILLED_ALL_MUG_ITEM.get());
+			try {
+				var variants = ChangedRegistry.TRANSFUR_VARIANT.get()
+						.getValues().stream()
+						.filter(v -> !v.getFormId().equals(ResourceLocation.tryParse("changed:form_special")))
+						.filter(v -> !v.is(ChangedTags.TransfurVariants.TEMPORARY_ONLY))
+						.sorted(Comparator.comparing(v -> v.getFormId().toString()))
+						.toList();
+
+				for (var variant : variants) {
+					ItemStack mugStack = new ItemStack(ChangedCreatureModItems.LATEX_FILLED_ALL_MUG_ITEM.get());
+					CompoundTag tag = mugStack.getOrCreateTag();
+					tag.putString("form_variant", variant.getFormId().toString());
+					tabData.accept(mugStack);
+				}
+			} catch (Exception e) {
+				// Changed 未初始化时静默跳过
+			}
 		}
 
 		// 原版标签页

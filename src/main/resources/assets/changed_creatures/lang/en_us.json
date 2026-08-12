@@ -116,6 +116,7 @@
   "entity.changed_creatures.latexthreemonthwolf": "Three Month Latex Wolf",
   "entity.changed_creatures.latexyunxqhotdragon": "Yun XQ Hot Latex Dragon",
   "entity.changed_creatures.latexyunxqicedragon": "Yun XQ Ice Latex Dragon",
+  "entity.changed_creatures.latex_xuan_jin_wolf_dragon": "Latex XuanJin Wolf Dragon",
   "entity.changed_creatures.whitebluepup": "White Blue Pup",
   "fluid.changed_creatures.fluidhottest": "test item",
   "gamerule.initiateAchievements": "Good Block Achievements",
@@ -277,8 +278,10 @@
   "item.changed_creatures.thefluffyheartbeatinthecubiclemusic.desc": "Furry Music",
   "item.changed_creatures.whitebluepup_spawn_egg": "White Blue Pup Spawn Egg",
   "item.changed_creatures.whitebluepup_spawn_egg.desc": "White Blue Pup",
-  "item_group.changed_creatures.changed_creatures_entity": "GoodBlock Spawn Eggs",
-  "item_group.changed_creatures.worldblock": "Blocks And Items",
+  "item.changed_creatures.latex_mug": "Mug",
+  "item_group.changed_creatures.changed_creatures_entity": "Changed Creatures Spawn Eggs",
+  "item_group.changed_creatures.worldblock": "Changed Creatures Block",
+  "item_group.changed_creatures.changed_creatures_latex_item": "Changed Creatures Latex Items",
   "key.changed_creatures.keya": "Key Test",
   "subtitles.anit_furry_music": "Anti-Furry Music!!!",
   "subtitles.flutemusica_1records": "Flute Musica 1 Records",
@@ -288,5 +291,10 @@
   "subtitles.no_stop": "Never Stop",
   "subtitles.srening_ogg1": "Music",
   "subtitles.the_fluffy_heartbeat_in_the_cubicle": "Play The Fluffy Heartbeat in the Cubicle Music",
-  "subtitles.the_fluffy_heartbeatinthe_cubiclemusic": "The Fluffy Heartbeat in the Cubicle Music"
+  "subtitles.the_fluffy_heartbeatinthe_cubiclemusic": "The Fluffy Heartbeat in the Cubicle Music",
+  "item.changed_creatures.latex_mug.show0": "§cThe mug is empty.",
+  "item.changed_creatures.latex_mug.show1": "§cThat target is not a latex creature.",
+  "item.changed_creatures.latex_mug.show2": "§aExtracted variant: §e%s",
+  "item.changed_creatures.latex_mug.show3": "Empty",
+  "item.changed_creatures.latex_mug.show4": "§7Content: §b%s"
 }

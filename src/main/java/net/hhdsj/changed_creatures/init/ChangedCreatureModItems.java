@@ -123,7 +123,7 @@ public class ChangedCreatureModItems {
 	// ==================== 静态代码块初始化 (Static Initialization) ====================
 
 	static {
-		LATEX_FILLED_ALL_MUG_ITEM = register("latex_filled_all_mug", () -> new FilledMug((new Item.Properties()).stacksTo(16)));
+		LATEX_FILLED_ALL_MUG_ITEM = register("latex_mug", () -> new LatexFilledAllMugItem((new Item.Properties()).stacksTo(16)));
 		// -------------------- 方块物品初始化 --------------------
 		CRYO_SUBJECT_CHAMBER = block(ChangedCreatureModBlocks.CRYO_SUBJECT_CHAMBER);
 		LATEX_DEEP_CRYSTAL_DRAGON_DOLL = block(ChangedCreatureModBlocks.LATEX_DEEP_CRYSTAL_DRAGON_DOLL);

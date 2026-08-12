@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "changed_creatures:item/latex_filled_all_mug_base",
+    "layer1": "changed_creatures:item/latex_filled_all_mug_overlay"
+  }
+}

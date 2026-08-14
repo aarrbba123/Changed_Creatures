@@ -38,7 +38,6 @@ public class ChangedCreature {
 
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 		ChangedCreatureModSounds.REGISTRY.register(bus);
-		ChangedCreatureBlockEntities.BLOCK_ENTITIES.register(bus);
 		ChangedCreatureModFluidTypes.REGISTRY.register(bus);
 
 		ChangedCreatureModFluids.REGISTRY_TYPES.register(bus);
@@ -47,8 +46,10 @@ public class ChangedCreature {
 		ChangedCreatureModEnchantmentInit.ENCHANTMENTS.register(bus);
 
 		ChangedCreatureModPaintings.REGISTRY.register(bus);
-		ChangedCreatureModBlocks.BLOCK_ENTITIES.register(bus);
+
 		ChangedCreatureModBlocks.REGISTRY.register(bus);
+
+		ChangedCreatureBlockEntities.BLOCK_ENTITIES.register(bus);
 
 		ChangedCreatureModItems.ITEMS.register(bus);
 

@@ -32,7 +32,7 @@ import java.util.function.Supplier;
 
 public class ChangedCreatureModBlocks {
 	public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, ChangedCreature.MODID);
-	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, ChangedCreature.MODID);
+
 	public static final RegistryObject<Block> LATEX_DEEP_CRYSTAL_DRAGON_DOLL = REGISTRY.register("latex_deep_crystal_dragon_doll", LatexDeepCrystalDragonDollBlock::new);
 	public static final RegistryObject<Block> SULPHURBLOCK = REGISTRY.register("sulphur_block", SulphurblockBlock::new);
 	public static final RegistryObject<Block> NITREBLOCK = REGISTRY.register("nitre_block", NitreblockBlock::new);
@@ -57,15 +57,8 @@ public class ChangedCreatureModBlocks {
 	public static final RegistryObject<Block> BLUE_CRYSTALORE = REGISTRY.register("blue_crystal_ore", BlueCrystaloreBlock::new);
 	public static final RegistryObject<Block> CATALYZER = REGISTRY.register("catalyzer", CatalyzerBlock::new);
 	public static final RegistryObject<Block> CRYO_SUBJECT_CHAMBER = REGISTRY.register("cryo_subject_chamber", CryoSubjectChamberBlock::new);
-	public static final RegistryObject<BlockEntityType<CryoSubjectChamberBlockEntity>> CRYO_SUBJECT_CHAMBER_BE =
-			BLOCK_ENTITIES.register("cryo_subject_chamber",
-					() -> BlockEntityType.Builder.of(
-							CryoSubjectChamberBlockEntity::new,
-							CRYO_SUBJECT_CHAMBER.get()
-					).build(null)
-			);
-	public static final RegistryObject<GasFluidBlock> LATEX_CRYSTAL_JELLY_GAS = REGISTRY.register("latex_crystal_jelly_gas", () -> new GasFluidBlock(ChangedCreatureModFluids.LATEX_CRYSTAL_JELLY_GAS));
 
+	public static final RegistryObject<GasFluidBlock> LATEX_CRYSTAL_JELLY_GAS = REGISTRY.register("latex_crystal_jelly_gas", () -> new GasFluidBlock(ChangedCreatureModFluids.LATEX_CRYSTAL_JELLY_GAS));
 	public static final RegistryObject<FluidCanisterBlock> LATEX_CRYSTAL_JELLY_GAS_CANISTER = register("latex_crystal_jelly_gas_canister", () -> new FluidCanisterBlock(ChangedCreatureModFluids.LATEX_CRYSTAL_JELLY_GAS),(canister) -> new GasCanister(canister, ChangedCreatureModFluids.LATEX_CRYSTAL_JELLY_GAS));;
 
 	private static <T extends Block> RegistryObject<T> registerNoItem(String name, Supplier<T> block) {

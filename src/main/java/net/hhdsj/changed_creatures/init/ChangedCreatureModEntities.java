@@ -160,7 +160,7 @@ public class ChangedCreatureModEntities {
                         .sized(0.6f, 1.92f),
                 LatexSteppenWolfEntity::createLatexAttributes);
         
-        PROTOGEN_NYXARIX = registerSpawning("protogen_nyxarix", 0x050505, 0x00ffff,
+        PROTOGEN_NYXARIX = registerSpawning("protogen_nyxarix", 0xFFFFFF, 0x00ffff,
                 EntityType.Builder.<ProtogenNyxarixEntity>of(ProtogenNyxarixEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)

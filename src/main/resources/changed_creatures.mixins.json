@@ -15,7 +15,8 @@
     "Player.CrystalPlayerRendererMixin",
     "Player.HumanoidModelAccessor",
     "Player.MixinParticlePlayerRenderer",
-    "Player.MixinPlayerRenderer"
+    "Player.MixinPlayerRenderer",
+    "Player.PlayerRendererWindMixin"
   ],
   "server": [
   ],

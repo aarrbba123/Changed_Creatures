@@ -92,6 +92,6 @@ public class ChangedCreatureModEntityRenderers {
 	}
 	@SubscribeEvent
 	public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-		event.registerBlockEntityRenderer(ChangedCreatureModBlocks.CRYO_SUBJECT_CHAMBER_BE.get(), CryoSubjectChamberRenderer::new);
+		event.registerBlockEntityRenderer(ChangedCreatureBlockEntities.CRYO_SUBJECT_CHAMBER_BE.get(), CryoSubjectChamberRenderer::new);
 	}
 }

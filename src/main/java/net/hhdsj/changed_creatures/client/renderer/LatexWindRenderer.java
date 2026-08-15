@@ -2,7 +2,8 @@ package net.hhdsj.changed_creatures.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.hhdsj.changed_creatures.client.models.other.ModelLatexWind;
+import net.hhdsj.changed_creatures.client.models.other.ModelLatexWing;
+import net.hhdsj.changed_creatures.util.AbilityHelper;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.player.AbstractClientPlayer;
@@ -21,12 +22,12 @@ public class LatexWindRenderer extends ElytraLayer<AbstractClientPlayer, PlayerM
     private static final ResourceLocation WINGS_TEXTURE =
             new ResourceLocation("changed_creatures:textures/entities/latex_wind.png");
 
-    private final ModelLatexWind wingsModel;
+    private final ModelLatexWing wingsModel;
 
     public LatexWindRenderer(RenderLayerParent<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>> renderer,
                              EntityModelSet entityModelSet) {
         super(renderer, entityModelSet);
-        this.wingsModel = new ModelLatexWind(entityModelSet.bakeLayer(ModelLatexWind.LAYER_LOCATION));
+        this.wingsModel = new ModelLatexWing(entityModelSet.bakeLayer(ModelLatexWing.LAYER_LOCATION));
     }
 
     @Override
@@ -40,11 +41,15 @@ public class LatexWindRenderer extends ElytraLayer<AbstractClientPlayer, PlayerM
             return;
         }
 
+        if (!AbilityHelper.canFly(player)) return;
         ResourceLocation texture = getElytraTexture(chestItem, player);
 
         poseStack.pushPose();
-        poseStack.translate(0.0F, 0.0F, 0.0F);
-
+        if (player.isCrouching()) {
+            poseStack.translate(0.0F, 0.125F, 0.0F);
+        }else {
+            poseStack.translate(0.0F, 0.0F, 0.0F);
+        }
         this.getParentModel().copyPropertiesTo(this.wingsModel);
 
         this.wingsModel.setupAnim(player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);

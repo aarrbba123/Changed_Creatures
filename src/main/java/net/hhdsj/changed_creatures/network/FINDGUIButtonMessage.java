@@ -1,7 +1,10 @@
 
 package net.hhdsj.changed_creatures.network;
 
+import net.hhdsj.changed_creatures.capability.AbilityData;
+import net.hhdsj.changed_creatures.init.ChangedCreatureModGameRules;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModTags;
+import net.hhdsj.changed_creatures.util.AbilityHelper;
 import net.hhdsj.changed_creatures.util.PlayerDataGetHelper;
 import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -68,6 +71,8 @@ public class FINDGUIButtonMessage {
 			GoodblockModVariables.PlayerVariables data = PlayerDataGetHelper.get(entity);
 			data.Player_Is_Infection = !data.Player_Is_Infection;
 			//DIEProcedure.execute(world,entity);
+			AbilityHelper.setCanFly(entity, true);
+			System.out.println(AbilityHelper.canFly(entity));
 		}
 	}
 

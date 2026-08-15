@@ -1,9 +1,16 @@
 package net.hhdsj.changed_creatures;
 
+import net.hhdsj.changed_creatures.capability.AbilityCapability;
+import net.hhdsj.changed_creatures.capability.IAbilityData;
 import net.hhdsj.changed_creatures.event.CrystalRingHandler;
 import net.hhdsj.changed_creatures.init.*;
 import net.hhdsj.changed_creatures.network.SyncCrystalRingPacket;
 import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
+import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -33,6 +40,7 @@ public class ChangedCreature {
 	private static final String PROTOCOL_VERSION = "1";
 	public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel(new ResourceLocation(MODID, MODID), () -> PROTOCOL_VERSION, PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
 	private static int messageID = 0;
+	private static final ResourceLocation ABILITY_CAP_ID = new ResourceLocation(ChangedCreature.MODID, "ability_data");
 
 	public ChangedCreature() {
 
@@ -77,6 +85,17 @@ public class ChangedCreature {
 	public static <T> void addNetworkMessage(Class<T> messageType, BiConsumer<T, FriendlyByteBuf> encoder, Function<FriendlyByteBuf, T> decoder, BiConsumer<T, Supplier<NetworkEvent.Context>> messageConsumer) {
 		PACKET_HANDLER.registerMessage(messageID, messageType, encoder, decoder, messageConsumer);
 		messageID++;
+	}
+	@SubscribeEvent
+	public static void attachCapabilities(AttachCapabilitiesEvent<Entity> event) {
+		if (event.getObject() instanceof Player) {
+			event.addCapability(ABILITY_CAP_ID, new AbilityCapability.Provider());
+		}
+	}
+
+	@SubscribeEvent
+	public static void registerCapabilities(RegisterCapabilitiesEvent event) {
+		event.register(IAbilityData.class);
 	}
 
 	public static ResourceLocation ChangedCreatureResourceLocation(String txt){

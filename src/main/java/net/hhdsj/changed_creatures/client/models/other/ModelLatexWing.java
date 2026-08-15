@@ -5,19 +5,15 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.hhdsj.changed_creatures.ChangedCreature;
 import net.minecraft.client.model.AgeableListModel;
-import net.minecraft.client.model.EntityModel;
-import net.minecraft.client.model.Model;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.player.AbstractClientPlayer;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.phys.Vec3;
 
-public class ModelLatexWind extends AgeableListModel<AbstractClientPlayer> {
+public class ModelLatexWing extends AgeableListModel<AbstractClientPlayer> {
     public static final ModelLayerLocation LAYER_LOCATION =
             ChangedCreature.ChangedCreatureModelResourceLocation("latex_wind");
 
@@ -38,7 +34,7 @@ public class ModelLatexWind extends AgeableListModel<AbstractClientPlayer> {
     private float wingRotY;
     private float wingRotZ;
 
-    public ModelLatexWind(ModelPart root) {
+    public ModelLatexWing(ModelPart root) {
         this.Torso = root.getChild("Torso");
         this.LeftWing = this.Torso.getChild("LeftWing");
         this.leftWingRoot = this.LeftWing.getChild("leftWingRoot");
@@ -140,7 +136,6 @@ public class ModelLatexWind extends AgeableListModel<AbstractClientPlayer> {
             }
 
             targetXRot = f4 * 0.34906584F + (1.0F - f4) * defaultXRot;
-            //targetZRot = f4 * (-(float) Math.PI / 2F) + (1.0F - f4) * defaultZRot;
 
             //滑行
             float wingFlap = (float) Math.sin(ageInTicks * 2.5F) * 0.2F;
@@ -155,21 +150,18 @@ public class ModelLatexWind extends AgeableListModel<AbstractClientPlayer> {
             targetZ0Rot = -0.007266F;
             targetZ1Rot = -0.10171F;
             targetZ2Rot = -0.39171F;
-            System.out.print("TEST3");
         } else if (player.isSwimming()) {
             //游泳状态
-            targetXRot = 0.5F;
+            targetXRot = -0.8F;
             targetZRot = -0.8F;
-            targetYRot = -0.3F;
-            System.out.print("TEST2");
+            targetYRot = 0.8F;
         } else if (player.getAbilities().flying) {
             //飞行
             float rawFlap = Mth.sin(ageInTicks * 0.2F);
             float flapAmount = rawFlap * rawFlap;
-            targetYRot = Mth.map(flapAmount, 0.0F, 1.0F, -0.34906584F, 1.04719755F);
+            targetYRot = Mth.map(flapAmount, 0.0F, 1.0F, -0.5606584F, 0.4F);
             targetXRot = 0.1F;
             targetZRot = -0.087266F;
-            System.out.print("TEST1");
         } else {
             float walkingWave = (float) Math.sin(limbSwing * 1.5F) * 0.06F * limbSwingAmount;
             float idleSway = (float) Math.sin(ageInTicks * 0.1F) * 0.02F; //待机时轻微晃动
@@ -180,13 +172,12 @@ public class ModelLatexWind extends AgeableListModel<AbstractClientPlayer> {
             targetZ0Rot = -0.007266F;
             targetZ1Rot = -0.10171F;
             targetZ2Rot = -0.39171F;
-            System.out.print("TEST0");
         }
 
         //平滑插值
-        this.wingRotX += (targetXRot - this.wingRotX) * 0.1F;
-        this.wingRotY += (targetYRot - this.wingRotY) * 0.1F;
-        this.wingRotZ += (targetZRot - this.wingRotZ) * 0.1F;
+        this.wingRotX += (targetXRot - this.wingRotX) * 0.15F;
+        this.wingRotY += (targetYRot - this.wingRotY) * 0.15F;
+        this.wingRotZ += (targetZRot - this.wingRotZ) * 0.15F;
 
         //左翅膀
         this.leftWingRoot.xRot = this.wingRotX;

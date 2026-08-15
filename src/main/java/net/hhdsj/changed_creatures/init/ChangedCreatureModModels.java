@@ -9,7 +9,7 @@ import net.hhdsj.changed_creatures.client.models.armors.ArmorLatexMaleWolfWinged
 import net.hhdsj.changed_creatures.client.models.armors.ArmorProtogenNyxarixWaterSquidDogModel;
 import net.hhdsj.changed_creatures.client.models.latex_taur.ModelLatexFrostScaleDragonTaur;
 import net.hhdsj.changed_creatures.client.models.latex_wolf_dragon.ModelLatexXuanJinWolfDragon;
-import net.hhdsj.changed_creatures.client.models.other.ModelLatexWind;
+import net.hhdsj.changed_creatures.client.models.other.ModelLatexWing;
 import net.hhdsj.changed_creatures.client.models.other.TailModel;
 import net.hhdsj.changed_creatures.client.models.boss.ModelLatexNightOwl;
 import net.hhdsj.changed_creatures.client.models.boss.ModelLatexNightOwlBoss;
@@ -83,7 +83,7 @@ public class ChangedCreatureModModels {
 		event.registerLayerDefinition(ModelLatexSteppenWolf.LAYER_LOCATION, ModelLatexSteppenWolf::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexXuanJinWolfDragon.LAYER_LOCATION, ModelLatexXuanJinWolfDragon::createBodyLayer);
 
-		event.registerLayerDefinition(ModelLatexWind.LAYER_LOCATION, ModelLatexWind::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexWing.LAYER_LOCATION, ModelLatexWing::createBodyLayer);
 		event.registerLayerDefinition(CrystalJavelinModel.LAYER_LOCATION, CrystalJavelinModel::createBodyLayer);
 
 		event.registerLayerDefinition(GoodBlockModelMaleWingedDragonArmor.LAYER_LOCATION, GoodBlockModelMaleWingedDragonArmor::createBodyLayer);

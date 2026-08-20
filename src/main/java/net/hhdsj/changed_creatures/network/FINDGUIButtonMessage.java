@@ -1,10 +1,7 @@
 
 package net.hhdsj.changed_creatures.network;
 
-import net.hhdsj.changed_creatures.capability.AbilityData;
-import net.hhdsj.changed_creatures.init.ChangedCreatureModGameRules;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModTags;
-import net.hhdsj.changed_creatures.util.AbilityHelper;
 import net.hhdsj.changed_creatures.util.PlayerDataGetHelper;
 import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -62,17 +59,19 @@ public class FINDGUIButtonMessage {
 
 	public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z) {
 		Level world = entity.level();
-		HashMap guistate = FINDGUIMenu.guistate;
-		// security measure to prevent arbitrary chunk generation
+
+		if (world.isClientSide()) return;
+
+		HashMap<String, Object> guistate = FINDGUIMenu.guistate;
 		if (!world.hasChunkAt(new BlockPos(x, y, z)))
 			return;
 		if (buttonID == 0) {;
 			System.out.println(ChangedCreatureModTags.slowInfectionVariants().location());
 			GoodblockModVariables.PlayerVariables data = PlayerDataGetHelper.get(entity);
 			data.Player_Is_Infection = !data.Player_Is_Infection;
-			//DIEProcedure.execute(world,entity);
-			AbilityHelper.setCanFly(entity, true);
-			System.out.println(AbilityHelper.canFly(entity));
+			PlayerDataGetHelper.SetPlayerCanFly(entity,!PlayerDataGetHelper.GetPlayerCanFly(entity));
+			System.out.println(PlayerDataGetHelper.GetPlayerCanFly(entity));
+
 		}
 	}
 

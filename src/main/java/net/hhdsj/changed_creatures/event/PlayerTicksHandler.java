@@ -1,5 +1,6 @@
 package net.hhdsj.changed_creatures.event;
 
+import net.hhdsj.changed_creatures.client.models.other.ModelLatexWing;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModGameRules;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModParticleTypes;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModTransfurVariants;
@@ -13,6 +14,7 @@ import net.ltxprogrammer.changed.entity.variant.TransfurVariantInstance;
 import net.ltxprogrammer.changed.init.ChangedRegistry;
 import net.ltxprogrammer.changed.process.ProcessTransfur;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
@@ -25,6 +27,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraft.world.entity.player.Player;
@@ -88,7 +91,11 @@ public class PlayerTicksHandler {
         Player_Crystal_Jelly_Infection(player,event);
 
     }
-
+    @SubscribeEvent
+    public void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent event) {
+        AbstractClientPlayer player = (AbstractClientPlayer) event.getEntity();
+        ModelLatexWing.cleanupPlayerState(player.getUUID());
+    }
     public static void Player_crystal_draw(Player player,TransfurVariantInstance<?> variant){
         boolean shouldHaveRing = variant != null && variant.getParent() == ChangedCreatureModTransfurVariants.LATEX_LUOLONG_DRAGON_SHARK.get();
 

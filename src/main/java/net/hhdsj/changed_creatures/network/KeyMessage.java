@@ -1,6 +1,8 @@
 
 package net.hhdsj.changed_creatures.network;
 
+import net.hhdsj.changed_creatures.entity.PartiallyTransfurVariant;
+import net.hhdsj.changed_creatures.util.PlayerDataGetHelper;
 import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -16,25 +18,25 @@ import net.hhdsj.changed_creatures.ChangedCreature;
 import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class KeyaMessage {
+public class KeyMessage {
 	int type, pressedms;
 
-	public KeyaMessage(int type, int pressedms) {
+	public KeyMessage(int type, int pressedms) {
 		this.type = type;
 		this.pressedms = pressedms;
 	}
 
-	public KeyaMessage(FriendlyByteBuf buffer) {
+	public KeyMessage(FriendlyByteBuf buffer) {
 		this.type = buffer.readInt();
 		this.pressedms = buffer.readInt();
 	}
 
-	public static void buffer(KeyaMessage message, FriendlyByteBuf buffer) {
+	public static void buffer(KeyMessage message, FriendlyByteBuf buffer) {
 		buffer.writeInt(message.type);
 		buffer.writeInt(message.pressedms);
 	}
 
-	public static void handler(KeyaMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
+	public static void handler(KeyMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
 		NetworkEvent.Context context = contextSupplier.get();
 		context.enqueueWork(() -> {
 			pressAction(context.getSender(), message.type, message.pressedms);
@@ -50,14 +52,26 @@ public class KeyaMessage {
 		// security measure to prevent arbitrary chunk generation
 		if (!world.hasChunkAt(entity.blockPosition()))
 			return;
-		if (type == 0) {
 
-			LOOKGUIProcedure.execute(x, y, z, entity);
+		switch (type) {
+			case 0:
+				LOOKGUIProcedure.execute(x, y, z, entity);
+				break;
+			case 2:
+				if (!world.isClientSide) {
+					boolean currentGlide = PlayerDataGetHelper.GetPlayerCanGliding(entity);
+					PlayerDataGetHelper.SetPlayerCanGliding(entity, !currentGlide);
+					PartiallyTransfurVariant.manageGliding(entity);
+				}
+				break;
+			default :
+				break;
 		}
+
 	}
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		ChangedCreature.addNetworkMessage(KeyaMessage.class, KeyaMessage::buffer, KeyaMessage::new, KeyaMessage::handler);
+		ChangedCreature.addNetworkMessage(KeyMessage.class, KeyMessage::buffer, KeyMessage::new, KeyMessage::handler);
 	}
 }

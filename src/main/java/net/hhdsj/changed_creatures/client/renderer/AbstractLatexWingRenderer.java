@@ -2,12 +2,10 @@ package net.hhdsj.changed_creatures.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.other.ModelLatexWing;
 import net.hhdsj.changed_creatures.util.PlayerDataGetHelper;
 import net.ltxprogrammer.changed.entity.BasicPlayerInfo;
 import net.ltxprogrammer.changed.entity.PlayerDataExtension;
-import net.ltxprogrammer.changed.entity.variant.TransfurVariantInstance;
 import net.ltxprogrammer.changed.util.Color3;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.model.geom.EntityModelSet;
@@ -19,7 +17,6 @@ import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.ElytraLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
@@ -28,18 +25,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class LatexWindRenderer extends AbstractLatexWingRenderer {
+public class AbstractLatexWingRenderer extends ElytraLayer<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>> {
 
     private static final ResourceLocation WINGS_TEXTURE =
             new ResourceLocation("changed_creatures:textures/entities/latex_wind.png");
-    private static final ResourceLocation WINGS_EMISSIVE_TEXTURE =
-            new ResourceLocation("changed_creatures:textures/entities/latex_wind_light.png");
-
     private final EntityModelSet modelSet;
+
     private final Map<UUID, ModelLatexWing> playerModels = new HashMap<>();
 
-    public LatexWindRenderer(RenderLayerParent<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>> renderer,
-                             EntityModelSet entityModelSet) {
+    public AbstractLatexWingRenderer(RenderLayerParent<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>> renderer,
+                                     EntityModelSet entityModelSet) {
         super(renderer, entityModelSet);
         this.modelSet = entityModelSet;
     }
@@ -63,8 +58,6 @@ public class LatexWindRenderer extends AbstractLatexWingRenderer {
 
         poseStack.pushPose();
         if (player.isCrouching()) {
-            poseStack.translate(0.0F, 0.25F, 0.0F);
-        }else{
             poseStack.translate(0.0F, 0.125F, 0.0F);
         }
 
@@ -87,17 +80,41 @@ public class LatexWindRenderer extends AbstractLatexWingRenderer {
                 OverlayTexture.NO_OVERLAY,
                 wingColors[0],wingColors[1],wingColors[2], 1.0F
         );
-        VertexConsumer emissiveConsumer = buffer.getBuffer(
-                RenderType.entityTranslucentEmissive(WINGS_EMISSIVE_TEXTURE)  // ← 替换 eyes
-        );
 
-        wingsModel.renderToBuffer(
-                poseStack,
-                emissiveConsumer,
-                15728880,  // 全亮光照
-                OverlayTexture.NO_OVERLAY,
-                wingColors[0], wingColors[1], wingColors[2], 1.0F
-        );
         poseStack.popPose();
+    }
+
+    @Override
+    public boolean shouldRender(ItemStack stack, AbstractClientPlayer entity) {
+        if (entity.hasEffect(MobEffects.INVISIBILITY)) {
+            return false;
+        }
+        return PlayerDataGetHelper.GetPlayerCanFly(entity);
+    }
+
+    @Override
+    public ResourceLocation getElytraTexture(ItemStack stack, AbstractClientPlayer entity) {
+        return WINGS_TEXTURE;
+    }
+
+    public float[] getWingColorsFromPlayer(AbstractClientPlayer player) {
+        try {
+            BasicPlayerInfo bpi = getBasicPlayerInfo(player);
+            if (bpi != null) {
+                Color3 hairColor = bpi.getHairColor();
+                if (hairColor != null) {
+                    return new float[]{hairColor.red(), hairColor.green(), hairColor.blue()};
+                }
+            }
+        } catch (Exception ignored) {}
+
+        return new float[]{1.0F, 1.0F, 1.0F};
+    }
+
+    private BasicPlayerInfo getBasicPlayerInfo(AbstractClientPlayer player) {
+        if (player instanceof PlayerDataExtension ext) {
+            return ext.getBasicPlayerInfo();
+        }
+        return null;
     }
 }

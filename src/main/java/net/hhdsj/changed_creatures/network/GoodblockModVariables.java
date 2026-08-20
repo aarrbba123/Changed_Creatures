@@ -1,6 +1,7 @@
 package net.hhdsj.changed_creatures.network;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
+import net.hhdsj.changed_creatures.util.PlayerDataGetHelper;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -26,6 +27,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.core.Direction;
 import net.minecraft.client.Minecraft;
 
+import java.util.UUID;
 import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -33,7 +35,6 @@ public class GoodblockModVariables {
 
 	public static double _Progress = 0;
 
-	// ========== 网络初始化 ==========
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {
 		ChangedCreature.addNetworkMessage(PlayerVariablesSyncMessage.class,
@@ -42,33 +43,40 @@ public class GoodblockModVariables {
 				PlayerVariablesSyncMessage::handler);
 	}
 
-	// 注册能力类型
 	@SubscribeEvent
 	public static void init(RegisterCapabilitiesEvent event) {
 		event.register(PlayerVariables.class);
 	}
 
-	// ========== 能力定义 ==========
 	public static final Capability<PlayerVariables> PLAYER_VARIABLES_CAPABILITY =
 			CapabilityManager.get(new CapabilityToken<PlayerVariables>() {});
 
-	// ========== 玩家数据类 ==========
 	public static class PlayerVariables {
-		public double Player_die = 0.0;           // 死亡次数
-		public long Player_Infection_tick = 0;    // 感染刻数
+		public double Player_die = 0.0;
+		public long Player_Infection_tick = 0;
 		public Float Crystal_Jelly_Infection_Progress = 0f;
 		public boolean Crystal_Jelly_Infection = false;
 		public boolean Player_Is_Infection = false;
+		public boolean Player_Can_Fly = false;
+		public boolean Player_Can_Gliding = false;
+		public boolean Player_Is_Fly = false;
 
-		// 同步到客户端
 		public void syncPlayerVariables(Entity entity) {
-			if (entity instanceof ServerPlayer serverPlayer)
+			if (entity instanceof ServerPlayer serverPlayer) {
+				ChangedCreature.LOGGER.info("Syncing variables for: {}", serverPlayer.getName().getString());
+				ChangedCreature.LOGGER.info("Player_Can_Fly = {}", this.Player_Can_Fly);
+
+				ChangedCreature.PACKET_HANDLER.send(
+						PacketDistributor.TRACKING_ENTITY.with(() -> serverPlayer),
+						new PlayerVariablesSyncMessage(this, serverPlayer.getUUID()));
+
 				ChangedCreature.PACKET_HANDLER.send(
 						PacketDistributor.PLAYER.with(() -> serverPlayer),
-						new PlayerVariablesSyncMessage(this));
-		}
+						new PlayerVariablesSyncMessage(this, serverPlayer.getUUID()));
 
-		// 保存到NBT
+				ChangedCreature.LOGGER.info("Sync complete for: {}", serverPlayer.getName().getString());
+			}
+		}
 		public Tag writeNBT() {
 			CompoundTag nbt = new CompoundTag();
 			nbt.putDouble("Player_die", Player_die);
@@ -76,10 +84,12 @@ public class GoodblockModVariables {
 			nbt.putBoolean("Player_Is_Infection", Player_Is_Infection);
 			nbt.putFloat("Crystal_Jelly_Infection_Progress", Crystal_Jelly_Infection_Progress);
 			nbt.putBoolean("Crystal_Jelly_Infection", Crystal_Jelly_Infection);
+			nbt.putBoolean("can_fly", Player_Can_Fly);
+			nbt.putBoolean("can_gliding", Player_Can_Gliding);
+			nbt.putBoolean("is_fly", Player_Is_Fly);
 			return nbt;
 		}
 
-		// 从NBT读取
 		public void readNBT(Tag Tag) {
 			CompoundTag nbt = (CompoundTag) Tag;
 			Player_die = nbt.getDouble("Player_die");
@@ -87,10 +97,12 @@ public class GoodblockModVariables {
 			Player_Is_Infection = nbt.getBoolean("Player_Is_Infection");
 			Crystal_Jelly_Infection_Progress = nbt.getFloat("Crystal_Jelly_Infection_Progress");
 			Crystal_Jelly_Infection = nbt.getBoolean("Crystal_Jelly_Infection");
+			Player_Can_Fly = nbt.getBoolean("can_fly");
+			Player_Can_Gliding = nbt.getBoolean("can_gliding");
+			Player_Is_Fly = nbt.getBoolean("is_fly");
 		}
 	}
 
-	// ========== 能力提供者 ==========
 	@Mod.EventBusSubscriber
 	private static class PlayerVariablesProvider implements ICapabilitySerializable<Tag> {
 
@@ -119,32 +131,30 @@ public class GoodblockModVariables {
 		}
 	}
 
-	// ========== 事件处理器 ==========
 	@Mod.EventBusSubscriber
 	public static class EventBusVariableHandlers {
 
 		@SubscribeEvent
 		public static void onPlayerLoggedInSyncPlayerVariables(PlayerEvent.PlayerLoggedInEvent event) {
 			if (!event.getEntity().level().isClientSide())
-				((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new PlayerVariables())).syncPlayerVariables(event.getEntity());
+				event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new PlayerVariables()).syncPlayerVariables(event.getEntity());
 		}
 
 		@SubscribeEvent
 		public static void onPlayerRespawnedSyncPlayerVariables(PlayerEvent.PlayerRespawnEvent event) {
 			if (!event.getEntity().level().isClientSide())
-				((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new PlayerVariables())).syncPlayerVariables(event.getEntity());
+				event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new PlayerVariables()).syncPlayerVariables(event.getEntity());
 		}
 
 		@SubscribeEvent
 		public static void onPlayerChangedDimensionSyncPlayerVariables(PlayerEvent.PlayerChangedDimensionEvent event) {
 			if (!event.getEntity().level().isClientSide())
-				((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new PlayerVariables())).syncPlayerVariables(event.getEntity());
+				event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new PlayerVariables()).syncPlayerVariables(event.getEntity());
 		}
 
-		// 玩家克隆时复制数据
 		@SubscribeEvent
 		public static void clonePlayer(PlayerEvent.Clone event) {
 			event.getOriginal().revive();
@@ -157,24 +167,31 @@ public class GoodblockModVariables {
 			clone.Player_die = original.Player_die;
 			clone.Player_Infection_tick = original.Player_Infection_tick;
 			clone.Player_Is_Infection = original.Player_Is_Infection;
+			clone.Crystal_Jelly_Infection_Progress = original.Crystal_Jelly_Infection_Progress;
+			clone.Crystal_Jelly_Infection = original.Crystal_Jelly_Infection;
+			clone.Player_Can_Fly = original.Player_Can_Fly;
+			clone.Player_Can_Gliding = original.Player_Can_Gliding;
+			clone.Player_Is_Fly = original.Player_Is_Fly;
 		}
 	}
 
-	// ========== 网络同步消息 ==========
 	public static class PlayerVariablesSyncMessage {
-
 		public PlayerVariables data;
+		public UUID playerUUID;  // 添加玩家标识
 
 		public PlayerVariablesSyncMessage(FriendlyByteBuf buffer) {
+			this.playerUUID = buffer.readUUID();
 			this.data = new PlayerVariables();
 			this.data.readNBT(buffer.readNbt());
 		}
 
-		public PlayerVariablesSyncMessage(PlayerVariables data) {
+		public PlayerVariablesSyncMessage(PlayerVariables data, UUID playerUUID) {
 			this.data = data;
+			this.playerUUID = playerUUID;
 		}
 
 		public static void buffer(PlayerVariablesSyncMessage message, FriendlyByteBuf buffer) {
+			buffer.writeUUID(message.playerUUID);
 			buffer.writeNbt((CompoundTag) message.data.writeNBT());
 		}
 
@@ -182,12 +199,21 @@ public class GoodblockModVariables {
 			NetworkEvent.Context context = contextSupplier.get();
 			context.enqueueWork(() -> {
 				if (!context.getDirection().getReceptionSide().isServer()) {
-					PlayerVariables variables = Minecraft.getInstance().player
-							.getCapability(PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new PlayerVariables());
-					variables.Player_die = message.data.Player_die;
-					variables.Player_Infection_tick = message.data.Player_Infection_tick;
-					variables.Player_Is_Infection = message.data.Player_Is_Infection;
+					Player targetPlayer = Minecraft.getInstance().level.getPlayerByUUID(message.playerUUID);
+					if (targetPlayer != null) {
+						PlayerVariables variables = targetPlayer
+								.getCapability(PLAYER_VARIABLES_CAPABILITY, null)
+								.orElse(new PlayerVariables());
+						variables.Player_die = message.data.Player_die;
+						variables.Player_Infection_tick = message.data.Player_Infection_tick;
+						variables.Player_Is_Infection = message.data.Player_Is_Infection;
+						variables.Crystal_Jelly_Infection_Progress = message.data.Crystal_Jelly_Infection_Progress;
+						variables.Crystal_Jelly_Infection = message.data.Crystal_Jelly_Infection;
+						variables.Player_Can_Fly = message.data.Player_Can_Fly;
+						variables.Player_Can_Gliding = message.data.Player_Can_Gliding;
+						variables.Player_Is_Fly = message.data.Player_Is_Fly;
+
+					}
 				}
 			});
 			context.setPacketHandled(true);

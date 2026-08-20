@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.hhdsj.changed_creatures.ChangedCreature;
+import net.hhdsj.changed_creatures.util.PlayerDataGetHelper;
 import net.minecraft.client.model.AgeableListModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -12,6 +13,10 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.phys.Vec3;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 public class ModelLatexWing extends AgeableListModel<AbstractClientPlayer> {
     public static final ModelLayerLocation LAYER_LOCATION =
@@ -29,10 +34,8 @@ public class ModelLatexWing extends AgeableListModel<AbstractClientPlayer> {
     private final ModelPart rightSecondaries;
     private final ModelPart rightTertiaries;
 
-    // 用于平滑动画的插值变量
-    private float wingRotX;
-    private float wingRotY;
-    private float wingRotZ;
+    // [wingRotX, wingRotY, wingRotZ, z0Rot, z1Rot, z2Rot]
+    private static final Map<UUID, float[]> animationState = new HashMap<>();
 
     public ModelLatexWing(ModelPart root) {
         this.Torso = root.getChild("Torso");
@@ -112,13 +115,15 @@ public class ModelLatexWing extends AgeableListModel<AbstractClientPlayer> {
     public void setupAnim(AbstractClientPlayer player, float limbSwing, float limbSwingAmount,
                           float ageInTicks, float netHeadYaw, float headPitch) {
 
-        // 使用年龄让翅膀有轻微的呼吸/飘动效果
+        UUID playerId = player.getUUID();
+        float[] state = animationState.computeIfAbsent(playerId, k -> new float[6]);
+
         float breatheOffset = (float) Math.sin(ageInTicks * 0.15F) * 0.02F;
 
-        //地面默认角度
-        float defaultXRot = 0.0F + breatheOffset * 0.5F;          // 轻微上下浮动
-        float defaultYRot = -0.2617994F + breatheOffset * 0.3F;   // 约-15度，轻微前后摆动
-        float defaultZRot = -0.174532F + breatheOffset * 0.2F;    // 约-10度，轻微上下摆动
+        // 地面默认角度
+        float defaultXRot = 0.0F + breatheOffset * 0.5F;
+        float defaultYRot = -0.2617994F + breatheOffset * 0.3F;
+        float defaultZRot = -0.174532F + breatheOffset * 0.2F;
 
         float targetXRot = defaultXRot;
         float targetYRot = defaultYRot;
@@ -126,7 +131,8 @@ public class ModelLatexWing extends AgeableListModel<AbstractClientPlayer> {
         float targetZ0Rot = -0.087266F;
         float targetZ1Rot = -0.48171F;
         float targetZ2Rot = -0.9599F;
-        //滑翔
+        //System.out.println("State: [" + state[0] + ", " + state[1] + ", " + state[2] +", " + state[3] + ", " + state[4] + ", " + state[5] + "]");
+        // 滑翔状态
         if (player.isFallFlying()) {
             float f4 = 1.0F;
             Vec3 vec3 = player.getDeltaMovement();
@@ -137,34 +143,34 @@ public class ModelLatexWing extends AgeableListModel<AbstractClientPlayer> {
 
             targetXRot = f4 * 0.34906584F + (1.0F - f4) * defaultXRot;
 
-            //滑行
             float wingFlap = (float) Math.sin(ageInTicks * 2.5F) * 0.2F;
             targetXRot += wingFlap * 0.3F;
             targetYRot += wingFlap * 0.1F;
-            System.out.print("TEST4");
+
         } else if (player.isCrouching()) {
-            //潜行状态
+            // 潜行状态
             targetXRot = 0.3F;
             targetZRot = -0.5F;
             targetYRot = -0.08726646F;
             targetZ0Rot = -0.007266F;
             targetZ1Rot = -0.10171F;
             targetZ2Rot = -0.39171F;
+
         } else if (player.isSwimming()) {
-            //游泳状态
-            targetXRot = -0.8F;
-            targetZRot = -0.8F;
-            targetYRot = 0.8F;
+            // 游泳状态（目前保持默认）
+
         } else if (player.getAbilities().flying) {
-            //飞行
+            // 创造/旁观飞行
             float rawFlap = Mth.sin(ageInTicks * 0.2F);
             float flapAmount = rawFlap * rawFlap;
             targetYRot = Mth.map(flapAmount, 0.0F, 1.0F, -0.5606584F, 0.4F);
             targetXRot = 0.1F;
             targetZRot = -0.087266F;
+
         } else {
+            // 地面行走/待机
             float walkingWave = (float) Math.sin(limbSwing * 1.5F) * 0.06F * limbSwingAmount;
-            float idleSway = (float) Math.sin(ageInTicks * 0.1F) * 0.02F; //待机时轻微晃动
+            float idleSway = (float) Math.sin(ageInTicks * 0.1F) * 0.02F;
 
             targetXRot = defaultXRot + walkingWave * 0.3F + idleSway * 0.5F;
             targetYRot = defaultYRot + walkingWave * 0.2F + idleSway * 0.3F;
@@ -174,28 +180,39 @@ public class ModelLatexWing extends AgeableListModel<AbstractClientPlayer> {
             targetZ2Rot = -0.39171F;
         }
 
-        //平滑插值
-        this.wingRotX += (targetXRot - this.wingRotX) * 0.15F;
-        this.wingRotY += (targetYRot - this.wingRotY) * 0.15F;
-        this.wingRotZ += (targetZRot - this.wingRotZ) * 0.15F;
+        // state[0] = wingRotX, state[1] = wingRotY, state[2] = wingRotZ
+        // state[3] = z0Rot, state[4] = z1Rot, state[5] = z2Rot
+        state[0] += (targetXRot - state[0]) * 0.15F;
+        state[1] += (targetYRot - state[1]) * 0.15F;
+        state[2] += (targetZRot - state[2]) * 0.15F;
+        state[3] += (targetZ0Rot - state[3]) * 0.1F;
+        state[4] += (targetZ1Rot - state[4]) * 0.1F;
+        state[5] += (targetZ2Rot - state[5]) * 0.1F;
 
-        //左翅膀
-        this.leftWingRoot.xRot = this.wingRotX;
-        this.leftWingRoot.yRot = this.wingRotY;
-        this.leftWingRoot.zRot = this.wingRotZ;
-        this.leftFirstise.zRot += (targetZ0Rot - this.leftFirstise.zRot) * 0.2F;
-        this.leftSecondaries.zRot += (targetZ1Rot - this.leftSecondaries.zRot) * 0.2F;
-        this.leftTertiaries.zRot += (targetZ2Rot - this.leftTertiaries.zRot) * 0.2F;
+        // 左翅膀
+        this.leftWingRoot.xRot = state[0];
+        this.leftWingRoot.yRot = state[1];
+        this.leftWingRoot.zRot = state[2];
+        this.leftFirstise.zRot = state[3];
+        this.leftSecondaries.zRot = state[4];
+        this.leftTertiaries.zRot = state[5];
 
-        //右翅膀
-        this.rightWingRoot.yRot = -this.leftWingRoot.yRot;
-        this.rightWingRoot.xRot = this.leftWingRoot.xRot;
-        this.rightWingRoot.zRot = -this.leftWingRoot.zRot;
-        this.rightFirsties.zRot = -this.leftFirstise.zRot;
-        this.rightSecondaries.zRot = -this.leftSecondaries.zRot;
-        this.rightTertiaries.zRot = -this.leftTertiaries.zRot;
+        // 右翅膀（镜像对称）
+        this.rightWingRoot.yRot = -state[1];
+        this.rightWingRoot.xRot = state[0];
+        this.rightWingRoot.zRot = -state[2];
+        this.rightFirsties.zRot = -state[3];
+        this.rightSecondaries.zRot = -state[4];
+        this.rightTertiaries.zRot = -state[5];
     }
 
+    /**
+     * 清理不再使用的玩家动画状态（可选，防止内存泄漏）
+     * 可以在玩家退出时调用
+     */
+    public static void cleanupPlayerState(UUID playerId) {
+        animationState.remove(playerId);
+    }
 
     public static LayerDefinition createBodyLayer() {
         MeshDefinition meshdefinition = new MeshDefinition();

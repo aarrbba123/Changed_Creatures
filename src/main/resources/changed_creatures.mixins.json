@@ -14,6 +14,7 @@
     "client.gui.InventoryScreenMixin",
     "Player.CrystalPlayerRendererMixin",
     "Player.HumanoidModelAccessor",
+    "Player.HumanoidModelMixin",
     "Player.MixinParticlePlayerRenderer",
     "Player.MixinPlayerRenderer",
     "Player.PlayerRendererWindMixin"

@@ -89,7 +89,7 @@ public class PartiallyTransfurVariant {
         if (!player.level().isClientSide) {
             autoManageFlight(player);
         }
-        Gliding(player);
+        //Gliding(player);
     }
 
     private static void autoManageFlight(Player player) {

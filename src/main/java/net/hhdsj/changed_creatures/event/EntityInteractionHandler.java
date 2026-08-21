@@ -3,8 +3,10 @@ package net.hhdsj.changed_creatures.event;
 import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModEntities;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModItems;
+import net.ltxprogrammer.changed.init.ChangedDamageSources;
 import net.ltxprogrammer.changed.init.ChangedEntities;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
@@ -42,7 +44,7 @@ public class EntityInteractionHandler {
         if (item.is(Items.REDSTONE) && target_type == ChangedEntities.LATEX_GOLDEN_DRAGON.get()) {
             AddFreshEntity(player,target,item, ChangedCreatureModEntities.LATEX_YUE_XI_FOX_FEMALE.get());
         }
-        if (item.is(ChangedCreatureModItems.Latex_Night_Owl_Goo_Item.get()) && target_type == EntityType.VILLAGER) {
+        if (item.is(ChangedCreatureModItems.Latex_Night_Owl_Goo_Item.get()) && (target_type == EntityType.VILLAGER || target_type == EntityType.PLAYER || target_type == EntityType.ZOMBIE || target_type == EntityType.ZOMBIE_VILLAGER || target_type == EntityType.ZOMBIFIED_PIGLIN)) {
             AddFreshEntity(player,target,item, ChangedCreatureModEntities.LATEXNIGHTOWLDRAGONBOSS.get());
         }
     }
@@ -54,8 +56,14 @@ public class EntityInteractionHandler {
 
         float yRot = target.getYRot();
         float xRot = target.getXRot();
-
-        target.discard();
+        if (target instanceof Player) {
+            DamageSource source = ChangedDamageSources.ABSORB.source(
+                    target.level().registryAccess()
+            );
+            target.hurt(source, 1000.0F);
+        }else {
+            target.discard();
+        }
 
         Entity newEntity = tf_target.create(player.level());
 

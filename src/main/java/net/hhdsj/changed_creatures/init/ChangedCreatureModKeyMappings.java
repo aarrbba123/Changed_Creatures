@@ -32,7 +32,7 @@ public class ChangedCreatureModKeyMappings {
 		}
 	};
 
-	public static final KeyMapping ELYTRA_FLY = new KeyMapping("key.changed_creatures.keya", GLFW.GLFW_KEY_G, "key.categories.ui") {
+	public static final KeyMapping ELYTRA_FLY = new KeyMapping("key.changed_creatures.elyter_fly", GLFW.GLFW_KEY_G, "key.categories.ui") {
 		private boolean isDownOld = false;
 
 		@Override

@@ -28,6 +28,12 @@ import java.util.stream.Stream;
 @SuppressWarnings("unused")
 public class ChangedCreatureModTransfurVariants {
     public static final DeferredRegister<TransfurVariant<?>> REGISTRY = ChangedRegistry.TRANSFUR_VARIANT.createDeferred("changed_creatures");
+	public static final RegistryObject<TransfurVariant<LatexXuanJinDragonEntity>> LATEX_XUAN_JIN_DRAGON =
+			REGISTRY.register("form_latex_xuan_jin_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_XUAN_JIN_DRAGON)
+					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.glide()
+					.scares(List.of(Creeper.class, Villager.class))
+					.build());
 	//LATEX_XUAN_JIN_WOLF_DRAGON
 	public static final RegistryObject<TransfurVariant<LatexXuanJinWolfDragonEntity>> LATEX_XUAN_JIN_WOLF_DRAGON =
 			REGISTRY.register("form_latex_xuan_jin_wolf_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_XUAN_JIN_WOLF_DRAGON)

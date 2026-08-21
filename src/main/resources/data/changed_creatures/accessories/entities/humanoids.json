@@ -34,7 +34,9 @@
     "changed_creatures:latex_dusk_dawn_wolf",
     "changed_creatures:latex_steppen_wolf",
     "changed_creatures:latex_peaunt_butter_wolf",
-    "changed_creatures:latex_emberscales_magma_dragon_male"
+    "changed_creatures:latex_emberscales_magma_dragon_male",
+    "changed_creatures:latex_xuan_jin_dragon",
+    "changed_creatures:latex_xuan_jin_wolf_dragon"
 
   ],
   "slots": [

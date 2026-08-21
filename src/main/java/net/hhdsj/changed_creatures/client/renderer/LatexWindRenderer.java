@@ -73,31 +73,13 @@ public class LatexWindRenderer extends AbstractLatexWingRenderer {
 
         float[] wingColors = getWingColorsFromPlayer(player);
 
-        VertexConsumer vertexConsumer = ItemRenderer.getArmorFoilBuffer(
-                buffer,
-                RenderType.armorCutoutNoCull(WINGS_TEXTURE),
-                false,
-                chestItem.hasFoil()
-        );
+        // 先渲染普通层（底层）
+        VertexConsumer vertexConsumer = buffer.getBuffer(RenderType.entityTranslucent(WINGS_TEXTURE));
+        wingsModel.renderToBuffer(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, wingColors[0], wingColors[1], wingColors[2], 1.0F);
 
-        wingsModel.renderToBuffer(
-                poseStack,
-                vertexConsumer,
-                packedLight,
-                OverlayTexture.NO_OVERLAY,
-                wingColors[0],wingColors[1],wingColors[2], 1.0F
-        );
-        VertexConsumer emissiveConsumer = buffer.getBuffer(
-                RenderType.entityTranslucentEmissive(WINGS_EMISSIVE_TEXTURE)  // ← 替换 eyes
-        );
+        VertexConsumer emissiveConsumer = buffer.getBuffer(RenderType.entityTranslucentEmissive(WINGS_EMISSIVE_TEXTURE));
+        wingsModel.renderToBuffer(poseStack, emissiveConsumer, 15728880, OverlayTexture.NO_OVERLAY, wingColors[0], wingColors[1], wingColors[2], 1.0F);
 
-        wingsModel.renderToBuffer(
-                poseStack,
-                emissiveConsumer,
-                15728880,  // 全亮光照
-                OverlayTexture.NO_OVERLAY,
-                wingColors[0], wingColors[1], wingColors[2], 1.0F
-        );
         poseStack.popPose();
     }
 }

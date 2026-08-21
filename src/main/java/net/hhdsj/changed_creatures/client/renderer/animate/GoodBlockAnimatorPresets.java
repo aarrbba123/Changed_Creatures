@@ -1,5 +1,8 @@
 package net.hhdsj.changed_creatures.client.renderer.animate;
 
+import net.hhdsj.changed_creatures.client.renderer.animate.wing.DragonOnlyRootWingCreativeFlyAnimator;
+import net.hhdsj.changed_creatures.client.renderer.animate.wing.DragonOnlyRootWingFallFlyAnimator;
+import net.hhdsj.changed_creatures.client.renderer.animate.wing.DragonOnlyRootWingInitAnimator;
 import net.hhdsj.changed_creatures.client.renderer.animate.wing.FrostScaleDragonTaurWingInitAnimator;
 import net.ltxprogrammer.changed.client.renderer.animate.AnimatorPresets;
 import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
@@ -149,6 +152,33 @@ public class GoodBlockAnimatorPresets extends AnimatorPresets {
                 .addAnimator(new ArmSwimAnimator<>(upperLeftArm, upperRightArm))
                 .addAnimator(new DoubleArmBobAnimator<>(upperLeftArm, upperRightArm, lowerLeftArm, lowerRightArm))
                 .addAnimator(new ArmRideAnimator<>(upperLeftArm, upperRightArm));
+    }
+
+    public static <T extends ChangedEntity, M extends AdvancedHumanoidModel<T>> Consumer<HumanoidAnimator<T, M>> wingedonlyrootDragonLike(ModelPart head, ModelPart torso, ModelPart leftArm, ModelPart rightArm, ModelPart tail, List<ModelPart> tailJoints, ModelPart leftLeg, ModelPart leftLegLower, ModelPart leftFoot, ModelPart leftPad, ModelPart rightLeg, ModelPart rightLegLower, ModelPart rightFoot, ModelPart rightPad, ModelPart leftWingRoot, ModelPart rightWingRoot) {
+        return (animator) ->
+                animator
+                .addPreset(dragonBipedal(leftLeg, leftLegLower, leftFoot, leftPad,
+                        rightLeg, rightLegLower, rightFoot, rightPad))
+                .addPreset(dragonWingedUpperBody(head, torso, leftArm, rightArm))
+                .addPreset(dragonTail(tail, tailJoints))
+                .addPreset(dragononlyrootWinged(leftWingRoot ,rightWingRoot))
+                .addAnimator(new DragonBipedalCreativeFlyAnimator<>(leftLeg, leftLegLower,
+                        leftFoot, leftPad,
+                        rightLeg, rightLegLower,
+                        rightFoot, rightPad))
+                .addAnimator(new DragonTailCreativeFlyAnimator<>(tail, tailJoints))
+                .addAnimator(new DragonHeadCreativeFlyAnimator<>(head))
+                .addAnimator(new DragonHeadInitAnimator<>(head))
+                .addAnimator(new ArmSwimAnimator<>(leftArm, rightArm))
+                .addAnimator(new ArmBobAnimator<>(leftArm, rightArm))
+                .addAnimator(new ArmRideAnimator<>(leftArm, rightArm))
+                .addCameraAnimator(new DragonCameraCreativeFlyAnimator<>());
+    }
+    public static <T extends ChangedEntity, M extends AdvancedHumanoidModel<T>> Consumer<HumanoidAnimator<T, M>> dragononlyrootWinged(ModelPart leftWingRoot, ModelPart rightWingRoot) {
+        return (animator) -> animator
+                .addAnimator(new DragonOnlyRootWingInitAnimator<>(leftWingRoot, rightWingRoot))
+                .addAnimator(new DragonOnlyRootWingCreativeFlyAnimator<>(leftWingRoot, rightWingRoot))
+                .addAnimator(new DragonOnlyRootWingFallFlyAnimator<>(leftWingRoot, rightWingRoot));
     }
 
 

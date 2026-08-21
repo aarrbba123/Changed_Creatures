@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.hhdsj.changed_creatures.ChangedCreature;
+import net.hhdsj.changed_creatures.client.animation.WingAnimation;
 import net.hhdsj.changed_creatures.util.PlayerDataGetHelper;
 import net.minecraft.client.model.AgeableListModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -18,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class ModelLatexWing extends AgeableListModel<AbstractClientPlayer> {
+public class ModelLatexWing extends AgeableListModel<AbstractClientPlayer> implements WingAnimation {
     public static final ModelLayerLocation LAYER_LOCATION =
             ChangedCreature.ChangedCreatureModelResourceLocation("latex_wind");
 
@@ -120,7 +121,7 @@ public class ModelLatexWing extends AgeableListModel<AbstractClientPlayer> {
 
         float breatheOffset = (float) Math.sin(ageInTicks * 0.15F) * 0.02F;
 
-        // 地面默认角度
+        //地面默认角度
         float defaultXRot = 0.0F + breatheOffset * 0.5F;
         float defaultYRot = -0.2617994F + breatheOffset * 0.3F;
         float defaultZRot = -0.174532F + breatheOffset * 0.2F;
@@ -131,7 +132,6 @@ public class ModelLatexWing extends AgeableListModel<AbstractClientPlayer> {
         float targetZ0Rot = -0.087266F;
         float targetZ1Rot = -0.48171F;
         float targetZ2Rot = -0.9599F;
-        //System.out.println("State: [" + state[0] + ", " + state[1] + ", " + state[2] +", " + state[3] + ", " + state[4] + ", " + state[5] + "]");
         // 滑翔状态
         if (player.isFallFlying()) {
             float f4 = 1.0F;
@@ -180,14 +180,13 @@ public class ModelLatexWing extends AgeableListModel<AbstractClientPlayer> {
             targetZ2Rot = -0.39171F;
         }
 
-        // state[0] = wingRotX, state[1] = wingRotY, state[2] = wingRotZ
-        // state[3] = z0Rot, state[4] = z1Rot, state[5] = z2Rot
+
         state[0] += (targetXRot - state[0]) * 0.15F;
         state[1] += (targetYRot - state[1]) * 0.15F;
         state[2] += (targetZRot - state[2]) * 0.15F;
-        state[3] += (targetZ0Rot - state[3]) * 0.1F;
-        state[4] += (targetZ1Rot - state[4]) * 0.1F;
-        state[5] += (targetZ2Rot - state[5]) * 0.1F;
+        state[3] += (targetZ0Rot - state[3]) * 0.15F;
+        state[4] += (targetZ1Rot - state[4]) * 0.15F;
+        state[5] += (targetZ2Rot - state[5]) * 0.15F;
 
         // 左翅膀
         this.leftWingRoot.xRot = state[0];

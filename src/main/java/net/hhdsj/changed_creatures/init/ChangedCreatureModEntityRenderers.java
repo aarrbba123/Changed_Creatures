@@ -88,6 +88,7 @@ public class ChangedCreatureModEntityRenderers {
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_STEPPEN_WOLF.get(), LatexSteppenWolfRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_PEAUNT_BUTTER_WOLF.get(), LatexPeanutButterWolfRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_XUAN_JIN_WOLF_DRAGON.get(), LatexXuanJinWolfDragonRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_XUAN_JIN_DRAGON.get(), LatexXuanJinDragonRenderer::new);
 
 	}
 	@SubscribeEvent

@@ -111,7 +111,7 @@ public class ChangedCreatureModEntities {
     public static final RegistryObject<EntityType<LatexYaoLingDragonEntity>> LATEXYAOLINGDRAGON;
     public static final RegistryObject<EntityType<LatexCrystalJellyDragonEntity>> LATEX_CRYSTAL_JELLY;
     public static final RegistryObject<EntityType<LatexEmberscalesMagmaDragonMaleEntity>> LATEX_EMBERSCALES_MAGMA_DRAGON_MALE;
-
+    public static final RegistryObject<EntityType<LatexXuanJinDragonEntity>> LATEX_XUAN_JIN_DRAGON;
 
 
     // BOSS变体
@@ -137,6 +137,13 @@ public class ChangedCreatureModEntities {
     public static final RegistryObject<EntityType<LatexXuanJinWolfDragonEntity>> LATEX_XUAN_JIN_WOLF_DRAGON;
 
     static {
+        LATEX_XUAN_JIN_DRAGON = registerSpawning("latex_xuan_jin_dragon", 0x1c2126, 0xe6ab00,
+                EntityType.Builder.<LatexXuanJinDragonEntity>of(LatexXuanJinDragonEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .sized(0.6f, 1.92f),
+                LatexXuanJinDragonEntity::createLatexAttributes);
         LATEX_XUAN_JIN_WOLF_DRAGON = registerSpawning("latex_xuan_jin_wolf_dragon", 0x1c2126, 0xe6ab00,
                 EntityType.Builder.<LatexXuanJinWolfDragonEntity>of(LatexXuanJinWolfDragonEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)

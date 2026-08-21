@@ -57,6 +57,11 @@ public class KeyMessage {
 			case 0:
 				LOOKGUIProcedure.execute(x, y, z, entity);
 				break;
+			case 1:
+				if (!world.isClientSide) {
+					PartiallyTransfurVariant.nowisJumpPressed = true;
+				}
+				break;
 			case 2:
 				if (!world.isClientSide) {
 					boolean currentGlide = PlayerDataGetHelper.GetPlayerCanGliding(entity);

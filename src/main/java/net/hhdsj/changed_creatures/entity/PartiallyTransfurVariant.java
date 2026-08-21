@@ -1,16 +1,20 @@
 package net.hhdsj.changed_creatures.entity;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
+import net.hhdsj.changed_creatures.network.KeyMessage;
 import net.hhdsj.changed_creatures.util.PlayerDataGetHelper;
 import net.ltxprogrammer.changed.entity.variant.TransfurVariantInstance;
 import net.ltxprogrammer.changed.process.ProcessTransfur;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -22,7 +26,9 @@ import java.util.UUID;
 
 @Mod.EventBusSubscriber(modid = ChangedCreature.MODID)
 public class PartiallyTransfurVariant {
-
+    private static boolean lastJumpState = false;
+    public static boolean isJumpPressed = false;
+    public static boolean nowisJumpPressed = false;
     private static final float HORIZONTAL_PENALTY_SPRINT = 0.725F;
     private static final float HORIZONTAL_PENALTY_WALK = 0.625F;
     private static final float VERTICAL_PENALTY_UP = 0.3F;
@@ -88,8 +94,9 @@ public class PartiallyTransfurVariant {
 
         if (!player.level().isClientSide) {
             autoManageFlight(player);
+            nowisJumpPressed = false;
         }
-        //Gliding(player);
+        Gliding(player);
     }
 
     private static void autoManageFlight(Player player) {
@@ -157,6 +164,7 @@ public class PartiallyTransfurVariant {
         double verticalSpeed = player.getDeltaMovement().y;
         boolean isAscending = verticalSpeed > 0.1;
 
+
         boolean shouldGlide = !player.onGround() &&
                 Math.abs(player.fallDistance) >= 0F &&
                 !player.isInWater() &&
@@ -166,11 +174,35 @@ public class PartiallyTransfurVariant {
                 PlayerDataGetHelper.GetPlayerCanGliding(player);
 
         if (shouldGlide && !player.isFallFlying()) {
-            player.startFallFlying();
+            if (Math.abs(player.fallDistance) >= 0.6F && nowisJumpPressed) {
+                player.startFallFlying();
+            }
         }else{
             if (player.onGround() || !canFly(player) || player.getAbilities().flying) {
                 player.stopFallFlying();
             }
         }
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    @SubscribeEvent
+    public static void onClientTick(TickEvent.ClientTickEvent event) {
+        if (event.phase != TickEvent.Phase.END) return;
+
+        Minecraft mc = Minecraft.getInstance();
+        Player player = mc.player;
+        if (player == null || mc.screen != null) return;
+
+        isJumpPressed = mc.options.keyJump.isDown();
+
+        if (isJumpPressed && !lastJumpState) {
+            ChangedCreature.PACKET_HANDLER.sendToServer(new KeyMessage(1, 0));
+            //KeyMessage.pressAction(player, 1, 0);
+            nowisJumpPressed = true;
+        }else{
+            nowisJumpPressed = false;
+        }
+
+        lastJumpState = isJumpPressed;
     }
 }

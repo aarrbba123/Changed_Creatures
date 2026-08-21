@@ -26,9 +26,10 @@ import java.util.UUID;
 
 @Mod.EventBusSubscriber(modid = ChangedCreature.MODID)
 public class PartiallyTransfurVariant {
-    private static boolean lastJumpState = false;
-    public static boolean isJumpPressed = false;
-    public static boolean nowisJumpPressed = false;
+    private static final Map<UUID, Boolean> clientJumpPressMap = new HashMap<>();
+    private static final Map<UUID, Boolean> serverJumpPressMap = new HashMap<>();
+    private static final Map<UUID, Boolean> lastJumpStateMap = new HashMap<>();
+    private static final Map<UUID, Boolean> PlayerCanGlideMap = new HashMap<>();
     private static final float HORIZONTAL_PENALTY_SPRINT = 0.725F;
     private static final float HORIZONTAL_PENALTY_WALK = 0.625F;
     private static final float VERTICAL_PENALTY_UP = 0.3F;
@@ -87,14 +88,16 @@ public class PartiallyTransfurVariant {
         if (event.phase != TickEvent.Phase.END) return;
 
         Player player = event.player;
-        Item item = player.getItemBySlot(EquipmentSlot.CHEST).getItem();
-        if (player.isCreative() || player.isSpectator()) return;
+        UUID playerId = player.getUUID();
+
+        // 服务端每帧重置
+        if (!player.level().isClientSide) {
+            serverJumpPressMap.put(playerId, false);
+        }
 
         applyFlightPhysics(player);
-
         if (!player.level().isClientSide) {
             autoManageFlight(player);
-            nowisJumpPressed = false;
         }
         Gliding(player);
     }
@@ -156,14 +159,20 @@ public class PartiallyTransfurVariant {
     }
 
     public static void Gliding(Player player) {
+
         Item chestItem = player.getItemBySlot(EquipmentSlot.CHEST).getItem();
         boolean hasElytra = chestItem == Items.ELYTRA;
         if (hasElytra) {
             return;
         }
-        double verticalSpeed = player.getDeltaMovement().y;
-        boolean isAscending = verticalSpeed > 0.1;
+        UUID playerId = player.getUUID();
+        boolean jumpPressed;
 
+        if (player.level().isClientSide) {
+            jumpPressed = clientJumpPressMap.getOrDefault(playerId, false);
+        } else {
+            jumpPressed = serverJumpPressMap.getOrDefault(playerId, false);
+        }
 
         boolean shouldGlide = !player.onGround() &&
                 Math.abs(player.fallDistance) >= 0F &&
@@ -173,14 +182,26 @@ public class PartiallyTransfurVariant {
                 canFly(player) &&
                 PlayerDataGetHelper.GetPlayerCanGliding(player);
 
+        boolean shouldStopGliding = player.isInWater() ||
+                player.isInLava() ||
+                player.getAbilities().flying ||
+                !canFly(player) ||
+                (player.isFallFlying() && player.isShiftKeyDown());
+
         if (shouldGlide && !player.isFallFlying()) {
-            if (Math.abs(player.fallDistance) >= 0.6F && nowisJumpPressed) {
+            if (Math.abs(player.fallDistance) >= 0.6F) {
+                if (jumpPressed) {
+                    PlayerCanGlideMap.put(playerId,true);
+                }
+            }
+            if (PlayerCanGlideMap.getOrDefault(playerId,false)) {
                 player.startFallFlying();
             }
-        }else{
-            if (player.onGround() || !canFly(player) || player.getAbilities().flying) {
-                player.stopFallFlying();
-            }
+        }
+
+        if (shouldStopGliding && player.isFallFlying()) {
+            PlayerCanGlideMap.put(playerId, false);
+            player.stopFallFlying();
         }
     }
 
@@ -193,16 +214,21 @@ public class PartiallyTransfurVariant {
         Player player = mc.player;
         if (player == null || mc.screen != null) return;
 
-        isJumpPressed = mc.options.keyJump.isDown();
+        UUID playerId = player.getUUID();
+        boolean currentJump = mc.options.keyJump.isDown();
+        boolean lastState = lastJumpStateMap.getOrDefault(playerId, false);
+        boolean pressed = currentJump && !lastState;
 
-        if (isJumpPressed && !lastJumpState) {
+        clientJumpPressMap.put(playerId, pressed);
+
+        if (pressed) {
             ChangedCreature.PACKET_HANDLER.sendToServer(new KeyMessage(1, 0));
-            //KeyMessage.pressAction(player, 1, 0);
-            nowisJumpPressed = true;
-        }else{
-            nowisJumpPressed = false;
         }
 
-        lastJumpState = isJumpPressed;
+        lastJumpStateMap.put(playerId, currentJump);
+    }
+
+    public static void setServerJumpPressed(UUID playerId) {
+        serverJumpPressMap.put(playerId, true);
     }
 }

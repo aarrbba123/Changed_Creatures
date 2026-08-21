@@ -58,8 +58,8 @@ public class KeyMessage {
 				LOOKGUIProcedure.execute(x, y, z, entity);
 				break;
 			case 1:
-				if (!world.isClientSide) {
-					PartiallyTransfurVariant.nowisJumpPressed = true;
+				if (!world.isClientSide && entity != null) {
+					PartiallyTransfurVariant.setServerJumpPressed(entity.getUUID());
 				}
 				break;
 			case 2:

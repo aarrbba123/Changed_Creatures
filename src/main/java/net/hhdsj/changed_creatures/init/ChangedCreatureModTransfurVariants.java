@@ -449,7 +449,6 @@ public class ChangedCreatureModTransfurVariants {
 	// 恩康龙鲨 - 水生龙鲨型
 	public static final RegistryObject<TransfurVariant<LatexEnkangDragonSharkEntity>> LATEX_ENKANG_DRAGON_SHARK =
 			REGISTRY.register("form_latex_enkang_dragon_shark", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_ENKANG_DRAGON_SHARK)
-					.addAbility(ChangedAddonAbilities.CLAWS)
 					.addAbility(ChangedAddonAbilities.DODGE)
 					.addAbility(ChangedAbilities.GRAB_ENTITY_ABILITY)
 					.gills()

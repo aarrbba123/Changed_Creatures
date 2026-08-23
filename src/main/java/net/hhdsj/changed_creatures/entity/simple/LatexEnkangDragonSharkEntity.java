@@ -4,7 +4,11 @@ import net.hhdsj.changed_creatures.init.ChangedCreatureModEntities;
 import net.ltxprogrammer.changed.entity.ChangedEntity;
 import net.ltxprogrammer.changed.entity.Gender;
 import net.ltxprogrammer.changed.entity.beast.AbstractPooltoy;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
@@ -35,5 +39,26 @@ public class LatexEnkangDragonSharkEntity extends AbstractPooltoy {
 
     public Gender getGender() {
         return Gender.MALE;
+    }
+
+    @Override
+    public boolean hurt(DamageSource source, float amount) {
+        LivingEntity attacker = null;
+        if (source.getDirectEntity() instanceof LivingEntity living) {
+            attacker = living;
+        }
+        boolean wasHurt = super.hurt(source, amount);
+
+        if (wasHurt && attacker != null && attacker != this) {
+            attacker.addEffect(new MobEffectInstance(
+                    MobEffects.WEAKNESS,
+                    1200,
+                    1,
+                    false,
+                    true
+            ));
+        }
+
+        return wasHurt;
     }
 }

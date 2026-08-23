@@ -22,9 +22,11 @@ public class ChangedCreatureModAbilities {
     public static RegistryObject<ShootCrystalArrowAbility> SHOOT_CRYSTAL_ARROW;
     public static RegistryObject<DuskDawnChangedAbility> DUSK_DAWN_CHANGED_ABILITY;
     public static RegistryObject<LatexConfusedAbility> LATEX_CONFUSED_ABILITY;
+    public static RegistryObject<LatexFrostSpikeAblilty> LATEX_FROST_SPIKE_ABLILTY;
 
 
     static {
+        LATEX_FROST_SPIKE_ABLILTY = REGISTRY.register("latex_frost_spike_ablilty", LatexFrostSpikeAblilty::new);
         LATEX_CONFUSED_ABILITY = REGISTRY.register("latex_confused_ability", LatexConfusedAbility::new);
         DUSK_DAWN_CHANGED_ABILITY = REGISTRY.register("dusk_dawn_changed_ability", DuskDawnChangedAbility::new);
         CREATEBLUECRYSTALENTITYABILITY = REGISTRY.register("create_blue_crystal_ability", CreateBlueCrystalEntityAbility::new);

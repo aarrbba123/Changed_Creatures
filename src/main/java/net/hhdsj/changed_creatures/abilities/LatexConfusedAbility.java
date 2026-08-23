@@ -44,7 +44,6 @@ public class LatexConfusedAbility extends BetterHypnosisAbility {
 
         for (Entity entityiterator : level.getEntities(self, aabb)) {
             if (entityiterator instanceof Player player) {
-                // 跳过已转化
                 if (ProcessTransfur.getPlayerTransfurProgress(player) > 0f) continue;
 
                 var playerVariantInstance = ProcessTransfur.getPlayerTransfurVariant(player);
@@ -55,7 +54,7 @@ public class LatexConfusedAbility extends BetterHypnosisAbility {
                     ProcessTransfur.setPlayerTransfurProgress(player, TRANSFUR_INCREMENT);
                 } else {
                     float currentProgress = ProcessTransfur.getPlayerTransfurProgress(player);
-                    float newProgress = Math.min(currentProgress + TRANSFUR_INCREMENT, 1.0f);
+                    float newProgress = Math.min(currentProgress + TRANSFUR_INCREMENT, 0.1f);
                     ProcessTransfur.setPlayerTransfurProgress(player, newProgress);
                 }
             }

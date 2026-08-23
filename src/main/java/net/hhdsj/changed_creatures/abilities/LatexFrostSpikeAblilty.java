@@ -13,11 +13,15 @@ import net.minecraft.world.level.block.Blocks;
 
 public class LatexFrostSpikeAblilty extends SimpleAbility {
 
-    private static final int RADIUS = 10;
+    private static final int RADIUS = 6;
+    @Override
+    public boolean canUse(IAbstractChangedEntity entity) {
+        return entity.getFoodLevel() > 6;
+    }
 
     @Override
     public UseType getUseType(IAbstractChangedEntity entity) {
-        return UseType.INSTANT;
+        return UseType.CHARGE_TIME;
     }
     @Override
     public void startUsing(IAbstractChangedEntity entity) {
@@ -28,7 +32,7 @@ public class LatexFrostSpikeAblilty extends SimpleAbility {
         Level level = player.level();
         BlockPos centerPos = player.blockPosition();
         int centerY = centerPos.getY();
-
+        var succed = false;
         for (int dx = -RADIUS; dx <= RADIUS; dx++) {
             for (int dz = -RADIUS; dz <= RADIUS; dz++) {
                 if (dx * dx + dz * dz > RADIUS * RADIUS) continue;
@@ -43,19 +47,32 @@ public class LatexFrostSpikeAblilty extends SimpleAbility {
                         !level.getBlockState(targetPos.below()).isAir()) {
                     level.setBlock(
                             targetPos,
-                            Blocks.BLUE_ICE.defaultBlockState(),
+                            Blocks.ICE.defaultBlockState(),
                             Block.UPDATE_ALL
                     );
+                    succed = true;
                 }
             }
         }
-
-        if (!level.isClientSide()) {
-            ((ServerLevel) level).sendParticles(
-                    ParticleTypes.SNOWFLAKE,
-                    player.getX(), player.getY() + 0.5, player.getZ(),
-                    100, 5, 0.5, 5, 0.1
-            );
+        if (succed){
+            if (!level.isClientSide()) {
+                ((ServerLevel) level).sendParticles(
+                        ParticleTypes.SNOWFLAKE,
+                        player.getX(), player.getY() + 0.5, player.getZ(),
+                        200, 5, 0.5, 5, 0.1
+                );
+            }
+            entity.causeFoodExhaustion(16.0F);
         }
+    }
+
+    @Override
+    public int getChargeTime(IAbstractChangedEntity entity) {
+        return 100;
+    }
+
+    @Override
+    public int getCoolDown(IAbstractChangedEntity entity) {
+        return 800;
     }
 }

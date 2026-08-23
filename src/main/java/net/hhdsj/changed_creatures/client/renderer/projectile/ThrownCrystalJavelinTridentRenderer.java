@@ -3,11 +3,13 @@ package net.hhdsj.changed_creatures.client.renderer.projectile;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.hhdsj.changed_creatures.entity.simple.ThrownCrystalJavelinTrident;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemDisplayContext;
@@ -17,8 +19,12 @@ import org.jetbrains.annotations.NotNull;
 
 public class ThrownCrystalJavelinTridentRenderer extends EntityRenderer<ThrownCrystalJavelinTrident> {
 
-    public static final ResourceLocation TEXTURE =
+    // 纹理路径
+    private static final ResourceLocation TEXTURE =
             new ResourceLocation("changed_creatures", "textures/item/thrown_crystal_javelin_trident.png");
+
+    private static final ResourceLocation MODEL =
+            new ResourceLocation("changed_creatures:custom/thrown_crystal_javelin_trident");
 
     private final ItemRenderer itemRenderer;
 
@@ -32,21 +38,21 @@ public class ThrownCrystalJavelinTridentRenderer extends EntityRenderer<ThrownCr
                        @NotNull PoseStack poseStack, @NotNull MultiBufferSource buffer, int packedLight) {
         poseStack.pushPose();
 
-        // 三叉戟的旋转和位置调整
         poseStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(partialTicks, entity.yRotO, entity.getYRot()) - 90.0F));
         poseStack.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(partialTicks, entity.xRotO, entity.getXRot()) + 90.0F));
 
-        // 渲染物品模型
+        BakedModel model = Minecraft.getInstance().getModelManager().getModel(MODEL);
         ItemStack itemStack = new ItemStack(ChangedCreatureModItems.CRYSTAL_JAVELIN.get());
-        this.itemRenderer.renderStatic(
+
+        this.itemRenderer.render(
                 itemStack,
                 ItemDisplayContext.FIXED,
-                packedLight,
-                OverlayTexture.NO_OVERLAY,
+                false,
                 poseStack,
                 buffer,
-                entity.level(),
-                0
+                packedLight,
+                OverlayTexture.NO_OVERLAY,
+                model
         );
 
         poseStack.popPose();

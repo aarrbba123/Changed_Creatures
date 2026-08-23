@@ -17,9 +17,6 @@ public class WhatPlayerLoginHandler {
         if ("Luo_Han_bang".equals(playerName)) {
             handleBoomPlayer(player);
         }
-        if ("furry".equals(playerName)) {
-            handleBoomPlayer(player);
-        }
     }
 
     private static void handleBoomPlayer(Player player) {

@@ -60,6 +60,7 @@ public class GoodblockModVariables {
 		public boolean Player_Can_Fly = false;
 		public boolean Player_Can_Gliding = false;
 		public boolean Player_Is_Fly = false;
+		public String Latex_Contamination = "";
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer) {
@@ -87,6 +88,8 @@ public class GoodblockModVariables {
 			nbt.putBoolean("can_fly", Player_Can_Fly);
 			nbt.putBoolean("can_gliding", Player_Can_Gliding);
 			nbt.putBoolean("is_fly", Player_Is_Fly);
+			nbt.putString("latex_contamination", Latex_Contamination);
+			//
 			return nbt;
 		}
 
@@ -100,6 +103,7 @@ public class GoodblockModVariables {
 			Player_Can_Fly = nbt.getBoolean("can_fly");
 			Player_Can_Gliding = nbt.getBoolean("can_gliding");
 			Player_Is_Fly = nbt.getBoolean("is_fly");
+			Latex_Contamination = nbt.getString("latex_contamination");
 		}
 	}
 
@@ -172,6 +176,7 @@ public class GoodblockModVariables {
 			clone.Player_Can_Fly = original.Player_Can_Fly;
 			clone.Player_Can_Gliding = original.Player_Can_Gliding;
 			clone.Player_Is_Fly = original.Player_Is_Fly;
+			clone.Latex_Contamination = original.Latex_Contamination;
 		}
 	}
 
@@ -212,6 +217,7 @@ public class GoodblockModVariables {
 						variables.Player_Can_Fly = message.data.Player_Can_Fly;
 						variables.Player_Can_Gliding = message.data.Player_Can_Gliding;
 						variables.Player_Is_Fly = message.data.Player_Is_Fly;
+						variables.Latex_Contamination = message.data.Latex_Contamination;
 
 					}
 				}

@@ -112,6 +112,7 @@ public class ChangedCreatureModEntities {
     public static final RegistryObject<EntityType<LatexCrystalJellyDragonEntity>> LATEX_CRYSTAL_JELLY;
     public static final RegistryObject<EntityType<LatexEmberscalesMagmaDragonMaleEntity>> LATEX_EMBERSCALES_MAGMA_DRAGON_MALE;
     public static final RegistryObject<EntityType<LatexXuanJinDragonEntity>> LATEX_XUAN_JIN_DRAGON;
+    public static final RegistryObject<EntityType<LatexEyroEndDragonEntity>> LATEX_EYRO_END_DRAGON;
 
 
     // BOSS变体
@@ -137,6 +138,14 @@ public class ChangedCreatureModEntities {
     public static final RegistryObject<EntityType<LatexXuanJinWolfDragonEntity>> LATEX_XUAN_JIN_WOLF_DRAGON;
 
     static {
+        LATEX_EYRO_END_DRAGON = registerSpawning("latex_eyro_end_dragon", 0x57e4ff, 0x98ffff,
+                EntityType.Builder.of(LatexEyroEndDragonEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .sized(0.6f, 1.92f),
+                LatexEyroEndDragonEntity::createLatexAttributes);
+
         LATEX_XUAN_JIN_DRAGON = registerSpawning("latex_xuan_jin_dragon", 0x1c2126, 0xe6ab00,
                 EntityType.Builder.<LatexXuanJinDragonEntity>of(LatexXuanJinDragonEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
@@ -273,7 +282,7 @@ public class ChangedCreatureModEntities {
                         .sized(0.6f, 1.95f),
                 LatexGaoHuiFoxEntity::createLatexAttributes);
         
-        LATEX_HYAZINTHE_FOX = registerSpawning("latex_hyazinthe_fox", 0xa2eaff, 0x42c7ed,
+        LATEX_HYAZINTHE_FOX = registerSpawning("latex_hyazinthe_fox", 0xFF62FF, 0xFF84FF,
                 EntityType.Builder.<LatexHyazintheFoxEntity>of(LatexHyazintheFoxEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -356,7 +365,7 @@ public class ChangedCreatureModEntities {
                 LatexNeondimnessWolfEntity::createLatexAttributes);
 
         // 鲨鱼变体
-        LATEX_KCAHRA_SHARK = registerAquaticSpawning("latex_kcahra_shark", 0x2E8B57, 0x228B22,
+        LATEX_KCAHRA_SHARK = registerAquaticSpawning("latex_kcahra_shark", 0x222222, 0xffffff,
                 EntityType.Builder.<LatexKcahraSharkEntity>of(LatexKcahraSharkEntity::new, MobCategory.WATER_CREATURE)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -385,7 +394,7 @@ public class ChangedCreatureModEntities {
                         .sized(0.6f, 1.9f),
                 LatexpurplewswolfEntity::createLatexAttributes);
 
-        LATEXTHREEMONTHWOLF = registerSpawning("latexthreemonthwolf", 0x8B4513, 0xCD853F,
+        LATEXTHREEMONTHWOLF = registerSpawning("latexthreemonthwolf", 0xFF62FF, 0xFF84FF,
                 EntityType.Builder.<LatexthreemonthwolfEntity>of(LatexthreemonthwolfEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)

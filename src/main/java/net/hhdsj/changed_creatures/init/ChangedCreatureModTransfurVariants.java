@@ -6,6 +6,8 @@ package net.hhdsj.changed_creatures.init;
 import net.foxyas.changedaddon.init.ChangedAddonAbilities;
 import net.hhdsj.changed_creatures.entity.boss.LatexNightOwlEntity;
 import net.hhdsj.changed_creatures.entity.simple.*;
+import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.animal.Chicken;
 import net.minecraft.world.entity.monster.*;
 //FORGE导入
 import net.minecraft.world.entity.npc.Villager;
@@ -28,6 +30,13 @@ import java.util.stream.Stream;
 @SuppressWarnings("unused")
 public class ChangedCreatureModTransfurVariants {
     public static final DeferredRegister<TransfurVariant<?>> REGISTRY = ChangedRegistry.TRANSFUR_VARIANT.createDeferred("changed_creatures");
+	public static final RegistryObject<TransfurVariant<LatexEyroEndDragonEntity>> LATEX_EYRO_END_DRAGON =
+			REGISTRY.register("form_latex_eyro_end_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_EYRO_END_DRAGON)
+					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
+					.glide()
+					.scares(List.of(Creeper.class, Villager.class, Chicken.class))
+					.build());
+
 	public static final RegistryObject<TransfurVariant<LatexXuanJinDragonEntity>> LATEX_XUAN_JIN_DRAGON =
 			REGISTRY.register("form_latex_xuan_jin_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_XUAN_JIN_DRAGON)
 					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
@@ -57,6 +66,7 @@ public class ChangedCreatureModTransfurVariants {
 	//PROTOGEN_NYXARIX
 	public static final RegistryObject<TransfurVariant<ProtogenNyxarixEntity>> PROTOGEN_NYXARIX =
 			REGISTRY.register("form_protogen_nyxarix", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.PROTOGEN_NYXARIX)
+					.gills()
 					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
 					.addAbility(ChangedCreatureModAbilities.BERRER_HYPNOSIE)
 					.addAbility(ChangedCreatureModAbilities.LATEX_CONFUSED_ABILITY)
@@ -68,6 +78,7 @@ public class ChangedCreatureModTransfurVariants {
 			REGISTRY.register("form_latex_frost_scale_dragon_taur", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_FROST_SCALE_DRAGON_TAUR)
 					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
 					.addAbility(ChangedCreatureModAbilities.LATEX_CONFUSED_ABILITY)
+					.addAbility(ChangedCreatureModAbilities.LATEX_FROST_SPIKE_ABLILTY)
 					.scares(List.of(Creeper.class, Zoglin.class, ZombieVillager.class, EnderMan.class, Villager.class))
 					.build());
 

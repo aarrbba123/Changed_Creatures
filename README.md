@@ -1,4 +1,4 @@
-# Good Block - Minecraft 1.20.1 Forge Mod
+# Changed More Creatures - Minecraft 1.20.1 Forge Mod
 
 This mod is an add-on for Changed and its add-ons. 
 It adds various entities, blocks, items, and many other interesting things to the game. However, this mod is no longer being made with MCreator, so the MCreator-generated code and some messy parts need to be cleaned up and rewritten. If you could help me write some code and submit pull requests, I would be very happy and grateful!
@@ -14,7 +14,7 @@ It adds various entities, blocks, items, and many other interesting things to th
         "goodblock": "changed_creatures"
     }
 }
-
+```
 ## Terms of Use
 
 ### 1. Model Resources

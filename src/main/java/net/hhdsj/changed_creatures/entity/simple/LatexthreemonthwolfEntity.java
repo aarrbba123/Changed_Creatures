@@ -48,7 +48,7 @@ public class LatexthreemonthwolfEntity extends ChangedEntity implements RangedAt
 	}
 
 	public Color3 getTransfurColor(TransfurCause cause) {
-		return Color3.getColor("#8536ff");
+		return Color3.getColor("#FF62FF");
 	}
 
 	public LatexthreemonthwolfEntity(EntityType<LatexthreemonthwolfEntity> type, Level world) {

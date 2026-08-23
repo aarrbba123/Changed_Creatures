@@ -1,12 +1,32 @@
 package net.hhdsj.changed_creatures.block;
 
-import net.minecraft.world.level.block.Block;
+import net.foxyas.changedaddon.block.AbstractPlushyBlock;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.Nullable;
 
-public class LatexDeepCrystalDragonDollBlock extends Block {
+public class LatexDeepCrystalDragonDollBlock extends AbstractPlushyBlock {
+
     public LatexDeepCrystalDragonDollBlock() {
-        super(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(5f, 40f));
+        super(BlockBehaviour.Properties.of()
+                .instrument(NoteBlockInstrument.BASS)
+                .sound(SoundType.WOOL)
+                .strength(5f, 40f)
+                .noOcclusion()
+                .dynamicShape()
+        );
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new LatexDeepCrystalDragonDollBlockEntity(pos, state);
     }
 }

@@ -52,7 +52,7 @@ public class LatexKcahraSharkEntity extends ChangedEntity {
     }
 
     public Color3 getTransfurColor(TransfurCause cause) {
-        return Color3.getColor("#0793f7");
+        return Color3.getColor("#222222");
     }
 
 	public LatexKcahraSharkEntity(PlayMessages.SpawnEntity packet, Level world) {

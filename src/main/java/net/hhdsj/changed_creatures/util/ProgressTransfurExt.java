@@ -27,13 +27,7 @@ public class ProgressTransfurExt {
         }
     }
 
-    /**
-     * Tf的简单辅助
-     * @param livingEntity 实体(提供类型为LivingEntity)
-     * @param progress_speed 速度
-     * @param text 变体名称,类似xxx:form_xxx
-     * @param transfurCause 动画从哪里播放,类似TransfurCause.FACE_HAZARD
-     */
+
     public static void tf(LivingEntity livingEntity,float progress_speed,String text,TransfurCause transfurCause) {
         final ResourceLocation FORM_VARIANT = new ResourceLocation(text);
         try {

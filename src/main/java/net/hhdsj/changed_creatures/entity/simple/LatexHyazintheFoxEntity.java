@@ -4,6 +4,8 @@ import net.foxyas.changedaddon.entity.advanced.AbstractKitsuneEntity;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModEntities;
 import net.ltxprogrammer.changed.entity.ChangedEntity;
 import net.ltxprogrammer.changed.entity.Gender;
+import net.ltxprogrammer.changed.entity.TransfurCause;
+import net.ltxprogrammer.changed.util.Color3;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -20,6 +22,10 @@ public class LatexHyazintheFoxEntity extends AbstractKitsuneEntity {
         Objects.requireNonNull(attributes.getInstance(Attributes.MOVEMENT_SPEED)).setBaseValue(1.1);
         Objects.requireNonNull(attributes.getInstance(ForgeMod.SWIM_SPEED.get())).setBaseValue(0.85);
         Objects.requireNonNull(attributes.getInstance(Attributes.MAX_HEALTH)).setBaseValue(40);
+    }
+
+    public Color3 getTransfurColor(TransfurCause cause) {
+        return Color3.getColor("#FF62FF");
     }
 
     public LatexHyazintheFoxEntity(EntityType<? extends ChangedEntity> type, Level level) {

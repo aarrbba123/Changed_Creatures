@@ -49,9 +49,13 @@ public class InksugerEntity extends ChangedEntity {
         return HairStyle.Collection.getAll();
     }
 
+    public Color3 getTransfurColor(TransfurCause cause) {
+        return Color3.getColor("#ffffff");
+    }
+
     @Override
     public Color3 getHairColor(int layer) {
-        return Color3.DARK;
+        return Color3.WHITE;
     }
     
 	public InksugerEntity(PlayMessages.SpawnEntity packet, Level world) {

@@ -9,10 +9,13 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.TickEvent;
@@ -48,7 +51,7 @@ public class PartiallyTransfurVariant {
 
     public static boolean canFly(Player player) {
         if (player == null) return false;
-        if (player.isCreative() || player.isSpectator()) return false;
+        if (player.isCreative() || player.isSpectator()) return true;
         if (isPartiallyTransfurred(player)) return false;
         if (PlayerDataGetHelper.GetPlayerCanFly(player)) return true;
         return false;
@@ -123,7 +126,7 @@ public class PartiallyTransfurVariant {
                 player.onUpdateAbilities();
             }
         } else {
-            if (currentMayfly || currentFlying) {
+            if ((currentMayfly || currentFlying)) {
                 player.getAbilities().mayfly = false;
                 if (currentFlying) {
                     player.getAbilities().flying = false;
@@ -159,7 +162,6 @@ public class PartiallyTransfurVariant {
     }
 
     public static void Gliding(Player player) {
-
         Item chestItem = player.getItemBySlot(EquipmentSlot.CHEST).getItem();
         boolean hasElytra = chestItem == Items.ELYTRA;
         if (hasElytra) {
@@ -174,6 +176,63 @@ public class PartiallyTransfurVariant {
             jumpPressed = serverJumpPressMap.getOrDefault(playerId, false);
         }
 
+        if (player.isFallFlying()) {
+            Vec3 delta = player.getDeltaMovement();
+            double horizontalSpeed = Math.sqrt(delta.x * delta.x + delta.z * delta.z);
+            double verticalSpeed = Math.abs(delta.y);
+            double totalSpeed = Math.sqrt(delta.x * delta.x + delta.y * delta.y + delta.z * delta.z);
+
+            if (player.horizontalCollision) {
+
+                float retainRatio = (float) Math.max(0.05, 0.20 - (horizontalSpeed / 2.0) * 0.15);
+                if (horizontalSpeed > 2.0) {
+                    retainRatio = 0.05F;
+                }
+
+                player.setDeltaMovement(delta.x * retainRatio, delta.y, delta.z * retainRatio);
+                player.fallDistance = 0.0F;
+
+                if (!player.level().isClientSide) {
+                    float damage = 1.0F + (float) horizontalSpeed * 0.8F;
+                    damage = Math.min(damage, 20.0F);
+                    damage = Math.max(damage, 0.5F);
+
+                    player.hurt(player.damageSources().flyIntoWall(), damage);
+
+                    float exhaustionCost = 0.02F + (float) horizontalSpeed * 0.02F;
+                    player.causeFoodExhaustion(Math.min(exhaustionCost, 0.2F));
+                }
+
+                if (player.level().isClientSide) {
+                    float pitch = 1.0F + (float) (horizontalSpeed / 4.0);
+                    player.level().playSound(player, player.blockPosition(),
+                            SoundEvents.PLAYER_HURT, SoundSource.PLAYERS,
+                            0.5F + (float) horizontalSpeed * 0.1F, Math.min(pitch, 2.0F));
+                }
+
+                if (horizontalSpeed > 1.5) {
+                    PlayerCanGlideMap.put(playerId, false);
+                    player.stopFallFlying();
+                    return;
+                }
+            }
+
+            if (player.verticalCollision) {
+                if (delta.y > 0.5) {
+                    player.setDeltaMovement(delta.x, -delta.y * 0.3, delta.z);
+                } else {
+                    player.setDeltaMovement(delta.x, 0.0, delta.z);
+                }
+                player.fallDistance = 0.0F;
+
+                if (!player.level().isClientSide && verticalSpeed > 1.0) {
+                    float damage = 0.5F + (float) verticalSpeed * 0.5F;
+                    damage = Math.min(damage, 4.0F);
+                    player.hurt(player.damageSources().flyIntoWall(), damage);
+                }
+            }
+        }
+
         boolean shouldGlide = !player.onGround() &&
                 Math.abs(player.fallDistance) >= 0F &&
                 !player.isInWater() &&
@@ -182,24 +241,23 @@ public class PartiallyTransfurVariant {
                 canFly(player) &&
                 PlayerDataGetHelper.GetPlayerCanGliding(player);
 
-        boolean shouldStopGliding = player.isInWater() ||
+        boolean shouldStopGliding = player.onGround() ||
+                player.isInWater() ||
                 player.isInLava() ||
                 player.getAbilities().flying ||
                 !canFly(player) ||
                 (player.isFallFlying() && player.isShiftKeyDown());
 
         if (shouldGlide && !player.isFallFlying()) {
-            if (Math.abs(player.fallDistance) >= 0.6F) {
+            if (player.fallDistance >= 0.6F) {
                 if (jumpPressed) {
-                    PlayerCanGlideMap.put(playerId,true);
+                    PlayerCanGlideMap.put(playerId, true);
                 }
             }
-            if (PlayerCanGlideMap.getOrDefault(playerId,false)) {
+            if (PlayerCanGlideMap.getOrDefault(playerId, false)) {
                 player.startFallFlying();
             }
-        }
-
-        if (shouldStopGliding && player.isFallFlying()) {
+        } else if (shouldStopGliding && player.isFallFlying() && PlayerCanGlideMap.getOrDefault(playerId, false) == true) {
             PlayerCanGlideMap.put(playerId, false);
             player.stopFallFlying();
         }

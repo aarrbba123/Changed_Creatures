@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "changed_creatures:abilities/normal_paw"
+    "layer0": "changed_creatures:abilities/shoot_crystal_arrow_ability"
   }
 }

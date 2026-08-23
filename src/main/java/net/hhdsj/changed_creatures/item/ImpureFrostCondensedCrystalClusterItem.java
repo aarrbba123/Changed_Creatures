@@ -1,7 +1,9 @@
 package net.hhdsj.changed_creatures.item;
 
+import net.hhdsj.changed_creatures.init.ChangedCreatureModTransfurVariants;
 import net.hhdsj.changed_creatures.util.ProgressTransfurExt;
 import net.ltxprogrammer.changed.entity.TransfurCause;
+import net.ltxprogrammer.changed.entity.TransfurContext;
 import net.ltxprogrammer.changed.entity.variant.TransfurVariantInstance;
 import net.ltxprogrammer.changed.process.ProcessTransfur;
 import net.minecraft.ChatFormatting;
@@ -38,7 +40,6 @@ public class ImpureFrostCondensedCrystalClusterItem extends Item {
 
     @Override
     public @NotNull ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entity) {
-        // 先调用父类完成食用逻辑（恢复饥饿值）
         ItemStack result = super.finishUsingItem(stack, level, entity);
 
         if (!level.isClientSide) {
@@ -48,7 +49,7 @@ public class ImpureFrostCondensedCrystalClusterItem extends Item {
             if (variant != null) {
                 entity.addEffect(new MobEffectInstance(MobEffects.POISON, 800, 0));
             }else{
-                ProgressTransfurExt.tf(entity,0.8f,"changed_creatures:form_latex_frost_scale_dragon_taur", TransfurCause.FACE_HAZARD);
+                ProcessTransfur.progressTransfur(entity,0.8f, ChangedCreatureModTransfurVariants.LATEX_FROST_SCALE_DRAGON_TAUR.get());
             }
             entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 500, 0));
         }

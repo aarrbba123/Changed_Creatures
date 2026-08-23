@@ -39,7 +39,7 @@ public class FrostCondensedCrystalClusterItem extends Item {
 
     @Override
     public @NotNull ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entity) {
-        // 先调用父类完成食用逻辑（恢复饥饿值）
+        // 先调用父类完成食用逻辑
         ItemStack result = super.finishUsingItem(stack, level, entity);
 
         if (!level.isClientSide) {
@@ -51,7 +51,7 @@ public class FrostCondensedCrystalClusterItem extends Item {
             }else{
                 ProgressTransfurExt.tf(entity,1f,"changed_creatures:form_latex_frost_scale_dragon_taur", TransfurCause.FACE_HAZARD);
             }
-            entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 50, 0));
+            entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 500, 0));
         }
         return result;
     }

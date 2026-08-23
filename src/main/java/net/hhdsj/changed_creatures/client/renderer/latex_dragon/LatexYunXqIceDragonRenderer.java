@@ -5,7 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
 import net.hhdsj.changed_creatures.entity.simple.LatexyunxqicedragonEntity;
-import net.hhdsj.changed_creatures.client.models.latex_dragon.ModelLatexiceredDragonUnified_bw;
+import net.hhdsj.changed_creatures.client.models.latex_dragon.ModelLatexBlueIceDragon;
 
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;
 import net.ltxprogrammer.changed.client.renderer.layers.GasMaskLayer;
@@ -16,10 +16,10 @@ import net.ltxprogrammer.changed.util.Color3;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.*;
 
-public class LatexyunxqicedragonRenderer extends AdvancedHumanoidRenderer<LatexyunxqicedragonEntity, ModelLatexiceredDragonUnified_bw> {
-	public LatexyunxqicedragonRenderer(EntityRendererProvider.Context context) {
+public class LatexYunXqIceDragonRenderer extends AdvancedHumanoidRenderer<LatexyunxqicedragonEntity, ModelLatexBlueIceDragon> {
+	public LatexYunXqIceDragonRenderer(EntityRendererProvider.Context context) {
 		
-		super(context, new ModelLatexiceredDragonUnified_bw(context.bakeLayer(ModelLatexiceredDragonUnified_bw.LAYER_LOCATION)),
+		super(context, new ModelLatexBlueIceDragon(context.bakeLayer(ModelLatexBlueIceDragon.LAYER_LOCATION)),
 		ArmorLatexMaleWingedDragonModel.MODEL_SET, 
 		0.5f);
 		this.addLayer(new EmissiveBodyLayer<>(this, new ResourceLocation("changed_creatures", "textures/entities/latex/latex_blueice_dragon_light.png")));

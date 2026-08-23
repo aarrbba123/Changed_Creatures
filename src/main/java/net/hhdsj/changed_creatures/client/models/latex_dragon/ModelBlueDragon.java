@@ -31,7 +31,7 @@ import java.util.List;
 // Made with Blockbench 4.11.2
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
-public class Modelbluedragon extends AdvancedHumanoidModel<LatexbluedragonEntity>{//<T extends Entity> extends EntityModel<T> {
+public class ModelBlueDragon extends AdvancedHumanoidModel<LatexbluedragonEntity>{//<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in
 	// the entity renderer and passed into this models's constructor
 	public static final ModelLayerLocation LAYER_LOCATION =
@@ -45,9 +45,9 @@ public class Modelbluedragon extends AdvancedHumanoidModel<LatexbluedragonEntity
 	public final ModelPart Tail;
 	public final ModelPart RightWing;
     public final ModelPart LeftWing;
-	public final HumanoidAnimator<LatexbluedragonEntity, Modelbluedragon> animator;
+	public final HumanoidAnimator<LatexbluedragonEntity, ModelBlueDragon> animator;
 
-	public Modelbluedragon(ModelPart root) {
+	public ModelBlueDragon(ModelPart root) {
 		super(root);
         this.RightLeg = root.getChild("RightLeg");
         this.LeftLeg = root.getChild("LeftLeg");
@@ -258,7 +258,7 @@ public class Modelbluedragon extends AdvancedHumanoidModel<LatexbluedragonEntity
     }
 
 	@Override
-    public HumanoidAnimator<LatexbluedragonEntity, Modelbluedragon> getAnimator(LatexbluedragonEntity entity) {
+    public HumanoidAnimator<LatexbluedragonEntity, ModelBlueDragon> getAnimator(LatexbluedragonEntity entity) {
         return this.animator;
     }
 

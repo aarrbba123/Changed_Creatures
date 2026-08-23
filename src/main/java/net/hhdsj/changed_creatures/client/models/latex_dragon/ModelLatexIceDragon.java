@@ -29,10 +29,10 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class ModelLatexicedragon extends AdvancedHumanoidModel<LatexiceDragonEntity>{
+public class ModelLatexIceDragon extends AdvancedHumanoidModel<LatexiceDragonEntity>{
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this models's constructor
     public static final ModelLayerLocation LAYER_LOCATION =
-            ChangedCreature.ChangedCreatureModelResourceLocation("latex_fruit_dragon");
+            ChangedCreature.ChangedCreatureModelResourceLocation("latex_ice_dragon");
     private final ModelPart LeftLeg;
     public final ModelPart RightLeg;
     private final ModelPart RightArm;
@@ -40,9 +40,9 @@ public class ModelLatexicedragon extends AdvancedHumanoidModel<LatexiceDragonEnt
     private final ModelPart Head;
     private final ModelPart Torso;
     private final ModelPart Tail;
-    private final HumanoidAnimator<LatexiceDragonEntity, ModelLatexicedragon> animator;
+    private final HumanoidAnimator<LatexiceDragonEntity, ModelLatexIceDragon> animator;
 
-    public ModelLatexicedragon(ModelPart root) {
+    public ModelLatexIceDragon(ModelPart root) {
         super(root);
         this.RightLeg = root.getChild("RightLeg");
         this.LeftLeg = root.getChild("LeftLeg");
@@ -117,17 +117,37 @@ public class ModelLatexicedragon extends AdvancedHumanoidModel<LatexiceDragonEnt
                 .texOffs(44, 31).addBox(-2.0F, -3.0F, -6.0F, 4.0F, 2.0F, 2.0F, new CubeDeformation(0.0F))
                 .texOffs(20, 16).addBox(-1.5F, -1.0F, -5.0F, 3.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -0.5F, 0.0F));
 
-        PartDefinition RightHorns = Head.addOrReplaceChild("RightHorns", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+        PartDefinition RightHorns = Head.addOrReplaceChild("RightHorns", CubeListBuilder.create(), PartPose.offset(0.0F, 0.7F, -3.0F));
 
-        PartDefinition Horn_r1 = RightHorns.addOrReplaceChild("Horn_r1", CubeListBuilder.create().texOffs(1, 55).addBox(-1.7F, -9.0F, -5.25F, 1.0F, 6.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(2.0F, -2.0F, 0.0F, -0.9599F, -0.3927F, -0.3054F));
+        PartDefinition Horn_r1 = RightHorns.addOrReplaceChild("Horn_r1", CubeListBuilder.create().texOffs(1, 55).addBox(-1.7F, -9.0F, -5.25F, 1.0F, 6.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(2.0F, -2.0F, 3.0F, -0.9599F, -0.3927F, -0.3054F));
 
-        PartDefinition Horn_r2 = RightHorns.addOrReplaceChild("Horn_r2", CubeListBuilder.create().texOffs(0, 55).addBox(-2.7F, -9.0F, -5.25F, 2.0F, 7.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(1.0F, -3.0F, 0.0F, -0.9599F, -0.3927F, -0.3054F));
+        PartDefinition Horn_r2 = RightHorns.addOrReplaceChild("Horn_r2", CubeListBuilder.create().texOffs(0, 55).addBox(-2.7F, -9.0F, -5.25F, 2.0F, 7.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(1.0F, -3.0F, 3.0F, -0.9599F, -0.3927F, -0.3054F));
 
-        PartDefinition LeftHorns = Head.addOrReplaceChild("LeftHorns", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+        PartDefinition LeftHorns = Head.addOrReplaceChild("LeftHorns", CubeListBuilder.create(), PartPose.offset(0.0F, 0.7F, -3.0F));
 
-        PartDefinition Horn_r3 = LeftHorns.addOrReplaceChild("Horn_r3", CubeListBuilder.create().texOffs(11, 55).addBox(1.7F, -9.0F, -5.25F, 1.0F, 6.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-3.0F, -2.0F, 0.0F, -0.9599F, 0.3927F, 0.3054F));
+        PartDefinition Horn_r3 = LeftHorns.addOrReplaceChild("Horn_r3", CubeListBuilder.create().texOffs(11, 55).addBox(1.7F, -9.0F, -5.25F, 1.0F, 6.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-3.0F, -2.0F, 3.0F, -0.9599F, 0.3927F, 0.3054F));
 
-        PartDefinition Horn_r4 = LeftHorns.addOrReplaceChild("Horn_r4", CubeListBuilder.create().texOffs(10, 55).addBox(0.7F, -9.0F, -5.25F, 2.0F, 7.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-1.0F, -3.0F, 0.0F, -0.9599F, 0.3927F, 0.3054F));
+        PartDefinition Horn_r4 = LeftHorns.addOrReplaceChild("Horn_r4", CubeListBuilder.create().texOffs(10, 55).addBox(0.7F, -9.0F, -5.25F, 2.0F, 7.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-1.0F, -3.0F, 3.0F, -0.9599F, 0.3927F, 0.3054F));
+
+        PartDefinition LeftHorn = Head.addOrReplaceChild("LeftHorn", CubeListBuilder.create(), PartPose.offsetAndRotation(-1.5F, 17.0F, -2.0F, 0.0F, 0.0F, 0.0436F));
+
+        PartDefinition Horn_r5 = LeftHorn.addOrReplaceChild("Horn_r5", CubeListBuilder.create().texOffs(86, 37).addBox(1.0F, -31.3F, 18.8F, 2.0F, 2.0F, 3.0F, new CubeDeformation(-0.5F)), PartPose.offsetAndRotation(0.3F, 7.0F, 1.8F, 0.48F, 0.1745F, 0.0F));
+
+        PartDefinition Horn_r6 = LeftHorn.addOrReplaceChild("Horn_r6", CubeListBuilder.create().texOffs(86, 32).addBox(1.0F, -31.3F, 18.8F, 2.0F, 2.0F, 3.0F, new CubeDeformation(-0.3F)), PartPose.offsetAndRotation(0.0F, 8.0F, 0.0F, 0.48F, 0.1745F, 0.0F));
+
+        PartDefinition Horn_r7 = LeftHorn.addOrReplaceChild("Horn_r7", CubeListBuilder.create().texOffs(86, 27).addBox(1.0F, -35.2F, 8.1F, 2.0F, 2.0F, 3.0F, new CubeDeformation(-0.25F)), PartPose.offsetAndRotation(0.0F, 8.0F, 0.0F, 0.2182F, 0.1745F, 0.0F));
+
+        PartDefinition Horn_r8 = LeftHorn.addOrReplaceChild("Horn_r8", CubeListBuilder.create().texOffs(88, 21).addBox(1.0F, -30.75F, -19.0F, 2.0F, 4.0F, 2.0F, new CubeDeformation(-0.1F)), PartPose.offsetAndRotation(0.0F, 8.0F, 0.0F, -0.5672F, 0.1745F, 0.0F));
+
+        PartDefinition RightHorn2 = Head.addOrReplaceChild("RightHorn2", CubeListBuilder.create(), PartPose.offsetAndRotation(1.5F, 17.0F, -2.0F, 0.0F, 0.0F, -0.0436F));
+
+        PartDefinition Horn_r9 = RightHorn2.addOrReplaceChild("Horn_r9", CubeListBuilder.create().texOffs(86, 16).mirror().addBox(-3.0F, -31.3F, 18.8F, 2.0F, 2.0F, 3.0F, new CubeDeformation(-0.5F)).mirror(false), PartPose.offsetAndRotation(-0.3F, 7.0F, 1.8F, 0.48F, -0.1745F, 0.0F));
+
+        PartDefinition Horn_r10 = RightHorn2.addOrReplaceChild("Horn_r10", CubeListBuilder.create().texOffs(86, 11).mirror().addBox(-3.0F, -31.3F, 18.8F, 2.0F, 2.0F, 3.0F, new CubeDeformation(-0.3F)).mirror(false), PartPose.offsetAndRotation(0.0F, 8.0F, 0.0F, 0.48F, -0.1745F, 0.0F));
+
+        PartDefinition Horn_r11 = RightHorn2.addOrReplaceChild("Horn_r11", CubeListBuilder.create().texOffs(86, 6).mirror().addBox(-3.0F, -35.2F, 8.1F, 2.0F, 2.0F, 3.0F, new CubeDeformation(-0.25F)).mirror(false), PartPose.offsetAndRotation(0.0F, 8.0F, 0.0F, 0.2182F, -0.1745F, 0.0F));
+
+        PartDefinition Horn_r12 = RightHorn2.addOrReplaceChild("Horn_r12", CubeListBuilder.create().texOffs(88, 0).mirror().addBox(-3.0F, -30.75F, -19.0F, 2.0F, 4.0F, 2.0F, new CubeDeformation(-0.1F)).mirror(false), PartPose.offsetAndRotation(0.0F, 8.0F, 0.0F, -0.5672F, -0.1745F, 0.0F));
 
         PartDefinition Torso = partdefinition.addOrReplaceChild("Torso", CubeListBuilder.create().texOffs(0, 16).addBox(-4.0F, 0.0F, -2.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -0.5F, 0.0F));
 
@@ -166,6 +186,8 @@ public class ModelLatexicedragon extends AdvancedHumanoidModel<LatexiceDragonEnt
                 .texOffs(12, 88).addBox(-2.0F, 9.2F, -1.9F, 1.0F, 1.0F, 1.0F, new CubeDeformation(-0.1F))
                 .texOffs(8, 88).addBox(-3.0F, 9.2F, -1.3F, 1.0F, 1.0F, 1.0F, new CubeDeformation(-0.1F))
                 .texOffs(0, 87).addBox(-2.0F, 9.1F, -0.5F, 2.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(2.0F, 0.0F, 0.0F));
+
+        PartDefinition RightHorn = partdefinition.addOrReplaceChild("RightHorn", CubeListBuilder.create(), PartPose.offsetAndRotation(0.5F, 16.5F, -6.0F, 0.0F, 0.0F, -0.0436F));
 
         PartDefinition bb_main = partdefinition.addOrReplaceChild("bb_main", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
 
@@ -211,7 +233,7 @@ public class ModelLatexicedragon extends AdvancedHumanoidModel<LatexiceDragonEnt
     }
 
     @Override
-    public HumanoidAnimator<LatexiceDragonEntity, ModelLatexicedragon> getAnimator(LatexiceDragonEntity entity) {
+    public HumanoidAnimator<LatexiceDragonEntity, ModelLatexIceDragon> getAnimator(LatexiceDragonEntity entity) {
         return animator;
     }
 }

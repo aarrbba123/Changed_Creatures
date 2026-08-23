@@ -15,8 +15,8 @@ import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.minecraft.world.entity.Pose;
 
 
-public class BlackpupmaleRenderer extends AdvancedHumanoidRenderer<BlackpupmaleEntity, ModelBlackPupMale> {
-	public BlackpupmaleRenderer (EntityRendererProvider.Context context) {
+public class BlackPupMaleRenderer extends AdvancedHumanoidRenderer<BlackpupmaleEntity, ModelBlackPupMale> {
+	public BlackPupMaleRenderer(EntityRendererProvider.Context context) {
 		super(context, new ModelBlackPupMale(context.bakeLayer(ModelBlackPupMale.LAYER_LOCATION)),
 				//ArmorNoneModel::new, 
 				ArmorNoneModel.MODEL_SET, 

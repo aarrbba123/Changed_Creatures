@@ -1,20 +1,25 @@
+
 package net.hhdsj.changed_creatures.client.renderer.latex_pup;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
-import net.hhdsj.changed_creatures.entity.simple.WhitebluepupEntity;
-import net.hhdsj.changed_creatures.client.models.latex_pup.ModelWhiteBluePup;
 
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;
 import net.ltxprogrammer.changed.client.renderer.layers.LatexParticlesLayer;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorNoneModel;
 import net.ltxprogrammer.changed.util.Color3;
+
+
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 
-public class WhitebluepupRenderer extends AdvancedHumanoidRenderer<WhitebluepupEntity, ModelWhiteBluePup> {
-	public WhitebluepupRenderer (EntityRendererProvider.Context context) {
-		super(context, new ModelWhiteBluePup(context.bakeLayer(ModelWhiteBluePup.LAYER_LOCATION)),
+import net.hhdsj.changed_creatures.client.models.latex_pup.ModelInksuger;
+import net.hhdsj.changed_creatures.entity.simple.InksugerEntity;
+
+public class InkSugerRenderer extends AdvancedHumanoidRenderer<InksugerEntity, ModelInksuger> {
+	public InkSugerRenderer(EntityRendererProvider.Context context) {
+		super(context, new ModelInksuger(context.bakeLayer(ModelInksuger.LAYER_LOCATION)),
+				//ArmorNoneModel::new, 
 				ArmorNoneModel.MODEL_SET, 
 				0.4F);
 		this.addLayer(new LatexParticlesLayer<>(this, this.model));
@@ -25,9 +30,8 @@ public class WhitebluepupRenderer extends AdvancedHumanoidRenderer<WhitebluepupE
 				.build().setHeadShape(CustomEyesLayer.HeadShape.PUP_CONCAVE));
 	}
 
-
 	@Override
-	public ResourceLocation getTextureLocation(WhitebluepupEntity entity) {
-		return new ResourceLocation("changed_creatures:textures/entities/latex/wihteblue_latex_wolf_pup.png");
+	public ResourceLocation getTextureLocation(InksugerEntity entity) {
+		return new ResourceLocation("changed_creatures:textures/entities/latex/ink_suger_pup.png");
 	}
 }

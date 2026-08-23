@@ -31,7 +31,7 @@ import java.util.List;
 // Made with Blockbench 4.11.2
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
-public class ModelLatexiceredDragonUnified_bw extends AdvancedHumanoidModel<LatexyunxqicedragonEntity>{//<T extends Entity> extends EntityModel<T> {
+public class ModelLatexBlueIceDragon extends AdvancedHumanoidModel<LatexyunxqicedragonEntity>{//<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in
 	// the entity renderer and passed into this models's constructor
 	public static final ModelLayerLocation LAYER_LOCATION =
@@ -45,9 +45,9 @@ public class ModelLatexiceredDragonUnified_bw extends AdvancedHumanoidModel<Late
 	public final ModelPart Tail;
 	public final ModelPart RightWing;
     public final ModelPart LeftWing;
-	public final HumanoidAnimator<LatexyunxqicedragonEntity, ModelLatexiceredDragonUnified_bw> animator;
+	public final HumanoidAnimator<LatexyunxqicedragonEntity, ModelLatexBlueIceDragon> animator;
 
-	public ModelLatexiceredDragonUnified_bw(ModelPart root) {
+	public ModelLatexBlueIceDragon(ModelPart root) {
 		super(root);
         this.RightLeg = root.getChild("RightLeg");
         this.LeftLeg = root.getChild("LeftLeg");
@@ -283,7 +283,7 @@ public class ModelLatexiceredDragonUnified_bw extends AdvancedHumanoidModel<Late
     }
 
 	@Override
-    public HumanoidAnimator<LatexyunxqicedragonEntity, ModelLatexiceredDragonUnified_bw> getAnimator(LatexyunxqicedragonEntity entity) {
+    public HumanoidAnimator<LatexyunxqicedragonEntity, ModelLatexBlueIceDragon> getAnimator(LatexyunxqicedragonEntity entity) {
         return this.animator;
     }
 

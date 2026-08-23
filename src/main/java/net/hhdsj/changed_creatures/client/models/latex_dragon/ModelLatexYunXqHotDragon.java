@@ -31,7 +31,7 @@ import java.util.List;
 // Made with Blockbench 4.11.2
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
-public class Modellatexyunxqhotdragon extends AdvancedHumanoidModel<LatexyunxqhotdragonEntity>{
+public class ModelLatexYunXqHotDragon extends AdvancedHumanoidModel<LatexyunxqhotdragonEntity>{
 	// This layer location should be baked with EntityRendererProvider.Context in
 	// the entity renderer and passed into this models's constructor
 	public static final ModelLayerLocation LAYER_LOCATION =
@@ -45,9 +45,9 @@ public class Modellatexyunxqhotdragon extends AdvancedHumanoidModel<Latexyunxqho
 	public final ModelPart Tail;
 	public final ModelPart RightWing;
 	public final ModelPart LeftWing;
-	public final HumanoidAnimator<LatexyunxqhotdragonEntity, Modellatexyunxqhotdragon> animator;
+	public final HumanoidAnimator<LatexyunxqhotdragonEntity, ModelLatexYunXqHotDragon> animator;
 
-	public Modellatexyunxqhotdragon(ModelPart root) {
+	public ModelLatexYunXqHotDragon(ModelPart root) {
 		super(root);
 		this.RightLeg = root.getChild("RightLeg");
 		this.LeftLeg = root.getChild("LeftLeg");
@@ -319,7 +319,7 @@ public class Modellatexyunxqhotdragon extends AdvancedHumanoidModel<Latexyunxqho
     }
 
 	@Override
-    public HumanoidAnimator<LatexyunxqhotdragonEntity, Modellatexyunxqhotdragon> getAnimator(LatexyunxqhotdragonEntity entity) {
+    public HumanoidAnimator<LatexyunxqhotdragonEntity, ModelLatexYunXqHotDragon> getAnimator(LatexyunxqhotdragonEntity entity) {
         return this.animator;
     }
 

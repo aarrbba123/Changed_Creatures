@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,waterlogged=false": {
+      "model": "changed_creatures:block/latex_crystal_jelly_dragon_doll",
+      "y": 90
+    },
+    "facing=east,waterlogged=true": {
+      "model": "changed_creatures:block/latex_crystal_jelly_dragon_doll",
+      "y": 90
+    },
+    "facing=north,waterlogged=false": {
+      "model": "changed_creatures:block/latex_crystal_jelly_dragon_doll"
+    },
+    "facing=north,waterlogged=true": {
+      "model": "changed_creatures:block/latex_crystal_jelly_dragon_doll"
+    },
+    "facing=south,waterlogged=false": {
+      "model": "changed_creatures:block/latex_crystal_jelly_dragon_doll",
+      "y": 180
+    },
+    "facing=south,waterlogged=true": {
+      "model": "changed_creatures:block/latex_crystal_jelly_dragon_doll",
+      "y": 180
+    },
+    "facing=west,waterlogged=false": {
+      "model": "changed_creatures:block/latex_crystal_jelly_dragon_doll",
+      "y": 270
+    },
+    "facing=west,waterlogged=true": {
+      "model": "changed_creatures:block/latex_crystal_jelly_dragon_doll",
+      "y": 270
+    }
+  }
+}

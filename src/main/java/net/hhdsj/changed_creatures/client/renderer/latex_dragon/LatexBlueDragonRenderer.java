@@ -13,12 +13,12 @@ import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexMaleWinge
 import net.ltxprogrammer.changed.util.Color3;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 
-import net.hhdsj.changed_creatures.client.models.latex_dragon.Modelbluedragon;
+import net.hhdsj.changed_creatures.client.models.latex_dragon.ModelBlueDragon;
 import net.hhdsj.changed_creatures.entity.simple.LatexbluedragonEntity;
 
-public class LatexbluedragonRenderer extends AdvancedHumanoidRenderer<LatexbluedragonEntity, Modelbluedragon> {
-	public LatexbluedragonRenderer(EntityRendererProvider.Context context) {
-		super(context, new Modelbluedragon(context.bakeLayer(Modelbluedragon.LAYER_LOCATION)),
+public class LatexBlueDragonRenderer extends AdvancedHumanoidRenderer<LatexbluedragonEntity, ModelBlueDragon> {
+	public LatexBlueDragonRenderer(EntityRendererProvider.Context context) {
+		super(context, new ModelBlueDragon(context.bakeLayer(ModelBlueDragon.LAYER_LOCATION)),
 		ArmorLatexMaleWingedDragonModel.MODEL_SET, 
 		0.5f);
         this.addLayer(new LatexParticlesLayer<>(this, getModel()));

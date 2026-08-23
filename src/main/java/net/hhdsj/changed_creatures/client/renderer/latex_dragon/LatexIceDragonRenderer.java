@@ -1,27 +1,25 @@
 
 package net.hhdsj.changed_creatures.client.renderer.latex_dragon;
 
+import net.ltxprogrammer.changed.client.renderer.layers.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
 import net.hhdsj.changed_creatures.entity.simple.LatexiceDragonEntity;
-import net.hhdsj.changed_creatures.client.models.latex_dragon.ModelLatexicedragon;
+import net.hhdsj.changed_creatures.client.models.latex_dragon.ModelLatexIceDragon;
 
 
-import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;
-import net.ltxprogrammer.changed.client.renderer.layers.GasMaskLayer;
-import net.ltxprogrammer.changed.client.renderer.layers.LatexParticlesLayer;
-import net.ltxprogrammer.changed.client.renderer.layers.TransfurCapeLayer;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexBigTailDragonModel;
 import net.ltxprogrammer.changed.util.Color3;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 
-public class LatexiceDragonRenderer extends AdvancedHumanoidRenderer<LatexiceDragonEntity, ModelLatexicedragon> {
-	public LatexiceDragonRenderer(EntityRendererProvider.Context context) {
-		super(context, new ModelLatexicedragon(context.bakeLayer(ModelLatexicedragon.LAYER_LOCATION)),
+public class LatexIceDragonRenderer extends AdvancedHumanoidRenderer<LatexiceDragonEntity, ModelLatexIceDragon> {
+	public LatexIceDragonRenderer(EntityRendererProvider.Context context) {
+		super(context, new ModelLatexIceDragon(context.bakeLayer(ModelLatexIceDragon.LAYER_LOCATION)),
 			//ArmorLatexBigTailDragonModel::new,
 			ArmorLatexBigTailDragonModel.MODEL_SET,
 			0.5f);
+		this.addLayer(new EmissiveBodyLayer<>(this, new ResourceLocation("changed_creatures", "textures/entities/latex/latex_ice_dragon_light.png")));
 		this.addLayer(new LatexParticlesLayer<>(this, this.model));
 		this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()));
 		this.addLayer(CustomEyesLayer.builder(this, context.getModelSet())

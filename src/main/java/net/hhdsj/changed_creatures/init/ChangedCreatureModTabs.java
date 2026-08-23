@@ -46,6 +46,12 @@ public class ChangedCreatureModTabs {
 					.icon(() -> new ItemStack(ChangedCreatureModItems.LATEX_FILLED_ALL_MUG_ITEM.get()))
 					.build());
 
+	public static final RegistryObject<CreativeModeTab> ITEM = REGISTRY.register("changed_creatures_item",
+			() -> CreativeModeTab.builder()
+					.title(Component.translatable("item_group.changed_creatures.changed_creatures_item"))
+					.icon(() -> new ItemStack(ChangedCreatureModItems.LATEX_LAVA_CRYSTAL.get()))
+					.build());
+
 	// 所有物品通过事件添加到对应的标签页
 	@SubscribeEvent
 	public static void buildTabContentsVanilla(BuildCreativeModeTabContentsEvent tabData) {
@@ -58,62 +64,52 @@ public class ChangedCreatureModTabs {
 			tabData.accept(ChangedCreatureModBlocks.PALE_WOOD_LEAVES.get().asItem());
 			tabData.accept(ChangedCreatureModBlocks.PALE_WOOD_LOG.get().asItem());
 			tabData.accept(ChangedCreatureModBlocks.PALE_WOOD_WOOD.get().asItem());
-			tabData.accept(ChangedCreatureModBlocks.URANIUMBLOCK.get().asItem());
-			tabData.accept(ChangedCreatureModBlocks.BLUEBLOCK.get().asItem());
-			tabData.accept(ChangedCreatureModBlocks.IRONHOT.get().asItem());
 			tabData.accept(ChangedCreatureModBlocks.PALE_WOOD_STAIRS.get().asItem());
 			tabData.accept(ChangedCreatureModBlocks.PALE_WOOD_SLAB.get().asItem());
 			tabData.accept(ChangedCreatureModBlocks.PALE_WOOD_BUTTON.get().asItem());
+			tabData.accept(ChangedCreatureModBlocks.PALE_WOOD_FENCE.get().asItem());
+			tabData.accept(ChangedCreatureModBlocks.PALE_WOOD_FENCE_GATE.get().asItem());
+			tabData.accept(ChangedCreatureModBlocks.PALE_WOOD_PRESSURE_PLATE.get().asItem());
+			tabData.accept(ChangedCreatureModBlocks.BLACKBLOCK.get().asItem());
+			tabData.accept(ChangedCreatureModBlocks.URANIUMBLOCK.get().asItem());
+			tabData.accept(ChangedCreatureModBlocks.BLUEBLOCK.get().asItem());
+			tabData.accept(ChangedCreatureModBlocks.IRONHOT.get().asItem());
 			tabData.accept(ChangedCreatureModBlocks.BLOCKBW_1.get().asItem());
 			tabData.accept(ChangedCreatureModBlocks.BLOCKBW_2.get().asItem());
 			tabData.accept(ChangedCreatureModBlocks.BLUE_CRYSTALORE.get().asItem()); // 修复：添加到标签页
 			tabData.accept(ChangedCreatureModBlocks.CATALYZER.get().asItem()); // 修复：添加到标签页
 			tabData.accept(ChangedCreatureModBlocks.LATEX_CRYSTAL_JELLY_GAS_CANISTER.get().asItem());
-			tabData.accept(ChangedCreatureModBlocks.CRYO_SUBJECT_CHAMBER.get().asItem());
+			//tabData.accept(ChangedCreatureModBlocks.CRYO_SUBJECT_CHAMBER.get().asItem());
 			tabData.accept(ChangedCreatureModBlocks.LATEX_DEEP_CRYSTAL_DRAGON_DOLL.get().asItem());
-			// 物品
-			tabData.accept(ChangedCreatureModItems.SULPHUR.get());
-			tabData.accept(ChangedCreatureModItems.NITRICACID.get());
-			tabData.accept(ChangedCreatureModItems.IMPUREURANIUM.get());
-			tabData.accept(ChangedCreatureModItems.IMPUREURANIUMINGOT.get());
+		} else if (tabData.getTabKey() == ITEM.getKey()) {
 			tabData.accept(ChangedCreatureModItems.PAINITESWORD.get());
 			tabData.accept(ChangedCreatureModItems.PAINITEMANUSCRIPT.get());
 			tabData.accept(ChangedCreatureModItems.PAINITEAXE.get());
 			tabData.accept(ChangedCreatureModItems.PAINITEHOE.get());
 			tabData.accept(ChangedCreatureModItems.PAINITESHOVEL.get());
+			tabData.accept(ChangedCreatureModItems.LUNARDAWNEAXE.get());
+			tabData.accept(ChangedCreatureModItems.LUNARDAWNEHOE.get());
+			tabData.accept(ChangedCreatureModItems.LUNARDAWNEMANUSCRIPT.get());
+			tabData.accept(ChangedCreatureModItems.LUNARDAWNESHOVEL.get());
 			tabData.accept(ChangedCreatureModItems.CURSED_SCYTHE.get());
-
-			//tabData.accept(ChangedCreatureModItems.THEFLUFFYHEARTBEATINTHECUBICLEMUSIC.get());
-			//tabData.accept(ChangedCreatureModItems.FLUTEMUSICA_1RECORDS.get());
-			//tabData.accept(ChangedCreatureModItems.NOTLISTENTHIS.get());
-			//tabData.accept(ChangedCreatureModItems.FLUTE.get());
-			//tabData.accept(ChangedCreatureModItems.ANITFRRYMUSIC.get());
+			tabData.accept(ChangedCreatureModItems.CRYSTAL_JAVELIN.get());
 			tabData.accept(ChangedCreatureModItems.Impure_Frost_Condensed_Crystal_Cluster.get());
 			tabData.accept(ChangedCreatureModItems.Frost_Condensed_Crystal_Cluster.get());
 			tabData.accept(ChangedCreatureModItems.Latex_Night_Owl_Goo_Item.get());
 			tabData.accept(ChangedCreatureModItems.DRAGONFRUIT.get());
 			tabData.accept(ChangedCreatureModItems.BlueCrystaloreItem.get());
 			tabData.accept(ChangedCreatureModItems.PALETREE.get());
-			//tabData.accept(ChangedCreatureModItems.INKSANS_4.get());
-			tabData.accept(ChangedCreatureModItems.LatexCrystalJellyItem.get());
-
+			tabData.accept(ChangedCreatureModItems.SULPHUR.get());
+			tabData.accept(ChangedCreatureModItems.NITRICACID.get());
+			tabData.accept(ChangedCreatureModItems.IMPUREURANIUM.get());
+			tabData.accept(ChangedCreatureModItems.IMPUREURANIUMINGOT.get());
 			tabData.accept(ChangedCreatureModItems.LATEX_LAVA_CRYSTAL.get());
-			//tabData.accept(ChangedCreatureModItems.LATEX_CRYSTAL_JELLY_GAS_CANISTER.get());
-
+			tabData.accept(ChangedCreatureModItems.LatexCrystalJellyItem.get());
 			tabData.accept(ChangedCreatureModItems.PAINITE_ARMOR_HELMET.get());
 			tabData.accept(ChangedCreatureModItems.PAINITE_ARMOR_CHESTPLATE.get());
 			tabData.accept(ChangedCreatureModItems.PAINITE_ARMOR_LEGGINGS.get());
 			tabData.accept(ChangedCreatureModItems.PAINITE_ARMOR_BOOTS.get());
-
-			// 液体桶
-			//tabData.accept(ChangedCreatureModItems.FLUIDHOTTEST_BUCKET.get());
-		}
-
-		// 自定义标签页：GOODBLOCK_ENTITY
-		else if (tabData.getTabKey() == GOODBLOCK_ENTITY.getKey()) {
-
-		}
-		else if (tabData.getTabKey() == LATEX_ITEM.getKey()) {
+		} else if (tabData.getTabKey() == LATEX_ITEM.getKey()) {
 			tabData.accept(ChangedCreatureModItems.LATEX_FILLED_ALL_MUG_ITEM.get());
 			try {
 				var variants = ChangedRegistry.TRANSFUR_VARIANT.get()
@@ -136,17 +132,16 @@ public class ChangedCreatureModTabs {
 
 		// 原版标签页
 		else if (tabData.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-			tabData.accept(ChangedCreatureModBlocks.BLACKBLOCK.get().asItem());
+
 		}
 		else if (tabData.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
-			tabData.accept(ChangedCreatureModBlocks.PALE_WOOD_FENCE_GATE.get().asItem());
-			tabData.accept(ChangedCreatureModBlocks.PALE_WOOD_PRESSURE_PLATE.get().asItem());
+
 		}
 		else if (tabData.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
 
 		}
 		else if (tabData.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
-			tabData.accept(ChangedCreatureModBlocks.PALE_WOOD_FENCE.get().asItem());
+
 		}
 		else if (tabData.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
 			// 如果有功能性方块可以放这里

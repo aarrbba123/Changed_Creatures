@@ -16,17 +16,21 @@ public class CrystalModel extends Model {
 
     public CrystalModel(ModelPart root) {
         super(RenderType::entityTranslucentEmissive);
-        this.crystal = root.getChild("crystal");
+        this.crystal = root.getChild("bone");
     }
 
-    public static LayerDefinition createBodyLayer() {
-        MeshDefinition mesh = new MeshDefinition();
-        PartDefinition root = mesh.getRoot();
-        PartDefinition crystal = root.addOrReplaceChild("crystal",
-                CubeListBuilder.create().texOffs(0, 0).addBox(-2, -6, -2, 4, 12, 4), PartPose.ZERO);
-        crystal.addOrReplaceChild("ring", CubeListBuilder.create().texOffs(16, 0).addBox(-3, -1.5f, -3, 6, 3, 6), PartPose.ZERO);
-        crystal.addOrReplaceChild("top", CubeListBuilder.create().texOffs(0, 16).addBox(-1, -8, -1, 2, 2, 2), PartPose.ZERO);
-        return LayerDefinition.create(mesh, 64, 32);
+    public static LayerDefinition createBodyLayer(){
+            MeshDefinition meshdefinition = new MeshDefinition();
+            PartDefinition partdefinition = meshdefinition.getRoot();
+
+            PartDefinition bone = partdefinition.addOrReplaceChild("bone", CubeListBuilder.create().texOffs(2, 0).addBox(-10.0F, -7.0F, 7.0F, 2.0F, 7.0F, 2.0F, new CubeDeformation(0.001F))
+                    .texOffs(2, 0).addBox(-10.0F, -7.8F, 7.0F, 2.0F, 1.0F, 2.0F, new CubeDeformation(-0.2F))
+                    .texOffs(4, 1).addBox(-9.5F, -0.2F, 7.5F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
+                    .texOffs(2, 0).addBox(-10.0F, -0.4F, 7.0F, 2.0F, 1.0F, 2.0F, new CubeDeformation(-0.2F))
+                    .texOffs(4, 1).addBox(-9.5F, -8.1F, 7.5F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(8.0F, 24.0F, -8.0F));
+
+            return LayerDefinition.create(meshdefinition, 16, 16);
+
     }
 
     @Override

@@ -49,7 +49,7 @@ public class CrystalPlayerRendererMixin {
             double angle = Math.toRadians((time + pt) * 2.0f + i * 45.0);
             float x = (float) (1.2 * Math.cos(angle));
             float z = (float) (1.2 * Math.sin(angle));
-            float y = (float) (Math.sin((time + pt + i * 10) * 0.1) * 0.15) + 1.5f;
+            float y = (float) (Math.sin((time + pt + i * 10) * 0.1) * 0.15) + 1f;
 
             poseStack.pushPose();
             poseStack.translate(x, y, z);

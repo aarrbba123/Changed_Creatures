@@ -2,6 +2,7 @@ package net.hhdsj.changed_creatures.init;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.block.CryoSubjectChamberBlockEntity;
+import net.hhdsj.changed_creatures.block.LatexDeepCrystalDragonDollBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -17,4 +18,12 @@ public class ChangedCreatureBlockEntities {
                         ChangedCreatureModBlocks.CRYO_SUBJECT_CHAMBER.get()
                 ).build(null);
             });
+    public static final RegistryObject<BlockEntityType<LatexDeepCrystalDragonDollBlockEntity>>
+            LATEX_DEEP_CRYSTAL_DRAGON_DOLL_BE = BLOCK_ENTITIES.register(
+            "latex_deep_crystal_dragon_doll_be",
+            () -> BlockEntityType.Builder.of(
+                    LatexDeepCrystalDragonDollBlockEntity::new,
+                    ChangedCreatureModBlocks.LATEX_DEEP_CRYSTAL_DRAGON_DOLL.get()
+            ).build(null)
+    );
 }

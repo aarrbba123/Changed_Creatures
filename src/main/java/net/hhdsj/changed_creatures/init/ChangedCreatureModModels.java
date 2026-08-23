@@ -36,19 +36,19 @@ public class ChangedCreatureModModels {
 	@SubscribeEvent
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(ModelLatexOrangeFox.LAYER_LOCATION, ModelLatexOrangeFox::createBodyLayer);
-		event.registerLayerDefinition(Modelbluedragon.LAYER_LOCATION, Modelbluedragon::createBodyLayer);
+		event.registerLayerDefinition(ModelBlueDragon.LAYER_LOCATION, ModelBlueDragon::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexKcahraShark.LAYER_LOCATION, ModelLatexKcahraShark::createBodyLayer);
-		event.registerLayerDefinition(ModelLatexicedragon.LAYER_LOCATION, ModelLatexicedragon::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexIceDragon.LAYER_LOCATION, ModelLatexIceDragon::createBodyLayer);
 		event.registerLayerDefinition(ModelDarkfuLatexWolfMale.LAYER_LOCATION, ModelDarkfuLatexWolfMale::createBodyLayer);
 		event.registerLayerDefinition(ModelInksuger.LAYER_LOCATION, ModelInksuger::createBodyLayer);
 		//event.registerLayerDefinition(ModelIceFieldWolfDragon.LAYER_LOCATION, ModelIceFieldWolfDragon::createBodyLayer);
 		event.registerLayerDefinition(ModelWhiteBluePup.LAYER_LOCATION, ModelWhiteBluePup::createBodyLayer);
 		event.registerLayerDefinition(ModelBlackPupMale.LAYER_LOCATION, ModelBlackPupMale::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexPurpleWsWolf.LAYER_LOCATION, ModelLatexPurpleWsWolf::createBodyLayer);
-		event.registerLayerDefinition(Modellatexyunxqhotdragon.LAYER_LOCATION, Modellatexyunxqhotdragon::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexYunXqHotDragon.LAYER_LOCATION, ModelLatexYunXqHotDragon::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexThreeMonthWolf.LAYER_LOCATION, ModelLatexThreeMonthWolf::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexYunQiIceDragon.LAYER_LOCATION, ModelLatexYunQiIceDragon::createBodyLayer);
-		event.registerLayerDefinition(ModelLatexiceredDragonUnified_bw.LAYER_LOCATION, ModelLatexiceredDragonUnified_bw::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexBlueIceDragon.LAYER_LOCATION, ModelLatexBlueIceDragon::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexRadiationFox.LAYER_LOCATION, ModelLatexRadiationFox::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexPurpleCoocWolf.LAYER_LOCATION, ModelLatexPurpleCoocWolf::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexNightOwlBoss.LAYER_LOCATION, ModelLatexNightOwlBoss::createBodyLayer);
@@ -83,6 +83,7 @@ public class ChangedCreatureModModels {
 		event.registerLayerDefinition(ModelLatexSteppenWolf.LAYER_LOCATION, ModelLatexSteppenWolf::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexXuanJinWolfDragon.LAYER_LOCATION, ModelLatexXuanJinWolfDragon::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexXuanJinDragon.LAYER_LOCATION, ModelLatexXuanJinDragon::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexEyroEndDragon.LAYER_LOCATION, ModelLatexEyroEndDragon::createBodyLayer);
 
 		event.registerLayerDefinition(ModelLatexWing.LAYER_LOCATION, ModelLatexWing::createBodyLayer);
 		event.registerLayerDefinition(CrystalJavelinModel.LAYER_LOCATION, CrystalJavelinModel::createBodyLayer);

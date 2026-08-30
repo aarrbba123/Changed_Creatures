@@ -81,10 +81,10 @@ public class LatexFilledAllMugItem extends FilledMug {
                                 @NotNull List<Component> list, @NotNull TooltipFlag flag) {
         super.appendHoverText(itemstack, world, list, flag);
 
-        String variantId = getVariantIdFromStack(itemstack);
-        if (variantId != null) {
+        String variantDescId = getVariantDescIDFromStack(itemstack);
+        if (variantDescId != null) {
             list.add(
-                    Component.translatable("item.changed_creatures.latex_mug.show4",variantId)
+                    Component.translatable("item.changed_creatures.latex_mug.show4", Component.translatable(variantDescId))
                     //Component.literal("§7内容物: §b" + variantId)
             );
         } else {
@@ -118,6 +118,21 @@ public class LatexFilledAllMugItem extends FilledMug {
             tag.putString(NBT_FORM_VARIANT, "");
         }
         return stack;
+    }
+
+    private String getVariantDescIDFromStack(ItemStack stack) {
+        CompoundTag tag = stack.getTag();
+        if (tag != null && tag.contains(NBT_FORM_VARIANT)) {
+            String value = tag.getString(NBT_FORM_VARIANT);
+            if (!value.isEmpty()) {
+                TransfurVariant<?> variant = ChangedRegistry.TRANSFUR_VARIANT.get().getValue(ResourceLocation.tryParse(value));
+                if (variant != null) {
+                    return variant.getEntityType().getDescriptionId();
+                }
+                return value; // fallback
+            }
+        }
+        return null;
     }
 
     private String getVariantIdFromStack(ItemStack stack) {

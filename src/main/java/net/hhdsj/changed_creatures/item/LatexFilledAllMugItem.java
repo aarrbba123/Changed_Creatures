@@ -81,10 +81,10 @@ public class LatexFilledAllMugItem extends FilledMug {
                                 @NotNull List<Component> list, @NotNull TooltipFlag flag) {
         super.appendHoverText(itemstack, world, list, flag);
 
-        String variantId = getVariantIdFromStack(itemstack);
-        if (variantId != null) {
+        String variantDescId = getVariantDescIDFromStack(itemstack);
+        if (variantDescId != null) {
             list.add(
-                    Component.translatable("item.changed_creatures.latex_mug.show4", Component.translatable(this.getVariantDescIDFromStack(itemstack)))
+                    Component.translatable("item.changed_creatures.latex_mug.show4", Component.translatable(variantDescId))
                     //Component.literal("§7内容物: §b" + variantId)
             );
         } else {
@@ -125,13 +125,10 @@ public class LatexFilledAllMugItem extends FilledMug {
         if (tag != null && tag.contains(NBT_FORM_VARIANT)) {
             String value = tag.getString(NBT_FORM_VARIANT);
             if (!value.isEmpty()) {
-                //System.out.print("Debug <value>: " + value + "\n");
                 TransfurVariant<?> variant = ChangedRegistry.TRANSFUR_VARIANT.get().getValue(ResourceLocation.tryParse(value));
                 if (variant != null) {
-                    //System.out.print("Mug Value OK!\n");
                     return variant.getEntityType().getDescriptionId();
                 }
-                //System.out.print("WARN: Fallback mug value reached!\n");
                 return value; // fallback
             }
         }

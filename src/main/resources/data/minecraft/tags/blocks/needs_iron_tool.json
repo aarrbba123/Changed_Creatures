@@ -1,0 +1,9 @@
+{
+    "replace": false,
+    "values": [
+        "changed_creatures:sulphur_block",
+        "changed_creatures:nitre_block",
+        "changed_creatures:blue_crystal_ore",
+        "changed_creatures:catalyzer"
+    ]
+}
